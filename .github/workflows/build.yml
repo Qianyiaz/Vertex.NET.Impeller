@@ -1,0 +1,40 @@
+﻿name: build
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+on:
+  pull_request:
+    branches: [ main ]
+    paths: [ 'Vertex.NET.Impeller/**', '.github/workflows/build.yml' ]
+  push:
+    branches: [ main ]
+    paths: [ 'Vertex.NET.Impeller/**', '.github/workflows/build.yml' ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0 # Treeless clone. Slightly less performant than a shallow clone, but makes finding diffs instantaneous.
+          filter: tree:0 # See: https://github.blog/open-source/git/get-up-to-speed-with-partial-clone-and-shallow-clone/
+          sparse-checkout: |
+            .github
+            Vertex.NET.Impeller
+            Vertex.NET.Impeller.slnx
+      - uses: actions/cache@main
+        with:
+          path: ~/.nuget/packages
+          key: nuget-cache
+      - uses: NuGet/login@main
+        id: login
+        with:
+          user: Qusay
+      - run: |
+          dotnet build Vertex.NET.Impeller/Vertex.NET.Impeller.csproj
+          dotnet nuget push **/Vertex.NET.Impeller.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{steps.login.outputs.NUGET_API_KEY}} --skip-duplicate
+          dotnet nuget push **/Vertex.NET.Impeller.*.nupkg --source https://nuget.pkg.github.com/Qianyiaz/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
+      - uses: actions/upload-artifact@main
+        with:
+          name: test-results
+          path: '**/Vertex.NET.Impeller.*.nupkg'

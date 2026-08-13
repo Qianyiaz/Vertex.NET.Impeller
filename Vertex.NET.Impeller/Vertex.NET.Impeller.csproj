@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <IsAotCompatible>true</IsAotCompatible>
+        <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+        <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
+        
+        <Authors>Qianyiaz</Authors>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/Qianyiaz/Vertex.NET.Impeller</RepositoryUrl>
+        <PackageIconUrl>https://raw.githubusercontent.com/HexaEngine/HexaEngine/master/icon.png</PackageIconUrl>
+        <PackageTags>hexa;hexagen;impeller;sourcegenerator;windows;macos;bindings;wrapper;native;graphics;rendering</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="HexaGen.Runtime" Version="1.1.24"/>
+        <None Include="native\win-x64\impeller.dll">
+            <Link>runtimes\win-x64\native\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <PackagePath>runtimes/win-x64/native</PackagePath>
+            <Pack>true</Pack>
+        </None>
+        <None Include="native\win-arm64\impeller.dll">
+            <Link>runtimes\win-arm64\native\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <PackagePath>runtimes/win-arm64/native</PackagePath>
+            <Pack>true</Pack>
+        </None>
+        <None Include="native\osx-x64\libimpeller.dylib">
+            <Link>runtimes\osx-x64\native\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <PackagePath>runtimes/osx-x64/native</PackagePath>
+            <Pack>true</Pack>
+        </None>
+        <None Include="native\osx-arm64\libimpeller.dylib">
+            <Link>runtimes\osx-arm64\native\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <PackagePath>runtimes/osx-arm64/native</PackagePath>
+            <Pack>true</Pack>
+        </None>
+        <None Include="native\linux-x64\libimpeller.so">
+            <Link>runtimes\linux-x64\native\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <PackagePath>runtimes/linux-x64/native</PackagePath>
+            <Pack>true</Pack>
+        </None>
+        <None Include="native\linux-arm64\libimpeller.so">
+            <Link>runtimes\linux-arm64\native\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <PackagePath>runtimes/linux-arm64/native</PackagePath>
+            <Pack>true</Pack>
+        </None>
+    </ItemGroup>
+</Project>

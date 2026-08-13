@@ -1,0 +1,11 @@
+<Solution>
+    <Folder Name="/Solution Files/">
+        <File Path=".github/workflows/build.yml" />
+        <File Path=".gitignore" />
+        <File Path="LICENSE.md" />
+        <File Path="README.md" />
+    </Folder>
+    <Project Path="Example/Example.csproj" />
+    <Project Path="Generator/Generator.csproj" />
+    <Project Path="Vertex.NET.Impeller/Vertex.NET.Impeller.csproj" />
+</Solution>
