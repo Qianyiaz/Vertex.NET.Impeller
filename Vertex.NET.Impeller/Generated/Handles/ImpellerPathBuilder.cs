@@ -14,9 +14,6 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
 	#endif

@@ -15,30 +15,13 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerContextVulkanSettings
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe void* UserData;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe void* ProcAddressCallback;
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public byte EnableVulkanValidation;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerContextVulkanSettings(void* userData = default, delegate*<void*, byte*, void*, void*> procAddressCallback = default, bool enableVulkanValidation = default)
 		{
 			UserData = userData;
@@ -47,6 +30,49 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerContextVulkanSettingsPtr : IEquatable<ImpellerContextVulkanSettingsPtr>
+	{
+		public ImpellerContextVulkanSettingsPtr(ImpellerContextVulkanSettings* handle) { Handle = handle; }
+
+		public ImpellerContextVulkanSettings* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerContextVulkanSettingsPtr Null => new ImpellerContextVulkanSettingsPtr(null);
+
+		public ImpellerContextVulkanSettings this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerContextVulkanSettingsPtr(ImpellerContextVulkanSettings* handle) => new ImpellerContextVulkanSettingsPtr(handle);
+
+		public static implicit operator ImpellerContextVulkanSettings*(ImpellerContextVulkanSettingsPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerContextVulkanSettingsPtr left, ImpellerContextVulkanSettingsPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerContextVulkanSettingsPtr left, ImpellerContextVulkanSettingsPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerContextVulkanSettingsPtr left, ImpellerContextVulkanSettings* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerContextVulkanSettingsPtr left, ImpellerContextVulkanSettings* right) => left.Handle != right;
+
+		public bool Equals(ImpellerContextVulkanSettingsPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerContextVulkanSettingsPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerContextVulkanSettingsPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public void* UserData { get => Handle->UserData; set => Handle->UserData = value; }
+		public void* ProcAddressCallback { get => Handle->ProcAddressCallback; set => Handle->ProcAddressCallback = value; }
+		public ref bool EnableVulkanValidation => ref Unsafe.AsRef<bool>(&Handle->EnableVulkanValidation);
 	}
 
 }

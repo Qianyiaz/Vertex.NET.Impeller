@@ -12,39 +12,13 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	public enum ImpellerTextAlignment : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextAlignmentLeft = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextAlignmentRight = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextAlignmentCenter = unchecked(2),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextAlignmentJustify = unchecked(3),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextAlignmentStart = unchecked(4),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextAlignmentEnd = unchecked(5),
+		TextAlignmentLeft = unchecked(0),
+		TextAlignmentRight = unchecked(1),
+		TextAlignmentCenter = unchecked(2),
+		TextAlignmentJustify = unchecked(3),
+		TextAlignmentStart = unchecked(4),
+		TextAlignmentEnd = unchecked(5),
 	}
 }

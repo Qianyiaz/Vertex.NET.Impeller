@@ -12,29 +12,11 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	public enum ImpellerBlurStyle : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlurStyleNormal = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlurStyleSolid = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlurStyleOuter = unchecked(2),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlurStyleInner = unchecked(3),
+		BlurStyleNormal = unchecked(0),
+		BlurStyleSolid = unchecked(1),
+		BlurStyleOuter = unchecked(2),
+		BlurStyleInner = unchecked(3),
 	}
 }

@@ -15,36 +15,14 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerRoundingRadii
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ImpellerPoint TopLeft;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ImpellerPoint BottomLeft;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ImpellerPoint TopRight;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ImpellerPoint BottomRight;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerRoundingRadii(ImpellerPoint topLeft = default, ImpellerPoint bottomLeft = default, ImpellerPoint topRight = default, ImpellerPoint bottomRight = default)
 		{
 			TopLeft = topLeft;
@@ -54,6 +32,50 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerRoundingRadiiPtr : IEquatable<ImpellerRoundingRadiiPtr>
+	{
+		public ImpellerRoundingRadiiPtr(ImpellerRoundingRadii* handle) { Handle = handle; }
+
+		public ImpellerRoundingRadii* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerRoundingRadiiPtr Null => new ImpellerRoundingRadiiPtr(null);
+
+		public ImpellerRoundingRadii this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerRoundingRadiiPtr(ImpellerRoundingRadii* handle) => new ImpellerRoundingRadiiPtr(handle);
+
+		public static implicit operator ImpellerRoundingRadii*(ImpellerRoundingRadiiPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerRoundingRadiiPtr left, ImpellerRoundingRadiiPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerRoundingRadiiPtr left, ImpellerRoundingRadiiPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerRoundingRadiiPtr left, ImpellerRoundingRadii* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerRoundingRadiiPtr left, ImpellerRoundingRadii* right) => left.Handle != right;
+
+		public bool Equals(ImpellerRoundingRadiiPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerRoundingRadiiPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerRoundingRadiiPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public ref ImpellerPoint TopLeft => ref Unsafe.AsRef<ImpellerPoint>(&Handle->TopLeft);
+		public ref ImpellerPoint BottomLeft => ref Unsafe.AsRef<ImpellerPoint>(&Handle->BottomLeft);
+		public ref ImpellerPoint TopRight => ref Unsafe.AsRef<ImpellerPoint>(&Handle->TopRight);
+		public ref ImpellerPoint BottomRight => ref Unsafe.AsRef<ImpellerPoint>(&Handle->BottomRight);
 	}
 
 }

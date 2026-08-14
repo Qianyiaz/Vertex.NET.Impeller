@@ -12,25 +12,11 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerColorSpace : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerColorSpaceSrgb = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerColorSpaceExtendedSrgb = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerColorSpaceDisplayP3 = unchecked(2),
+		ColorSpaceSrgb = unchecked(0),
+		ColorSpaceExtendedSrgb = unchecked(1),
+		ColorSpaceDisplayP3 = unchecked(2),
 	}
 }

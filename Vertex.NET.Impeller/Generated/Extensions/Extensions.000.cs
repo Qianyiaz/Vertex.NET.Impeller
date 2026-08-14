@@ -19,90 +19,48 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerContext context)
 		{
-			Impeller.ImpellerContextRetainNative(context);
+			Impeller.ContextRetainNative(context);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerContext context)
 		{
-			Impeller.ImpellerContextReleaseNative(context);
+			Impeller.ContextReleaseNative(context);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool GetVulkanInfo(this ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
+		public static bool GetVulkanInfo(this ImpellerContext context, ImpellerContextVulkanInfoPtr outVulkanInfo)
 		{
-			byte ret = Impeller.ImpellerContextGetVulkanInfoNative(context, outVulkanInfo);
+			byte ret = Impeller.ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)outVulkanInfo);
 			return ret != 0;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool GetVulkanInfo(this ImpellerContext context, ref ImpellerContextVulkanInfo outVulkanInfo)
 		{
 			fixed (ImpellerContextVulkanInfo* poutVulkanInfo = &outVulkanInfo)
 			{
-				byte ret = Impeller.ImpellerContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)poutVulkanInfo);
+				byte ret = Impeller.ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)poutVulkanInfo);
 				return ret != 0;
 			}
 		}
@@ -110,110 +68,50 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(this ImpellerContext context, void* vulkanSurfaceKhr)
 		{
-			ImpellerVulkanSwapchain ret = Impeller.ImpellerVulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
+			ImpellerVulkanSwapchain ret = Impeller.VulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(this ImpellerContext context, nint vulkanSurfaceKhr)
 		{
-			ImpellerVulkanSwapchain ret = Impeller.ImpellerVulkanSwapchainCreateNewNative(context, (void*)vulkanSurfaceKhr);
+			ImpellerVulkanSwapchain ret = Impeller.VulkanSwapchainCreateNewNative(context, (void*)vulkanSurfaceKhr);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerSurface SurfaceCreateWrappedFboNew(this ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
+		public static ImpellerSurface SurfaceCreateWrappedFboNew(this ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISizePtr size)
 		{
-			ImpellerSurface ret = Impeller.ImpellerSurfaceCreateWrappedFBONewNative(context, fbo, format, size);
+			ImpellerSurface ret = Impeller.SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)size);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerSurface SurfaceCreateWrappedFboNew(this ImpellerContext context, ulong fbo, ImpellerPixelFormat format, in ImpellerISize size)
 		{
 			fixed (ImpellerISize* psize = &size)
 			{
-				ImpellerSurface ret = Impeller.ImpellerSurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)psize);
+				ImpellerSurface ret = Impeller.SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)psize);
 				return ret;
 			}
 		}
@@ -221,61 +119,34 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The Metal layer must be using the same device managed by the<br/>
 		/// underlying context.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(this ImpellerContext context, void* metalDrawable)
 		{
-			ImpellerSurface ret = Impeller.ImpellerSurfaceCreateWrappedMetalDrawableNewNative(context, metalDrawable);
+			ImpellerSurface ret = Impeller.SurfaceCreateWrappedMetalDrawableNewNative(context, metalDrawable);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The Metal layer must be using the same device managed by the<br/>
 		/// underlying context.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(this ImpellerContext context, nint metalDrawable)
 		{
-			ImpellerSurface ret = Impeller.ImpellerSurfaceCreateWrappedMetalDrawableNewNative(context, (void*)metalDrawable);
+			ImpellerSurface ret = Impeller.SurfaceCreateWrappedMetalDrawableNewNative(context, (void*)metalDrawable);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -292,39 +163,18 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
 		{
-			ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, descriptor, contents, contentsOnReleaseUserData);
+			ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -341,32 +191,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
-				ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, contents, contentsOnReleaseUserData);
+				ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -374,9 +206,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -393,32 +222,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptor* descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
 		{
 			fixed (ImpellerMapping* pcontents = &contents)
 			{
-				ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, descriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
+				ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -426,9 +237,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -445,26 +253,8 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
 		{
@@ -472,7 +262,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (ImpellerMapping* pcontents = &contents)
 				{
-					ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
+					ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
 					return ret;
 				}
 			}
@@ -481,9 +271,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -500,39 +287,18 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, nint contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
 		{
-			ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, descriptor, contents, (void*)contentsOnReleaseUserData);
+			ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -549,32 +315,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMapping* contents, nint contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
-				ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, contents, (void*)contentsOnReleaseUserData);
+				ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -582,9 +330,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -601,32 +346,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptor* descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
 		{
 			fixed (ImpellerMapping* pcontents = &contents)
 			{
-				ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, descriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
+				ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -634,9 +361,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -653,26 +377,8 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerTexture TextureCreateWithContentsNew(this ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
 		{
@@ -680,7 +386,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (ImpellerMapping* pcontents = &contents)
 				{
-					ImpellerTexture ret = Impeller.ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
+					ImpellerTexture ret = Impeller.TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
 					return ret;
 				}
 			}
@@ -689,9 +395,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Ownership of the handle is transferred over to Impeller after a<br/>
 		/// successful call to this method. Impeller is responsible for<br/>
 		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
@@ -703,32 +406,17 @@ namespace Vertex.NET.Impeller
 		/// If the context is not an OpenGL context, this call will always<br/>
 		/// fail.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithOpenGlTextureHandleNew(this ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle)
+		public static ImpellerTexture TextureCreateWithOpenGlTextureHandleNew(this ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ulong handle)
 		{
-			ImpellerTexture ret = Impeller.ImpellerTextureCreateWithOpenGLTextureHandleNewNative(context, descriptor, handle);
+			ImpellerTexture ret = Impeller.TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)descriptor, handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Ownership of the handle is transferred over to Impeller after a<br/>
 		/// successful call to this method. Impeller is responsible for<br/>
 		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
@@ -740,25 +428,13 @@ namespace Vertex.NET.Impeller
 		/// If the context is not an OpenGL context, this call will always<br/>
 		/// fail.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerTexture TextureCreateWithOpenGlTextureHandleNew(this ImpellerContext context, in ImpellerTextureDescriptor descriptor, ulong handle)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
-				ImpellerTexture ret = Impeller.ImpellerTextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, handle);
+				ImpellerTexture ret = Impeller.TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, handle);
 				return ret;
 			}
 		}
@@ -766,82 +442,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
 		{
-			ImpellerColorSource ret = Impeller.ImpellerColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+			ImpellerColorSource ret = Impeller.ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
 		{
 			fixed (ImpellerTexture* psamplers = &samplers)
 			{
-				ImpellerColorSource ret = Impeller.ImpellerColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
+				ImpellerColorSource ret = Impeller.ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
 				return ret;
 			}
 		}
@@ -849,42 +471,15 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
 		{
 			fixed (byte* pdata = &data)
 			{
-				ImpellerColorSource ret = Impeller.ImpellerColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
+				ImpellerColorSource ret = Impeller.ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
 				return ret;
 			}
 		}
@@ -892,36 +487,9 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
 		{
@@ -929,7 +497,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (byte* pdata = &data)
 				{
-					ImpellerColorSource ret = Impeller.ImpellerColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
+					ImpellerColorSource ret = Impeller.ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
 					return ret;
 				}
 			}
@@ -938,82 +506,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
 		{
-			ImpellerImageFilter ret = Impeller.ImpellerImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+			ImpellerImageFilter ret = Impeller.ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
 		{
 			fixed (ImpellerTexture* psamplers = &samplers)
 			{
-				ImpellerImageFilter ret = Impeller.ImpellerImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
+				ImpellerImageFilter ret = Impeller.ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
 				return ret;
 			}
 		}
@@ -1021,42 +535,15 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
 		{
 			fixed (byte* pdata = &data)
 			{
-				ImpellerImageFilter ret = Impeller.ImpellerImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
+				ImpellerImageFilter ret = Impeller.ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
 				return ret;
 			}
 		}
@@ -1064,36 +551,9 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(this ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
 		{
@@ -1101,7 +561,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (byte* pdata = &data)
 				{
-					ImpellerImageFilter ret = Impeller.ImpellerImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
+					ImpellerImageFilter ret = Impeller.ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
 					return ret;
 				}
 			}
@@ -1110,615 +570,321 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerDisplayList displayList)
 		{
-			Impeller.ImpellerDisplayListRetainNative(displayList);
+			Impeller.DisplayListRetainNative(displayList);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerDisplayList displayList)
 		{
-			Impeller.ImpellerDisplayListReleaseNative(displayList);
+			Impeller.DisplayListReleaseNative(displayList);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerDisplayListBuilder builder)
 		{
-			Impeller.ImpellerDisplayListBuilderRetainNative(builder);
+			Impeller.DisplayListBuilderRetainNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerDisplayListBuilder builder)
 		{
-			Impeller.ImpellerDisplayListBuilderReleaseNative(builder);
+			Impeller.DisplayListBuilderReleaseNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerDisplayList CreateDisplayListNew(this ImpellerDisplayListBuilder builder)
 		{
-			ImpellerDisplayList ret = Impeller.ImpellerDisplayListBuilderCreateDisplayListNewNative(builder);
+			ImpellerDisplayList ret = Impeller.DisplayListBuilderCreateDisplayListNewNative(builder);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Save(this ImpellerDisplayListBuilder builder)
 		{
-			Impeller.ImpellerDisplayListBuilderSaveNative(builder);
+			Impeller.DisplayListBuilderSaveNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// On the balancing call to restore, the supplied paints filters<br/>
 		/// and blend modes will be used to composite the offscreen contents<br/>
 		/// back onto the display display list.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void SaveLayer(this ImpellerDisplayListBuilder builder, ImpellerRect* bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
+		public static void SaveLayer(this ImpellerDisplayListBuilder builder, ImpellerRectPtr bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
 		{
-			Impeller.ImpellerDisplayListBuilderSaveLayerNative(builder, bounds, paint, backdrop);
+			Impeller.DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)bounds, paint, backdrop);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// On the balancing call to restore, the supplied paints filters<br/>
 		/// and blend modes will be used to composite the offscreen contents<br/>
 		/// back onto the display display list.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SaveLayer(this ImpellerDisplayListBuilder builder, in ImpellerRect bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
 		{
 			fixed (ImpellerRect* pbounds = &bounds)
 			{
-				Impeller.ImpellerDisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)pbounds, paint, backdrop);
+				Impeller.DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)pbounds, paint, backdrop);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Restore(this ImpellerDisplayListBuilder builder)
 		{
-			Impeller.ImpellerDisplayListBuilderRestoreNative(builder);
+			Impeller.DisplayListBuilderRestoreNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Scale(this ImpellerDisplayListBuilder builder, float xScale, float yScale)
 		{
-			Impeller.ImpellerDisplayListBuilderScaleNative(builder, xScale, yScale);
+			Impeller.DisplayListBuilderScaleNative(builder, xScale, yScale);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Rotate(this ImpellerDisplayListBuilder builder, float angleDegrees)
 		{
-			Impeller.ImpellerDisplayListBuilderRotateNative(builder, angleDegrees);
+			Impeller.DisplayListBuilderRotateNative(builder, angleDegrees);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Translate(this ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
 		{
-			Impeller.ImpellerDisplayListBuilderTranslateNative(builder, xTranslation, yTranslation);
+			Impeller.DisplayListBuilderTranslateNative(builder, xTranslation, yTranslation);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void Transform(this ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
+		public static void Transform(this ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
 		{
-			Impeller.ImpellerDisplayListBuilderTransformNative(builder, transform);
+			Impeller.DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)transform);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Transform(this ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
 		{
 			fixed (ImpellerMatrix* ptransform = &transform)
 			{
-				Impeller.ImpellerDisplayListBuilderTransformNative(builder, (ImpellerMatrix*)ptransform);
+				Impeller.DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)ptransform);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void SetTransform(this ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
+		public static void SetTransform(this ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
 		{
-			Impeller.ImpellerDisplayListBuilderSetTransformNative(builder, transform);
+			Impeller.DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)transform);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetTransform(this ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
 		{
 			fixed (ImpellerMatrix* ptransform = &transform)
 			{
-				Impeller.ImpellerDisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)ptransform);
+				Impeller.DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)ptransform);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void GetTransform(this ImpellerDisplayListBuilder builder, ImpellerMatrix* outTransform)
+		public static void GetTransform(this ImpellerDisplayListBuilder builder, ImpellerMatrixPtr outTransform)
 		{
-			Impeller.ImpellerDisplayListBuilderGetTransformNative(builder, outTransform);
+			Impeller.DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)outTransform);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void GetTransform(this ImpellerDisplayListBuilder builder, ref ImpellerMatrix outTransform)
 		{
 			fixed (ImpellerMatrix* poutTransform = &outTransform)
 			{
-				Impeller.ImpellerDisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)poutTransform);
+				Impeller.DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)poutTransform);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void ResetTransform(this ImpellerDisplayListBuilder builder)
 		{
-			Impeller.ImpellerDisplayListBuilderResetTransformNative(builder);
+			Impeller.DisplayListBuilderResetTransformNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static uint GetSaveCount(this ImpellerDisplayListBuilder builder)
 		{
-			uint ret = Impeller.ImpellerDisplayListBuilderGetSaveCountNative(builder);
+			uint ret = Impeller.DisplayListBuilderGetSaveCountNative(builder);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void RestoreToCount(this ImpellerDisplayListBuilder builder, uint count)
 		{
-			Impeller.ImpellerDisplayListBuilderRestoreToCountNative(builder, count);
+			Impeller.DisplayListBuilderRestoreToCountNative(builder, count);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ClipRect(this ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerClipOperation op)
+		public static void ClipRect(this ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerClipOperation op)
 		{
-			Impeller.ImpellerDisplayListBuilderClipRectNative(builder, rect, op);
+			Impeller.DisplayListBuilderClipRectNative(builder, (ImpellerRect*)rect, op);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void ClipRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerClipOperation op)
 		{
 			fixed (ImpellerRect* prect = &rect)
 			{
-				Impeller.ImpellerDisplayListBuilderClipRectNative(builder, (ImpellerRect*)prect, op);
+				Impeller.DisplayListBuilderClipRectNative(builder, (ImpellerRect*)prect, op);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ClipOval(this ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerClipOperation op)
+		public static void ClipOval(this ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerClipOperation op)
 		{
-			Impeller.ImpellerDisplayListBuilderClipOvalNative(builder, ovalBounds, op);
+			Impeller.DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)ovalBounds, op);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void ClipOval(this ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerClipOperation op)
 		{
 			fixed (ImpellerRect* povalBounds = &ovalBounds)
 			{
-				Impeller.ImpellerDisplayListBuilderClipOvalNative(builder, (ImpellerRect*)povalBounds, op);
+				Impeller.DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)povalBounds, op);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ClipRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerClipOperation op)
+		public static void ClipRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
 		{
-			Impeller.ImpellerDisplayListBuilderClipRoundedRectNative(builder, rect, radii, op);
+			Impeller.DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, op);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ClipRoundedRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadii* radii, ImpellerClipOperation op)
+		public static void ClipRoundedRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
 		{
 			fixed (ImpellerRect* prect = &rect)
 			{
-				Impeller.ImpellerDisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, radii, op);
+				Impeller.DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)radii, op);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ClipRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRect* rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
+		public static void ClipRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
 		{
 			fixed (ImpellerRoundingRadii* pradii = &radii)
 			{
-				Impeller.ImpellerDisplayListBuilderClipRoundedRectNative(builder, rect, (ImpellerRoundingRadii*)pradii, op);
+				Impeller.DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)pradii, op);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void ClipRoundedRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
 		{
@@ -1726,7 +892,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (ImpellerRoundingRadii* pradii = &radii)
 				{
-					Impeller.ImpellerDisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, op);
+					Impeller.DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, op);
 				}
 			}
 		}
@@ -1734,144 +900,63 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void ClipPath(this ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
 		{
-			Impeller.ImpellerDisplayListBuilderClipPathNative(builder, path, op);
+			Impeller.DisplayListBuilderClipPathNative(builder, path, op);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawPaint(this ImpellerDisplayListBuilder builder, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawPaintNative(builder, paint);
+			Impeller.DisplayListBuilderDrawPaintNative(builder, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawLine(this ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, ImpellerPaint paint)
+		public static void DrawLine(this ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawLineNative(builder, from, to, paint);
+			Impeller.DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawLine(this ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPoint* to, ImpellerPaint paint)
+		public static void DrawLine(this ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, ImpellerPaint paint)
 		{
 			fixed (ImpellerPoint* pfrom = &from)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, to, paint);
+				Impeller.DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)to, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawLine(this ImpellerDisplayListBuilder builder, ImpellerPoint* from, in ImpellerPoint to, ImpellerPaint paint)
+		public static void DrawLine(this ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, ImpellerPaint paint)
 		{
 			fixed (ImpellerPoint* pto = &to)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawLineNative(builder, from, (ImpellerPoint*)pto, paint);
+				Impeller.DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)pto, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawLine(this ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, ImpellerPaint paint)
 		{
@@ -1879,7 +964,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (ImpellerPoint* pto = &to)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, paint);
+					Impeller.DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, paint);
 				}
 			}
 		}
@@ -1887,127 +972,43 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawDashedLine(this ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, float onLength, float offLength, ImpellerPaint paint)
+		public static void DrawDashedLine(this ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawDashedLineNative(builder, from, to, onLength, offLength, paint);
+			Impeller.DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, onLength, offLength, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawDashedLine(this ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPoint* to, float onLength, float offLength, ImpellerPaint paint)
+		public static void DrawDashedLine(this ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
 		{
 			fixed (ImpellerPoint* pfrom = &from)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, to, onLength, offLength, paint);
+				Impeller.DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)to, onLength, offLength, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawDashedLine(this ImpellerDisplayListBuilder builder, ImpellerPoint* from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
+		public static void DrawDashedLine(this ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
 		{
 			fixed (ImpellerPoint* pto = &to)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawDashedLineNative(builder, from, (ImpellerPoint*)pto, onLength, offLength, paint);
+				Impeller.DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)pto, onLength, offLength, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawDashedLine(this ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
 		{
@@ -2015,7 +1016,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (ImpellerPoint* pto = &to)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, onLength, offLength, paint);
+					Impeller.DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, onLength, offLength, paint);
 				}
 			}
 		}
@@ -2023,197 +1024,89 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRect(this ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerPaint paint)
+		public static void DrawRect(this ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawRectNative(builder, rect, paint);
+			Impeller.DisplayListBuilderDrawRectNative(builder, (ImpellerRect*)rect, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* prect = &rect)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawRectNative(builder, (ImpellerRect*)prect, paint);
+				Impeller.DisplayListBuilderDrawRectNative(builder, (ImpellerRect*)prect, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawOval(this ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerPaint paint)
+		public static void DrawOval(this ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawOvalNative(builder, ovalBounds, paint);
+			Impeller.DisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)ovalBounds, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawOval(this ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* povalBounds = &ovalBounds)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)povalBounds, paint);
+				Impeller.DisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)povalBounds, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerPaint paint)
+		public static void DrawRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawRoundedRectNative(builder, rect, radii, paint);
+			Impeller.DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadii* radii, ImpellerPaint paint)
+		public static void DrawRoundedRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* prect = &rect)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, radii, paint);
+				Impeller.DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)radii, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRect* rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
+		public static void DrawRoundedRect(this ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRoundingRadii* pradii = &radii)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawRoundedRectNative(builder, rect, (ImpellerRoundingRadii*)pradii, paint);
+				Impeller.DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)pradii, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawRoundedRect(this ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
 		{
@@ -2221,7 +1114,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (ImpellerRoundingRadii* pradii = &radii)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, paint);
+					Impeller.DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, paint);
 				}
 			}
 		}
@@ -2229,135 +1122,51 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, ImpellerRoundingRadii* outerRadii, ImpellerRect* innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, outerRadii, innerRect, innerRadii, paint);
+			Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadii* outerRadii, ImpellerRect* innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pouterRect = &outerRect)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, outerRadii, innerRect, innerRadii, paint);
+				Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRect* innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, (ImpellerRoundingRadii*)pouterRadii, innerRect, innerRadii, paint);
+				Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRect* innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pouterRect = &outerRect)
 			{
 				fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, innerRect, innerRadii, paint);
+					Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 				}
 			}
 		}
@@ -2365,70 +1174,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, ImpellerRoundingRadii* outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pinnerRect = &innerRect)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, outerRadii, (ImpellerRect*)pinnerRect, innerRadii, paint);
+				Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadii* outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pouterRect = &outerRect)
 			{
 				fixed (ImpellerRect* pinnerRect = &innerRect)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, outerRadii, (ImpellerRect*)pinnerRect, innerRadii, paint);
+					Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 				}
 			}
 		}
@@ -2436,36 +1203,15 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
 			{
 				fixed (ImpellerRect* pinnerRect = &innerRect)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, innerRadii, paint);
+					Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 				}
 			}
 		}
@@ -2473,30 +1219,9 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pouterRect = &outerRect)
 			{
@@ -2504,7 +1229,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerRect* pinnerRect = &innerRect)
 					{
-						Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, innerRadii, paint);
+						Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
 					}
 				}
 			}
@@ -2513,70 +1238,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, ImpellerRoundingRadii* outerRadii, ImpellerRect* innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, outerRadii, innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+				Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadii* outerRadii, ImpellerRect* innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pouterRect = &outerRect)
 			{
 				fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, outerRadii, innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+					Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 				}
 			}
 		}
@@ -2584,36 +1267,15 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRect* innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
 			{
 				fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, (ImpellerRoundingRadii*)pouterRadii, innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+					Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 				}
 			}
 		}
@@ -2621,30 +1283,9 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRect* innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pouterRect = &outerRect)
 			{
@@ -2652,7 +1293,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 					{
-						Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+						Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 					}
 				}
 			}
@@ -2661,36 +1302,15 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, ImpellerRoundingRadii* outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pinnerRect = &innerRect)
 			{
 				fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+					Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 				}
 			}
 		}
@@ -2698,30 +1318,9 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadii* outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pouterRect = &outerRect)
 			{
@@ -2729,7 +1328,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 					{
-						Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+						Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 					}
 				}
 			}
@@ -2738,30 +1337,9 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
 			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
 			{
@@ -2769,7 +1347,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 					{
-						Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+						Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 					}
 				}
 			}
@@ -2778,28 +1356,7 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawRoundedRectDifference(this ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
 		{
@@ -2811,7 +1368,7 @@ namespace Vertex.NET.Impeller
 					{
 						fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
 						{
-							Impeller.ImpellerDisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+							Impeller.DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
 						}
 					}
 				}
@@ -2821,342 +1378,132 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawPath(this ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawPathNative(builder, path, paint);
+			Impeller.DisplayListBuilderDrawPathNative(builder, path, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawDisplayList(this ImpellerDisplayListBuilder builder, ImpellerDisplayList displayList, float opacity)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawDisplayListNative(builder, displayList, opacity);
+			Impeller.DisplayListBuilderDrawDisplayListNative(builder, displayList, opacity);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawParagraph(this ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPoint* point)
+		public static void DrawParagraph(this ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPointPtr point)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawParagraphNative(builder, paragraph, point);
+			Impeller.DisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)point);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawParagraph(this ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, in ImpellerPoint point)
 		{
 			fixed (ImpellerPoint* ppoint = &point)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)ppoint);
+				Impeller.DisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)ppoint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawShadow(this ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColor* color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
+		public static void DrawShadow(this ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColorPtr color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawShadowNative(builder, path, color, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
+			Impeller.DisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)color, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawShadow(this ImpellerDisplayListBuilder builder, ImpellerPath path, in ImpellerColor color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
 		{
 			fixed (ImpellerColor* pcolor = &color)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)pcolor, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
+				Impeller.DisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)pcolor, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawTexture(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPoint* point, ImpellerTextureSampling sampling, ImpellerPaint paint)
+		public static void DrawTexture(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPointPtr point, ImpellerTextureSampling sampling, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawTextureNative(builder, texture, point, sampling, paint);
+			Impeller.DisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)point, sampling, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawTexture(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerPoint point, ImpellerTextureSampling sampling, ImpellerPaint paint)
 		{
 			fixed (ImpellerPoint* ppoint = &point)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)ppoint, sampling, paint);
+				Impeller.DisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)ppoint, sampling, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawTextureRect(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRect* srcRect, ImpellerRect* dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+		public static void DrawTextureRect(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
 		{
-			Impeller.ImpellerDisplayListBuilderDrawTextureRectNative(builder, texture, srcRect, dstRect, sampling, paint);
+			Impeller.DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)srcRect, (ImpellerRect*)dstRect, sampling, paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawTextureRect(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, ImpellerRect* dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+		public static void DrawTextureRect(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* psrcRect = &srcRect)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, dstRect, sampling, paint);
+				Impeller.DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, (ImpellerRect*)dstRect, sampling, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void DrawTextureRect(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRect* srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+		public static void DrawTextureRect(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
 		{
 			fixed (ImpellerRect* pdstRect = &dstRect)
 			{
-				Impeller.ImpellerDisplayListBuilderDrawTextureRectNative(builder, texture, srcRect, (ImpellerRect*)pdstRect, sampling, paint);
+				Impeller.DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)srcRect, (ImpellerRect*)pdstRect, sampling, paint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void DrawTextureRect(this ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
 		{
@@ -3164,7 +1511,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (ImpellerRect* pdstRect = &dstRect)
 				{
-					Impeller.ImpellerDisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, (ImpellerRect*)pdstRect, sampling, paint);
+					Impeller.DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, (ImpellerRect*)pdstRect, sampling, paint);
 				}
 			}
 		}
@@ -3172,474 +1519,276 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerPaint paint)
 		{
-			Impeller.ImpellerPaintRetainNative(paint);
+			Impeller.PaintRetainNative(paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerPaint paint)
 		{
-			Impeller.ImpellerPaintReleaseNative(paint);
+			Impeller.PaintReleaseNative(paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void SetColor(this ImpellerPaint paint, ImpellerColor* color)
+		public static void SetColor(this ImpellerPaint paint, ImpellerColorPtr color)
 		{
-			Impeller.ImpellerPaintSetColorNative(paint, color);
+			Impeller.PaintSetColorNative(paint, (ImpellerColor*)color);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetColor(this ImpellerPaint paint, in ImpellerColor color)
 		{
 			fixed (ImpellerColor* pcolor = &color)
 			{
-				Impeller.ImpellerPaintSetColorNative(paint, (ImpellerColor*)pcolor);
+				Impeller.PaintSetColorNative(paint, (ImpellerColor*)pcolor);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetBlendMode(this ImpellerPaint paint, ImpellerBlendMode mode)
 		{
-			Impeller.ImpellerPaintSetBlendModeNative(paint, mode);
+			Impeller.PaintSetBlendModeNative(paint, mode);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetDrawStyle(this ImpellerPaint paint, ImpellerDrawStyle style)
 		{
-			Impeller.ImpellerPaintSetDrawStyleNative(paint, style);
+			Impeller.PaintSetDrawStyleNative(paint, style);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetStrokeCap(this ImpellerPaint paint, ImpellerStrokeCap cap)
 		{
-			Impeller.ImpellerPaintSetStrokeCapNative(paint, cap);
+			Impeller.PaintSetStrokeCapNative(paint, cap);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetStrokeJoin(this ImpellerPaint paint, ImpellerStrokeJoin join)
 		{
-			Impeller.ImpellerPaintSetStrokeJoinNative(paint, join);
+			Impeller.PaintSetStrokeJoinNative(paint, join);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetStrokeWidth(this ImpellerPaint paint, float width)
 		{
-			Impeller.ImpellerPaintSetStrokeWidthNative(paint, width);
+			Impeller.PaintSetStrokeWidthNative(paint, width);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetStrokeMiter(this ImpellerPaint paint, float miter)
 		{
-			Impeller.ImpellerPaintSetStrokeMiterNative(paint, miter);
+			Impeller.PaintSetStrokeMiterNative(paint, miter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Color filters are functions that take two colors and mix them to<br/>
 		/// produce a single color. This color is then usually merged with<br/>
 		/// the destination during blending.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetColorFilter(this ImpellerPaint paint, ImpellerColorFilter colorFilter)
 		{
-			Impeller.ImpellerPaintSetColorFilterNative(paint, colorFilter);
+			Impeller.PaintSetColorFilterNative(paint, colorFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Color sources are functions that generate colors for each<br/>
 		/// texture element covered by a draw call.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetColorSource(this ImpellerPaint paint, ImpellerColorSource colorSource)
 		{
-			Impeller.ImpellerPaintSetColorSourceNative(paint, colorSource);
+			Impeller.PaintSetColorSourceNative(paint, colorSource);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Image filters are functions that are applied to regions of a<br/>
 		/// texture to produce a single color.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetImageFilter(this ImpellerPaint paint, ImpellerImageFilter imageFilter)
 		{
-			Impeller.ImpellerPaintSetImageFilterNative(paint, imageFilter);
+			Impeller.PaintSetImageFilterNative(paint, imageFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void SetMaskFilter(this ImpellerPaint paint, ImpellerMaskFilter maskFilter)
 		{
-			Impeller.ImpellerPaintSetMaskFilterNative(paint, maskFilter);
+			Impeller.PaintSetMaskFilterNative(paint, maskFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerColorFilter colorFilter)
 		{
-			Impeller.ImpellerColorFilterRetainNative(colorFilter);
+			Impeller.ColorFilterRetainNative(colorFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerColorFilter colorFilter)
 		{
-			Impeller.ImpellerColorFilterReleaseNative(colorFilter);
+			Impeller.ColorFilterReleaseNative(colorFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerColorSource colorSource)
 		{
-			Impeller.ImpellerColorSourceRetainNative(colorSource);
+			Impeller.ColorSourceRetainNative(colorSource);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerColorSource colorSource)
 		{
-			Impeller.ImpellerColorSourceReleaseNative(colorSource);
+			Impeller.ColorSourceReleaseNative(colorSource);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerImageFilter imageFilter)
 		{
-			Impeller.ImpellerImageFilterRetainNative(imageFilter);
+			Impeller.ImageFilterRetainNative(imageFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerImageFilter imageFilter)
 		{
-			Impeller.ImpellerImageFilterReleaseNative(imageFilter);
+			Impeller.ImageFilterReleaseNative(imageFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// ```<br/>
 		/// destination = outer_filter(inner_filter(source))<br/>
 		/// ```<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerImageFilter CreateComposeNew(this ImpellerImageFilter outer, ImpellerImageFilter inner)
 		{
-			ImpellerImageFilter ret = Impeller.ImpellerImageFilterCreateComposeNewNative(outer, inner);
+			ImpellerImageFilter ret = Impeller.ImageFilterCreateComposeNewNative(outer, inner);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerMaskFilter maskFilter)
 		{
-			Impeller.ImpellerMaskFilterRetainNative(maskFilter);
+			Impeller.MaskFilterRetainNative(maskFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerMaskFilter maskFilter)
 		{
-			Impeller.ImpellerMaskFilterReleaseNative(maskFilter);
+			Impeller.MaskFilterReleaseNative(maskFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerTypographyContext context)
 		{
-			Impeller.ImpellerTypographyContextRetainNative(context);
+			Impeller.TypographyContextRetainNative(context);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerTypographyContext context)
 		{
-			Impeller.ImpellerTypographyContextReleaseNative(context);
+			Impeller.TypographyContextReleaseNative(context);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -3654,47 +1803,23 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
 		{
-			byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, contentsOnReleaseUserData, familyNameAlias);
+			byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, familyNameAlias);
 			return ret != 0;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -3709,32 +1834,14 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
 		{
 			fixed (ImpellerMapping* pcontents = &contents)
 			{
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, familyNameAlias);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, familyNameAlias);
 				return ret != 0;
 			}
 		}
@@ -3742,17 +1849,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -3767,47 +1868,23 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, nint contentsOnReleaseUserData, byte* familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, byte* familyNameAlias)
 		{
-			byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, (void*)contentsOnReleaseUserData, familyNameAlias);
+			byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, familyNameAlias);
 			return ret != 0;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -3822,32 +1899,14 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, byte* familyNameAlias)
 		{
 			fixed (ImpellerMapping* pcontents = &contents)
 			{
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, familyNameAlias);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, familyNameAlias);
 				return ret != 0;
 			}
 		}
@@ -3855,17 +1914,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -3880,32 +1933,14 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, void* contentsOnReleaseUserData, in byte familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, in byte familyNameAlias)
 		{
 			fixed (byte* pfamilyNameAlias = &familyNameAlias)
 			{
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 				return ret != 0;
 			}
 		}
@@ -3913,17 +1948,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -3938,32 +1967,14 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, void* contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
 		{
 			fixed (byte* pfamilyNameAlias = familyNameAlias)
 			{
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 				return ret != 0;
 			}
 		}
@@ -3971,17 +1982,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -3996,28 +2001,10 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, void* contentsOnReleaseUserData, string familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, string familyNameAlias)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4036,7 +2023,7 @@ namespace Vertex.NET.Impeller
 				int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, contentsOnReleaseUserData, pStr0);
+			byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -4047,17 +2034,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4072,26 +2053,8 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, in byte familyNameAlias)
 		{
@@ -4099,7 +2062,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (byte* pfamilyNameAlias = &familyNameAlias)
 				{
-					byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+					byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 					return ret != 0;
 				}
 			}
@@ -4108,17 +2071,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4133,26 +2090,8 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
 		{
@@ -4160,7 +2099,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (byte* pfamilyNameAlias = familyNameAlias)
 				{
-					byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+					byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 					return ret != 0;
 				}
 			}
@@ -4169,17 +2108,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4194,26 +2127,8 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, string familyNameAlias)
 		{
@@ -4236,7 +2151,7 @@ namespace Vertex.NET.Impeller
 					int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, pStr0);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4248,17 +2163,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4273,32 +2182,14 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, nint contentsOnReleaseUserData, in byte familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, in byte familyNameAlias)
 		{
 			fixed (byte* pfamilyNameAlias = &familyNameAlias)
 			{
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 				return ret != 0;
 			}
 		}
@@ -4306,17 +2197,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4331,32 +2216,14 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, nint contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
 		{
 			fixed (byte* pfamilyNameAlias = familyNameAlias)
 			{
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 				return ret != 0;
 			}
 		}
@@ -4364,17 +2231,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4389,28 +2250,10 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMapping* contents, nint contentsOnReleaseUserData, string familyNameAlias)
+		public static bool RegisterFont(this ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, string familyNameAlias)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4429,7 +2272,7 @@ namespace Vertex.NET.Impeller
 				int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, contents, (void*)contentsOnReleaseUserData, pStr0);
+			byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -4440,17 +2283,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4465,26 +2302,8 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, in byte familyNameAlias)
 		{
@@ -4492,7 +2311,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (byte* pfamilyNameAlias = &familyNameAlias)
 				{
-					byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+					byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 					return ret != 0;
 				}
 			}
@@ -4501,17 +2320,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4526,26 +2339,8 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
 		{
@@ -4553,7 +2348,7 @@ namespace Vertex.NET.Impeller
 			{
 				fixed (byte* pfamilyNameAlias = familyNameAlias)
 				{
-					byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+					byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
 					return ret != 0;
 				}
 			}
@@ -4562,17 +2357,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The following font formats are supported:<br/>
 		/// * OpenType font collections (.ttc extension)<br/>
 		/// * TrueType fonts: (.ttf extension)<br/>
 		/// * OpenType fonts: (.otf extension)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The font data is specified as a mapping. It is possible for the<br/>
 		/// release callback of the mapping to not be called even past the<br/>
 		/// destruction of the typography context. Care must be taken to not<br/>
@@ -4587,26 +2376,8 @@ namespace Vertex.NET.Impeller
 		/// Multiple fonts (with glyphs for different styles) can be<br/>
 		/// specified with the same family.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static bool RegisterFont(this ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, string familyNameAlias)
 		{
@@ -4629,7 +2400,7 @@ namespace Vertex.NET.Impeller
 					int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				byte ret = Impeller.ImpellerTypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, pStr0);
+				byte ret = Impeller.TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4641,361 +2412,211 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerParagraphBuilder ParagraphBuilderNew(this ImpellerTypographyContext context)
 		{
-			ImpellerParagraphBuilder ret = Impeller.ImpellerParagraphBuilderNewNative(context);
+			ImpellerParagraphBuilder ret = Impeller.ParagraphBuilderNewNative(context);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerParagraph paragraph)
 		{
-			Impeller.ImpellerParagraphRetainNative(paragraph);
+			Impeller.ParagraphRetainNative(paragraph);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerParagraph paragraph)
 		{
-			Impeller.ImpellerParagraphReleaseNative(paragraph);
+			Impeller.ParagraphReleaseNative(paragraph);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static float GetMaxWidth(this ImpellerParagraph paragraph)
 		{
-			float ret = Impeller.ImpellerParagraphGetMaxWidthNative(paragraph);
+			float ret = Impeller.ParagraphGetMaxWidthNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static float GetHeight(this ImpellerParagraph paragraph)
 		{
-			float ret = Impeller.ImpellerParagraphGetHeightNative(paragraph);
+			float ret = Impeller.ParagraphGetHeightNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static float GetLongestLineWidth(this ImpellerParagraph paragraph)
 		{
-			float ret = Impeller.ImpellerParagraphGetLongestLineWidthNative(paragraph);
+			float ret = Impeller.ParagraphGetLongestLineWidthNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static float GetMinIntrinsicWidth(this ImpellerParagraph paragraph)
 		{
-			float ret = Impeller.ImpellerParagraphGetMinIntrinsicWidthNative(paragraph);
+			float ret = Impeller.ParagraphGetMinIntrinsicWidthNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static float GetMaxIntrinsicWidth(this ImpellerParagraph paragraph)
 		{
-			float ret = Impeller.ImpellerParagraphGetMaxIntrinsicWidthNative(paragraph);
+			float ret = Impeller.ParagraphGetMaxIntrinsicWidthNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static float GetIdeographicBaseline(this ImpellerParagraph paragraph)
 		{
-			float ret = Impeller.ImpellerParagraphGetIdeographicBaselineNative(paragraph);
+			float ret = Impeller.ParagraphGetIdeographicBaselineNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static float GetAlphabeticBaseline(this ImpellerParagraph paragraph)
 		{
-			float ret = Impeller.ImpellerParagraphGetAlphabeticBaselineNative(paragraph);
+			float ret = Impeller.ParagraphGetAlphabeticBaselineNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static uint GetLineCount(this ImpellerParagraph paragraph)
 		{
-			uint ret = Impeller.ImpellerParagraphGetLineCountNative(paragraph);
+			uint ret = Impeller.ParagraphGetLineCountNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Word boundaries are defined more precisely in [Unicode Standard<br/>
 		/// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void GetWordBoundary(this ImpellerParagraph paragraph, nuint codeUnitIndex, ImpellerRange* outRange)
+		public static void GetWordBoundary(this ImpellerParagraph paragraph, nuint codeUnitIndex, ImpellerRangePtr outRange)
 		{
-			Impeller.ImpellerParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, outRange);
+			Impeller.ParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, (ImpellerRange*)outRange);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Word boundaries are defined more precisely in [Unicode Standard<br/>
 		/// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void GetWordBoundary(this ImpellerParagraph paragraph, nuint codeUnitIndex, ref ImpellerRange outRange)
 		{
 			fixed (ImpellerRange* poutRange = &outRange)
 			{
-				Impeller.ImpellerParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, (ImpellerRange*)poutRange);
+				Impeller.ParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, (ImpellerRange*)poutRange);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerLineMetrics GetLineMetrics(this ImpellerParagraph paragraph)
 		{
-			ImpellerLineMetrics ret = Impeller.ImpellerParagraphGetLineMetricsNative(paragraph);
+			ImpellerLineMetrics ret = Impeller.ParagraphGetLineMetricsNative(paragraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerGlyphInfo CreateGlyphInfoAtCodeUnitIndexNew(this ImpellerParagraph paragraph, nuint codeUnitIndex)
 		{
-			ImpellerGlyphInfo ret = Impeller.ImpellerParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(paragraph, codeUnitIndex);
+			ImpellerGlyphInfo ret = Impeller.ParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(paragraph, codeUnitIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static ImpellerGlyphInfo CreateGlyphInfoAtParagraphCoordinatesNew(this ImpellerParagraph paragraph, double x, double y)
 		{
-			ImpellerGlyphInfo ret = Impeller.ImpellerParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(paragraph, x, y);
+			ImpellerGlyphInfo ret = Impeller.ParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(paragraph, x, y);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Retain(this ImpellerParagraphBuilder paragraphBuilder)
 		{
-			Impeller.ImpellerParagraphBuilderRetainNative(paragraphBuilder);
+			Impeller.ParagraphBuilderRetainNative(paragraphBuilder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void Release(this ImpellerParagraphBuilder paragraphBuilder)
 		{
-			Impeller.ImpellerParagraphBuilderReleaseNative(paragraphBuilder);
+			Impeller.ParagraphBuilderReleaseNative(paragraphBuilder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Not all paragraph styles can be combined. For instance, it does<br/>
 		/// not make sense to mix text alignment for different text runs<br/>
 		/// within a paragraph. In such cases, the preference of the the<br/>
@@ -5007,16 +2628,1262 @@ namespace Vertex.NET.Impeller
 		/// default paragraph style always be pushed onto the stack before<br/>
 		/// the addition of any text.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		public static void PushStyle(this ImpellerParagraphBuilder paragraphBuilder, ImpellerParagraphStyle style)
 		{
-			Impeller.ImpellerParagraphBuilderPushStyleNative(paragraphBuilder, style);
+			Impeller.ParagraphBuilderPushStyleNative(paragraphBuilder, style);
 		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void PopStyle(this ImpellerParagraphBuilder paragraphBuilder)
+		{
+			Impeller.ParagraphBuilderPopStyleNative(paragraphBuilder);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddText(this ImpellerParagraphBuilder paragraphBuilder, byte* data, uint length)
+		{
+			Impeller.ParagraphBuilderAddTextNative(paragraphBuilder, data, length);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddText(this ImpellerParagraphBuilder paragraphBuilder, in byte data, uint length)
+		{
+			fixed (byte* pdata = &data)
+			{
+				Impeller.ParagraphBuilderAddTextNative(paragraphBuilder, (byte*)pdata, length);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerParagraph BuildParagraphNew(this ImpellerParagraphBuilder paragraphBuilder, float width)
+		{
+			ImpellerParagraph ret = Impeller.ParagraphBuilderBuildParagraphNewNative(paragraphBuilder, width);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerParagraphStyle paragraphStyle)
+		{
+			Impeller.ParagraphStyleRetainNative(paragraphStyle);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerParagraphStyle paragraphStyle)
+		{
+			Impeller.ParagraphStyleReleaseNative(paragraphStyle);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetForeground(this ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
+		{
+			Impeller.ParagraphStyleSetForegroundNative(paragraphStyle, paint);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetBackground(this ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
+		{
+			Impeller.ParagraphStyleSetBackgroundNative(paragraphStyle, paint);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetFontWeight(this ImpellerParagraphStyle paragraphStyle, ImpellerFontWeight weight)
+		{
+			Impeller.ParagraphStyleSetFontWeightNative(paragraphStyle, weight);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetFontStyle(this ImpellerParagraphStyle paragraphStyle, ImpellerFontStyle style)
+		{
+			Impeller.ParagraphStyleSetFontStyleNative(paragraphStyle, style);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetFontFamily(this ImpellerParagraphStyle paragraphStyle, byte* familyName)
+		{
+			Impeller.ParagraphStyleSetFontFamilyNative(paragraphStyle, familyName);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetFontFamily(this ImpellerParagraphStyle paragraphStyle, in byte familyName)
+		{
+			fixed (byte* pfamilyName = &familyName)
+			{
+				Impeller.ParagraphStyleSetFontFamilyNative(paragraphStyle, (byte*)pfamilyName);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetFontFamily(this ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> familyName)
+		{
+			fixed (byte* pfamilyName = familyName)
+			{
+				Impeller.ParagraphStyleSetFontFamilyNative(paragraphStyle, (byte*)pfamilyName);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetFontFamily(this ImpellerParagraphStyle paragraphStyle, string familyName)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (familyName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(familyName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(familyName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			Impeller.ParagraphStyleSetFontFamilyNative(paragraphStyle, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetFontSize(this ImpellerParagraphStyle paragraphStyle, float size)
+		{
+			Impeller.ParagraphStyleSetFontSizeNative(paragraphStyle, size);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// When height is 0.0, the line height will be determined by the<br/>
+		/// font's metrics directly, which may differ from the font size.<br/>
+		/// Otherwise the line height of the text will be a multiple of font<br/>
+		/// size, and be exactly fontSize * height logical pixels tall.<br/>
+		/// <br/>
+		/// </summary>
+		public static void SetHeight(this ImpellerParagraphStyle paragraphStyle, float height)
+		{
+			Impeller.ParagraphStyleSetHeightNative(paragraphStyle, height);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetTextAlignment(this ImpellerParagraphStyle paragraphStyle, ImpellerTextAlignment align)
+		{
+			Impeller.ParagraphStyleSetTextAlignmentNative(paragraphStyle, align);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetTextDirection(this ImpellerParagraphStyle paragraphStyle, ImpellerTextDirection direction)
+		{
+			Impeller.ParagraphStyleSetTextDirectionNative(paragraphStyle, direction);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetTextDecoration(this ImpellerParagraphStyle paragraphStyle, ImpellerTextDecorationPtr decoration)
+		{
+			Impeller.ParagraphStyleSetTextDecorationNative(paragraphStyle, (ImpellerTextDecoration*)decoration);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetTextDecoration(this ImpellerParagraphStyle paragraphStyle, in ImpellerTextDecoration decoration)
+		{
+			fixed (ImpellerTextDecoration* pdecoration = &decoration)
+			{
+				Impeller.ParagraphStyleSetTextDecorationNative(paragraphStyle, (ImpellerTextDecoration*)pdecoration);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetMaxLines(this ImpellerParagraphStyle paragraphStyle, uint maxLines)
+		{
+			Impeller.ParagraphStyleSetMaxLinesNative(paragraphStyle, maxLines);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetLocale(this ImpellerParagraphStyle paragraphStyle, byte* locale)
+		{
+			Impeller.ParagraphStyleSetLocaleNative(paragraphStyle, locale);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetLocale(this ImpellerParagraphStyle paragraphStyle, in byte locale)
+		{
+			fixed (byte* plocale = &locale)
+			{
+				Impeller.ParagraphStyleSetLocaleNative(paragraphStyle, (byte*)plocale);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetLocale(this ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> locale)
+		{
+			fixed (byte* plocale = locale)
+			{
+				Impeller.ParagraphStyleSetLocaleNative(paragraphStyle, (byte*)plocale);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetLocale(this ImpellerParagraphStyle paragraphStyle, string locale)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (locale != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(locale);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(locale, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			Impeller.ParagraphStyleSetLocaleNative(paragraphStyle, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetEllipsis(this ImpellerParagraphStyle paragraphStyle, byte* ellipsis)
+		{
+			Impeller.ParagraphStyleSetEllipsisNative(paragraphStyle, ellipsis);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetEllipsis(this ImpellerParagraphStyle paragraphStyle, in byte ellipsis)
+		{
+			fixed (byte* pellipsis = &ellipsis)
+			{
+				Impeller.ParagraphStyleSetEllipsisNative(paragraphStyle, (byte*)pellipsis);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetEllipsis(this ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> ellipsis)
+		{
+			fixed (byte* pellipsis = ellipsis)
+			{
+				Impeller.ParagraphStyleSetEllipsisNative(paragraphStyle, (byte*)pellipsis);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetEllipsis(this ImpellerParagraphStyle paragraphStyle, string ellipsis)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (ellipsis != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(ellipsis);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(ellipsis, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			Impeller.ParagraphStyleSetEllipsisNative(paragraphStyle, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerLineMetrics lineMetrics)
+		{
+			Impeller.LineMetricsRetainNative(lineMetrics);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerLineMetrics lineMetrics)
+		{
+			Impeller.LineMetricsReleaseNative(lineMetrics);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static double GetUnscaledAscent(this ImpellerLineMetrics metrics, nuint line)
+		{
+			double ret = Impeller.LineMetricsGetUnscaledAscentNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static double GetAscent(this ImpellerLineMetrics metrics, nuint line)
+		{
+			double ret = Impeller.LineMetricsGetAscentNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static double GetDescent(this ImpellerLineMetrics metrics, nuint line)
+		{
+			double ret = Impeller.LineMetricsGetDescentNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static double GetBaseline(this ImpellerLineMetrics metrics, nuint line)
+		{
+			double ret = Impeller.LineMetricsGetBaselineNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static bool IsHardbreak(this ImpellerLineMetrics metrics, nuint line)
+		{
+			byte ret = Impeller.LineMetricsIsHardbreakNative(metrics, line);
+			return ret != 0;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static double GetWidth(this ImpellerLineMetrics metrics, nuint line)
+		{
+			double ret = Impeller.LineMetricsGetWidthNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static double GetHeight(this ImpellerLineMetrics metrics, nuint line)
+		{
+			double ret = Impeller.LineMetricsGetHeightNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static double GetLeft(this ImpellerLineMetrics metrics, nuint line)
+		{
+			double ret = Impeller.LineMetricsGetLeftNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nuint GetCodeUnitStartIndex(this ImpellerLineMetrics metrics, nuint line)
+		{
+			nuint ret = Impeller.LineMetricsGetCodeUnitStartIndexNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nuint GetCodeUnitEndIndex(this ImpellerLineMetrics metrics, nuint line)
+		{
+			nuint ret = Impeller.LineMetricsGetCodeUnitEndIndexNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nuint GetCodeUnitEndIndexExcludingWhitespace(this ImpellerLineMetrics metrics, nuint line)
+		{
+			nuint ret = Impeller.LineMetricsGetCodeUnitEndIndexExcludingWhitespaceNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nuint GetCodeUnitEndIndexIncludingNewline(this ImpellerLineMetrics metrics, nuint line)
+		{
+			nuint ret = Impeller.LineMetricsGetCodeUnitEndIndexIncludingNewlineNative(metrics, line);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerGlyphInfo glyphInfo)
+		{
+			Impeller.GlyphInfoRetainNative(glyphInfo);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerGlyphInfo glyphInfo)
+		{
+			Impeller.GlyphInfoReleaseNative(glyphInfo);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nuint GetGraphemeClusterCodeUnitRangeBegin(this ImpellerGlyphInfo glyphInfo)
+		{
+			nuint ret = Impeller.GlyphInfoGetGraphemeClusterCodeUnitRangeBeginNative(glyphInfo);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nuint GetGraphemeClusterCodeUnitRangeEnd(this ImpellerGlyphInfo glyphInfo)
+		{
+			nuint ret = Impeller.GlyphInfoGetGraphemeClusterCodeUnitRangeEndNative(glyphInfo);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void GetGraphemeClusterBounds(this ImpellerGlyphInfo glyphInfo, ImpellerRectPtr outBounds)
+		{
+			Impeller.GlyphInfoGetGraphemeClusterBoundsNative(glyphInfo, (ImpellerRect*)outBounds);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void GetGraphemeClusterBounds(this ImpellerGlyphInfo glyphInfo, ref ImpellerRect outBounds)
+		{
+			fixed (ImpellerRect* poutBounds = &outBounds)
+			{
+				Impeller.GlyphInfoGetGraphemeClusterBoundsNative(glyphInfo, (ImpellerRect*)poutBounds);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static bool IsEllipsis(this ImpellerGlyphInfo glyphInfo)
+		{
+			byte ret = Impeller.GlyphInfoIsEllipsisNative(glyphInfo);
+			return ret != 0;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerTextDirection GetTextDirection(this ImpellerGlyphInfo glyphInfo)
+		{
+			ImpellerTextDirection ret = Impeller.GlyphInfoGetTextDirectionNative(glyphInfo);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerPath path)
+		{
+			Impeller.PathRetainNative(path);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerPath path)
+		{
+			Impeller.PathReleaseNative(path);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The bounds are conservative. That is, they may be larger than<br/>
+		/// the actual shape of the path and could include the control<br/>
+		/// points and isolated calls to move the cursor.<br/>
+		/// <br/>
+		/// </summary>
+		public static void GetBounds(this ImpellerPath path, ImpellerRectPtr outBounds)
+		{
+			Impeller.PathGetBoundsNative(path, (ImpellerRect*)outBounds);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The bounds are conservative. That is, they may be larger than<br/>
+		/// the actual shape of the path and could include the control<br/>
+		/// points and isolated calls to move the cursor.<br/>
+		/// <br/>
+		/// </summary>
+		public static void GetBounds(this ImpellerPath path, ref ImpellerRect outBounds)
+		{
+			fixed (ImpellerRect* poutBounds = &outBounds)
+			{
+				Impeller.PathGetBoundsNative(path, (ImpellerRect*)poutBounds);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerPathBuilder builder)
+		{
+			Impeller.PathBuilderRetainNative(builder);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerPathBuilder builder)
+		{
+			Impeller.PathBuilderReleaseNative(builder);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void MoveTo(this ImpellerPathBuilder builder, ImpellerPointPtr location)
+		{
+			Impeller.PathBuilderMoveToNative(builder, (ImpellerPoint*)location);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void MoveTo(this ImpellerPathBuilder builder, in ImpellerPoint location)
+		{
+			fixed (ImpellerPoint* plocation = &location)
+			{
+				Impeller.PathBuilderMoveToNative(builder, (ImpellerPoint*)plocation);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void LineTo(this ImpellerPathBuilder builder, ImpellerPointPtr location)
+		{
+			Impeller.PathBuilderLineToNative(builder, (ImpellerPoint*)location);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void LineTo(this ImpellerPathBuilder builder, in ImpellerPoint location)
+		{
+			fixed (ImpellerPoint* plocation = &location)
+			{
+				Impeller.PathBuilderLineToNative(builder, (ImpellerPoint*)plocation);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point.<br/>
+		/// <br/>
+		/// </summary>
+		public static void QuadraticCurveTo(this ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, ImpellerPointPtr endPoint)
+		{
+			Impeller.PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)endPoint);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point.<br/>
+		/// <br/>
+		/// </summary>
+		public static void QuadraticCurveTo(this ImpellerPathBuilder builder, in ImpellerPoint controlPoint, ImpellerPointPtr endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
+			{
+				Impeller.PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)endPoint);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point.<br/>
+		/// <br/>
+		/// </summary>
+		public static void QuadraticCurveTo(this ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, in ImpellerPoint endPoint)
+		{
+			fixed (ImpellerPoint* pendPoint = &endPoint)
+			{
+				Impeller.PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)pendPoint);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point.<br/>
+		/// <br/>
+		/// </summary>
+		public static void QuadraticCurveTo(this ImpellerPathBuilder builder, in ImpellerPoint controlPoint, in ImpellerPoint endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
+			{
+				fixed (ImpellerPoint* pendPoint = &endPoint)
+				{
+					Impeller.PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)pendPoint);
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
+		{
+			Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+			{
+				Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+			{
+				Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+			{
+				fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+				{
+					Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
+		{
+			fixed (ImpellerPoint* pendPoint = &endPoint)
+			{
+				Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+			{
+				fixed (ImpellerPoint* pendPoint = &endPoint)
+				{
+					Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+			{
+				fixed (ImpellerPoint* pendPoint = &endPoint)
+				{
+					Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The new location of the cursor after this call is the end point<br/>
+		/// supplied.<br/>
+		/// <br/>
+		/// </summary>
+		public static void CubicCurveTo(this ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
+		{
+			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+			{
+				fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+				{
+					fixed (ImpellerPoint* pendPoint = &endPoint)
+					{
+						Impeller.PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddRect(this ImpellerPathBuilder builder, ImpellerRectPtr rect)
+		{
+			Impeller.PathBuilderAddRectNative(builder, (ImpellerRect*)rect);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddRect(this ImpellerPathBuilder builder, in ImpellerRect rect)
+		{
+			fixed (ImpellerRect* prect = &rect)
+			{
+				Impeller.PathBuilderAddRectNative(builder, (ImpellerRect*)prect);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddArc(this ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds, float startAngleDegrees, float endAngleDegrees)
+		{
+			Impeller.PathBuilderAddArcNative(builder, (ImpellerRect*)ovalBounds, startAngleDegrees, endAngleDegrees);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddArc(this ImpellerPathBuilder builder, in ImpellerRect ovalBounds, float startAngleDegrees, float endAngleDegrees)
+		{
+			fixed (ImpellerRect* povalBounds = &ovalBounds)
+			{
+				Impeller.PathBuilderAddArcNative(builder, (ImpellerRect*)povalBounds, startAngleDegrees, endAngleDegrees);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddOval(this ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds)
+		{
+			Impeller.PathBuilderAddOvalNative(builder, (ImpellerRect*)ovalBounds);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddOval(this ImpellerPathBuilder builder, in ImpellerRect ovalBounds)
+		{
+			fixed (ImpellerRect* povalBounds = &ovalBounds)
+			{
+				Impeller.PathBuilderAddOvalNative(builder, (ImpellerRect*)povalBounds);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddRoundedRect(this ImpellerPathBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr roundingRadii)
+		{
+			Impeller.PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)roundingRadii);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddRoundedRect(this ImpellerPathBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr roundingRadii)
+		{
+			fixed (ImpellerRect* prect = &rect)
+			{
+				Impeller.PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)roundingRadii);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddRoundedRect(this ImpellerPathBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii roundingRadii)
+		{
+			fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
+			{
+				Impeller.PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)proundingRadii);
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void AddRoundedRect(this ImpellerPathBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii roundingRadii)
+		{
+			fixed (ImpellerRect* prect = &rect)
+			{
+				fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
+				{
+					Impeller.PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)proundingRadii);
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Close(this ImpellerPathBuilder builder)
+		{
+			Impeller.PathBuilderCloseNative(builder);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerPath CopyPathNew(this ImpellerPathBuilder builder, ImpellerFillType fill)
+		{
+			ImpellerPath ret = Impeller.PathBuilderCopyPathNewNative(builder, fill);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerPath TakePathNew(this ImpellerPathBuilder builder, ImpellerFillType fill)
+		{
+			ImpellerPath ret = Impeller.PathBuilderTakePathNewNative(builder, fill);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerSurface surface)
+		{
+			Impeller.SurfaceRetainNative(surface);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerSurface surface)
+		{
+			Impeller.SurfaceReleaseNative(surface);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static bool DrawDisplayList(this ImpellerSurface surface, ImpellerDisplayList displayList)
+		{
+			byte ret = Impeller.SurfaceDrawDisplayListNative(surface, displayList);
+			return ret != 0;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static bool Present(this ImpellerSurface surface)
+		{
+			byte ret = Impeller.SurfacePresentNative(surface);
+			return ret != 0;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerTexture texture)
+		{
+			Impeller.TextureRetainNative(texture);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerTexture texture)
+		{
+			Impeller.TextureReleaseNative(texture);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// OpenGL handles are lazily created, this method will return<br/>
+		/// GL_NONE is no OpenGL handle is available. To ensure that this<br/>
+		/// call eagerly creates an OpenGL texture, call this on a thread<br/>
+		/// where Impeller knows there is an OpenGL context available.<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ulong GetOpenGlHandle(this ImpellerTexture texture)
+		{
+			ulong ret = Impeller.TextureGetOpenGLHandleNative(texture);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateImageNew(this ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrixPtr transformation)
+		{
+			ImpellerColorSource ret = Impeller.ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)transformation);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateImageNew(this ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerMatrix* ptransformation = &transformation)
+			{
+				ImpellerColorSource ret = Impeller.ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)ptransformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerVulkanSwapchain swapchain)
+		{
+			Impeller.VulkanSwapchainRetainNative(swapchain);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerVulkanSwapchain swapchain)
+		{
+			Impeller.VulkanSwapchainReleaseNative(swapchain);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerSurface AcquireNextSurfaceNew(this ImpellerVulkanSwapchain swapchain)
+		{
+			ImpellerSurface ret = Impeller.VulkanSwapchainAcquireNextSurfaceNewNative(swapchain);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Retain(this ImpellerFragmentProgram fragmentProgram)
+		{
+			Impeller.FragmentProgramRetainNative(fragmentProgram);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void Release(this ImpellerFragmentProgram fragmentProgram)
+		{
+			Impeller.FragmentProgramReleaseNative(fragmentProgram);
+		}
+
 	}
 }

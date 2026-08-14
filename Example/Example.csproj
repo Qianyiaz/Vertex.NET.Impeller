@@ -19,6 +19,6 @@
 
     <ItemGroup>
         <PackageReference Include="Hexa.NET.GLFW" Version="1.0.5"/>
-        <ProjectReference Include="..\Vertex.NET.Impeller\Vertex.NET.Impeller.csproj" />
+        <ProjectReference Include="..\Vertex.NET.Impeller\Vertex.NET.Impeller.csproj"/>
     </ItemGroup>
 </Project>

@@ -20,14 +20,7 @@ namespace Vertex.NET.Impeller
 	[Flags]
 	public enum ImpellerFillType : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerFillTypeNonZero = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerFillTypeOdd = unchecked(1),
+		FillTypeNonZero = unchecked(0),
+		FillTypeOdd = unchecked(1),
 	}
 }

@@ -12,20 +12,10 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerClipOperation : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerClipOperationDifference = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerClipOperationIntersect = unchecked(1),
+		ClipOperationDifference = unchecked(0),
+		ClipOperationIntersect = unchecked(1),
 	}
 }

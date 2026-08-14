@@ -12,25 +12,11 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerStrokeCap : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerStrokeCapButt = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerStrokeCapRound = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerStrokeCapSquare = unchecked(2),
+		StrokeCapButt = unchecked(0),
+		StrokeCapRound = unchecked(1),
+		StrokeCapSquare = unchecked(2),
 	}
 }

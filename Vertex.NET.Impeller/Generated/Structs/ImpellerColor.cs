@@ -15,41 +15,15 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerColor
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Red;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Green;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Blue;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Alpha;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ImpellerColorSpace ColorSpace;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerColor(float red = default, float green = default, float blue = default, float alpha = default, ImpellerColorSpace colorSpace = default)
 		{
 			Red = red;
@@ -60,6 +34,51 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerColorPtr : IEquatable<ImpellerColorPtr>
+	{
+		public ImpellerColorPtr(ImpellerColor* handle) { Handle = handle; }
+
+		public ImpellerColor* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerColorPtr Null => new ImpellerColorPtr(null);
+
+		public ImpellerColor this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerColorPtr(ImpellerColor* handle) => new ImpellerColorPtr(handle);
+
+		public static implicit operator ImpellerColor*(ImpellerColorPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerColorPtr left, ImpellerColorPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerColorPtr left, ImpellerColorPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerColorPtr left, ImpellerColor* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerColorPtr left, ImpellerColor* right) => left.Handle != right;
+
+		public bool Equals(ImpellerColorPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerColorPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerColorPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public ref float Red => ref Unsafe.AsRef<float>(&Handle->Red);
+		public ref float Green => ref Unsafe.AsRef<float>(&Handle->Green);
+		public ref float Blue => ref Unsafe.AsRef<float>(&Handle->Blue);
+		public ref float Alpha => ref Unsafe.AsRef<float>(&Handle->Alpha);
+		public ref ImpellerColorSpace ColorSpace => ref Unsafe.AsRef<ImpellerColorSpace>(&Handle->ColorSpace);
 	}
 
 }

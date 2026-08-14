@@ -5,8 +5,9 @@
         <IsAotCompatible>true</IsAotCompatible>
         <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
         <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
-        
+
         <Authors>Qianyiaz</Authors>
+        <Version>1.0.0-rc2</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/Qianyiaz/Vertex.NET.Impeller</RepositoryUrl>

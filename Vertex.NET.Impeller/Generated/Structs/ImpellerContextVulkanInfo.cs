@@ -15,41 +15,15 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerContextVulkanInfo
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe void* VkInstance;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe void* VkPhysicalDevice;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe void* VkLogicalDevice;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public uint GraphicsQueueFamilyIndex;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public uint GraphicsQueueIndex;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerContextVulkanInfo(void* vkInstance = default, void* vkPhysicalDevice = default, void* vkLogicalDevice = default, uint graphicsQueueFamilyIndex = default, uint graphicsQueueIndex = default)
 		{
 			VkInstance = vkInstance;
@@ -60,6 +34,51 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerContextVulkanInfoPtr : IEquatable<ImpellerContextVulkanInfoPtr>
+	{
+		public ImpellerContextVulkanInfoPtr(ImpellerContextVulkanInfo* handle) { Handle = handle; }
+
+		public ImpellerContextVulkanInfo* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerContextVulkanInfoPtr Null => new ImpellerContextVulkanInfoPtr(null);
+
+		public ImpellerContextVulkanInfo this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerContextVulkanInfoPtr(ImpellerContextVulkanInfo* handle) => new ImpellerContextVulkanInfoPtr(handle);
+
+		public static implicit operator ImpellerContextVulkanInfo*(ImpellerContextVulkanInfoPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerContextVulkanInfoPtr left, ImpellerContextVulkanInfoPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerContextVulkanInfoPtr left, ImpellerContextVulkanInfoPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerContextVulkanInfoPtr left, ImpellerContextVulkanInfo* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerContextVulkanInfoPtr left, ImpellerContextVulkanInfo* right) => left.Handle != right;
+
+		public bool Equals(ImpellerContextVulkanInfoPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerContextVulkanInfoPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerContextVulkanInfoPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public void* VkInstance { get => Handle->VkInstance; set => Handle->VkInstance = value; }
+		public void* VkPhysicalDevice { get => Handle->VkPhysicalDevice; set => Handle->VkPhysicalDevice = value; }
+		public void* VkLogicalDevice { get => Handle->VkLogicalDevice; set => Handle->VkLogicalDevice = value; }
+		public ref uint GraphicsQueueFamilyIndex => ref Unsafe.AsRef<uint>(&Handle->GraphicsQueueFamilyIndex);
+		public ref uint GraphicsQueueIndex => ref Unsafe.AsRef<uint>(&Handle->GraphicsQueueIndex);
 	}
 
 }

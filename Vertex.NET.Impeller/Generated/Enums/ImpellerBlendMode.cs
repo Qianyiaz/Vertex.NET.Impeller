@@ -12,154 +12,36 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	public enum ImpellerBlendMode : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeClear = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeSource = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeDestination = unchecked(2),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeSourceOver = unchecked(3),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeDestinationOver = unchecked(4),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeSourceIn = unchecked(5),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeDestinationIn = unchecked(6),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeSourceOut = unchecked(7),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeDestinationOut = unchecked(8),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeSourceATop = unchecked(9),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeDestinationATop = unchecked(10),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeXor = unchecked(11),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModePlus = unchecked(12),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeModulate = unchecked(13),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeScreen = unchecked(14),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeOverlay = unchecked(15),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeDarken = unchecked(16),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeLighten = unchecked(17),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeColorDodge = unchecked(18),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeColorBurn = unchecked(19),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeHardLight = unchecked(20),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeSoftLight = unchecked(21),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeDifference = unchecked(22),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeExclusion = unchecked(23),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeMultiply = unchecked(24),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeHue = unchecked(25),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeSaturation = unchecked(26),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeColor = unchecked(27),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerBlendModeLuminosity = unchecked(28),
+		BlendModeClear = unchecked(0),
+		BlendModeSource = unchecked(1),
+		BlendModeDestination = unchecked(2),
+		BlendModeSourceOver = unchecked(3),
+		BlendModeDestinationOver = unchecked(4),
+		BlendModeSourceIn = unchecked(5),
+		BlendModeDestinationIn = unchecked(6),
+		BlendModeSourceOut = unchecked(7),
+		BlendModeDestinationOut = unchecked(8),
+		BlendModeSourceATop = unchecked(9),
+		BlendModeDestinationATop = unchecked(10),
+		BlendModeXor = unchecked(11),
+		BlendModePlus = unchecked(12),
+		BlendModeModulate = unchecked(13),
+		BlendModeScreen = unchecked(14),
+		BlendModeOverlay = unchecked(15),
+		BlendModeDarken = unchecked(16),
+		BlendModeLighten = unchecked(17),
+		BlendModeColorDodge = unchecked(18),
+		BlendModeColorBurn = unchecked(19),
+		BlendModeHardLight = unchecked(20),
+		BlendModeSoftLight = unchecked(21),
+		BlendModeDifference = unchecked(22),
+		BlendModeExclusion = unchecked(23),
+		BlendModeMultiply = unchecked(24),
+		BlendModeHue = unchecked(25),
+		BlendModeSaturation = unchecked(26),
+		BlendModeColor = unchecked(27),
+		BlendModeLuminosity = unchecked(28),
 	}
 }

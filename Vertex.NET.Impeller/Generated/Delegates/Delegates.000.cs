@@ -16,32 +16,20 @@ using HexaGen.Runtime;
 namespace Vertex.NET.Impeller
 {
 	#if NET5_0_OR_GREATER
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void OnRelease([NativeName(NativeNameType.Param, "user_data")] [NativeName(NativeNameType.Type, "void *")] void* userData);
 
 	#else
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void OnRelease([NativeName(NativeNameType.Param, "user_data")] [NativeName(NativeNameType.Type, "void *")] nint userData);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void* ProcAddressCallback([NativeName(NativeNameType.Param, "vulkan_instance")] [NativeName(NativeNameType.Type, "void *")] void* vulkanInstance, [NativeName(NativeNameType.Param, "vulkan_proc_name")] [NativeName(NativeNameType.Type, "char const *")] byte* vulkanProcName, [NativeName(NativeNameType.Param, "user_data")] [NativeName(NativeNameType.Type, "void *")] void* userData);
 
 	#else
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate nint ProcAddressCallback([NativeName(NativeNameType.Param, "vulkan_instance")] [NativeName(NativeNameType.Type, "void *")] nint vulkanInstance, [NativeName(NativeNameType.Param, "vulkan_proc_name")] [NativeName(NativeNameType.Type, "char const *")] nint vulkanProcName, [NativeName(NativeNameType.Param, "user_data")] [NativeName(NativeNameType.Type, "void *")] nint userData);
 

@@ -28,9 +28,6 @@ namespace Vertex.NET.Impeller
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerMatrix
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float M_0;
 		public float M_1;
 		public float M_2;
@@ -48,10 +45,6 @@ namespace Vertex.NET.Impeller
 		public float M_14;
 		public float M_15;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerMatrix(float* m = default)
 		{
 			if (m != default(float*))
@@ -75,9 +68,6 @@ namespace Vertex.NET.Impeller
 			}
 		}
 
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerMatrix(Span<float> m = default)
 		{
 			if (m != default(Span<float>))
@@ -102,6 +92,64 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	/// <summary>
+	/// ------------------------------------------------------------------------------<br/>
+	/// A 4x4 transformation matrix using column-major storage.<br/>
+	/// ```<br/>
+	/// | m[0] m[4] m[8]  m[12] |<br/>
+	/// | m[1] m[5] m[9]  m[13] |<br/>
+	/// | m[2] m[6] m[10] m[14] |<br/>
+	/// | m[3] m[7] m[11] m[15] |<br/>
+	/// ```<br/>
+	/// </summary>
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerMatrixPtr : IEquatable<ImpellerMatrixPtr>
+	{
+		public ImpellerMatrixPtr(ImpellerMatrix* handle) { Handle = handle; }
+
+		public ImpellerMatrix* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerMatrixPtr Null => new ImpellerMatrixPtr(null);
+
+		public ImpellerMatrix this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerMatrixPtr(ImpellerMatrix* handle) => new ImpellerMatrixPtr(handle);
+
+		public static implicit operator ImpellerMatrix*(ImpellerMatrixPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerMatrixPtr left, ImpellerMatrixPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerMatrixPtr left, ImpellerMatrixPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerMatrixPtr left, ImpellerMatrix* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerMatrixPtr left, ImpellerMatrix* right) => left.Handle != right;
+
+		public bool Equals(ImpellerMatrixPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerMatrixPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerMatrixPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public unsafe Span<float> M
+		
+		{
+			get
+			{
+				return new Span<float>(&Handle->M_0, 16);
+			}
+		}
 	}
 
 }

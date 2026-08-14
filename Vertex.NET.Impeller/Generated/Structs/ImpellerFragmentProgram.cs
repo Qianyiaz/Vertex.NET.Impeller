@@ -15,9 +15,6 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerFragmentProgram
 	{

@@ -15,26 +15,12 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerISize
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public long Width;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public long Height;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerISize(long width = default, long height = default)
 		{
 			Width = width;
@@ -42,6 +28,48 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerISizePtr : IEquatable<ImpellerISizePtr>
+	{
+		public ImpellerISizePtr(ImpellerISize* handle) { Handle = handle; }
+
+		public ImpellerISize* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerISizePtr Null => new ImpellerISizePtr(null);
+
+		public ImpellerISize this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerISizePtr(ImpellerISize* handle) => new ImpellerISizePtr(handle);
+
+		public static implicit operator ImpellerISize*(ImpellerISizePtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerISizePtr left, ImpellerISizePtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerISizePtr left, ImpellerISizePtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerISizePtr left, ImpellerISize* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerISizePtr left, ImpellerISize* right) => left.Handle != right;
+
+		public bool Equals(ImpellerISizePtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerISizePtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerISizePtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public ref long Width => ref Unsafe.AsRef<long>(&Handle->Width);
+		public ref long Height => ref Unsafe.AsRef<long>(&Handle->Height);
 	}
 
 }

@@ -15,9 +15,6 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerTextDecoration
 	{
@@ -43,9 +40,6 @@ namespace Vertex.NET.Impeller
 		public float ThicknessMultiplier;
 
 
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerTextDecoration(int types = default, ImpellerColor color = default, ImpellerTextDecorationStyle style = default, float thicknessMultiplier = default)
 		{
 			Types = types;
@@ -55,6 +49,63 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerTextDecorationPtr : IEquatable<ImpellerTextDecorationPtr>
+	{
+		public ImpellerTextDecorationPtr(ImpellerTextDecoration* handle) { Handle = handle; }
+
+		public ImpellerTextDecoration* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerTextDecorationPtr Null => new ImpellerTextDecorationPtr(null);
+
+		public ImpellerTextDecoration this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerTextDecorationPtr(ImpellerTextDecoration* handle) => new ImpellerTextDecorationPtr(handle);
+
+		public static implicit operator ImpellerTextDecoration*(ImpellerTextDecorationPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerTextDecorationPtr left, ImpellerTextDecorationPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerTextDecorationPtr left, ImpellerTextDecorationPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerTextDecorationPtr left, ImpellerTextDecoration* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerTextDecorationPtr left, ImpellerTextDecoration* right) => left.Handle != right;
+
+		public bool Equals(ImpellerTextDecorationPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerTextDecorationPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerTextDecorationPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		/// <summary>
+		/// A mask of `ImpellerTextDecorationType`s to enable.<br/>
+		/// </summary>
+		public ref int Types => ref Unsafe.AsRef<int>(&Handle->Types);
+		/// <summary>
+		/// The decoration color.<br/>
+		/// </summary>
+		public ref ImpellerColor Color => ref Unsafe.AsRef<ImpellerColor>(&Handle->Color);
+		/// <summary>
+		/// The decoration style.<br/>
+		/// </summary>
+		public ref ImpellerTextDecorationStyle Style => ref Unsafe.AsRef<ImpellerTextDecorationStyle>(&Handle->Style);
+		/// <summary>
+		/// The multiplier applied to the default thickness of the font to use for the<br/>
+		/// decoration.<br/>
+		/// </summary>
+		public ref float ThicknessMultiplier => ref Unsafe.AsRef<float>(&Handle->ThicknessMultiplier);
 	}
 
 }

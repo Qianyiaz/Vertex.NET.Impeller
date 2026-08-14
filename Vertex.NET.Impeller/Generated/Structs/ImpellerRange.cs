@@ -15,26 +15,12 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerRange
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ulong Start;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ulong End;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerRange(ulong start = default, ulong end = default)
 		{
 			Start = start;
@@ -42,6 +28,48 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerRangePtr : IEquatable<ImpellerRangePtr>
+	{
+		public ImpellerRangePtr(ImpellerRange* handle) { Handle = handle; }
+
+		public ImpellerRange* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerRangePtr Null => new ImpellerRangePtr(null);
+
+		public ImpellerRange this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerRangePtr(ImpellerRange* handle) => new ImpellerRangePtr(handle);
+
+		public static implicit operator ImpellerRange*(ImpellerRangePtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerRangePtr left, ImpellerRangePtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerRangePtr left, ImpellerRangePtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerRangePtr left, ImpellerRange* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerRangePtr left, ImpellerRange* right) => left.Handle != right;
+
+		public bool Equals(ImpellerRangePtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerRangePtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerRangePtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public ref ulong Start => ref Unsafe.AsRef<ulong>(&Handle->Start);
+		public ref ulong End => ref Unsafe.AsRef<ulong>(&Handle->End);
 	}
 
 }

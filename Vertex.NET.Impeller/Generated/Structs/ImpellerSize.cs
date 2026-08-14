@@ -15,26 +15,12 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerSize
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Width;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Height;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerSize(float width = default, float height = default)
 		{
 			Width = width;

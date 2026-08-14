@@ -12,34 +12,12 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	public enum ImpellerTextDecorationStyle : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationStyleSolid = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationStyleDouble = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationStyleDotted = unchecked(2),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationStyleDashed = unchecked(3),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationStyleWavy = unchecked(4),
+		TextDecorationStyleSolid = unchecked(0),
+		TextDecorationStyleDouble = unchecked(1),
+		TextDecorationStyleDotted = unchecked(2),
+		TextDecorationStyleDashed = unchecked(3),
+		TextDecorationStyleWavy = unchecked(4),
 	}
 }

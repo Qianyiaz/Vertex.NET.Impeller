@@ -12,30 +12,12 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerTextDecorationType : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationTypeNone = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationTypeUnderline = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationTypeOverline = unchecked(2),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDecorationTypeLineThrough = unchecked(4),
+		TextDecorationTypeNone = unchecked(0),
+		TextDecorationTypeUnderline = unchecked(1),
+		TextDecorationTypeOverline = unchecked(2),
+		TextDecorationTypeLineThrough = unchecked(4),
 	}
 }

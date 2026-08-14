@@ -15,30 +15,13 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerMapping
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe byte* Data;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ulong Length;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe void* OnRelease;
 
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerMapping(byte* data = default, ulong length = default, delegate*<void*, void> onRelease = default)
 		{
 			Data = data;
@@ -47,6 +30,49 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerMappingPtr : IEquatable<ImpellerMappingPtr>
+	{
+		public ImpellerMappingPtr(ImpellerMapping* handle) { Handle = handle; }
+
+		public ImpellerMapping* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerMappingPtr Null => new ImpellerMappingPtr(null);
+
+		public ImpellerMapping this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerMappingPtr(ImpellerMapping* handle) => new ImpellerMappingPtr(handle);
+
+		public static implicit operator ImpellerMapping*(ImpellerMappingPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerMappingPtr left, ImpellerMappingPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerMappingPtr left, ImpellerMappingPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerMappingPtr left, ImpellerMapping* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerMappingPtr left, ImpellerMapping* right) => left.Handle != right;
+
+		public bool Equals(ImpellerMappingPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerMappingPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerMappingPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public byte* Data { get => Handle->Data; set => Handle->Data = value; }
+		public ref ulong Length => ref Unsafe.AsRef<ulong>(&Handle->Length);
+		public void* OnRelease { get => Handle->OnRelease; set => Handle->OnRelease = value; }
 	}
 
 }

@@ -12,25 +12,11 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerStrokeJoin : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerStrokeJoinMiter = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerStrokeJoinRound = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerStrokeJoinBevel = unchecked(2),
+		StrokeJoinMiter = unchecked(0),
+		StrokeJoinRound = unchecked(1),
+		StrokeJoinBevel = unchecked(2),
 	}
 }

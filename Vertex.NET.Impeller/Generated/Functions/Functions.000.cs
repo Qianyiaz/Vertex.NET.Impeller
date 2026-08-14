@@ -19,9 +19,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The current version of the API  is denoted by the<br/>
 		/// `IMPELLER_VERSION` macro. This version must be passed to APIs<br/>
 		/// that create top-level objects like graphics contexts.<br/>
@@ -31,16 +28,10 @@ namespace Vertex.NET.Impeller
 		/// version that is different to the one returned by<br/>
 		/// `ImpellerGetVersion` will always fail.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint ImpellerGetVersionNative()
+		internal static uint GetVersionNative()
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint>)funcTable[0])();
@@ -52,9 +43,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The current version of the API  is denoted by the<br/>
 		/// `IMPELLER_VERSION` macro. This version must be passed to APIs<br/>
 		/// that create top-level objects like graphics contexts.<br/>
@@ -64,47 +52,23 @@ namespace Vertex.NET.Impeller
 		/// version that is different to the one returned by<br/>
 		/// `ImpellerGetVersion` will always fail.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static uint ImpellerGetVersion()
+		public static uint GetVersion()
 		{
-			uint ret = ImpellerGetVersionNative();
+			uint ret = GetVersionNative();
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerContext ImpellerContextCreateOpenGLESNewNative(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
+		internal static ImpellerContext ContextCreateOpenGLESNewNative(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, delegate*<byte*, void*, void*>, void*, ImpellerContext>)funcTable[1])(version, glProcAddressCallback, glProcAddressCallbackUserData);
@@ -116,144 +80,63 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerContext ImpellerContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
+		public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
 		{
-			ImpellerContext ret = ImpellerContextCreateOpenGLESNewNative(version, glProcAddressCallback, glProcAddressCallbackUserData);
+			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, glProcAddressCallbackUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerContext ImpellerContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, void* glProcAddressCallbackUserData)
+		public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, void* glProcAddressCallbackUserData)
 		{
-			ImpellerContext ret = ImpellerContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*>)Utils.GetFunctionPointerForDelegate(glProcAddressCallback), glProcAddressCallbackUserData);
+			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*>)Utils.GetFunctionPointerForDelegate(glProcAddressCallback), glProcAddressCallbackUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerContext ImpellerContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, nint glProcAddressCallbackUserData)
+		public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, nint glProcAddressCallbackUserData)
 		{
-			ImpellerContext ret = ImpellerContextCreateOpenGLESNewNative(version, glProcAddressCallback, (void*)glProcAddressCallbackUserData);
+			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, (void*)glProcAddressCallbackUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerContext ImpellerContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, nint glProcAddressCallbackUserData)
+		public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, nint glProcAddressCallbackUserData)
 		{
-			ImpellerContext ret = ImpellerContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*>)Utils.GetFunctionPointerForDelegate(glProcAddressCallback), (void*)glProcAddressCallbackUserData);
+			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*>)Utils.GetFunctionPointerForDelegate(glProcAddressCallback), (void*)glProcAddressCallbackUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerContext ImpellerContextCreateMetalNewNative(uint version)
+		internal static ImpellerContext ContextCreateMetalNewNative(uint version)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, ImpellerContext>)funcTable[2])(version);
@@ -265,44 +148,23 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerContext ImpellerContextCreateMetalNew(uint version)
+		public static ImpellerContext ContextCreateMetalNew(uint version)
 		{
-			ImpellerContext ret = ImpellerContextCreateMetalNewNative(version);
+			ImpellerContext ret = ContextCreateMetalNewNative(version);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerContext ImpellerContextCreateVulkanNewNative(uint version, ImpellerContextVulkanSettings* settings)
+		internal static ImpellerContext ContextCreateVulkanNewNative(uint version, ImpellerContextVulkanSettings* settings)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, ImpellerContextVulkanSettings*, ImpellerContext>)funcTable[3])(version, settings);
@@ -314,50 +176,26 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerContext ImpellerContextCreateVulkanNew(uint version, ImpellerContextVulkanSettings* settings)
+		public static ImpellerContext ContextCreateVulkanNew(uint version, ImpellerContextVulkanSettingsPtr settings)
 		{
-			ImpellerContext ret = ImpellerContextCreateVulkanNewNative(version, settings);
+			ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)settings);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerContext ImpellerContextCreateVulkanNew(uint version, in ImpellerContextVulkanSettings settings)
+		public static ImpellerContext ContextCreateVulkanNew(uint version, in ImpellerContextVulkanSettings settings)
 		{
 			fixed (ImpellerContextVulkanSettings* psettings = &settings)
 			{
-				ImpellerContext ret = ImpellerContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)psettings);
+				ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)psettings);
 				return ret;
 			}
 		}
@@ -365,16 +203,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerContextRetainNative(ImpellerContext context)
+		internal static void ContextRetainNative(ImpellerContext context)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[4])(context);
@@ -386,32 +218,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerContextRetain(ImpellerContext context)
+		public static void ContextRetain(ImpellerContext context)
 		{
-			ImpellerContextRetainNative(context);
+			ContextRetainNative(context);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerContextReleaseNative(ImpellerContext context)
+		internal static void ContextReleaseNative(ImpellerContext context)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[5])(context);
@@ -423,43 +243,22 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerContextRelease(ImpellerContext context)
+		public static void ContextRelease(ImpellerContext context)
 		{
-			ImpellerContextReleaseNative(context);
+			ContextReleaseNative(context);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte ImpellerContextGetVulkanInfoNative(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
+		internal static byte ContextGetVulkanInfoNative(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerContextVulkanInfo*, byte>)funcTable[6])(context, outVulkanInfo);
@@ -471,58 +270,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool ImpellerContextGetVulkanInfo(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
+		public static bool ContextGetVulkanInfo(ImpellerContext context, ImpellerContextVulkanInfoPtr outVulkanInfo)
 		{
-			byte ret = ImpellerContextGetVulkanInfoNative(context, outVulkanInfo);
+			byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)outVulkanInfo);
 			return ret != 0;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool ImpellerContextGetVulkanInfo(ImpellerContext context, ref ImpellerContextVulkanInfo outVulkanInfo)
+		public static bool ContextGetVulkanInfo(ImpellerContext context, ref ImpellerContextVulkanInfo outVulkanInfo)
 		{
 			fixed (ImpellerContextVulkanInfo* poutVulkanInfo = &outVulkanInfo)
 			{
-				byte ret = ImpellerContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)poutVulkanInfo);
+				byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)poutVulkanInfo);
 				return ret != 0;
 			}
 		}
@@ -530,23 +299,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerVulkanSwapchain ImpellerVulkanSwapchainCreateNewNative(ImpellerContext context, void* vulkanSurfaceKhr)
+		internal static ImpellerVulkanSwapchain VulkanSwapchainCreateNewNative(ImpellerContext context, void* vulkanSurfaceKhr)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, void*, ImpellerVulkanSwapchain>)funcTable[7])(context, vulkanSurfaceKhr);
@@ -558,64 +315,34 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerVulkanSwapchain ImpellerVulkanSwapchainCreateNew(ImpellerContext context, void* vulkanSurfaceKhr)
+		public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, void* vulkanSurfaceKhr)
 		{
-			ImpellerVulkanSwapchain ret = ImpellerVulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
+			ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerVulkanSwapchain ImpellerVulkanSwapchainCreateNew(ImpellerContext context, nint vulkanSurfaceKhr)
+		public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, nint vulkanSurfaceKhr)
 		{
-			ImpellerVulkanSwapchain ret = ImpellerVulkanSwapchainCreateNewNative(context, (void*)vulkanSurfaceKhr);
+			ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, (void*)vulkanSurfaceKhr);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerVulkanSwapchainRetainNative(ImpellerVulkanSwapchain swapchain)
+		internal static void VulkanSwapchainRetainNative(ImpellerVulkanSwapchain swapchain)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[8])(swapchain);
@@ -627,32 +354,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerVulkanSwapchainRetain(ImpellerVulkanSwapchain swapchain)
+		public static void VulkanSwapchainRetain(ImpellerVulkanSwapchain swapchain)
 		{
-			ImpellerVulkanSwapchainRetainNative(swapchain);
+			VulkanSwapchainRetainNative(swapchain);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerVulkanSwapchainReleaseNative(ImpellerVulkanSwapchain swapchain)
+		internal static void VulkanSwapchainReleaseNative(ImpellerVulkanSwapchain swapchain)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[9])(swapchain);
@@ -664,36 +379,21 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerVulkanSwapchainRelease(ImpellerVulkanSwapchain swapchain)
+		public static void VulkanSwapchainRelease(ImpellerVulkanSwapchain swapchain)
 		{
-			ImpellerVulkanSwapchainReleaseNative(swapchain);
+			VulkanSwapchainReleaseNative(swapchain);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerSurface ImpellerVulkanSwapchainAcquireNextSurfaceNewNative(ImpellerVulkanSwapchain swapchain)
+		internal static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNewNative(ImpellerVulkanSwapchain swapchain)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, ImpellerSurface>)funcTable[10])(swapchain);
@@ -705,50 +405,23 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerSurface ImpellerVulkanSwapchainAcquireNextSurfaceNew(ImpellerVulkanSwapchain swapchain)
+		public static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNew(ImpellerVulkanSwapchain swapchain)
 		{
-			ImpellerSurface ret = ImpellerVulkanSwapchainAcquireNextSurfaceNewNative(swapchain);
+			ImpellerSurface ret = VulkanSwapchainAcquireNextSurfaceNewNative(swapchain);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerSurface ImpellerSurfaceCreateWrappedFBONewNative(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
+		internal static ImpellerSurface SurfaceCreateWrappedFBONewNative(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ulong, ImpellerPixelFormat, ImpellerISize*, ImpellerSurface>)funcTable[11])(context, fbo, format, size);
@@ -760,62 +433,26 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerSurface ImpellerSurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
+		public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISizePtr size)
 		{
-			ImpellerSurface ret = ImpellerSurfaceCreateWrappedFBONewNative(context, fbo, format, size);
+			ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)size);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerSurface ImpellerSurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, in ImpellerISize size)
+		public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, in ImpellerISize size)
 		{
 			fixed (ImpellerISize* psize = &size)
 			{
-				ImpellerSurface ret = ImpellerSurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)psize);
+				ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)psize);
 				return ret;
 			}
 		}
@@ -823,25 +460,13 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The Metal layer must be using the same device managed by the<br/>
 		/// underlying context.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerSurface ImpellerSurfaceCreateWrappedMetalDrawableNewNative(ImpellerContext context, void* metalDrawable)
+		internal static ImpellerSurface SurfaceCreateWrappedMetalDrawableNewNative(ImpellerContext context, void* metalDrawable)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, void*, ImpellerSurface>)funcTable[12])(context, metalDrawable);
@@ -853,68 +478,38 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The Metal layer must be using the same device managed by the<br/>
 		/// underlying context.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerSurface ImpellerSurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, void* metalDrawable)
+		public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, void* metalDrawable)
 		{
-			ImpellerSurface ret = ImpellerSurfaceCreateWrappedMetalDrawableNewNative(context, metalDrawable);
+			ImpellerSurface ret = SurfaceCreateWrappedMetalDrawableNewNative(context, metalDrawable);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The Metal layer must be using the same device managed by the<br/>
 		/// underlying context.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerSurface ImpellerSurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, nint metalDrawable)
+		public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, nint metalDrawable)
 		{
-			ImpellerSurface ret = ImpellerSurfaceCreateWrappedMetalDrawableNewNative(context, (void*)metalDrawable);
+			ImpellerSurface ret = SurfaceCreateWrappedMetalDrawableNewNative(context, (void*)metalDrawable);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerSurfaceRetainNative(ImpellerSurface surface)
+		internal static void SurfaceRetainNative(ImpellerSurface surface)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[13])(surface);
@@ -926,32 +521,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerSurfaceRetain(ImpellerSurface surface)
+		public static void SurfaceRetain(ImpellerSurface surface)
 		{
-			ImpellerSurfaceRetainNative(surface);
+			SurfaceRetainNative(surface);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerSurfaceReleaseNative(ImpellerSurface surface)
+		internal static void SurfaceReleaseNative(ImpellerSurface surface)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[14])(surface);
@@ -963,43 +546,22 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerSurfaceRelease(ImpellerSurface surface)
+		public static void SurfaceRelease(ImpellerSurface surface)
 		{
-			ImpellerSurfaceReleaseNative(surface);
+			SurfaceReleaseNative(surface);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte ImpellerSurfaceDrawDisplayListNative(ImpellerSurface surface, ImpellerDisplayList displayList)
+		internal static byte SurfaceDrawDisplayListNative(ImpellerSurface surface, ImpellerDisplayList displayList)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerSurface, ImpellerDisplayList, byte>)funcTable[15])(surface, displayList);
@@ -1011,48 +573,24 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool ImpellerSurfaceDrawDisplayList(ImpellerSurface surface, ImpellerDisplayList displayList)
+		public static bool SurfaceDrawDisplayList(ImpellerSurface surface, ImpellerDisplayList displayList)
 		{
-			byte ret = ImpellerSurfaceDrawDisplayListNative(surface, displayList);
+			byte ret = SurfaceDrawDisplayListNative(surface, displayList);
 			return ret != 0;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte ImpellerSurfacePresentNative(ImpellerSurface surface)
+		internal static byte SurfacePresentNative(ImpellerSurface surface)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerSurface, byte>)funcTable[16])(surface);
@@ -1064,37 +602,22 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static bool ImpellerSurfacePresent(ImpellerSurface surface)
+		public static bool SurfacePresent(ImpellerSurface surface)
 		{
-			byte ret = ImpellerSurfacePresentNative(surface);
+			byte ret = SurfacePresentNative(surface);
 			return ret != 0;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathRetainNative(ImpellerPath path)
+		internal static void PathRetainNative(ImpellerPath path)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[17])(path);
@@ -1106,32 +629,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerPathRetain(ImpellerPath path)
+		public static void PathRetain(ImpellerPath path)
 		{
-			ImpellerPathRetainNative(path);
+			PathRetainNative(path);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathReleaseNative(ImpellerPath path)
+		internal static void PathReleaseNative(ImpellerPath path)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[18])(path);
@@ -1143,38 +654,23 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerPathRelease(ImpellerPath path)
+		public static void PathRelease(ImpellerPath path)
 		{
-			ImpellerPathReleaseNative(path);
+			PathReleaseNative(path);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The bounds are conservative. That is, they may be larger than<br/>
 		/// the actual shape of the path and could include the control<br/>
 		/// points and isolated calls to move the cursor.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathGetBoundsNative(ImpellerPath path, ImpellerRect* outBounds)
+		internal static void PathGetBoundsNative(ImpellerPath path, ImpellerRect* outBounds)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPath, ImpellerRect*, void>)funcTable[19])(path, outBounds);
@@ -1186,63 +682,39 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The bounds are conservative. That is, they may be larger than<br/>
 		/// the actual shape of the path and could include the control<br/>
 		/// points and isolated calls to move the cursor.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathGetBounds(ImpellerPath path, ImpellerRect* outBounds)
+		public static void PathGetBounds(ImpellerPath path, ImpellerRectPtr outBounds)
 		{
-			ImpellerPathGetBoundsNative(path, outBounds);
+			PathGetBoundsNative(path, (ImpellerRect*)outBounds);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The bounds are conservative. That is, they may be larger than<br/>
 		/// the actual shape of the path and could include the control<br/>
 		/// points and isolated calls to move the cursor.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathGetBounds(ImpellerPath path, ref ImpellerRect outBounds)
+		public static void PathGetBounds(ImpellerPath path, ref ImpellerRect outBounds)
 		{
 			fixed (ImpellerRect* poutBounds = &outBounds)
 			{
-				ImpellerPathGetBoundsNative(path, (ImpellerRect*)poutBounds);
+				PathGetBoundsNative(path, (ImpellerRect*)poutBounds);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPathBuilder ImpellerPathBuilderNewNative()
+		internal static ImpellerPathBuilder PathBuilderNewNative()
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder>)funcTable[20])();
@@ -1254,33 +726,21 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerPathBuilder ImpellerPathBuilderNew()
+		public static ImpellerPathBuilder PathBuilderNew()
 		{
-			ImpellerPathBuilder ret = ImpellerPathBuilderNewNative();
+			ImpellerPathBuilder ret = PathBuilderNewNative();
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderRetainNative(ImpellerPathBuilder builder)
+		internal static void PathBuilderRetainNative(ImpellerPathBuilder builder)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[21])(builder);
@@ -1292,32 +752,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderRetain(ImpellerPathBuilder builder)
+		public static void PathBuilderRetain(ImpellerPathBuilder builder)
 		{
-			ImpellerPathBuilderRetainNative(builder);
+			PathBuilderRetainNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderReleaseNative(ImpellerPathBuilder builder)
+		internal static void PathBuilderReleaseNative(ImpellerPathBuilder builder)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[22])(builder);
@@ -1329,35 +777,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderRelease(ImpellerPathBuilder builder)
+		public static void PathBuilderRelease(ImpellerPathBuilder builder)
 		{
-			ImpellerPathBuilderReleaseNative(builder);
+			PathBuilderReleaseNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderMoveToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
+		internal static void PathBuilderMoveToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, void>)funcTable[23])(builder, location);
@@ -1369,60 +802,33 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderMoveTo(ImpellerPathBuilder builder, ImpellerPoint* location)
+		public static void PathBuilderMoveTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
 		{
-			ImpellerPathBuilderMoveToNative(builder, location);
+			PathBuilderMoveToNative(builder, (ImpellerPoint*)location);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderMoveTo(ImpellerPathBuilder builder, in ImpellerPoint location)
+		public static void PathBuilderMoveTo(ImpellerPathBuilder builder, in ImpellerPoint location)
 		{
 			fixed (ImpellerPoint* plocation = &location)
 			{
-				ImpellerPathBuilderMoveToNative(builder, (ImpellerPoint*)plocation);
+				PathBuilderMoveToNative(builder, (ImpellerPoint*)plocation);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderLineToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
+		internal static void PathBuilderLineToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, void>)funcTable[24])(builder, location);
@@ -1434,64 +840,34 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderLineTo(ImpellerPathBuilder builder, ImpellerPoint* location)
+		public static void PathBuilderLineTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
 		{
-			ImpellerPathBuilderLineToNative(builder, location);
+			PathBuilderLineToNative(builder, (ImpellerPoint*)location);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderLineTo(ImpellerPathBuilder builder, in ImpellerPoint location)
+		public static void PathBuilderLineTo(ImpellerPathBuilder builder, in ImpellerPoint location)
 		{
 			fixed (ImpellerPoint* plocation = &location)
 			{
-				ImpellerPathBuilderLineToNative(builder, (ImpellerPoint*)plocation);
+				PathBuilderLineToNative(builder, (ImpellerPoint*)plocation);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderQuadraticCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, ImpellerPoint* endPoint)
+		internal static void PathBuilderQuadraticCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, ImpellerPoint* endPoint)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, ImpellerPoint*, void>)funcTable[25])(builder, controlPoint, endPoint);
@@ -1503,103 +879,55 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, ImpellerPoint* endPoint)
+		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, ImpellerPointPtr endPoint)
 		{
-			ImpellerPathBuilderQuadraticCurveToNative(builder, controlPoint, endPoint);
+			PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)endPoint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, ImpellerPoint* endPoint)
+		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, ImpellerPointPtr endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
 			{
-				ImpellerPathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, endPoint);
+				PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)endPoint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, in ImpellerPoint endPoint)
+		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, in ImpellerPoint endPoint)
 		{
 			fixed (ImpellerPoint* pendPoint = &endPoint)
 			{
-				ImpellerPathBuilderQuadraticCurveToNative(builder, controlPoint, (ImpellerPoint*)pendPoint);
+				PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)pendPoint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, in ImpellerPoint endPoint)
+		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, in ImpellerPoint endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
 			{
 				fixed (ImpellerPoint* pendPoint = &endPoint)
 				{
-					ImpellerPathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)pendPoint);
+					PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)pendPoint);
 				}
 			}
 		}
@@ -1607,27 +935,12 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderCubicCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint)
+		internal static void PathBuilderCubicCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, ImpellerPoint*, ImpellerPoint*, void>)funcTable[26])(builder, controlPoint1, controlPoint2, endPoint);
@@ -1639,119 +952,59 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
 		{
-			ImpellerPathBuilderCubicCurveToNative(builder, controlPoint1, controlPoint2, endPoint);
+			PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
 			{
-				ImpellerPathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, controlPoint2, endPoint);
+				PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, in ImpellerPoint controlPoint2, ImpellerPoint* endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
 			{
-				ImpellerPathBuilderCubicCurveToNative(builder, controlPoint1, (ImpellerPoint*)pcontrolPoint2, endPoint);
+				PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, ImpellerPoint* endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
 			{
 				fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
 				{
-					ImpellerPathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, endPoint);
+					PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
 				}
 			}
 		}
@@ -1759,62 +1012,32 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, in ImpellerPoint endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
 		{
 			fixed (ImpellerPoint* pendPoint = &endPoint)
 			{
-				ImpellerPathBuilderCubicCurveToNative(builder, controlPoint1, controlPoint2, (ImpellerPoint*)pendPoint);
+				PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPoint* controlPoint2, in ImpellerPoint endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
 			{
 				fixed (ImpellerPoint* pendPoint = &endPoint)
 				{
-					ImpellerPathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, controlPoint2, (ImpellerPoint*)pendPoint);
+					PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
 				}
 			}
 		}
@@ -1822,32 +1045,17 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
 			{
 				fixed (ImpellerPoint* pendPoint = &endPoint)
 				{
-					ImpellerPathBuilderCubicCurveToNative(builder, controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
+					PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
 				}
 			}
 		}
@@ -1855,26 +1063,11 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// The new location of the cursor after this call is the end point<br/>
 		/// supplied.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
+		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
 		{
 			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
 			{
@@ -1882,7 +1075,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerPoint* pendPoint = &endPoint)
 					{
-						ImpellerPathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
+						PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
 					}
 				}
 			}
@@ -1891,19 +1084,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderAddRectNative(ImpellerPathBuilder builder, ImpellerRect* rect)
+		internal static void PathBuilderAddRectNative(ImpellerPathBuilder builder, ImpellerRect* rect)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, void>)funcTable[27])(builder, rect);
@@ -1915,66 +1099,33 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddRect(ImpellerPathBuilder builder, ImpellerRect* rect)
+		public static void PathBuilderAddRect(ImpellerPathBuilder builder, ImpellerRectPtr rect)
 		{
-			ImpellerPathBuilderAddRectNative(builder, rect);
+			PathBuilderAddRectNative(builder, (ImpellerRect*)rect);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddRect(ImpellerPathBuilder builder, in ImpellerRect rect)
+		public static void PathBuilderAddRect(ImpellerPathBuilder builder, in ImpellerRect rect)
 		{
 			fixed (ImpellerRect* prect = &rect)
 			{
-				ImpellerPathBuilderAddRectNative(builder, (ImpellerRect*)prect);
+				PathBuilderAddRectNative(builder, (ImpellerRect*)prect);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderAddArcNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees)
+		internal static void PathBuilderAddArcNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, float, float, void>)funcTable[28])(builder, ovalBounds, startAngleDegrees, endAngleDegrees);
@@ -1986,72 +1137,33 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddArc(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees)
+		public static void PathBuilderAddArc(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds, float startAngleDegrees, float endAngleDegrees)
 		{
-			ImpellerPathBuilderAddArcNative(builder, ovalBounds, startAngleDegrees, endAngleDegrees);
+			PathBuilderAddArcNative(builder, (ImpellerRect*)ovalBounds, startAngleDegrees, endAngleDegrees);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddArc(ImpellerPathBuilder builder, in ImpellerRect ovalBounds, float startAngleDegrees, float endAngleDegrees)
+		public static void PathBuilderAddArc(ImpellerPathBuilder builder, in ImpellerRect ovalBounds, float startAngleDegrees, float endAngleDegrees)
 		{
 			fixed (ImpellerRect* povalBounds = &ovalBounds)
 			{
-				ImpellerPathBuilderAddArcNative(builder, (ImpellerRect*)povalBounds, startAngleDegrees, endAngleDegrees);
+				PathBuilderAddArcNative(builder, (ImpellerRect*)povalBounds, startAngleDegrees, endAngleDegrees);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderAddOvalNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds)
+		internal static void PathBuilderAddOvalNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, void>)funcTable[29])(builder, ovalBounds);
@@ -2063,63 +1175,33 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddOval(ImpellerPathBuilder builder, ImpellerRect* ovalBounds)
+		public static void PathBuilderAddOval(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds)
 		{
-			ImpellerPathBuilderAddOvalNative(builder, ovalBounds);
+			PathBuilderAddOvalNative(builder, (ImpellerRect*)ovalBounds);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddOval(ImpellerPathBuilder builder, in ImpellerRect ovalBounds)
+		public static void PathBuilderAddOval(ImpellerPathBuilder builder, in ImpellerRect ovalBounds)
 		{
 			fixed (ImpellerRect* povalBounds = &ovalBounds)
 			{
-				ImpellerPathBuilderAddOvalNative(builder, (ImpellerRect*)povalBounds);
+				PathBuilderAddOvalNative(builder, (ImpellerRect*)povalBounds);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderAddRoundedRectNative(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii)
+		internal static void PathBuilderAddRoundedRectNative(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, ImpellerRoundingRadii*, void>)funcTable[30])(builder, rect, roundingRadii);
@@ -2131,99 +1213,51 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii)
+		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr roundingRadii)
 		{
-			ImpellerPathBuilderAddRoundedRectNative(builder, rect, roundingRadii);
+			PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)roundingRadii);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, ImpellerRoundingRadii* roundingRadii)
+		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr roundingRadii)
 		{
 			fixed (ImpellerRect* prect = &rect)
 			{
-				ImpellerPathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, roundingRadii);
+				PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)roundingRadii);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRect* rect, in ImpellerRoundingRadii roundingRadii)
+		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii roundingRadii)
 		{
 			fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
 			{
-				ImpellerPathBuilderAddRoundedRectNative(builder, rect, (ImpellerRoundingRadii*)proundingRadii);
+				PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)proundingRadii);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii roundingRadii)
+		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii roundingRadii)
 		{
 			fixed (ImpellerRect* prect = &rect)
 			{
 				fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
 				{
-					ImpellerPathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)proundingRadii);
+					PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)proundingRadii);
 				}
 			}
 		}
@@ -2231,16 +1265,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPathBuilderCloseNative(ImpellerPathBuilder builder)
+		internal static void PathBuilderCloseNative(ImpellerPathBuilder builder)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[31])(builder);
@@ -2252,39 +1280,21 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerPathBuilderClose(ImpellerPathBuilder builder)
+		public static void PathBuilderClose(ImpellerPathBuilder builder)
 		{
-			ImpellerPathBuilderCloseNative(builder);
+			PathBuilderCloseNative(builder);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPath ImpellerPathBuilderCopyPathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
+		internal static ImpellerPath PathBuilderCopyPathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[32])(builder, fill);
@@ -2296,47 +1306,23 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerPath ImpellerPathBuilderCopyPathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
+		public static ImpellerPath PathBuilderCopyPathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
 		{
-			ImpellerPath ret = ImpellerPathBuilderCopyPathNewNative(builder, fill);
+			ImpellerPath ret = PathBuilderCopyPathNewNative(builder, fill);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPath ImpellerPathBuilderTakePathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
+		internal static ImpellerPath PathBuilderTakePathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[33])(builder, fill);
@@ -2348,40 +1334,22 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerPath ImpellerPathBuilderTakePathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
+		public static ImpellerPath PathBuilderTakePathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
 		{
-			ImpellerPath ret = ImpellerPathBuilderTakePathNewNative(builder, fill);
+			ImpellerPath ret = PathBuilderTakePathNewNative(builder, fill);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPaint ImpellerPaintNewNative()
+		internal static ImpellerPaint PaintNewNative()
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPaint>)funcTable[34])();
@@ -2393,33 +1361,21 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerPaint ImpellerPaintNew()
+		public static ImpellerPaint PaintNew()
 		{
-			ImpellerPaint ret = ImpellerPaintNewNative();
+			ImpellerPaint ret = PaintNewNative();
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintRetainNative(ImpellerPaint paint)
+		internal static void PaintRetainNative(ImpellerPaint paint)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[35])(paint);
@@ -2431,32 +1387,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintRetain(ImpellerPaint paint)
+		public static void PaintRetain(ImpellerPaint paint)
 		{
-			ImpellerPaintRetainNative(paint);
+			PaintRetainNative(paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintReleaseNative(ImpellerPaint paint)
+		internal static void PaintReleaseNative(ImpellerPaint paint)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[36])(paint);
@@ -2468,35 +1412,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintRelease(ImpellerPaint paint)
+		public static void PaintRelease(ImpellerPaint paint)
 		{
-			ImpellerPaintReleaseNative(paint);
+			PaintReleaseNative(paint);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetColorNative(ImpellerPaint paint, ImpellerColor* color)
+		internal static void PaintSetColorNative(ImpellerPaint paint, ImpellerColor* color)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColor*, void>)funcTable[37])(paint, color);
@@ -2508,60 +1437,33 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetColor(ImpellerPaint paint, ImpellerColor* color)
+		public static void PaintSetColor(ImpellerPaint paint, ImpellerColorPtr color)
 		{
-			ImpellerPaintSetColorNative(paint, color);
+			PaintSetColorNative(paint, (ImpellerColor*)color);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetColor(ImpellerPaint paint, in ImpellerColor color)
+		public static void PaintSetColor(ImpellerPaint paint, in ImpellerColor color)
 		{
 			fixed (ImpellerColor* pcolor = &color)
 			{
-				ImpellerPaintSetColorNative(paint, (ImpellerColor*)pcolor);
+				PaintSetColorNative(paint, (ImpellerColor*)pcolor);
 			}
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetBlendModeNative(ImpellerPaint paint, ImpellerBlendMode mode)
+		internal static void PaintSetBlendModeNative(ImpellerPaint paint, ImpellerBlendMode mode)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerBlendMode, void>)funcTable[38])(paint, mode);
@@ -2573,38 +1475,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetBlendMode(ImpellerPaint paint, ImpellerBlendMode mode)
+		public static void PaintSetBlendMode(ImpellerPaint paint, ImpellerBlendMode mode)
 		{
-			ImpellerPaintSetBlendModeNative(paint, mode);
+			PaintSetBlendModeNative(paint, mode);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetDrawStyleNative(ImpellerPaint paint, ImpellerDrawStyle style)
+		internal static void PaintSetDrawStyleNative(ImpellerPaint paint, ImpellerDrawStyle style)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerDrawStyle, void>)funcTable[39])(paint, style);
@@ -2616,38 +1500,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetDrawStyle(ImpellerPaint paint, ImpellerDrawStyle style)
+		public static void PaintSetDrawStyle(ImpellerPaint paint, ImpellerDrawStyle style)
 		{
-			ImpellerPaintSetDrawStyleNative(paint, style);
+			PaintSetDrawStyleNative(paint, style);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetStrokeCapNative(ImpellerPaint paint, ImpellerStrokeCap cap)
+		internal static void PaintSetStrokeCapNative(ImpellerPaint paint, ImpellerStrokeCap cap)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeCap, void>)funcTable[40])(paint, cap);
@@ -2659,38 +1525,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetStrokeCap(ImpellerPaint paint, ImpellerStrokeCap cap)
+		public static void PaintSetStrokeCap(ImpellerPaint paint, ImpellerStrokeCap cap)
 		{
-			ImpellerPaintSetStrokeCapNative(paint, cap);
+			PaintSetStrokeCapNative(paint, cap);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetStrokeJoinNative(ImpellerPaint paint, ImpellerStrokeJoin join)
+		internal static void PaintSetStrokeJoinNative(ImpellerPaint paint, ImpellerStrokeJoin join)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeJoin, void>)funcTable[41])(paint, join);
@@ -2702,38 +1550,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetStrokeJoin(ImpellerPaint paint, ImpellerStrokeJoin join)
+		public static void PaintSetStrokeJoin(ImpellerPaint paint, ImpellerStrokeJoin join)
 		{
-			ImpellerPaintSetStrokeJoinNative(paint, join);
+			PaintSetStrokeJoinNative(paint, join);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetStrokeWidthNative(ImpellerPaint paint, float width)
+		internal static void PaintSetStrokeWidthNative(ImpellerPaint paint, float width)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[42])(paint, width);
@@ -2745,38 +1575,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetStrokeWidth(ImpellerPaint paint, float width)
+		public static void PaintSetStrokeWidth(ImpellerPaint paint, float width)
 		{
-			ImpellerPaintSetStrokeWidthNative(paint, width);
+			PaintSetStrokeWidthNative(paint, width);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetStrokeMiterNative(ImpellerPaint paint, float miter)
+		internal static void PaintSetStrokeMiterNative(ImpellerPaint paint, float miter)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[43])(paint, miter);
@@ -2788,41 +1600,23 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetStrokeMiter(ImpellerPaint paint, float miter)
+		public static void PaintSetStrokeMiter(ImpellerPaint paint, float miter)
 		{
-			ImpellerPaintSetStrokeMiterNative(paint, miter);
+			PaintSetStrokeMiterNative(paint, miter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Color filters are functions that take two colors and mix them to<br/>
 		/// produce a single color. This color is then usually merged with<br/>
 		/// the destination during blending.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetColorFilterNative(ImpellerPaint paint, ImpellerColorFilter colorFilter)
+		internal static void PaintSetColorFilterNative(ImpellerPaint paint, ImpellerColorFilter colorFilter)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorFilter, void>)funcTable[44])(paint, colorFilter);
@@ -2834,43 +1628,25 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Color filters are functions that take two colors and mix them to<br/>
 		/// produce a single color. This color is then usually merged with<br/>
 		/// the destination during blending.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetColorFilter(ImpellerPaint paint, ImpellerColorFilter colorFilter)
+		public static void PaintSetColorFilter(ImpellerPaint paint, ImpellerColorFilter colorFilter)
 		{
-			ImpellerPaintSetColorFilterNative(paint, colorFilter);
+			PaintSetColorFilterNative(paint, colorFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Color sources are functions that generate colors for each<br/>
 		/// texture element covered by a draw call.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetColorSourceNative(ImpellerPaint paint, ImpellerColorSource colorSource)
+		internal static void PaintSetColorSourceNative(ImpellerPaint paint, ImpellerColorSource colorSource)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorSource, void>)funcTable[45])(paint, colorSource);
@@ -2882,42 +1658,24 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Color sources are functions that generate colors for each<br/>
 		/// texture element covered by a draw call.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetColorSource(ImpellerPaint paint, ImpellerColorSource colorSource)
+		public static void PaintSetColorSource(ImpellerPaint paint, ImpellerColorSource colorSource)
 		{
-			ImpellerPaintSetColorSourceNative(paint, colorSource);
+			PaintSetColorSourceNative(paint, colorSource);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Image filters are functions that are applied to regions of a<br/>
 		/// texture to produce a single color.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetImageFilterNative(ImpellerPaint paint, ImpellerImageFilter imageFilter)
+		internal static void PaintSetImageFilterNative(ImpellerPaint paint, ImpellerImageFilter imageFilter)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerImageFilter, void>)funcTable[46])(paint, imageFilter);
@@ -2929,40 +1687,22 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Image filters are functions that are applied to regions of a<br/>
 		/// texture to produce a single color.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetImageFilter(ImpellerPaint paint, ImpellerImageFilter imageFilter)
+		public static void PaintSetImageFilter(ImpellerPaint paint, ImpellerImageFilter imageFilter)
 		{
-			ImpellerPaintSetImageFilterNative(paint, imageFilter);
+			PaintSetImageFilterNative(paint, imageFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerPaintSetMaskFilterNative(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
+		internal static void PaintSetMaskFilterNative(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerMaskFilter, void>)funcTable[47])(paint, maskFilter);
@@ -2974,28 +1714,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// </summary>
-		public static void ImpellerPaintSetMaskFilter(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
+		public static void PaintSetMaskFilter(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
 		{
-			ImpellerPaintSetMaskFilterNative(paint, maskFilter);
+			PaintSetMaskFilterNative(paint, maskFilter);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3012,29 +1740,11 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerTexture ImpellerTextureCreateWithContentsNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
+		internal static ImpellerTexture TextureCreateWithContentsNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerTextureDescriptor*, ImpellerMapping*, void*, ImpellerTexture>)funcTable[48])(context, descriptor, contents, contentsOnReleaseUserData);
@@ -3046,9 +1756,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3065,39 +1772,18 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
 		{
-			ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, descriptor, contents, contentsOnReleaseUserData);
+			ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3114,32 +1800,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
-				ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, contents, contentsOnReleaseUserData);
+				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -3147,9 +1815,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3166,32 +1831,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptor* descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
 		{
 			fixed (ImpellerMapping* pcontents = &contents)
 			{
-				ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, descriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
+				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -3199,9 +1846,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3218,34 +1862,16 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
 				fixed (ImpellerMapping* pcontents = &contents)
 				{
-					ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
+					ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
 					return ret;
 				}
 			}
@@ -3254,9 +1880,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3273,39 +1896,18 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, nint contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
 		{
-			ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, descriptor, contents, (void*)contentsOnReleaseUserData);
+			ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3322,32 +1924,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMapping* contents, nint contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
-				ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, contents, (void*)contentsOnReleaseUserData);
+				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -3355,9 +1939,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3374,32 +1955,14 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptor* descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
 		{
 			fixed (ImpellerMapping* pcontents = &contents)
 			{
-				ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, descriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
+				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
 				return ret;
 			}
 		}
@@ -3407,9 +1970,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Impeller will do its best to perform the transfer of this data<br/>
 		/// to GPU memory with a minimal number of copies. Towards this<br/>
 		/// end, it may need to send this data to a different thread for<br/>
@@ -3426,34 +1986,16 @@ namespace Vertex.NET.Impeller
 		/// a release callback and be resilient to the data being released<br/>
 		/// in a deferred manner on a background thread.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
+		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
 				fixed (ImpellerMapping* pcontents = &contents)
 				{
-					ImpellerTexture ret = ImpellerTextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
+					ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
 					return ret;
 				}
 			}
@@ -3462,9 +2004,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Ownership of the handle is transferred over to Impeller after a<br/>
 		/// successful call to this method. Impeller is responsible for<br/>
 		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
@@ -3476,22 +2015,10 @@ namespace Vertex.NET.Impeller
 		/// If the context is not an OpenGL context, this call will always<br/>
 		/// fail.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerTexture ImpellerTextureCreateWithOpenGLTextureHandleNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle)
+		internal static ImpellerTexture TextureCreateWithOpenGLTextureHandleNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerTextureDescriptor*, ulong, ImpellerTexture>)funcTable[49])(context, descriptor, handle);
@@ -3503,9 +2030,6 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Ownership of the handle is transferred over to Impeller after a<br/>
 		/// successful call to this method. Impeller is responsible for<br/>
 		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
@@ -3517,32 +2041,17 @@ namespace Vertex.NET.Impeller
 		/// If the context is not an OpenGL context, this call will always<br/>
 		/// fail.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle)
+		public static ImpellerTexture TextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ulong handle)
 		{
-			ImpellerTexture ret = ImpellerTextureCreateWithOpenGLTextureHandleNewNative(context, descriptor, handle);
+			ImpellerTexture ret = TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)descriptor, handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// Ownership of the handle is transferred over to Impeller after a<br/>
 		/// successful call to this method. Impeller is responsible for<br/>
 		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
@@ -3554,25 +2063,13 @@ namespace Vertex.NET.Impeller
 		/// If the context is not an OpenGL context, this call will always<br/>
 		/// fail.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerTexture ImpellerTextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ulong handle)
+		public static ImpellerTexture TextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ulong handle)
 		{
 			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
 			{
-				ImpellerTexture ret = ImpellerTextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, handle);
+				ImpellerTexture ret = TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, handle);
 				return ret;
 			}
 		}
@@ -3580,16 +2077,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerTextureRetainNative(ImpellerTexture texture)
+		internal static void TextureRetainNative(ImpellerTexture texture)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[50])(texture);
@@ -3601,32 +2092,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerTextureRetain(ImpellerTexture texture)
+		public static void TextureRetain(ImpellerTexture texture)
 		{
-			ImpellerTextureRetainNative(texture);
+			TextureRetainNative(texture);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerTextureReleaseNative(ImpellerTexture texture)
+		internal static void TextureReleaseNative(ImpellerTexture texture)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[51])(texture);
@@ -3638,40 +2117,25 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerTextureRelease(ImpellerTexture texture)
+		public static void TextureRelease(ImpellerTexture texture)
 		{
-			ImpellerTextureReleaseNative(texture);
+			TextureReleaseNative(texture);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// OpenGL handles are lazily created, this method will return<br/>
 		/// GL_NONE is no OpenGL handle is available. To ensure that this<br/>
 		/// call eagerly creates an OpenGL texture, call this on a thread<br/>
 		/// where Impeller knows there is an OpenGL context available.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ulong ImpellerTextureGetOpenGLHandleNative(ImpellerTexture texture)
+		internal static ulong TextureGetOpenGLHandleNative(ImpellerTexture texture)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerTexture, ulong>)funcTable[52])(texture);
@@ -3683,52 +2147,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// OpenGL handles are lazily created, this method will return<br/>
 		/// GL_NONE is no OpenGL handle is available. To ensure that this<br/>
 		/// call eagerly creates an OpenGL texture, call this on a thread<br/>
 		/// where Impeller knows there is an OpenGL context available.<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ulong ImpellerTextureGetOpenGLHandle(ImpellerTexture texture)
+		public static ulong TextureGetOpenGLHandle(ImpellerTexture texture)
 		{
-			ulong ret = ImpellerTextureGetOpenGLHandleNative(texture);
+			ulong ret = TextureGetOpenGLHandleNative(texture);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerFragmentProgram ImpellerFragmentProgramNewNative(ImpellerMapping* data, void* dataReleaseUserData)
+		internal static ImpellerFragmentProgram FragmentProgramNewNative(ImpellerMapping* data, void* dataReleaseUserData)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerMapping*, void*, ImpellerFragmentProgram>)funcTable[53])(data, dataReleaseUserData);
@@ -3740,58 +2180,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerFragmentProgram ImpellerFragmentProgramNew(ImpellerMapping* data, void* dataReleaseUserData)
+		public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, void* dataReleaseUserData)
 		{
-			ImpellerFragmentProgram ret = ImpellerFragmentProgramNewNative(data, dataReleaseUserData);
+			ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, dataReleaseUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerFragmentProgram ImpellerFragmentProgramNew(in ImpellerMapping data, void* dataReleaseUserData)
+		public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, void* dataReleaseUserData)
 		{
 			fixed (ImpellerMapping* pdata = &data)
 			{
-				ImpellerFragmentProgram ret = ImpellerFragmentProgramNewNative((ImpellerMapping*)pdata, dataReleaseUserData);
+				ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)pdata, dataReleaseUserData);
 				return ret;
 			}
 		}
@@ -3799,58 +2209,28 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerFragmentProgram ImpellerFragmentProgramNew(ImpellerMapping* data, nint dataReleaseUserData)
+		public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, nint dataReleaseUserData)
 		{
-			ImpellerFragmentProgram ret = ImpellerFragmentProgramNewNative(data, (void*)dataReleaseUserData);
+			ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, (void*)dataReleaseUserData);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerFragmentProgram ImpellerFragmentProgramNew(in ImpellerMapping data, nint dataReleaseUserData)
+		public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, nint dataReleaseUserData)
 		{
 			fixed (ImpellerMapping* pdata = &data)
 			{
-				ImpellerFragmentProgram ret = ImpellerFragmentProgramNewNative((ImpellerMapping*)pdata, (void*)dataReleaseUserData);
+				ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)pdata, (void*)dataReleaseUserData);
 				return ret;
 			}
 		}
@@ -3858,16 +2238,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerFragmentProgramRetainNative(ImpellerFragmentProgram fragmentProgram)
+		internal static void FragmentProgramRetainNative(ImpellerFragmentProgram fragmentProgram)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[54])(fragmentProgram);
@@ -3879,32 +2253,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerFragmentProgramRetain(ImpellerFragmentProgram fragmentProgram)
+		public static void FragmentProgramRetain(ImpellerFragmentProgram fragmentProgram)
 		{
-			ImpellerFragmentProgramRetainNative(fragmentProgram);
+			FragmentProgramRetainNative(fragmentProgram);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerFragmentProgramReleaseNative(ImpellerFragmentProgram fragmentProgram)
+		internal static void FragmentProgramReleaseNative(ImpellerFragmentProgram fragmentProgram)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[55])(fragmentProgram);
@@ -3916,32 +2278,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerFragmentProgramRelease(ImpellerFragmentProgram fragmentProgram)
+		public static void FragmentProgramRelease(ImpellerFragmentProgram fragmentProgram)
 		{
-			ImpellerFragmentProgramReleaseNative(fragmentProgram);
+			FragmentProgramReleaseNative(fragmentProgram);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerColorSourceRetainNative(ImpellerColorSource colorSource)
+		internal static void ColorSourceRetainNative(ImpellerColorSource colorSource)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[56])(colorSource);
@@ -3953,32 +2303,20 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerColorSourceRetain(ImpellerColorSource colorSource)
+		public static void ColorSourceRetain(ImpellerColorSource colorSource)
 		{
-			ImpellerColorSourceRetainNative(colorSource);
+			ColorSourceRetainNative(colorSource);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImpellerColorSourceReleaseNative(ImpellerColorSource colorSource)
+		internal static void ColorSourceReleaseNative(ImpellerColorSource colorSource)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[57])(colorSource);
@@ -3990,54 +2328,21 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static void ImpellerColorSourceRelease(ImpellerColorSource colorSource)
+		public static void ColorSourceRelease(ImpellerColorSource colorSource)
 		{
-			ImpellerColorSourceReleaseNative(colorSource);
+			ColorSourceReleaseNative(colorSource);
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNewNative(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		internal static ImpellerColorSource ColorSourceCreateLinearGradientNewNative(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, ImpellerPoint*, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[58])(startPoint, endPoint, stopCount, colors, stops, tileMode, transformation);
@@ -4049,80 +2354,26 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
-			ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, endPoint, stopCount, colors, stops, tileMode, transformation);
+			ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
 			return ret;
 		}
 
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
-				ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, endPoint, stopCount, colors, stops, tileMode, transformation);
+				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
 				return ret;
 			}
 		}
@@ -4130,41 +2381,14 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pendPoint = &endPoint)
 			{
-				ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, (ImpellerPoint*)pendPoint, stopCount, colors, stops, tileMode, transformation);
+				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
 				return ret;
 			}
 		}
@@ -4172,43 +2396,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
 				fixed (ImpellerPoint* pendPoint = &endPoint)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, colors, stops, tileMode, transformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
 					return ret;
 				}
 			}
@@ -4217,41 +2414,14 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerColor* pcolors = &colors)
 			{
-				ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, transformation);
+				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
 				return ret;
 			}
 		}
@@ -4259,43 +2429,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPoint* endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
 				fixed (ImpellerColor* pcolors = &colors)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, transformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
 					return ret;
 				}
 			}
@@ -4304,43 +2447,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pendPoint = &endPoint)
 			{
 				fixed (ImpellerColor* pcolors = &colors)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, transformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
 					return ret;
 				}
 			}
@@ -4349,37 +2465,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
@@ -4387,7 +2476,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerColor* pcolors = &colors)
 					{
-						ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, transformation);
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
 						return ret;
 					}
 				}
@@ -4397,41 +2486,14 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (float* pstops = &stops)
 			{
-				ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, endPoint, stopCount, colors, (float*)pstops, tileMode, transformation);
+				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 				return ret;
 			}
 		}
@@ -4439,43 +2501,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
 				fixed (float* pstops = &stops)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, endPoint, stopCount, colors, (float*)pstops, tileMode, transformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 					return ret;
 				}
 			}
@@ -4484,43 +2519,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColor* colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pendPoint = &endPoint)
 			{
 				fixed (float* pstops = &stops)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, (ImpellerPoint*)pendPoint, stopCount, colors, (float*)pstops, tileMode, transformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 					return ret;
 				}
 			}
@@ -4529,37 +2537,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColor* colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
@@ -4567,7 +2548,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (float* pstops = &stops)
 					{
-						ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, colors, (float*)pstops, tileMode, transformation);
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 						return ret;
 					}
 				}
@@ -4577,43 +2558,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerColor* pcolors = &colors)
 			{
 				fixed (float* pstops = &stops)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, transformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 					return ret;
 				}
 			}
@@ -4622,37 +2576,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPoint* endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
@@ -4660,7 +2587,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (float* pstops = &stops)
 					{
-						ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, transformation);
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 						return ret;
 					}
 				}
@@ -4670,37 +2597,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pendPoint = &endPoint)
 			{
@@ -4708,7 +2608,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (float* pstops = &stops)
 					{
-						ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, transformation);
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 						return ret;
 					}
 				}
@@ -4718,37 +2618,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
@@ -4758,7 +2631,7 @@ namespace Vertex.NET.Impeller
 					{
 						fixed (float* pstops = &stops)
 						{
-							ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, transformation);
+							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
 							return ret;
 						}
 					}
@@ -4769,41 +2642,14 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
 		{
 			fixed (ImpellerMatrix* ptransformation = &transformation)
 			{
-				ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, endPoint, stopCount, colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
 				return ret;
 			}
 		}
@@ -4811,43 +2657,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
 				fixed (ImpellerMatrix* ptransformation = &transformation)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, endPoint, stopCount, colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
 					return ret;
 				}
 			}
@@ -4856,43 +2675,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
 		{
 			fixed (ImpellerPoint* pendPoint = &endPoint)
 			{
 				fixed (ImpellerMatrix* ptransformation = &transformation)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, (ImpellerPoint*)pendPoint, stopCount, colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
 					return ret;
 				}
 			}
@@ -4901,37 +2693,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
@@ -4939,7 +2704,7 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerMatrix* ptransformation = &transformation)
 					{
-						ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
 						return ret;
 					}
 				}
@@ -4949,43 +2714,16 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
 		{
 			fixed (ImpellerColor* pcolors = &colors)
 			{
 				fixed (ImpellerMatrix* ptransformation = &transformation)
 				{
-					ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative(startPoint, endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
 					return ret;
 				}
 			}
@@ -4994,37 +2732,10 @@ namespace Vertex.NET.Impeller
 		/// <summary>
 		/// ------------------------------------------------------------------------------<br/>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		/// <br/>
-		/// <summary>
-		/// To be documented.
 		/// </summary>
-		/// </summary>
-		public static ImpellerColorSource ImpellerColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPoint* endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
 		{
 			fixed (ImpellerPoint* pstartPoint = &startPoint)
 			{
@@ -5032,11 +2743,2286 @@ namespace Vertex.NET.Impeller
 				{
 					fixed (ImpellerMatrix* ptransformation = &transformation)
 					{
-						ImpellerColorSource ret = ImpellerColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
 						return ret;
 					}
 				}
 			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pendPoint = &endPoint)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartPoint = &startPoint)
+			{
+				fixed (ImpellerPoint* pendPoint = &endPoint)
+				{
+					fixed (ImpellerColor* pcolors = &colors)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (float* pstops = &stops)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartPoint = &startPoint)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pendPoint = &endPoint)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartPoint = &startPoint)
+			{
+				fixed (ImpellerPoint* pendPoint = &endPoint)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartPoint = &startPoint)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pendPoint = &endPoint)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartPoint = &startPoint)
+			{
+				fixed (ImpellerPoint* pendPoint = &endPoint)
+				{
+					fixed (ImpellerColor* pcolors = &colors)
+					{
+						fixed (float* pstops = &stops)
+						{
+							fixed (ImpellerMatrix* ptransformation = &transformation)
+							{
+								ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerColorSource ColorSourceCreateRadialGradientNewNative(ImpellerPoint* center, float radius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[59])(center, radius, stopCount, colors, stops, tileMode, transformation);
+			#else
+			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource>)funcTable[59])((nint)center, radius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (float* pstops = &stops)
+			{
+				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (float* pstops = &stops)
+				{
+					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (float* pstops = &stops)
+				{
+					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerMatrix* ptransformation = &transformation)
+			{
+				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (float* pstops = &stops)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerColorSource ColorSourceCreateConicalGradientNewNative(ImpellerPoint* startCenter, float startRadius, ImpellerPoint* endCenter, float endRadius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, ImpellerPoint*, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[60])(startCenter, startRadius, endCenter, endRadius, stopCount, colors, stops, tileMode, transformation);
+			#else
+			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource>)funcTable[60])((nint)startCenter, startRadius, (nint)endCenter, endRadius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					fixed (ImpellerColor* pcolors = &colors)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (float* pstops = &stops)
+			{
+				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (float* pstops = &stops)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				fixed (float* pstops = &stops)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					fixed (float* pstops = &stops)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (float* pstops = &stops)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					fixed (ImpellerColor* pcolors = &colors)
+					{
+						fixed (float* pstops = &stops)
+						{
+							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerMatrix* ptransformation = &transformation)
+			{
+				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					fixed (ImpellerColor* pcolors = &colors)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (float* pstops = &stops)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pendCenter = &endCenter)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pstartCenter = &startCenter)
+			{
+				fixed (ImpellerPoint* pendCenter = &endCenter)
+				{
+					fixed (ImpellerColor* pcolors = &colors)
+					{
+						fixed (float* pstops = &stops)
+						{
+							fixed (ImpellerMatrix* ptransformation = &transformation)
+							{
+								ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerColorSource ColorSourceCreateSweepGradientNewNative(ImpellerPoint* center, float start, float end, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[61])(center, start, end, stopCount, colors, stops, tileMode, transformation);
+			#else
+			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource>)funcTable[61])((nint)center, start, end, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (float* pstops = &stops)
+			{
+				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (float* pstops = &stops)
+				{
+					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (float* pstops = &stops)
+				{
+					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerMatrix* ptransformation = &transformation)
+			{
+				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (float* pstops = &stops)
+			{
+				fixed (ImpellerMatrix* ptransformation = &transformation)
+				{
+					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerColor* pcolors = &colors)
+			{
+				fixed (float* pstops = &stops)
+				{
+					fixed (ImpellerMatrix* ptransformation = &transformation)
+					{
+						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerPoint* pcenter = &center)
+			{
+				fixed (ImpellerColor* pcolors = &colors)
+				{
+					fixed (float* pstops = &stops)
+					{
+						fixed (ImpellerMatrix* ptransformation = &transformation)
+						{
+							ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerColorSource ColorSourceCreateImageNewNative(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrix* transformation)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerTexture, ImpellerTileMode, ImpellerTileMode, ImpellerTextureSampling, ImpellerMatrix*, ImpellerColorSource>)funcTable[62])(image, horizontalTileMode, verticalTileMode, sampling, transformation);
+			#else
+			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerTexture, ImpellerTileMode, ImpellerTileMode, ImpellerTextureSampling, nint, ImpellerColorSource>)funcTable[62])(image, horizontalTileMode, verticalTileMode, sampling, (nint)transformation);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrixPtr transformation)
+		{
+			ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)transformation);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, in ImpellerMatrix transformation)
+		{
+			fixed (ImpellerMatrix* ptransformation = &transformation)
+			{
+				ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)ptransformation);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerColorSource ColorSourceCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, ImpellerTexture*, nuint, byte*, nuint, ImpellerColorSource>)funcTable[63])(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+			#else
+			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerColorSource>)funcTable[63])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+		{
+			ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+		{
+			fixed (ImpellerTexture* psamplers = &samplers)
+			{
+				ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+		{
+			fixed (byte* pdata = &data)
+			{
+				ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+		{
+			fixed (ImpellerTexture* psamplers = &samplers)
+			{
+				fixed (byte* pdata = &data)
+				{
+					ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void ColorFilterRetainNative(ImpellerColorFilter colorFilter)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[64])(colorFilter);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[64])(colorFilter);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void ColorFilterRetain(ImpellerColorFilter colorFilter)
+		{
+			ColorFilterRetainNative(colorFilter);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void ColorFilterReleaseNative(ImpellerColorFilter colorFilter)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[65])(colorFilter);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[65])(colorFilter);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void ColorFilterRelease(ImpellerColorFilter colorFilter)
+		{
+			ColorFilterReleaseNative(colorFilter);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerColorFilter ColorFilterCreateBlendNewNative(ImpellerColor* color, ImpellerBlendMode blendMode)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerColor*, ImpellerBlendMode, ImpellerColorFilter>)funcTable[66])(color, blendMode);
+			#else
+			return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerBlendMode, ImpellerColorFilter>)funcTable[66])((nint)color, blendMode);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorFilter ColorFilterCreateBlendNew(ImpellerColorPtr color, ImpellerBlendMode blendMode)
+		{
+			ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)color, blendMode);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorFilter ColorFilterCreateBlendNew(in ImpellerColor color, ImpellerBlendMode blendMode)
+		{
+			fixed (ImpellerColor* pcolor = &color)
+			{
+				ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)pcolor, blendMode);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerColorFilter ColorFilterCreateColorMatrixNewNative(ImpellerColorMatrix* colorMatrix)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerColorMatrix*, ImpellerColorFilter>)funcTable[67])(colorMatrix);
+			#else
+			return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerColorFilter>)funcTable[67])((nint)colorMatrix);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(ImpellerColorMatrixPtr colorMatrix)
+		{
+			ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)colorMatrix);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(in ImpellerColorMatrix colorMatrix)
+		{
+			fixed (ImpellerColorMatrix* pcolorMatrix = &colorMatrix)
+			{
+				ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)pcolorMatrix);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaskFilterRetainNative(ImpellerMaskFilter maskFilter)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[68])(maskFilter);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[68])(maskFilter);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void MaskFilterRetain(ImpellerMaskFilter maskFilter)
+		{
+			MaskFilterRetainNative(maskFilter);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaskFilterReleaseNative(ImpellerMaskFilter maskFilter)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[69])(maskFilter);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[69])(maskFilter);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void MaskFilterRelease(ImpellerMaskFilter maskFilter)
+		{
+			MaskFilterReleaseNative(maskFilter);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerMaskFilter MaskFilterCreateBlurNewNative(ImpellerBlurStyle style, float sigma)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerBlurStyle, float, ImpellerMaskFilter>)funcTable[70])(style, sigma);
+			#else
+			return (ImpellerMaskFilter)((delegate* unmanaged[Cdecl]<ImpellerBlurStyle, float, ImpellerMaskFilter>)funcTable[70])(style, sigma);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerMaskFilter MaskFilterCreateBlurNew(ImpellerBlurStyle style, float sigma)
+		{
+			ImpellerMaskFilter ret = MaskFilterCreateBlurNewNative(style, sigma);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void ImageFilterRetainNative(ImpellerImageFilter imageFilter)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[71])(imageFilter);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[71])(imageFilter);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void ImageFilterRetain(ImpellerImageFilter imageFilter)
+		{
+			ImageFilterRetainNative(imageFilter);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void ImageFilterReleaseNative(ImpellerImageFilter imageFilter)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[72])(imageFilter);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[72])(imageFilter);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void ImageFilterRelease(ImpellerImageFilter imageFilter)
+		{
+			ImageFilterReleaseNative(imageFilter);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The Gaussian blur applied may be an approximation for<br/>
+		/// performance.<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerImageFilter ImageFilterCreateBlurNewNative(float xSigma, float ySigma, ImpellerTileMode tileMode)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerTileMode, ImpellerImageFilter>)funcTable[73])(xSigma, ySigma, tileMode);
+			#else
+			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerTileMode, ImpellerImageFilter>)funcTable[73])(xSigma, ySigma, tileMode);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// The Gaussian blur applied may be an approximation for<br/>
+		/// performance.<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateBlurNew(float xSigma, float ySigma, ImpellerTileMode tileMode)
+		{
+			ImpellerImageFilter ret = ImageFilterCreateBlurNewNative(xSigma, ySigma, tileMode);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerImageFilter ImageFilterCreateDilateNewNative(float xRadius, float yRadius)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[74])(xRadius, yRadius);
+			#else
+			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[74])(xRadius, yRadius);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateDilateNew(float xRadius, float yRadius)
+		{
+			ImpellerImageFilter ret = ImageFilterCreateDilateNewNative(xRadius, yRadius);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerImageFilter ImageFilterCreateErodeNewNative(float xRadius, float yRadius)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[75])(xRadius, yRadius);
+			#else
+			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[75])(xRadius, yRadius);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateErodeNew(float xRadius, float yRadius)
+		{
+			ImpellerImageFilter ret = ImageFilterCreateErodeNewNative(xRadius, yRadius);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerImageFilter ImageFilterCreateMatrixNewNative(ImpellerMatrix* matrix, ImpellerTextureSampling sampling)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerMatrix*, ImpellerTextureSampling, ImpellerImageFilter>)funcTable[76])(matrix, sampling);
+			#else
+			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerTextureSampling, ImpellerImageFilter>)funcTable[76])((nint)matrix, sampling);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateMatrixNew(ImpellerMatrixPtr matrix, ImpellerTextureSampling sampling)
+		{
+			ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)matrix, sampling);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateMatrixNew(in ImpellerMatrix matrix, ImpellerTextureSampling sampling)
+		{
+			fixed (ImpellerMatrix* pmatrix = &matrix)
+			{
+				ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)pmatrix, sampling);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerImageFilter ImageFilterCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, ImpellerTexture*, nuint, byte*, nuint, ImpellerImageFilter>)funcTable[77])(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+			#else
+			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerImageFilter>)funcTable[77])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+		{
+			ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+		{
+			fixed (ImpellerTexture* psamplers = &samplers)
+			{
+				ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+		{
+			fixed (byte* pdata = &data)
+			{
+				ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+		{
+			fixed (ImpellerTexture* psamplers = &samplers)
+			{
+				fixed (byte* pdata = &data)
+				{
+					ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// ```<br/>
+		/// destination = outer_filter(inner_filter(source))<br/>
+		/// ```<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerImageFilter ImageFilterCreateComposeNewNative(ImpellerImageFilter outer, ImpellerImageFilter inner)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerImageFilter, ImpellerImageFilter, ImpellerImageFilter>)funcTable[78])(outer, inner);
+			#else
+			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerImageFilter, ImpellerImageFilter, ImpellerImageFilter>)funcTable[78])(outer, inner);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// ```<br/>
+		/// destination = outer_filter(inner_filter(source))<br/>
+		/// ```<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerImageFilter ImageFilterCreateComposeNew(ImpellerImageFilter outer, ImpellerImageFilter inner)
+		{
+			ImpellerImageFilter ret = ImageFilterCreateComposeNewNative(outer, inner);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void DisplayListRetainNative(ImpellerDisplayList displayList)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[79])(displayList);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[79])(displayList);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void DisplayListRetain(ImpellerDisplayList displayList)
+		{
+			DisplayListRetainNative(displayList);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void DisplayListReleaseNative(ImpellerDisplayList displayList)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[80])(displayList);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[80])(displayList);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void DisplayListRelease(ImpellerDisplayList displayList)
+		{
+			DisplayListReleaseNative(displayList);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// An optional cull rectangle may be specified. Impeller is allowed<br/>
+		/// to treat the contents outside this rectangle as being undefined.<br/>
+		/// This may aid performance optimizations.<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerDisplayListBuilder DisplayListBuilderNewNative(ImpellerRect* cullRect)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerRect*, ImpellerDisplayListBuilder>)funcTable[81])(cullRect);
+			#else
+			return (ImpellerDisplayListBuilder)((delegate* unmanaged[Cdecl]<nint, ImpellerDisplayListBuilder>)funcTable[81])((nint)cullRect);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// An optional cull rectangle may be specified. Impeller is allowed<br/>
+		/// to treat the contents outside this rectangle as being undefined.<br/>
+		/// This may aid performance optimizations.<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerDisplayListBuilder DisplayListBuilderNew(ImpellerRectPtr cullRect)
+		{
+			ImpellerDisplayListBuilder ret = DisplayListBuilderNewNative((ImpellerRect*)cullRect);
+			return ret;
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// An optional cull rectangle may be specified. Impeller is allowed<br/>
+		/// to treat the contents outside this rectangle as being undefined.<br/>
+		/// This may aid performance optimizations.<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static ImpellerDisplayListBuilder DisplayListBuilderNew(in ImpellerRect cullRect)
+		{
+			fixed (ImpellerRect* pcullRect = &cullRect)
+			{
+				ImpellerDisplayListBuilder ret = DisplayListBuilderNewNative((ImpellerRect*)pcullRect);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void DisplayListBuilderRetainNative(ImpellerDisplayListBuilder builder)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[82])(builder);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[82])(builder);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void DisplayListBuilderRetain(ImpellerDisplayListBuilder builder)
+		{
+			DisplayListBuilderRetainNative(builder);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void DisplayListBuilderReleaseNative(ImpellerDisplayListBuilder builder)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[83])(builder);
+			#else
+			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[83])(builder);
+			#endif
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void DisplayListBuilderRelease(ImpellerDisplayListBuilder builder)
+		{
+			DisplayListBuilderReleaseNative(builder);
+		}
+
+		/// <summary>
+		/// ------------------------------------------------------------------------------<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static ImpellerDisplayList DisplayListBuilderCreateDisplayListNewNative(ImpellerDisplayListBuilder builder)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList>)funcTable[84])(builder);
+			#else
+			return (ImpellerDisplayList)((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList>)funcTable[84])(builder);
+			#endif
 		}
 	}
 }

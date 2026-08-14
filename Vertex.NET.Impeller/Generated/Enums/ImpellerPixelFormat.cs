@@ -12,15 +12,9 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerPixelFormat : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerPixelFormatRgba8888 = unchecked(0),
+		PixelFormatRgba8888 = unchecked(0),
 	}
 }

@@ -60,16 +60,10 @@ namespace Vertex.NET.Impeller
 	/// 0,      0,      0,      1, 0,<br/>
 	/// ```<br/>
 	/// <br/>
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerColorMatrix
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float M_0;
 		public float M_1;
 		public float M_2;
@@ -91,10 +85,6 @@ namespace Vertex.NET.Impeller
 		public float M_18;
 		public float M_19;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerColorMatrix(float* m = default)
 		{
 			if (m != default(float*))
@@ -122,9 +112,6 @@ namespace Vertex.NET.Impeller
 			}
 		}
 
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerColorMatrix(Span<float> m = default)
 		{
 			if (m != default(Span<float>))
@@ -153,6 +140,100 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	/// <summary>
+	/// ------------------------------------------------------------------------------<br/>
+	/// A 4x5 matrix using row-major storage used for transforming color values.<br/>
+	/// To transform color values, a 5x5 matrix is constructed with the 5th row<br/>
+	/// being identity. Then the following transformation is performed:<br/>
+	/// ```<br/>
+	/// | R' |   | m[0]  m[1]  m[2]  m[3]  m[4]  |   | R |<br/>
+	/// | G' |   | m[5]  m[6]  m[7]  m[8]  m[9]  |   | G |<br/>
+	/// | B' | = | m[10] m[11] m[12] m[13] m[14] | * | B |<br/>
+	/// | A' |   | m[15] m[16] m[17] m[18] m[19] |   | A |<br/>
+	/// | 1  |   | 0     0     0     0     1     |   | 1 |<br/>
+	/// ```<br/>
+	/// The translation column (m[4], m[9], m[14], m[19]) must be specified in<br/>
+	/// non-normalized 8-bit unsigned integer space (0 to 255). Values outside this<br/>
+	/// range will produce undefined results.<br/>
+	/// The identity transformation is thus:<br/>
+	/// ```<br/>
+	/// 1, 0, 0, 0, 0,<br/>
+	/// 0, 1, 0, 0, 0,<br/>
+	/// 0, 0, 1, 0, 0,<br/>
+	/// 0, 0, 0, 1, 0,<br/>
+	/// ```<br/>
+	/// Some examples:<br/>
+	/// To invert all colors:<br/>
+	/// ```<br/>
+	/// -1,  0,  0, 0, 255,<br/>
+	/// 0, -1,  0, 0, 255,<br/>
+	/// 0,  0, -1, 0, 255,<br/>
+	/// 0,  0,  0, 1,   0,<br/>
+	/// ```<br/>
+	/// To apply a sepia filter:<br/>
+	/// ```<br/>
+	/// 0.393, 0.769, 0.189, 0, 0,<br/>
+	/// 0.349, 0.686, 0.168, 0, 0,<br/>
+	/// 0.272, 0.534, 0.131, 0, 0,<br/>
+	/// 0,     0,     0,     1, 0,<br/>
+	/// ```<br/>
+	/// To apply a grayscale conversion filter:<br/>
+	/// ```<br/>
+	/// 0.2126, 0.7152, 0.0722, 0, 0,<br/>
+	/// 0.2126, 0.7152, 0.0722, 0, 0,<br/>
+	/// 0.2126, 0.7152, 0.0722, 0, 0,<br/>
+	/// 0,      0,      0,      1, 0,<br/>
+	/// ```<br/>
+	/// <br/>
+	/// </summary>
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerColorMatrixPtr : IEquatable<ImpellerColorMatrixPtr>
+	{
+		public ImpellerColorMatrixPtr(ImpellerColorMatrix* handle) { Handle = handle; }
+
+		public ImpellerColorMatrix* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerColorMatrixPtr Null => new ImpellerColorMatrixPtr(null);
+
+		public ImpellerColorMatrix this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerColorMatrixPtr(ImpellerColorMatrix* handle) => new ImpellerColorMatrixPtr(handle);
+
+		public static implicit operator ImpellerColorMatrix*(ImpellerColorMatrixPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerColorMatrixPtr left, ImpellerColorMatrixPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerColorMatrixPtr left, ImpellerColorMatrixPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerColorMatrixPtr left, ImpellerColorMatrix* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerColorMatrixPtr left, ImpellerColorMatrix* right) => left.Handle != right;
+
+		public bool Equals(ImpellerColorMatrixPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerColorMatrixPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerColorMatrixPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public unsafe Span<float> M
+		
+		{
+			get
+			{
+				return new Span<float>(&Handle->M_0, 20);
+			}
+		}
 	}
 
 }

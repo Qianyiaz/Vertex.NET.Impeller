@@ -12,29 +12,11 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	public enum ImpellerTileMode : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTileModeClamp = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTileModeRepeat = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTileModeMirror = unchecked(2),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTileModeDecal = unchecked(3),
+		TileModeClamp = unchecked(0),
+		TileModeRepeat = unchecked(1),
+		TileModeMirror = unchecked(2),
+		TileModeDecal = unchecked(3),
 	}
 }

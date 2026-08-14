@@ -15,31 +15,13 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerTextureDescriptor
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ImpellerPixelFormat PixelFormat;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public ImpellerISize Size;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public uint MipCount;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerTextureDescriptor(ImpellerPixelFormat pixelFormat = default, ImpellerISize size = default, uint mipCount = default)
 		{
 			PixelFormat = pixelFormat;
@@ -48,6 +30,49 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerTextureDescriptorPtr : IEquatable<ImpellerTextureDescriptorPtr>
+	{
+		public ImpellerTextureDescriptorPtr(ImpellerTextureDescriptor* handle) { Handle = handle; }
+
+		public ImpellerTextureDescriptor* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerTextureDescriptorPtr Null => new ImpellerTextureDescriptorPtr(null);
+
+		public ImpellerTextureDescriptor this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerTextureDescriptorPtr(ImpellerTextureDescriptor* handle) => new ImpellerTextureDescriptorPtr(handle);
+
+		public static implicit operator ImpellerTextureDescriptor*(ImpellerTextureDescriptorPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerTextureDescriptorPtr left, ImpellerTextureDescriptorPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerTextureDescriptorPtr left, ImpellerTextureDescriptorPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerTextureDescriptorPtr left, ImpellerTextureDescriptor* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerTextureDescriptorPtr left, ImpellerTextureDescriptor* right) => left.Handle != right;
+
+		public bool Equals(ImpellerTextureDescriptorPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerTextureDescriptorPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerTextureDescriptorPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public ref ImpellerPixelFormat PixelFormat => ref Unsafe.AsRef<ImpellerPixelFormat>(&Handle->PixelFormat);
+		public ref ImpellerISize Size => ref Unsafe.AsRef<ImpellerISize>(&Handle->Size);
+		public ref uint MipCount => ref Unsafe.AsRef<uint>(&Handle->MipCount);
 	}
 
 }

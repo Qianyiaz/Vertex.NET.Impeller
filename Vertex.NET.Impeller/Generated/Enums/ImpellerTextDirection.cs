@@ -12,20 +12,10 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerTextDirection : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDirectionRtl = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextDirectionLtr = unchecked(1),
+		TextDirectionRtl = unchecked(0),
+		TextDirectionLtr = unchecked(1),
 	}
 }

@@ -23,30 +23,11 @@ namespace Vertex.NET.Impeller
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerRect
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float X;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Y;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Width;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Height;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerRect(float x = default, float y = default, float width = default, float height = default)
 		{
 			X = x;
@@ -56,6 +37,55 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	/// <summary>
+	/// ------------------------------------------------------------------------------<br/>
+	/// Non-opaque structs<br/>
+	/// -----------------------------------------------------------------------------<br/>
+	/// </summary>
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerRectPtr : IEquatable<ImpellerRectPtr>
+	{
+		public ImpellerRectPtr(ImpellerRect* handle) { Handle = handle; }
+
+		public ImpellerRect* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerRectPtr Null => new ImpellerRectPtr(null);
+
+		public ImpellerRect this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerRectPtr(ImpellerRect* handle) => new ImpellerRectPtr(handle);
+
+		public static implicit operator ImpellerRect*(ImpellerRectPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerRectPtr left, ImpellerRectPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerRectPtr left, ImpellerRectPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerRectPtr left, ImpellerRect* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerRectPtr left, ImpellerRect* right) => left.Handle != right;
+
+		public bool Equals(ImpellerRectPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerRectPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerRectPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public ref float X => ref Unsafe.AsRef<float>(&Handle->X);
+		public ref float Y => ref Unsafe.AsRef<float>(&Handle->Y);
+		public ref float Width => ref Unsafe.AsRef<float>(&Handle->Width);
+		public ref float Height => ref Unsafe.AsRef<float>(&Handle->Height);
 	}
 
 }

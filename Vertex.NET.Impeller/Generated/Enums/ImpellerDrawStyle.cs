@@ -12,25 +12,11 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerDrawStyle : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerDrawStyleFill = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerDrawStyleStroke = unchecked(1),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerDrawStyleStrokeAndFill = unchecked(2),
+		DrawStyleFill = unchecked(0),
+		DrawStyleStroke = unchecked(1),
+		DrawStyleStrokeAndFill = unchecked(2),
 	}
 }

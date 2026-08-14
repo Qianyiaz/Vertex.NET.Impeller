@@ -12,54 +12,51 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	public enum ImpellerFontWeight : int
 	{
 		/// <summary>
 		/// Thin<br/>
 		/// </summary>
-		KImpellerFontWeight100 = unchecked(0),
+		FontWeight100 = unchecked(0),
 
 		/// <summary>
 		/// Extra-Light<br/>
 		/// </summary>
-		KImpellerFontWeight200 = unchecked(1),
+		FontWeight200 = unchecked(1),
 
 		/// <summary>
 		/// Light<br/>
 		/// </summary>
-		KImpellerFontWeight300 = unchecked(2),
+		FontWeight300 = unchecked(2),
 
 		/// <summary>
 		/// Normal/Regular<br/>
 		/// </summary>
-		KImpellerFontWeight400 = unchecked(3),
+		FontWeight400 = unchecked(3),
 
 		/// <summary>
 		/// Medium<br/>
 		/// </summary>
-		KImpellerFontWeight500 = unchecked(4),
+		FontWeight500 = unchecked(4),
 
 		/// <summary>
 		/// Semi-bold<br/>
 		/// </summary>
-		KImpellerFontWeight600 = unchecked(5),
+		FontWeight600 = unchecked(5),
 
 		/// <summary>
 		/// Bold<br/>
 		/// </summary>
-		KImpellerFontWeight700 = unchecked(6),
+		FontWeight700 = unchecked(6),
 
 		/// <summary>
 		/// Extra-Bold<br/>
 		/// </summary>
-		KImpellerFontWeight800 = unchecked(7),
+		FontWeight800 = unchecked(7),
 
 		/// <summary>
 		/// Black<br/>
 		/// </summary>
-		KImpellerFontWeight900 = unchecked(8),
+		FontWeight900 = unchecked(8),
 	}
 }

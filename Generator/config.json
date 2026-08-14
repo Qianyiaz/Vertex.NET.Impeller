@@ -1,4 +1,6 @@
-﻿{
+{
+  "Namespace": "Vertex.NET.Impeller",
   "ApiName": "Impeller",
-  "Namespace": "Vertex.NET.Impeller"
+  "WrapPointersAsHandle": true,
+  "GeneratePlaceholderComments": false
 }

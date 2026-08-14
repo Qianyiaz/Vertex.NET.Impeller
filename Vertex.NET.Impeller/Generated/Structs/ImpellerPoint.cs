@@ -15,26 +15,12 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImpellerPoint
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float X;
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public float Y;
 
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public unsafe ImpellerPoint(float x = default, float y = default)
 		{
 			X = x;
@@ -42,6 +28,48 @@ namespace Vertex.NET.Impeller
 		}
 
 
+	}
+
+	#if NET5_0_OR_GREATER
+	[DebuggerDisplay("{DebuggerDisplay,nq}")]
+	#endif
+	public unsafe struct ImpellerPointPtr : IEquatable<ImpellerPointPtr>
+	{
+		public ImpellerPointPtr(ImpellerPoint* handle) { Handle = handle; }
+
+		public ImpellerPoint* Handle;
+
+		public bool IsNull => Handle == null;
+
+		public static ImpellerPointPtr Null => new ImpellerPointPtr(null);
+
+		public ImpellerPoint this[int index] { get => Handle[index]; set => Handle[index] = value; }
+
+		public static implicit operator ImpellerPointPtr(ImpellerPoint* handle) => new ImpellerPointPtr(handle);
+
+		public static implicit operator ImpellerPoint*(ImpellerPointPtr handle) => handle.Handle;
+
+		public static bool operator ==(ImpellerPointPtr left, ImpellerPointPtr right) => left.Handle == right.Handle;
+
+		public static bool operator !=(ImpellerPointPtr left, ImpellerPointPtr right) => left.Handle != right.Handle;
+
+		public static bool operator ==(ImpellerPointPtr left, ImpellerPoint* right) => left.Handle == right;
+
+		public static bool operator !=(ImpellerPointPtr left, ImpellerPoint* right) => left.Handle != right;
+
+		public bool Equals(ImpellerPointPtr other) => Handle == other.Handle;
+
+		/// <inheritdoc/>
+		public override bool Equals(object obj) => obj is ImpellerPointPtr handle && Equals(handle);
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => ((nuint)Handle).GetHashCode();
+
+		#if NET5_0_OR_GREATER
+		private string DebuggerDisplay => string.Format("ImpellerPointPtr [0x{0}]", ((nuint)Handle).ToString("X"));
+		#endif
+		public ref float X => ref Unsafe.AsRef<float>(&Handle->X);
+		public ref float Y => ref Unsafe.AsRef<float>(&Handle->Y);
 	}
 
 }

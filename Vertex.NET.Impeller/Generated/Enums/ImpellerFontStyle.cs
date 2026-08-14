@@ -12,20 +12,10 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerFontStyle : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerFontStyleNormal = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerFontStyleItalic = unchecked(1),
+		FontStyleNormal = unchecked(0),
+		FontStyleItalic = unchecked(1),
 	}
 }

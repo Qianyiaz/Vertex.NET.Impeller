@@ -12,20 +12,10 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	/// <summary>
-	/// To be documented.
-	/// </summary>
 	[Flags]
 	public enum ImpellerTextureSampling : int
 	{
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextureSamplingNearestNeighbor = unchecked(0),
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		KImpellerTextureSamplingLinear = unchecked(1),
+		TextureSamplingNearestNeighbor = unchecked(0),
+		TextureSamplingLinear = unchecked(1),
 	}
 }
