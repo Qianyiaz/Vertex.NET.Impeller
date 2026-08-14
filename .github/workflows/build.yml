@@ -31,7 +31,7 @@ jobs:
         with:
           user: Qusay
       - run: |
-          dotnet build Vertex.NET.Impeller/Vertex.NET.Impeller.csproj
+          dotnet build Vertex.NET.Impeller/Vertex.NET.Impeller.csproj -c Release
           dotnet nuget push **/Vertex.NET.Impeller.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{steps.login.outputs.NUGET_API_KEY}} --skip-duplicate
           dotnet nuget push **/Vertex.NET.Impeller.*.nupkg --source https://nuget.pkg.github.com/Qianyiaz/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
       - uses: actions/upload-artifact@main

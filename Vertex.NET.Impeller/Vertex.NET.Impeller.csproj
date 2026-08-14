@@ -5,14 +5,18 @@
         <IsAotCompatible>true</IsAotCompatible>
         <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
         <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
-
+    </PropertyGroup>
+    
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <NoWarn>CS1591</NoWarn>
         <Authors>Qianyiaz</Authors>
-        <Version>1.0.0-rc2</Version>
+        <Version>1.0.0</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <RepositoryUrl>https://github.com/Qianyiaz/Vertex.NET.Impeller</RepositoryUrl>
         <PackageIconUrl>https://raw.githubusercontent.com/HexaEngine/HexaEngine/master/icon.png</PackageIconUrl>
-        <PackageTags>hexa;hexagen;impeller;sourcegenerator;windows;macos;bindings;wrapper;native;graphics;rendering</PackageTags>
+        <PackageTags>Hexa;Hexagen;Impeller;SourceGenerator;Windows;Macos;Bindings;Wrapper;Native;Graphics;Rendering</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
