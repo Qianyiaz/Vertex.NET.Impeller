@@ -43,11 +43,11 @@ unsafe
     if (context.IsNull) throw new Exception("Failed to create Impeller context");
 
     var surface = context.SurfaceCreateWrappedFboNew(0u, ImpellerPixelFormat.PixelFormatRgba8888, new ImpellerISize
-        {
-            Width = fbWidth,
-            Height = fbHeight
-        });
-    
+    {
+        Width = fbWidth,
+        Height = fbHeight
+    });
+
     var displayList = BuildDisplayList();
     while (GLFW.WindowShouldClose(window) == 0)
     {
@@ -75,40 +75,40 @@ unsafe
     {
         var builder = Impeller.DisplayListBuilderNew(null);
         var paint = Impeller.PaintNew();
+
         Impeller.PaintSetColor(paint, new ImpellerColor { Alpha = 1 });
         Impeller.DisplayListBuilderDrawPaint(builder, paint);
 
         var pathBuilder = Impeller.PathBuilderNew();
-        var top = new ImpellerPoint { X = 60, Y = 10 };
-        Impeller.PathBuilderMoveTo(pathBuilder, top);
-        Impeller.PathBuilderLineTo(pathBuilder, new ImpellerPoint { X = 110, Y = 110 });
-        Impeller.PathBuilderLineTo(pathBuilder, new ImpellerPoint { X = 10, Y = 110 });
+        const float cx = 400f;
+        const float cy = 225f;
+        const float size = 200f;
+        Impeller.PathBuilderMoveTo(pathBuilder, new ImpellerPoint { X = cx, Y = cy - size });
+        Impeller.PathBuilderLineTo(pathBuilder, new ImpellerPoint { X = cx - size * 0.866f, Y = cy + size * 0.5f });
+        Impeller.PathBuilderLineTo(pathBuilder, new ImpellerPoint { X = cx + size * 0.866f, Y = cy + size * 0.5f });
         Impeller.PathBuilderClose(pathBuilder);
+        var trianglePath = Impeller.PathBuilderTakePathNew(pathBuilder, ImpellerFillType.FillTypeNonZero);
 
-        var trianglePath =
-            Impeller.PathBuilderTakePathNew(pathBuilder, ImpellerFillType.FillTypeNonZero);
-
+        var start = new ImpellerPoint { X = cx, Y = cy - size };
+        var end = new ImpellerPoint { X = cx, Y = cy + size * 0.5f };
         var colors = stackalloc ImpellerColor[2]
         {
             new ImpellerColor { Red = 1, Alpha = 1 },
             new ImpellerColor { Blue = 1, Alpha = 1 }
         };
         var stops = stackalloc float[2] { 0.0f, 1.0f };
-
-        var gradient = Impeller.ColorSourceCreateLinearGradientNew(top, new ImpellerPoint { X = 60, Y = 110 },
-            2, colors, stops, ImpellerTileMode.TileModeClamp, null);
+        var gradient = Impeller.ColorSourceCreateLinearGradientNew(
+            start, end, 2, colors, stops, ImpellerTileMode.TileModeClamp, null);
 
         Impeller.PaintSetColorSource(paint, gradient);
         Impeller.DisplayListBuilderDrawPath(builder, trianglePath, paint);
 
         var displayListNew = Impeller.DisplayListBuilderCreateDisplayListNew(builder);
-
         Impeller.DisplayListBuilderRelease(builder);
         Impeller.PaintRelease(paint);
         Impeller.PathBuilderRelease(pathBuilder);
         Impeller.PathRelease(trianglePath);
         Impeller.ColorSourceRelease(gradient);
-
         return displayListNew;
     }
 }
