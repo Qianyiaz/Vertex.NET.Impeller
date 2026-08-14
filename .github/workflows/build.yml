@@ -26,7 +26,7 @@ jobs:
         with:
           path: ~/.nuget/packages
           key: nuget-cache
-      - uses: NuGet/login@main
+      - uses: NuGet/login@v1.2.0
         id: login
         with:
           user: Qusay
