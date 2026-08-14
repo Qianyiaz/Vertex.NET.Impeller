@@ -28,6 +28,9 @@ unsafe
         throw new Exception("Failed to create GLFW window");
     }
 
+    if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
+        NativeMethods.SystemThemeWatcher.Watch(GLFW.GetWin32Window(window));
+
     int fbWidth = 0, fbHeight = 0;
     GLFW.GetFramebufferSize(window, ref fbWidth, ref fbHeight);
     GLFW.MakeContextCurrent(window);
