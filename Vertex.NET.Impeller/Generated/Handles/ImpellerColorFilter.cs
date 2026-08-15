@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -14,27 +13,33 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	#if NET5_0_OR_GREATER
+#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
-	#endif
-	public readonly partial struct ImpellerColorFilter : IEquatable<ImpellerColorFilter>
-	{
-		public ImpellerColorFilter(nint handle) { Handle = handle; }
-		public nint Handle { get; }
-		public bool IsNull => Handle == 0;
-		public static ImpellerColorFilter Null => new ImpellerColorFilter(0);
-		public static implicit operator ImpellerColorFilter(nint handle) => new ImpellerColorFilter(handle);
-		public static bool operator ==(ImpellerColorFilter left, ImpellerColorFilter right) => left.Handle == right.Handle;
-		public static bool operator !=(ImpellerColorFilter left, ImpellerColorFilter right) => left.Handle != right.Handle;
-		public static bool operator ==(ImpellerColorFilter left, nint right) => left.Handle == right;
-		public static bool operator !=(ImpellerColorFilter left, nint right) => left.Handle != right;
-		public bool Equals(ImpellerColorFilter other) => Handle == other.Handle;
-		/// <inheritdoc/>
-		public override bool Equals(object obj) => obj is ImpellerColorFilter handle && Equals(handle);
-		/// <inheritdoc/>
-		public override int GetHashCode() => Handle.GetHashCode();
-		#if NET5_0_OR_GREATER
+#endif
+    public readonly partial struct ImpellerColorFilter : IEquatable<ImpellerColorFilter>, IDisposable
+    {
+        public ImpellerColorFilter(nint handle)
+        {
+            Handle = handle;
+        }
+
+        public nint Handle { get; }
+        public bool IsNull => Handle == 0;
+        public static ImpellerColorFilter Null => new ImpellerColorFilter(0);
+
+        public static implicit operator ImpellerColorFilter(nint handle) => new ImpellerColorFilter(handle);
+        public static bool operator ==(ImpellerColorFilter left, ImpellerColorFilter right) => left.Handle == right.Handle;
+        public static bool operator !=(ImpellerColorFilter left, ImpellerColorFilter right) => left.Handle != right.Handle;
+        public static bool operator ==(ImpellerColorFilter left, nint right) => left.Handle == right;
+        public static bool operator !=(ImpellerColorFilter left, nint right) => left.Handle != right;
+        public bool Equals(ImpellerColorFilter other) => Handle == other.Handle;
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is ImpellerColorFilter handle && Equals(handle);
+        /// <inheritdoc/>
+        public override int GetHashCode() => Handle.GetHashCode();
+        public void Dispose() => Impeller.ColorFilterReleaseNative(this);
+#if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerColorFilter [0x{0}]", Handle.ToString("X"));
-		#endif
-	}
+#endif
+    }
 }

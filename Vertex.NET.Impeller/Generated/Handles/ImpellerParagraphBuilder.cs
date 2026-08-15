@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -14,27 +13,33 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	#if NET5_0_OR_GREATER
+#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
-	#endif
-	public readonly partial struct ImpellerParagraphBuilder : IEquatable<ImpellerParagraphBuilder>
-	{
-		public ImpellerParagraphBuilder(nint handle) { Handle = handle; }
-		public nint Handle { get; }
-		public bool IsNull => Handle == 0;
-		public static ImpellerParagraphBuilder Null => new ImpellerParagraphBuilder(0);
-		public static implicit operator ImpellerParagraphBuilder(nint handle) => new ImpellerParagraphBuilder(handle);
-		public static bool operator ==(ImpellerParagraphBuilder left, ImpellerParagraphBuilder right) => left.Handle == right.Handle;
-		public static bool operator !=(ImpellerParagraphBuilder left, ImpellerParagraphBuilder right) => left.Handle != right.Handle;
-		public static bool operator ==(ImpellerParagraphBuilder left, nint right) => left.Handle == right;
-		public static bool operator !=(ImpellerParagraphBuilder left, nint right) => left.Handle != right;
-		public bool Equals(ImpellerParagraphBuilder other) => Handle == other.Handle;
-		/// <inheritdoc/>
-		public override bool Equals(object obj) => obj is ImpellerParagraphBuilder handle && Equals(handle);
-		/// <inheritdoc/>
-		public override int GetHashCode() => Handle.GetHashCode();
-		#if NET5_0_OR_GREATER
+#endif
+    public readonly partial struct ImpellerParagraphBuilder : IEquatable<ImpellerParagraphBuilder>, IDisposable
+    {
+        public ImpellerParagraphBuilder(nint handle)
+        {
+            Handle = handle;
+        }
+
+        public nint Handle { get; }
+        public bool IsNull => Handle == 0;
+        public static ImpellerParagraphBuilder Null => new ImpellerParagraphBuilder(0);
+
+        public static implicit operator ImpellerParagraphBuilder(nint handle) => new ImpellerParagraphBuilder(handle);
+        public static bool operator ==(ImpellerParagraphBuilder left, ImpellerParagraphBuilder right) => left.Handle == right.Handle;
+        public static bool operator !=(ImpellerParagraphBuilder left, ImpellerParagraphBuilder right) => left.Handle != right.Handle;
+        public static bool operator ==(ImpellerParagraphBuilder left, nint right) => left.Handle == right;
+        public static bool operator !=(ImpellerParagraphBuilder left, nint right) => left.Handle != right;
+        public bool Equals(ImpellerParagraphBuilder other) => Handle == other.Handle;
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is ImpellerParagraphBuilder handle && Equals(handle);
+        /// <inheritdoc/>
+        public override int GetHashCode() => Handle.GetHashCode();
+        public void Dispose() => Impeller.ParagraphBuilderReleaseNative(this);
+#if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerParagraphBuilder [0x{0}]", Handle.ToString("X"));
-		#endif
-	}
+#endif
+    }
 }

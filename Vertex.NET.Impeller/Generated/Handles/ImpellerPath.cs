@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -14,27 +13,33 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	#if NET5_0_OR_GREATER
+#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
-	#endif
-	public readonly partial struct ImpellerPath : IEquatable<ImpellerPath>
-	{
-		public ImpellerPath(nint handle) { Handle = handle; }
-		public nint Handle { get; }
-		public bool IsNull => Handle == 0;
-		public static ImpellerPath Null => new ImpellerPath(0);
-		public static implicit operator ImpellerPath(nint handle) => new ImpellerPath(handle);
-		public static bool operator ==(ImpellerPath left, ImpellerPath right) => left.Handle == right.Handle;
-		public static bool operator !=(ImpellerPath left, ImpellerPath right) => left.Handle != right.Handle;
-		public static bool operator ==(ImpellerPath left, nint right) => left.Handle == right;
-		public static bool operator !=(ImpellerPath left, nint right) => left.Handle != right;
-		public bool Equals(ImpellerPath other) => Handle == other.Handle;
-		/// <inheritdoc/>
-		public override bool Equals(object obj) => obj is ImpellerPath handle && Equals(handle);
-		/// <inheritdoc/>
-		public override int GetHashCode() => Handle.GetHashCode();
-		#if NET5_0_OR_GREATER
+#endif
+    public readonly partial struct ImpellerPath : IEquatable<ImpellerPath>, IDisposable
+    {
+        public ImpellerPath(nint handle)
+        {
+            Handle = handle;
+        }
+
+        public nint Handle { get; }
+        public bool IsNull => Handle == 0;
+        public static ImpellerPath Null => new ImpellerPath(0);
+
+        public static implicit operator ImpellerPath(nint handle) => new ImpellerPath(handle);
+        public static bool operator ==(ImpellerPath left, ImpellerPath right) => left.Handle == right.Handle;
+        public static bool operator !=(ImpellerPath left, ImpellerPath right) => left.Handle != right.Handle;
+        public static bool operator ==(ImpellerPath left, nint right) => left.Handle == right;
+        public static bool operator !=(ImpellerPath left, nint right) => left.Handle != right;
+        public bool Equals(ImpellerPath other) => Handle == other.Handle;
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is ImpellerPath handle && Equals(handle);
+        /// <inheritdoc/>
+        public override int GetHashCode() => Handle.GetHashCode();
+        public void Dispose() => Impeller.PathReleaseNative(this);
+#if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerPath [0x{0}]", Handle.ToString("X"));
-		#endif
-	}
+#endif
+    }
 }

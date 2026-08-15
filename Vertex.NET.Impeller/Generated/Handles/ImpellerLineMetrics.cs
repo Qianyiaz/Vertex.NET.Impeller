@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -14,27 +13,33 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	#if NET5_0_OR_GREATER
+#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
-	#endif
-	public readonly partial struct ImpellerLineMetrics : IEquatable<ImpellerLineMetrics>
-	{
-		public ImpellerLineMetrics(nint handle) { Handle = handle; }
-		public nint Handle { get; }
-		public bool IsNull => Handle == 0;
-		public static ImpellerLineMetrics Null => new ImpellerLineMetrics(0);
-		public static implicit operator ImpellerLineMetrics(nint handle) => new ImpellerLineMetrics(handle);
-		public static bool operator ==(ImpellerLineMetrics left, ImpellerLineMetrics right) => left.Handle == right.Handle;
-		public static bool operator !=(ImpellerLineMetrics left, ImpellerLineMetrics right) => left.Handle != right.Handle;
-		public static bool operator ==(ImpellerLineMetrics left, nint right) => left.Handle == right;
-		public static bool operator !=(ImpellerLineMetrics left, nint right) => left.Handle != right;
-		public bool Equals(ImpellerLineMetrics other) => Handle == other.Handle;
-		/// <inheritdoc/>
-		public override bool Equals(object obj) => obj is ImpellerLineMetrics handle && Equals(handle);
-		/// <inheritdoc/>
-		public override int GetHashCode() => Handle.GetHashCode();
-		#if NET5_0_OR_GREATER
+#endif
+    public readonly partial struct ImpellerLineMetrics : IEquatable<ImpellerLineMetrics>, IDisposable
+    {
+        public ImpellerLineMetrics(nint handle)
+        {
+            Handle = handle;
+        }
+
+        public nint Handle { get; }
+        public bool IsNull => Handle == 0;
+        public static ImpellerLineMetrics Null => new ImpellerLineMetrics(0);
+
+        public static implicit operator ImpellerLineMetrics(nint handle) => new ImpellerLineMetrics(handle);
+        public static bool operator ==(ImpellerLineMetrics left, ImpellerLineMetrics right) => left.Handle == right.Handle;
+        public static bool operator !=(ImpellerLineMetrics left, ImpellerLineMetrics right) => left.Handle != right.Handle;
+        public static bool operator ==(ImpellerLineMetrics left, nint right) => left.Handle == right;
+        public static bool operator !=(ImpellerLineMetrics left, nint right) => left.Handle != right;
+        public bool Equals(ImpellerLineMetrics other) => Handle == other.Handle;
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is ImpellerLineMetrics handle && Equals(handle);
+        /// <inheritdoc/>
+        public override int GetHashCode() => Handle.GetHashCode();
+        public void Dispose() => Impeller.LineMetricsReleaseNative(this);
+#if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerLineMetrics [0x{0}]", Handle.ToString("X"));
-		#endif
-	}
+#endif
+    }
 }

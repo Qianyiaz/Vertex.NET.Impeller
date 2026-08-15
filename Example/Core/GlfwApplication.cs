@@ -1,21 +1,21 @@
-﻿using Hexa.NET.GLFW;
+﻿using System.Diagnostics.CodeAnalysis;
+using Hexa.NET.GLFW;
 using Vertex.NET.Impeller;
 
 namespace Example.Core;
 
 public class GlfwApplication
 {
-    private readonly ImpellerContext _context;
+    private readonly bool _isSupportVulkan = GLFW.VulkanSupported() == 1;
     private readonly GLFWwindowPtr _window;
     private IScene? _scene;
 
-    public unsafe GlfwApplication(int width, int height, string title = "Window")
+    public GlfwApplication(int width, int height, string title = "Window")
     {
         if (GLFW.Init() == 0)
             throw new Exception("Failed to create GLFW window");
 
-        var isSupportVulkan = GLFW.VulkanSupported() == 1;
-        if (!isSupportVulkan)
+        if (!_isSupportVulkan)
         {
             GLFW.WindowHint(GLFW.GLFW_CONTEXT_VERSION_MAJOR, 3);
             GLFW.WindowHint(GLFW.GLFW_CONTEXT_VERSION_MINOR, 1);
@@ -32,34 +32,35 @@ public class GlfwApplication
         GLFW.MakeContextCurrent(_window);
         GLFW.WindowHint(GLFW.GLFW_RESIZABLE, 1);
         GLFW.SwapInterval(1); // V-sync On
+    }
 
-        _context = isSupportVulkan
+    [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
+    public unsafe void Run()
+    {
+        using var context = _isSupportVulkan
             ? Impeller.ContextCreateVulkanNew(Impeller.GetVersion(),
                 new ImpellerContextVulkanSettings(procAddressCallback: &VulkanProcCallback))
             : Impeller.ContextCreateOpenGLESNew(Impeller.GetVersion(),
                 GlProcAddressCallback,
                 null);
-    }
 
-    public unsafe void Run()
-    {
         int width = 0, height = 0;
         GLFW.GetWindowSize(_window, ref width, ref height);
 
-        var surface = _context.SurfaceCreateWrappedFboNew(0u, ImpellerPixelFormat.PixelFormatRgba8888,
+        var surface = context.SurfaceCreateWrappedFboNew(0u, ImpellerPixelFormat.PixelFormatRgba8888,
             new ImpellerISize { Width = width, Height = height });
-        var builder = Impeller.DisplayListBuilderNew(new ImpellerRect { Width = width, Height = height });
+
+        using var builder = Impeller.DisplayListBuilderNew(new ImpellerRect { Width = width, Height = height });
 
         _scene?.Render(builder, new SceneParameters(width, height));
-
         var displayList = builder.CreateDisplayListNew();
 
         GLFW.SetFramebufferSizeCallback(_window, (_, w, h) =>
         {
-            displayList.Release();
-            surface.Release();
+            displayList.Dispose();
+            surface.Dispose();
 
-            surface = _context.SurfaceCreateWrappedFboNew(0u, ImpellerPixelFormat.PixelFormatRgba8888,
+            surface = context.SurfaceCreateWrappedFboNew(0u, ImpellerPixelFormat.PixelFormatRgba8888,
                 new ImpellerISize { Width = w, Height = h });
 
             _scene?.Render(builder, new SceneParameters(w, h));
@@ -75,10 +76,8 @@ public class GlfwApplication
         while (GLFW.WindowShouldClose(_window) == 0)
             GLFW.WaitEvents();
 
-        displayList.Release();
-        builder.Release();
-        surface.Release();
-        _context.Release();
+        displayList.Dispose();
+        surface.Dispose();
 
         GLFW.DestroyWindow(_window);
         GLFW.Terminate();

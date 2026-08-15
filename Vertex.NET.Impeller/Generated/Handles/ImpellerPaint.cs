@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -14,27 +13,33 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	#if NET5_0_OR_GREATER
+#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
-	#endif
-	public readonly partial struct ImpellerPaint : IEquatable<ImpellerPaint>
-	{
-		public ImpellerPaint(nint handle) { Handle = handle; }
-		public nint Handle { get; }
-		public bool IsNull => Handle == 0;
-		public static ImpellerPaint Null => new ImpellerPaint(0);
-		public static implicit operator ImpellerPaint(nint handle) => new ImpellerPaint(handle);
-		public static bool operator ==(ImpellerPaint left, ImpellerPaint right) => left.Handle == right.Handle;
-		public static bool operator !=(ImpellerPaint left, ImpellerPaint right) => left.Handle != right.Handle;
-		public static bool operator ==(ImpellerPaint left, nint right) => left.Handle == right;
-		public static bool operator !=(ImpellerPaint left, nint right) => left.Handle != right;
-		public bool Equals(ImpellerPaint other) => Handle == other.Handle;
-		/// <inheritdoc/>
-		public override bool Equals(object obj) => obj is ImpellerPaint handle && Equals(handle);
-		/// <inheritdoc/>
-		public override int GetHashCode() => Handle.GetHashCode();
-		#if NET5_0_OR_GREATER
+#endif
+    public readonly partial struct ImpellerPaint : IEquatable<ImpellerPaint>, IDisposable
+    {
+        public ImpellerPaint(nint handle)
+        {
+            Handle = handle;
+        }
+
+        public nint Handle { get; }
+        public bool IsNull => Handle == 0;
+        public static ImpellerPaint Null => new ImpellerPaint(0);
+
+        public static implicit operator ImpellerPaint(nint handle) => new ImpellerPaint(handle);
+        public static bool operator ==(ImpellerPaint left, ImpellerPaint right) => left.Handle == right.Handle;
+        public static bool operator !=(ImpellerPaint left, ImpellerPaint right) => left.Handle != right.Handle;
+        public static bool operator ==(ImpellerPaint left, nint right) => left.Handle == right;
+        public static bool operator !=(ImpellerPaint left, nint right) => left.Handle != right;
+        public bool Equals(ImpellerPaint other) => Handle == other.Handle;
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is ImpellerPaint handle && Equals(handle);
+        /// <inheritdoc/>
+        public override int GetHashCode() => Handle.GetHashCode();
+        public void Dispose() => Impeller.PaintReleaseNative(this);
+#if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerPaint [0x{0}]", Handle.ToString("X"));
-		#endif
-	}
+#endif
+    }
 }
