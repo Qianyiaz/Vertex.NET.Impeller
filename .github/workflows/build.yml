@@ -19,8 +19,8 @@ jobs:
           fetch-depth: 0 # Treeless clone. Slightly less performant than a shallow clone, but makes finding diffs instantaneous.
           filter: tree:0 # See: https://github.blog/open-source/git/get-up-to-speed-with-partial-clone-and-shallow-clone/
           sparse-checkout: |
+            src
             .github
-            Vertex.NET.Impeller
             Vertex.NET.Impeller.slnx
       - uses: actions/cache@main
         with:
@@ -31,7 +31,7 @@ jobs:
         with:
           user: Qusay
       - run: |
-          dotnet build Vertex.NET.Impeller/Vertex.NET.Impeller.csproj -c Release
+          dotnet build src/Vertex.NET.Impeller/Vertex.NET.Impeller.csproj -c Release
           dotnet nuget push **/Vertex.NET.Impeller.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{steps.login.outputs.NUGET_API_KEY}} --skip-duplicate
           dotnet nuget push **/Vertex.NET.Impeller.*.nupkg --source https://nuget.pkg.github.com/Qianyiaz/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
       - uses: actions/upload-artifact@main

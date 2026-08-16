@@ -1,7 +1,7 @@
 ﻿using HexaGen;
 using HexaGen.Patching;
 
-namespace Generator;
+namespace Generator.Patching;
 
 internal class EnumItemPrefixStripPatch(string[] prefixes) : PrePatch
 {

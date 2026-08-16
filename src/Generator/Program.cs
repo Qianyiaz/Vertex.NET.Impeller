@@ -1,4 +1,4 @@
-﻿using Generator;
+﻿using Generator.Patching;
 using HexaGen;
 using HexaGen.Patching;
 

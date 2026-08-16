@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Generator;
+namespace Generator.Patching;
 
 internal class RemoveExceptExtensionsPatch(string[] names) : MyPostPatch
 {

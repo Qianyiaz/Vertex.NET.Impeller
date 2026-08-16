@@ -1,6 +1,6 @@
 ﻿using Vertex.NET.Impeller;
 
-namespace Example.Core;
+namespace RenderDemo.Core;
 
 public class SceneParameters(int width, int height)
 {

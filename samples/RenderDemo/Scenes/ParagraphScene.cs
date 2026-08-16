@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using Example.Core;
+using RenderDemo.Core;
 using Vertex.NET.Impeller;
 
-namespace Example.Scenes;
+namespace RenderDemo.Scenes;
 
 public class ParagraphScene : IScene
 {
@@ -12,7 +12,6 @@ public class ParagraphScene : IScene
         bgPaint.SetColor(new ImpellerColor { Red = 1, Green = 1, Blue = 1, Alpha = 1 });
         builder.DrawPaint(bgPaint);
 
-        using var typographyContext = Impeller.TypographyContextNew();
         using var fontPaint = Impeller.PaintNew();
         fontPaint.SetColor(new ImpellerColor { Alpha = 1 });
 
@@ -22,7 +21,8 @@ public class ParagraphScene : IScene
         style.SetTextAlignment(ImpellerTextAlignment.TextAlignmentLeft);
         style.SetTextDirection(ImpellerTextDirection.TextDirectionLtr);
 
-        using var paragraphBuilder = Impeller.ParagraphBuilderNew(typographyContext);
+        using var context = Impeller.TypographyContextNew();
+        using var paragraphBuilder = Impeller.ParagraphBuilderNew(context);
         paragraphBuilder.PushStyle(style);
 
         const string text =

@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Generator;
+namespace Generator.Patching;
 
 internal abstract class MyPostPatch : PostPatch
 {

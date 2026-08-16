@@ -2,7 +2,7 @@
 using Hexa.NET.GLFW;
 using Vertex.NET.Impeller;
 
-namespace Example.Core;
+namespace RenderDemo.Core;
 
 public class GlfwApplication
 {

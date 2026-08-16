@@ -2,13 +2,20 @@
     <Folder Name="/External/">
         <Project Path="external/Hexa.NET.GLFW/Hexa.NET.GLFW/Hexa.NET.GLFW.csproj"/>
     </Folder>
+    <Folder Name="/Samples/">
+        <Project Path="samples/RenderDemo/RenderDemo.csproj"/>
+    </Folder>
     <Folder Name="/Solution Files/">
         <File Path=".github/workflows/build.yml"/>
         <File Path=".gitignore"/>
         <File Path="LICENSE.md"/>
         <File Path="README.md"/>
     </Folder>
-    <Project Path="Example/Example.csproj"/>
-    <Project Path="Generator/Generator.csproj"/>
-    <Project Path="Vertex.NET.Impeller/Vertex.NET.Impeller.csproj"/>
+    <Folder Name="/Src/">
+        <Project Path="src/Generator/Generator.csproj"/>
+        <Project Path="src/Vertex.NET.Impeller/Vertex.NET.Impeller.csproj"/>
+    </Folder>
+    <Folder Name="/Tests/">
+        <Project Path="tests/Vertex.NET.Impeller.Test/Vertex.NET.Impeller.Test.csproj"/>
+    </Folder>
 </Solution>
