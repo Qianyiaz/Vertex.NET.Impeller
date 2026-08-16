@@ -37,6 +37,7 @@ namespace Vertex.NET.Impeller
         public override bool Equals(object obj) => obj is ImpellerPathBuilder handle && Equals(handle);
         /// <inheritdoc/>
         public override int GetHashCode() => Handle.GetHashCode();
+        /// <inheritdoc/>
         public void Dispose() => Impeller.PathBuilderReleaseNative(this);
 #if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerPathBuilder [0x{0}]", Handle.ToString("X"));

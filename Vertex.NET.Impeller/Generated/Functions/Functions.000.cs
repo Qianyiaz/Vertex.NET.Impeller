@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,5015 +13,5100 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	public unsafe partial class Impeller
-	{
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The current version of the API  is denoted by the<br/>
-		/// `IMPELLER_VERSION` macro. This version must be passed to APIs<br/>
-		/// that create top-level objects like graphics contexts.<br/>
-		/// Construction of the context may fail if the API version expected<br/>
-		/// by the caller is not supported by the library.<br/>
-		/// Since there are no API stability guarantees today, passing a<br/>
-		/// version that is different to the one returned by<br/>
-		/// `ImpellerGetVersion` will always fail.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint GetVersionNative()
-		{
-			#if NET5_0_OR_GREATER
+    public unsafe partial class Impeller
+    {
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The current version of the API  is denoted by the<br/>
+        /// `IMPELLER_VERSION` macro. This version must be passed to APIs<br/>
+        /// that create top-level objects like graphics contexts.<br/>
+        /// Construction of the context may fail if the API version expected<br/>
+        /// by the caller is not supported by the library.<br/>
+        /// Since there are no API stability guarantees today, passing a<br/>
+        /// version that is different to the one returned by<br/>
+        /// `ImpellerGetVersion` will always fail.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static uint GetVersionNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint>)funcTable[0])();
-			#else
-			return (uint)((delegate* unmanaged[Cdecl]<uint>)funcTable[0])();
-			#endif
-		}
+#else
+            return (uint)((delegate* unmanaged[Cdecl]<uint> )funcTable[0])();
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The current version of the API  is denoted by the<br/>
-		/// `IMPELLER_VERSION` macro. This version must be passed to APIs<br/>
-		/// that create top-level objects like graphics contexts.<br/>
-		/// Construction of the context may fail if the API version expected<br/>
-		/// by the caller is not supported by the library.<br/>
-		/// Since there are no API stability guarantees today, passing a<br/>
-		/// version that is different to the one returned by<br/>
-		/// `ImpellerGetVersion` will always fail.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static uint GetVersion()
-		{
-			uint ret = GetVersionNative();
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The current version of the API  is denoted by the<br/>
+        /// `IMPELLER_VERSION` macro. This version must be passed to APIs<br/>
+        /// that create top-level objects like graphics contexts.<br/>
+        /// Construction of the context may fail if the API version expected<br/>
+        /// by the caller is not supported by the library.<br/>
+        /// Since there are no API stability guarantees today, passing a<br/>
+        /// version that is different to the one returned by<br/>
+        /// `ImpellerGetVersion` will always fail.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static uint GetVersion()
+        {
+            uint ret = GetVersionNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerContext ContextCreateOpenGLESNewNative(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerContext ContextCreateOpenGLESNewNative(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, delegate*<byte*, void*, void*>, void*, ImpellerContext>)funcTable[1])(version, glProcAddressCallback, glProcAddressCallbackUserData);
-			#else
-			return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, nint, nint, ImpellerContext>)funcTable[1])(version, (nint)glProcAddressCallback, (nint)glProcAddressCallbackUserData);
-			#endif
-		}
+#else
+            return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, nint, nint, ImpellerContext> )funcTable[1])(version, (nint)glProcAddressCallback, (nint)glProcAddressCallbackUserData);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
-		{
-			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, glProcAddressCallbackUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
+        {
+            ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, glProcAddressCallbackUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, void* glProcAddressCallbackUserData)
-		{
-			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*>)Utils.GetFunctionPointerForDelegate(glProcAddressCallback), glProcAddressCallbackUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, void* glProcAddressCallbackUserData)
+        {
+            ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*> )Utils.GetFunctionPointerForDelegate(glProcAddressCallback), glProcAddressCallbackUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, nint glProcAddressCallbackUserData)
-		{
-			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, (void*)glProcAddressCallbackUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, nint glProcAddressCallbackUserData)
+        {
+            ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, (void*)glProcAddressCallbackUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, nint glProcAddressCallbackUserData)
-		{
-			ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*>)Utils.GetFunctionPointerForDelegate(glProcAddressCallback), (void*)glProcAddressCallbackUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, nint glProcAddressCallbackUserData)
+        {
+            ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*> )Utils.GetFunctionPointerForDelegate(glProcAddressCallback), (void*)glProcAddressCallbackUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerContext ContextCreateMetalNewNative(uint version)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerContext ContextCreateMetalNewNative(uint version)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, ImpellerContext>)funcTable[2])(version);
-			#else
-			return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, ImpellerContext>)funcTable[2])(version);
-			#endif
-		}
+#else
+            return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, ImpellerContext> )funcTable[2])(version);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerContext ContextCreateMetalNew(uint version)
-		{
-			ImpellerContext ret = ContextCreateMetalNewNative(version);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerContext ContextCreateMetalNew(uint version)
+        {
+            ImpellerContext ret = ContextCreateMetalNewNative(version);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerContext ContextCreateVulkanNewNative(uint version, ImpellerContextVulkanSettings* settings)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerContext ContextCreateVulkanNewNative(uint version, ImpellerContextVulkanSettings* settings)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, ImpellerContextVulkanSettings*, ImpellerContext>)funcTable[3])(version, settings);
-			#else
-			return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, nint, ImpellerContext>)funcTable[3])(version, (nint)settings);
-			#endif
-		}
+#else
+            return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, nint, ImpellerContext> )funcTable[3])(version, (nint)settings);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerContext ContextCreateVulkanNew(uint version, ImpellerContextVulkanSettingsPtr settings)
-		{
-			ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)settings);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerContext ContextCreateVulkanNew(uint version, ImpellerContextVulkanSettingsPtr settings)
+        {
+            ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)settings);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerContext ContextCreateVulkanNew(uint version, in ImpellerContextVulkanSettings settings)
-		{
-			fixed (ImpellerContextVulkanSettings* psettings = &settings)
-			{
-				ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)psettings);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerContext ContextCreateVulkanNew(uint version, in ImpellerContextVulkanSettings settings)
+        {
+            fixed (ImpellerContextVulkanSettings* psettings = &settings)
+            {
+                ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)psettings);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ContextRetainNative(ImpellerContext context)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ContextRetainNative(ImpellerContext context)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[4])(context);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[4])(context);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerContext, void> )funcTable[4])(context);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ContextRetain(ImpellerContext context)
-		{
-			ContextRetainNative(context);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ContextRetain(ImpellerContext context)
+        {
+            ContextRetainNative(context);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ContextReleaseNative(ImpellerContext context)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ContextReleaseNative(ImpellerContext context)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[5])(context);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[5])(context);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerContext, void> )funcTable[5])(context);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ContextRelease(ImpellerContext context)
-		{
-			ContextReleaseNative(context);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ContextRelease(ImpellerContext context)
+        {
+            ContextReleaseNative(context);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte ContextGetVulkanInfoNative(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte ContextGetVulkanInfoNative(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerContextVulkanInfo*, byte>)funcTable[6])(context, outVulkanInfo);
-			#else
-			return (byte)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, byte>)funcTable[6])(context, (nint)outVulkanInfo);
-			#endif
-		}
+#else
+            return (byte)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, byte> )funcTable[6])(context, (nint)outVulkanInfo);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool ContextGetVulkanInfo(ImpellerContext context, ImpellerContextVulkanInfoPtr outVulkanInfo)
-		{
-			byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)outVulkanInfo);
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool ContextGetVulkanInfo(ImpellerContext context, ImpellerContextVulkanInfoPtr outVulkanInfo)
+        {
+            byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)outVulkanInfo);
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool ContextGetVulkanInfo(ImpellerContext context, ref ImpellerContextVulkanInfo outVulkanInfo)
-		{
-			fixed (ImpellerContextVulkanInfo* poutVulkanInfo = &outVulkanInfo)
-			{
-				byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)poutVulkanInfo);
-				return ret != 0;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool ContextGetVulkanInfo(ImpellerContext context, ref ImpellerContextVulkanInfo outVulkanInfo)
+        {
+            fixed (ImpellerContextVulkanInfo* poutVulkanInfo = &outVulkanInfo)
+            {
+                byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)poutVulkanInfo);
+                return ret != 0;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerVulkanSwapchain VulkanSwapchainCreateNewNative(ImpellerContext context, void* vulkanSurfaceKhr)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerVulkanSwapchain VulkanSwapchainCreateNewNative(ImpellerContext context, void* vulkanSurfaceKhr)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, void*, ImpellerVulkanSwapchain>)funcTable[7])(context, vulkanSurfaceKhr);
-			#else
-			return (ImpellerVulkanSwapchain)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ImpellerVulkanSwapchain>)funcTable[7])(context, (nint)vulkanSurfaceKhr);
-			#endif
-		}
+#else
+            return (ImpellerVulkanSwapchain)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ImpellerVulkanSwapchain> )funcTable[7])(context, (nint)vulkanSurfaceKhr);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, void* vulkanSurfaceKhr)
-		{
-			ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, void* vulkanSurfaceKhr)
+        {
+            ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, nint vulkanSurfaceKhr)
-		{
-			ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, (void*)vulkanSurfaceKhr);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, nint vulkanSurfaceKhr)
+        {
+            ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, (void*)vulkanSurfaceKhr);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void VulkanSwapchainRetainNative(ImpellerVulkanSwapchain swapchain)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void VulkanSwapchainRetainNative(ImpellerVulkanSwapchain swapchain)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[8])(swapchain);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[8])(swapchain);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void> )funcTable[8])(swapchain);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void VulkanSwapchainRetain(ImpellerVulkanSwapchain swapchain)
-		{
-			VulkanSwapchainRetainNative(swapchain);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void VulkanSwapchainRetain(ImpellerVulkanSwapchain swapchain)
+        {
+            VulkanSwapchainRetainNative(swapchain);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void VulkanSwapchainReleaseNative(ImpellerVulkanSwapchain swapchain)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void VulkanSwapchainReleaseNative(ImpellerVulkanSwapchain swapchain)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[9])(swapchain);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[9])(swapchain);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void> )funcTable[9])(swapchain);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void VulkanSwapchainRelease(ImpellerVulkanSwapchain swapchain)
-		{
-			VulkanSwapchainReleaseNative(swapchain);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void VulkanSwapchainRelease(ImpellerVulkanSwapchain swapchain)
+        {
+            VulkanSwapchainReleaseNative(swapchain);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNewNative(ImpellerVulkanSwapchain swapchain)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNewNative(ImpellerVulkanSwapchain swapchain)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, ImpellerSurface>)funcTable[10])(swapchain);
-			#else
-			return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, ImpellerSurface>)funcTable[10])(swapchain);
-			#endif
-		}
+#else
+            return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, ImpellerSurface> )funcTable[10])(swapchain);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNew(ImpellerVulkanSwapchain swapchain)
-		{
-			ImpellerSurface ret = VulkanSwapchainAcquireNextSurfaceNewNative(swapchain);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNew(ImpellerVulkanSwapchain swapchain)
+        {
+            ImpellerSurface ret = VulkanSwapchainAcquireNextSurfaceNewNative(swapchain);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerSurface SurfaceCreateWrappedFBONewNative(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerSurface SurfaceCreateWrappedFBONewNative(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ulong, ImpellerPixelFormat, ImpellerISize*, ImpellerSurface>)funcTable[11])(context, fbo, format, size);
-			#else
-			return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerContext, ulong, ImpellerPixelFormat, nint, ImpellerSurface>)funcTable[11])(context, fbo, format, (nint)size);
-			#endif
-		}
+#else
+            return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerContext, ulong, ImpellerPixelFormat, nint, ImpellerSurface> )funcTable[11])(context, fbo, format, (nint)size);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISizePtr size)
-		{
-			ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)size);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISizePtr size)
+        {
+            ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)size);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, in ImpellerISize size)
-		{
-			fixed (ImpellerISize* psize = &size)
-			{
-				ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)psize);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, in ImpellerISize size)
+        {
+            fixed (ImpellerISize* psize = &size)
+            {
+                ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)psize);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The Metal layer must be using the same device managed by the<br/>
-		/// underlying context.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerSurface SurfaceCreateWrappedMetalDrawableNewNative(ImpellerContext context, void* metalDrawable)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The Metal layer must be using the same device managed by the<br/>
+        /// underlying context.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerSurface SurfaceCreateWrappedMetalDrawableNewNative(ImpellerContext context, void* metalDrawable)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, void*, ImpellerSurface>)funcTable[12])(context, metalDrawable);
-			#else
-			return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ImpellerSurface>)funcTable[12])(context, (nint)metalDrawable);
-			#endif
-		}
+#else
+            return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ImpellerSurface> )funcTable[12])(context, (nint)metalDrawable);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The Metal layer must be using the same device managed by the<br/>
-		/// underlying context.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, void* metalDrawable)
-		{
-			ImpellerSurface ret = SurfaceCreateWrappedMetalDrawableNewNative(context, metalDrawable);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The Metal layer must be using the same device managed by the<br/>
+        /// underlying context.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, void* metalDrawable)
+        {
+            ImpellerSurface ret = SurfaceCreateWrappedMetalDrawableNewNative(context, metalDrawable);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The Metal layer must be using the same device managed by the<br/>
-		/// underlying context.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, nint metalDrawable)
-		{
-			ImpellerSurface ret = SurfaceCreateWrappedMetalDrawableNewNative(context, (void*)metalDrawable);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The Metal layer must be using the same device managed by the<br/>
+        /// underlying context.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerSurface SurfaceCreateWrappedMetalDrawableNew(ImpellerContext context, nint metalDrawable)
+        {
+            ImpellerSurface ret = SurfaceCreateWrappedMetalDrawableNewNative(context, (void*)metalDrawable);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SurfaceRetainNative(ImpellerSurface surface)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SurfaceRetainNative(ImpellerSurface surface)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[13])(surface);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[13])(surface);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerSurface, void> )funcTable[13])(surface);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SurfaceRetain(ImpellerSurface surface)
-		{
-			SurfaceRetainNative(surface);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SurfaceRetain(ImpellerSurface surface)
+        {
+            SurfaceRetainNative(surface);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SurfaceReleaseNative(ImpellerSurface surface)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SurfaceReleaseNative(ImpellerSurface surface)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[14])(surface);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[14])(surface);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerSurface, void> )funcTable[14])(surface);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SurfaceRelease(ImpellerSurface surface)
-		{
-			SurfaceReleaseNative(surface);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SurfaceRelease(ImpellerSurface surface)
+        {
+            SurfaceReleaseNative(surface);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte SurfaceDrawDisplayListNative(ImpellerSurface surface, ImpellerDisplayList displayList)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte SurfaceDrawDisplayListNative(ImpellerSurface surface, ImpellerDisplayList displayList)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerSurface, ImpellerDisplayList, byte>)funcTable[15])(surface, displayList);
-			#else
-			return (byte)((delegate* unmanaged[Cdecl]<ImpellerSurface, ImpellerDisplayList, byte>)funcTable[15])(surface, displayList);
-			#endif
-		}
+#else
+            return (byte)((delegate* unmanaged[Cdecl]<ImpellerSurface, ImpellerDisplayList, byte> )funcTable[15])(surface, displayList);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool SurfaceDrawDisplayList(ImpellerSurface surface, ImpellerDisplayList displayList)
-		{
-			byte ret = SurfaceDrawDisplayListNative(surface, displayList);
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool SurfaceDrawDisplayList(ImpellerSurface surface, ImpellerDisplayList displayList)
+        {
+            byte ret = SurfaceDrawDisplayListNative(surface, displayList);
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte SurfacePresentNative(ImpellerSurface surface)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte SurfacePresentNative(ImpellerSurface surface)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerSurface, byte>)funcTable[16])(surface);
-			#else
-			return (byte)((delegate* unmanaged[Cdecl]<ImpellerSurface, byte>)funcTable[16])(surface);
-			#endif
-		}
+#else
+            return (byte)((delegate* unmanaged[Cdecl]<ImpellerSurface, byte> )funcTable[16])(surface);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool SurfacePresent(ImpellerSurface surface)
-		{
-			byte ret = SurfacePresentNative(surface);
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool SurfacePresent(ImpellerSurface surface)
+        {
+            byte ret = SurfacePresentNative(surface);
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathRetainNative(ImpellerPath path)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathRetainNative(ImpellerPath path)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[17])(path);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[17])(path);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPath, void> )funcTable[17])(path);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathRetain(ImpellerPath path)
-		{
-			PathRetainNative(path);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathRetain(ImpellerPath path)
+        {
+            PathRetainNative(path);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathReleaseNative(ImpellerPath path)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathReleaseNative(ImpellerPath path)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[18])(path);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[18])(path);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPath, void> )funcTable[18])(path);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathRelease(ImpellerPath path)
-		{
-			PathReleaseNative(path);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathRelease(ImpellerPath path)
+        {
+            PathReleaseNative(path);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The bounds are conservative. That is, they may be larger than<br/>
-		/// the actual shape of the path and could include the control<br/>
-		/// points and isolated calls to move the cursor.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathGetBoundsNative(ImpellerPath path, ImpellerRect* outBounds)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The bounds are conservative. That is, they may be larger than<br/>
+        /// the actual shape of the path and could include the control<br/>
+        /// points and isolated calls to move the cursor.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathGetBoundsNative(ImpellerPath path, ImpellerRect* outBounds)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPath, ImpellerRect*, void>)funcTable[19])(path, outBounds);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPath, nint, void>)funcTable[19])(path, (nint)outBounds);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPath, nint, void> )funcTable[19])(path, (nint)outBounds);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The bounds are conservative. That is, they may be larger than<br/>
-		/// the actual shape of the path and could include the control<br/>
-		/// points and isolated calls to move the cursor.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathGetBounds(ImpellerPath path, ImpellerRectPtr outBounds)
-		{
-			PathGetBoundsNative(path, (ImpellerRect*)outBounds);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The bounds are conservative. That is, they may be larger than<br/>
+        /// the actual shape of the path and could include the control<br/>
+        /// points and isolated calls to move the cursor.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathGetBounds(ImpellerPath path, ImpellerRectPtr outBounds)
+        {
+            PathGetBoundsNative(path, (ImpellerRect*)outBounds);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The bounds are conservative. That is, they may be larger than<br/>
-		/// the actual shape of the path and could include the control<br/>
-		/// points and isolated calls to move the cursor.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathGetBounds(ImpellerPath path, ref ImpellerRect outBounds)
-		{
-			fixed (ImpellerRect* poutBounds = &outBounds)
-			{
-				PathGetBoundsNative(path, (ImpellerRect*)poutBounds);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The bounds are conservative. That is, they may be larger than<br/>
+        /// the actual shape of the path and could include the control<br/>
+        /// points and isolated calls to move the cursor.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathGetBounds(ImpellerPath path, ref ImpellerRect outBounds)
+        {
+            fixed (ImpellerRect* poutBounds = &outBounds)
+            {
+                PathGetBoundsNative(path, (ImpellerRect*)poutBounds);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPathBuilder PathBuilderNewNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerPathBuilder PathBuilderNewNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder>)funcTable[20])();
-			#else
-			return (ImpellerPathBuilder)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder>)funcTable[20])();
-			#endif
-		}
+#else
+            return (ImpellerPathBuilder)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder> )funcTable[20])();
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerPathBuilder PathBuilderNew()
-		{
-			ImpellerPathBuilder ret = PathBuilderNewNative();
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerPathBuilder PathBuilderNew()
+        {
+            ImpellerPathBuilder ret = PathBuilderNewNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderRetainNative(ImpellerPathBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderRetainNative(ImpellerPathBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[21])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[21])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void> )funcTable[21])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderRetain(ImpellerPathBuilder builder)
-		{
-			PathBuilderRetainNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderRetain(ImpellerPathBuilder builder)
+        {
+            PathBuilderRetainNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderReleaseNative(ImpellerPathBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderReleaseNative(ImpellerPathBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[22])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[22])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void> )funcTable[22])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderRelease(ImpellerPathBuilder builder)
-		{
-			PathBuilderReleaseNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderRelease(ImpellerPathBuilder builder)
+        {
+            PathBuilderReleaseNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderMoveToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderMoveToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, void>)funcTable[23])(builder, location);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void>)funcTable[23])(builder, (nint)location);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[23])(builder, (nint)location);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderMoveTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
-		{
-			PathBuilderMoveToNative(builder, (ImpellerPoint*)location);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderMoveTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
+        {
+            PathBuilderMoveToNative(builder, (ImpellerPoint*)location);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderMoveTo(ImpellerPathBuilder builder, in ImpellerPoint location)
-		{
-			fixed (ImpellerPoint* plocation = &location)
-			{
-				PathBuilderMoveToNative(builder, (ImpellerPoint*)plocation);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderMoveTo(ImpellerPathBuilder builder, in ImpellerPoint location)
+        {
+            fixed (ImpellerPoint* plocation = &location)
+            {
+                PathBuilderMoveToNative(builder, (ImpellerPoint*)plocation);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderLineToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderLineToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, void>)funcTable[24])(builder, location);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void>)funcTable[24])(builder, (nint)location);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[24])(builder, (nint)location);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderLineTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
-		{
-			PathBuilderLineToNative(builder, (ImpellerPoint*)location);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderLineTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
+        {
+            PathBuilderLineToNative(builder, (ImpellerPoint*)location);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderLineTo(ImpellerPathBuilder builder, in ImpellerPoint location)
-		{
-			fixed (ImpellerPoint* plocation = &location)
-			{
-				PathBuilderLineToNative(builder, (ImpellerPoint*)plocation);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderLineTo(ImpellerPathBuilder builder, in ImpellerPoint location)
+        {
+            fixed (ImpellerPoint* plocation = &location)
+            {
+                PathBuilderLineToNative(builder, (ImpellerPoint*)plocation);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderQuadraticCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, ImpellerPoint* endPoint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderQuadraticCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, ImpellerPoint* endPoint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, ImpellerPoint*, void>)funcTable[25])(builder, controlPoint, endPoint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, void>)funcTable[25])(builder, (nint)controlPoint, (nint)endPoint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, void> )funcTable[25])(builder, (nint)controlPoint, (nint)endPoint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, ImpellerPointPtr endPoint)
-		{
-			PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)endPoint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, ImpellerPointPtr endPoint)
+        {
+            PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)endPoint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, ImpellerPointPtr endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
-			{
-				PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)endPoint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, ImpellerPointPtr endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
+            {
+                PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)endPoint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, in ImpellerPoint endPoint)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)pendPoint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint, in ImpellerPoint endPoint)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)controlPoint, (ImpellerPoint*)pendPoint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, in ImpellerPoint endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)pendPoint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderQuadraticCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint, in ImpellerPoint endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint = &controlPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    PathBuilderQuadraticCurveToNative(builder, (ImpellerPoint*)pcontrolPoint, (ImpellerPoint*)pendPoint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderCubicCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderCubicCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, ImpellerPoint*, ImpellerPoint*, void>)funcTable[26])(builder, controlPoint1, controlPoint2, endPoint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, nint, void>)funcTable[26])(builder, (nint)controlPoint1, (nint)controlPoint2, (nint)endPoint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, nint, void> )funcTable[26])(builder, (nint)controlPoint1, (nint)controlPoint2, (nint)endPoint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
-		{
-			PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
+        {
+            PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
-			{
-				PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, ImpellerPointPtr endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+            {
+                PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)endPoint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
-			{
-				PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+            {
+                PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
-			{
-				fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
-				{
-					PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, ImpellerPointPtr endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+            {
+                fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+                {
+                    PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)endPoint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, ImpellerPointPtr controlPoint2, in ImpellerPoint endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)controlPoint2, (ImpellerPoint*)pendPoint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, ImpellerPointPtr controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)controlPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The new location of the cursor after this call is the end point<br/>
-		/// supplied.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
-		{
-			fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
-			{
-				fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
-				{
-					fixed (ImpellerPoint* pendPoint = &endPoint)
-					{
-						PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The new location of the cursor after this call is the end point<br/>
+        /// supplied.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderCubicCurveTo(ImpellerPathBuilder builder, in ImpellerPoint controlPoint1, in ImpellerPoint controlPoint2, in ImpellerPoint endPoint)
+        {
+            fixed (ImpellerPoint* pcontrolPoint1 = &controlPoint1)
+            {
+                fixed (ImpellerPoint* pcontrolPoint2 = &controlPoint2)
+                {
+                    fixed (ImpellerPoint* pendPoint = &endPoint)
+                    {
+                        PathBuilderCubicCurveToNative(builder, (ImpellerPoint*)pcontrolPoint1, (ImpellerPoint*)pcontrolPoint2, (ImpellerPoint*)pendPoint);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderAddRectNative(ImpellerPathBuilder builder, ImpellerRect* rect)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderAddRectNative(ImpellerPathBuilder builder, ImpellerRect* rect)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, void>)funcTable[27])(builder, rect);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void>)funcTable[27])(builder, (nint)rect);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[27])(builder, (nint)rect);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddRect(ImpellerPathBuilder builder, ImpellerRectPtr rect)
-		{
-			PathBuilderAddRectNative(builder, (ImpellerRect*)rect);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddRect(ImpellerPathBuilder builder, ImpellerRectPtr rect)
+        {
+            PathBuilderAddRectNative(builder, (ImpellerRect*)rect);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddRect(ImpellerPathBuilder builder, in ImpellerRect rect)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				PathBuilderAddRectNative(builder, (ImpellerRect*)prect);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddRect(ImpellerPathBuilder builder, in ImpellerRect rect)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                PathBuilderAddRectNative(builder, (ImpellerRect*)prect);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderAddArcNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderAddArcNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, float, float, void>)funcTable[28])(builder, ovalBounds, startAngleDegrees, endAngleDegrees);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, float, float, void>)funcTable[28])(builder, (nint)ovalBounds, startAngleDegrees, endAngleDegrees);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, float, float, void> )funcTable[28])(builder, (nint)ovalBounds, startAngleDegrees, endAngleDegrees);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddArc(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds, float startAngleDegrees, float endAngleDegrees)
-		{
-			PathBuilderAddArcNative(builder, (ImpellerRect*)ovalBounds, startAngleDegrees, endAngleDegrees);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddArc(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds, float startAngleDegrees, float endAngleDegrees)
+        {
+            PathBuilderAddArcNative(builder, (ImpellerRect*)ovalBounds, startAngleDegrees, endAngleDegrees);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddArc(ImpellerPathBuilder builder, in ImpellerRect ovalBounds, float startAngleDegrees, float endAngleDegrees)
-		{
-			fixed (ImpellerRect* povalBounds = &ovalBounds)
-			{
-				PathBuilderAddArcNative(builder, (ImpellerRect*)povalBounds, startAngleDegrees, endAngleDegrees);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddArc(ImpellerPathBuilder builder, in ImpellerRect ovalBounds, float startAngleDegrees, float endAngleDegrees)
+        {
+            fixed (ImpellerRect* povalBounds = &ovalBounds)
+            {
+                PathBuilderAddArcNative(builder, (ImpellerRect*)povalBounds, startAngleDegrees, endAngleDegrees);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderAddOvalNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderAddOvalNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, void>)funcTable[29])(builder, ovalBounds);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void>)funcTable[29])(builder, (nint)ovalBounds);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[29])(builder, (nint)ovalBounds);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddOval(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds)
-		{
-			PathBuilderAddOvalNative(builder, (ImpellerRect*)ovalBounds);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddOval(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds)
+        {
+            PathBuilderAddOvalNative(builder, (ImpellerRect*)ovalBounds);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddOval(ImpellerPathBuilder builder, in ImpellerRect ovalBounds)
-		{
-			fixed (ImpellerRect* povalBounds = &ovalBounds)
-			{
-				PathBuilderAddOvalNative(builder, (ImpellerRect*)povalBounds);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddOval(ImpellerPathBuilder builder, in ImpellerRect ovalBounds)
+        {
+            fixed (ImpellerRect* povalBounds = &ovalBounds)
+            {
+                PathBuilderAddOvalNative(builder, (ImpellerRect*)povalBounds);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderAddRoundedRectNative(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderAddRoundedRectNative(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, ImpellerRoundingRadii*, void>)funcTable[30])(builder, rect, roundingRadii);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, void>)funcTable[30])(builder, (nint)rect, (nint)roundingRadii);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, void> )funcTable[30])(builder, (nint)rect, (nint)roundingRadii);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr roundingRadii)
-		{
-			PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)roundingRadii);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr roundingRadii)
+        {
+            PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)roundingRadii);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr roundingRadii)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)roundingRadii);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr roundingRadii)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)roundingRadii);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii roundingRadii)
-		{
-			fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
-			{
-				PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)proundingRadii);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii roundingRadii)
+        {
+            fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
+            {
+                PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)proundingRadii);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii roundingRadii)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
-				{
-					PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)proundingRadii);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii roundingRadii)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
+                {
+                    PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)proundingRadii);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PathBuilderCloseNative(ImpellerPathBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PathBuilderCloseNative(ImpellerPathBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[31])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[31])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void> )funcTable[31])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PathBuilderClose(ImpellerPathBuilder builder)
-		{
-			PathBuilderCloseNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PathBuilderClose(ImpellerPathBuilder builder)
+        {
+            PathBuilderCloseNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPath PathBuilderCopyPathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerPath PathBuilderCopyPathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[32])(builder, fill);
-			#else
-			return (ImpellerPath)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[32])(builder, fill);
-			#endif
-		}
+#else
+            return (ImpellerPath)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath> )funcTable[32])(builder, fill);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerPath PathBuilderCopyPathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
-		{
-			ImpellerPath ret = PathBuilderCopyPathNewNative(builder, fill);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerPath PathBuilderCopyPathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
+        {
+            ImpellerPath ret = PathBuilderCopyPathNewNative(builder, fill);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPath PathBuilderTakePathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerPath PathBuilderTakePathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[33])(builder, fill);
-			#else
-			return (ImpellerPath)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[33])(builder, fill);
-			#endif
-		}
+#else
+            return (ImpellerPath)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath> )funcTable[33])(builder, fill);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerPath PathBuilderTakePathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
-		{
-			ImpellerPath ret = PathBuilderTakePathNewNative(builder, fill);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerPath PathBuilderTakePathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
+        {
+            ImpellerPath ret = PathBuilderTakePathNewNative(builder, fill);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerPaint PaintNewNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerPaint PaintNewNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPaint>)funcTable[34])();
-			#else
-			return (ImpellerPaint)((delegate* unmanaged[Cdecl]<ImpellerPaint>)funcTable[34])();
-			#endif
-		}
+#else
+            return (ImpellerPaint)((delegate* unmanaged[Cdecl]<ImpellerPaint> )funcTable[34])();
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerPaint PaintNew()
-		{
-			ImpellerPaint ret = PaintNewNative();
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerPaint PaintNew()
+        {
+            ImpellerPaint ret = PaintNewNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintRetainNative(ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintRetainNative(ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[35])(paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[35])(paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, void> )funcTable[35])(paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintRetain(ImpellerPaint paint)
-		{
-			PaintRetainNative(paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintRetain(ImpellerPaint paint)
+        {
+            PaintRetainNative(paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintReleaseNative(ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintReleaseNative(ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[36])(paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[36])(paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, void> )funcTable[36])(paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintRelease(ImpellerPaint paint)
-		{
-			PaintReleaseNative(paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintRelease(ImpellerPaint paint)
+        {
+            PaintReleaseNative(paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetColorNative(ImpellerPaint paint, ImpellerColor* color)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetColorNative(ImpellerPaint paint, ImpellerColor* color)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColor*, void>)funcTable[37])(paint, color);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, nint, void>)funcTable[37])(paint, (nint)color);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, nint, void> )funcTable[37])(paint, (nint)color);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetColor(ImpellerPaint paint, ImpellerColorPtr color)
-		{
-			PaintSetColorNative(paint, (ImpellerColor*)color);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetColor(ImpellerPaint paint, ImpellerColorPtr color)
+        {
+            PaintSetColorNative(paint, (ImpellerColor*)color);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetColor(ImpellerPaint paint, in ImpellerColor color)
-		{
-			fixed (ImpellerColor* pcolor = &color)
-			{
-				PaintSetColorNative(paint, (ImpellerColor*)pcolor);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetColor(ImpellerPaint paint, in ImpellerColor color)
+        {
+            fixed (ImpellerColor* pcolor = &color)
+            {
+                PaintSetColorNative(paint, (ImpellerColor*)pcolor);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetBlendModeNative(ImpellerPaint paint, ImpellerBlendMode mode)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetBlendModeNative(ImpellerPaint paint, ImpellerBlendMode mode)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerBlendMode, void>)funcTable[38])(paint, mode);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerBlendMode, void>)funcTable[38])(paint, mode);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerBlendMode, void> )funcTable[38])(paint, mode);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetBlendMode(ImpellerPaint paint, ImpellerBlendMode mode)
-		{
-			PaintSetBlendModeNative(paint, mode);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetBlendMode(ImpellerPaint paint, ImpellerBlendMode mode)
+        {
+            PaintSetBlendModeNative(paint, mode);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetDrawStyleNative(ImpellerPaint paint, ImpellerDrawStyle style)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetDrawStyleNative(ImpellerPaint paint, ImpellerDrawStyle style)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerDrawStyle, void>)funcTable[39])(paint, style);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerDrawStyle, void>)funcTable[39])(paint, style);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerDrawStyle, void> )funcTable[39])(paint, style);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetDrawStyle(ImpellerPaint paint, ImpellerDrawStyle style)
-		{
-			PaintSetDrawStyleNative(paint, style);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetDrawStyle(ImpellerPaint paint, ImpellerDrawStyle style)
+        {
+            PaintSetDrawStyleNative(paint, style);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetStrokeCapNative(ImpellerPaint paint, ImpellerStrokeCap cap)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetStrokeCapNative(ImpellerPaint paint, ImpellerStrokeCap cap)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeCap, void>)funcTable[40])(paint, cap);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeCap, void>)funcTable[40])(paint, cap);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeCap, void> )funcTable[40])(paint, cap);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetStrokeCap(ImpellerPaint paint, ImpellerStrokeCap cap)
-		{
-			PaintSetStrokeCapNative(paint, cap);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetStrokeCap(ImpellerPaint paint, ImpellerStrokeCap cap)
+        {
+            PaintSetStrokeCapNative(paint, cap);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetStrokeJoinNative(ImpellerPaint paint, ImpellerStrokeJoin join)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetStrokeJoinNative(ImpellerPaint paint, ImpellerStrokeJoin join)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeJoin, void>)funcTable[41])(paint, join);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeJoin, void>)funcTable[41])(paint, join);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeJoin, void> )funcTable[41])(paint, join);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetStrokeJoin(ImpellerPaint paint, ImpellerStrokeJoin join)
-		{
-			PaintSetStrokeJoinNative(paint, join);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetStrokeJoin(ImpellerPaint paint, ImpellerStrokeJoin join)
+        {
+            PaintSetStrokeJoinNative(paint, join);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetStrokeWidthNative(ImpellerPaint paint, float width)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetStrokeWidthNative(ImpellerPaint paint, float width)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[42])(paint, width);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[42])(paint, width);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void> )funcTable[42])(paint, width);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetStrokeWidth(ImpellerPaint paint, float width)
-		{
-			PaintSetStrokeWidthNative(paint, width);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetStrokeWidth(ImpellerPaint paint, float width)
+        {
+            PaintSetStrokeWidthNative(paint, width);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetStrokeMiterNative(ImpellerPaint paint, float miter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetStrokeMiterNative(ImpellerPaint paint, float miter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[43])(paint, miter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[43])(paint, miter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void> )funcTable[43])(paint, miter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetStrokeMiter(ImpellerPaint paint, float miter)
-		{
-			PaintSetStrokeMiterNative(paint, miter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetStrokeMiter(ImpellerPaint paint, float miter)
+        {
+            PaintSetStrokeMiterNative(paint, miter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Color filters are functions that take two colors and mix them to<br/>
-		/// produce a single color. This color is then usually merged with<br/>
-		/// the destination during blending.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetColorFilterNative(ImpellerPaint paint, ImpellerColorFilter colorFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Color filters are functions that take two colors and mix them to<br/>
+        /// produce a single color. This color is then usually merged with<br/>
+        /// the destination during blending.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetColorFilterNative(ImpellerPaint paint, ImpellerColorFilter colorFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorFilter, void>)funcTable[44])(paint, colorFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorFilter, void>)funcTable[44])(paint, colorFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorFilter, void> )funcTable[44])(paint, colorFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Color filters are functions that take two colors and mix them to<br/>
-		/// produce a single color. This color is then usually merged with<br/>
-		/// the destination during blending.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetColorFilter(ImpellerPaint paint, ImpellerColorFilter colorFilter)
-		{
-			PaintSetColorFilterNative(paint, colorFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Color filters are functions that take two colors and mix them to<br/>
+        /// produce a single color. This color is then usually merged with<br/>
+        /// the destination during blending.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetColorFilter(ImpellerPaint paint, ImpellerColorFilter colorFilter)
+        {
+            PaintSetColorFilterNative(paint, colorFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Color sources are functions that generate colors for each<br/>
-		/// texture element covered by a draw call.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetColorSourceNative(ImpellerPaint paint, ImpellerColorSource colorSource)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Color sources are functions that generate colors for each<br/>
+        /// texture element covered by a draw call.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetColorSourceNative(ImpellerPaint paint, ImpellerColorSource colorSource)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorSource, void>)funcTable[45])(paint, colorSource);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorSource, void>)funcTable[45])(paint, colorSource);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorSource, void> )funcTable[45])(paint, colorSource);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Color sources are functions that generate colors for each<br/>
-		/// texture element covered by a draw call.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetColorSource(ImpellerPaint paint, ImpellerColorSource colorSource)
-		{
-			PaintSetColorSourceNative(paint, colorSource);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Color sources are functions that generate colors for each<br/>
+        /// texture element covered by a draw call.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetColorSource(ImpellerPaint paint, ImpellerColorSource colorSource)
+        {
+            PaintSetColorSourceNative(paint, colorSource);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Image filters are functions that are applied to regions of a<br/>
-		/// texture to produce a single color.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetImageFilterNative(ImpellerPaint paint, ImpellerImageFilter imageFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Image filters are functions that are applied to regions of a<br/>
+        /// texture to produce a single color.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetImageFilterNative(ImpellerPaint paint, ImpellerImageFilter imageFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerImageFilter, void>)funcTable[46])(paint, imageFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerImageFilter, void>)funcTable[46])(paint, imageFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerImageFilter, void> )funcTable[46])(paint, imageFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Image filters are functions that are applied to regions of a<br/>
-		/// texture to produce a single color.<br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetImageFilter(ImpellerPaint paint, ImpellerImageFilter imageFilter)
-		{
-			PaintSetImageFilterNative(paint, imageFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Image filters are functions that are applied to regions of a<br/>
+        /// texture to produce a single color.<br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetImageFilter(ImpellerPaint paint, ImpellerImageFilter imageFilter)
+        {
+            PaintSetImageFilterNative(paint, imageFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void PaintSetMaskFilterNative(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void PaintSetMaskFilterNative(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerMaskFilter, void>)funcTable[47])(paint, maskFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerMaskFilter, void>)funcTable[47])(paint, maskFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerMaskFilter, void> )funcTable[47])(paint, maskFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void PaintSetMaskFilter(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
-		{
-			PaintSetMaskFilterNative(paint, maskFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void PaintSetMaskFilter(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
+        {
+            PaintSetMaskFilterNative(paint, maskFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerTexture TextureCreateWithContentsNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerTexture TextureCreateWithContentsNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerTextureDescriptor*, ImpellerMapping*, void*, ImpellerTexture>)funcTable[48])(context, descriptor, contents, contentsOnReleaseUserData);
-			#else
-			return (ImpellerTexture)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, nint, nint, ImpellerTexture>)funcTable[48])(context, (nint)descriptor, (nint)contents, (nint)contentsOnReleaseUserData);
-			#endif
-		}
+#else
+            return (ImpellerTexture)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, nint, nint, ImpellerTexture> )funcTable[48])(context, (nint)descriptor, (nint)contents, (nint)contentsOnReleaseUserData);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
-		{
-			ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
+        {
+            ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
-		{
-			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
-			{
-				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, void* contentsOnReleaseUserData)
+        {
+            fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
+            {
+                ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, contentsOnReleaseUserData);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
-		{
-			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
-			{
-				fixed (ImpellerMapping* pcontents = &contents)
-				{
-					ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, void* contentsOnReleaseUserData)
+        {
+            fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
+            {
+                fixed (ImpellerMapping* pcontents = &contents)
+                {
+                    ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, contentsOnReleaseUserData);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
-		{
-			ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
+        {
+            ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
-		{
-			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
-			{
-				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ImpellerMappingPtr contents, nint contentsOnReleaseUserData)
+        {
+            fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
+            {
+                ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)descriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Impeller will do its best to perform the transfer of this data<br/>
-		/// to GPU memory with a minimal number of copies. Towards this<br/>
-		/// end, it may need to send this data to a different thread for<br/>
-		/// preparation and transfer. To facilitate this transfer, it is<br/>
-		/// recommended that the content mapping have a release callback<br/>
-		/// attach to it. When there is a release callback, Impeller assumes<br/>
-		/// that collection of the data can be deferred till texture upload<br/>
-		/// is done and can happen on a background thread. When there is no<br/>
-		/// release callback, Impeller may try to perform an eager copy of<br/>
-		/// the data if it needs to perform data preparation and transfer on<br/>
-		/// a background thread.<br/>
-		/// Whether an extra data copy actually occurs will always depend on<br/>
-		/// the rendering backend in use. But it is best practice to provide<br/>
-		/// a release callback and be resilient to the data being released<br/>
-		/// in a deferred manner on a background thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
-		{
-			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
-			{
-				fixed (ImpellerMapping* pcontents = &contents)
-				{
-					ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Impeller will do its best to perform the transfer of this data<br/>
+        /// to GPU memory with a minimal number of copies. Towards this<br/>
+        /// end, it may need to send this data to a different thread for<br/>
+        /// preparation and transfer. To facilitate this transfer, it is<br/>
+        /// recommended that the content mapping have a release callback<br/>
+        /// attach to it. When there is a release callback, Impeller assumes<br/>
+        /// that collection of the data can be deferred till texture upload<br/>
+        /// is done and can happen on a background thread. When there is no<br/>
+        /// release callback, Impeller may try to perform an eager copy of<br/>
+        /// the data if it needs to perform data preparation and transfer on<br/>
+        /// a background thread.<br/>
+        /// Whether an extra data copy actually occurs will always depend on<br/>
+        /// the rendering backend in use. But it is best practice to provide<br/>
+        /// a release callback and be resilient to the data being released<br/>
+        /// in a deferred manner on a background thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithContentsNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, in ImpellerMapping contents, nint contentsOnReleaseUserData)
+        {
+            fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
+            {
+                fixed (ImpellerMapping* pcontents = &contents)
+                {
+                    ImpellerTexture ret = TextureCreateWithContentsNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Ownership of the handle is transferred over to Impeller after a<br/>
-		/// successful call to this method. Impeller is responsible for<br/>
-		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
-		/// handle yourself as this will lead to a double-free.<br/>
-		/// The handle must be created in the same context as the one used<br/>
-		/// by Impeller. If a different context is used, that context must<br/>
-		/// be in the same sharegroup as Impellers OpenGL context and all<br/>
-		/// synchronization of texture contents must already be complete.<br/>
-		/// If the context is not an OpenGL context, this call will always<br/>
-		/// fail.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerTexture TextureCreateWithOpenGLTextureHandleNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Ownership of the handle is transferred over to Impeller after a<br/>
+        /// successful call to this method. Impeller is responsible for<br/>
+        /// calling glDeleteTextures on this handle. Do **not** collect this<br/>
+        /// handle yourself as this will lead to a double-free.<br/>
+        /// The handle must be created in the same context as the one used<br/>
+        /// by Impeller. If a different context is used, that context must<br/>
+        /// be in the same sharegroup as Impellers OpenGL context and all<br/>
+        /// synchronization of texture contents must already be complete.<br/>
+        /// If the context is not an OpenGL context, this call will always<br/>
+        /// fail.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerTexture TextureCreateWithOpenGLTextureHandleNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerTextureDescriptor*, ulong, ImpellerTexture>)funcTable[49])(context, descriptor, handle);
-			#else
-			return (ImpellerTexture)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ulong, ImpellerTexture>)funcTable[49])(context, (nint)descriptor, handle);
-			#endif
-		}
+#else
+            return (ImpellerTexture)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ulong, ImpellerTexture> )funcTable[49])(context, (nint)descriptor, handle);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Ownership of the handle is transferred over to Impeller after a<br/>
-		/// successful call to this method. Impeller is responsible for<br/>
-		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
-		/// handle yourself as this will lead to a double-free.<br/>
-		/// The handle must be created in the same context as the one used<br/>
-		/// by Impeller. If a different context is used, that context must<br/>
-		/// be in the same sharegroup as Impellers OpenGL context and all<br/>
-		/// synchronization of texture contents must already be complete.<br/>
-		/// If the context is not an OpenGL context, this call will always<br/>
-		/// fail.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ulong handle)
-		{
-			ImpellerTexture ret = TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)descriptor, handle);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Ownership of the handle is transferred over to Impeller after a<br/>
+        /// successful call to this method. Impeller is responsible for<br/>
+        /// calling glDeleteTextures on this handle. Do **not** collect this<br/>
+        /// handle yourself as this will lead to a double-free.<br/>
+        /// The handle must be created in the same context as the one used<br/>
+        /// by Impeller. If a different context is used, that context must<br/>
+        /// be in the same sharegroup as Impellers OpenGL context and all<br/>
+        /// synchronization of texture contents must already be complete.<br/>
+        /// If the context is not an OpenGL context, this call will always<br/>
+        /// fail.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, ImpellerTextureDescriptorPtr descriptor, ulong handle)
+        {
+            ImpellerTexture ret = TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)descriptor, handle);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Ownership of the handle is transferred over to Impeller after a<br/>
-		/// successful call to this method. Impeller is responsible for<br/>
-		/// calling glDeleteTextures on this handle. Do **not** collect this<br/>
-		/// handle yourself as this will lead to a double-free.<br/>
-		/// The handle must be created in the same context as the one used<br/>
-		/// by Impeller. If a different context is used, that context must<br/>
-		/// be in the same sharegroup as Impellers OpenGL context and all<br/>
-		/// synchronization of texture contents must already be complete.<br/>
-		/// If the context is not an OpenGL context, this call will always<br/>
-		/// fail.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTexture TextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ulong handle)
-		{
-			fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
-			{
-				ImpellerTexture ret = TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, handle);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Ownership of the handle is transferred over to Impeller after a<br/>
+        /// successful call to this method. Impeller is responsible for<br/>
+        /// calling glDeleteTextures on this handle. Do **not** collect this<br/>
+        /// handle yourself as this will lead to a double-free.<br/>
+        /// The handle must be created in the same context as the one used<br/>
+        /// by Impeller. If a different context is used, that context must<br/>
+        /// be in the same sharegroup as Impellers OpenGL context and all<br/>
+        /// synchronization of texture contents must already be complete.<br/>
+        /// If the context is not an OpenGL context, this call will always<br/>
+        /// fail.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTexture TextureCreateWithOpenGLTextureHandleNew(ImpellerContext context, in ImpellerTextureDescriptor descriptor, ulong handle)
+        {
+            fixed (ImpellerTextureDescriptor* pdescriptor = &descriptor)
+            {
+                ImpellerTexture ret = TextureCreateWithOpenGLTextureHandleNewNative(context, (ImpellerTextureDescriptor*)pdescriptor, handle);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void TextureRetainNative(ImpellerTexture texture)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void TextureRetainNative(ImpellerTexture texture)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[50])(texture);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[50])(texture);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerTexture, void> )funcTable[50])(texture);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void TextureRetain(ImpellerTexture texture)
-		{
-			TextureRetainNative(texture);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void TextureRetain(ImpellerTexture texture)
+        {
+            TextureRetainNative(texture);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void TextureReleaseNative(ImpellerTexture texture)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void TextureReleaseNative(ImpellerTexture texture)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[51])(texture);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[51])(texture);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerTexture, void> )funcTable[51])(texture);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void TextureRelease(ImpellerTexture texture)
-		{
-			TextureReleaseNative(texture);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void TextureRelease(ImpellerTexture texture)
+        {
+            TextureReleaseNative(texture);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// OpenGL handles are lazily created, this method will return<br/>
-		/// GL_NONE is no OpenGL handle is available. To ensure that this<br/>
-		/// call eagerly creates an OpenGL texture, call this on a thread<br/>
-		/// where Impeller knows there is an OpenGL context available.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ulong TextureGetOpenGLHandleNative(ImpellerTexture texture)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// OpenGL handles are lazily created, this method will return<br/>
+        /// GL_NONE is no OpenGL handle is available. To ensure that this<br/>
+        /// call eagerly creates an OpenGL texture, call this on a thread<br/>
+        /// where Impeller knows there is an OpenGL context available.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ulong TextureGetOpenGLHandleNative(ImpellerTexture texture)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerTexture, ulong>)funcTable[52])(texture);
-			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<ImpellerTexture, ulong>)funcTable[52])(texture);
-			#endif
-		}
+#else
+            return (ulong)((delegate* unmanaged[Cdecl]<ImpellerTexture, ulong> )funcTable[52])(texture);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// OpenGL handles are lazily created, this method will return<br/>
-		/// GL_NONE is no OpenGL handle is available. To ensure that this<br/>
-		/// call eagerly creates an OpenGL texture, call this on a thread<br/>
-		/// where Impeller knows there is an OpenGL context available.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ulong TextureGetOpenGLHandle(ImpellerTexture texture)
-		{
-			ulong ret = TextureGetOpenGLHandleNative(texture);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// OpenGL handles are lazily created, this method will return<br/>
+        /// GL_NONE is no OpenGL handle is available. To ensure that this<br/>
+        /// call eagerly creates an OpenGL texture, call this on a thread<br/>
+        /// where Impeller knows there is an OpenGL context available.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ulong TextureGetOpenGLHandle(ImpellerTexture texture)
+        {
+            ulong ret = TextureGetOpenGLHandleNative(texture);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerFragmentProgram FragmentProgramNewNative(ImpellerMapping* data, void* dataReleaseUserData)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerFragmentProgram FragmentProgramNewNative(ImpellerMapping* data, void* dataReleaseUserData)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerMapping*, void*, ImpellerFragmentProgram>)funcTable[53])(data, dataReleaseUserData);
-			#else
-			return (ImpellerFragmentProgram)((delegate* unmanaged[Cdecl]<nint, nint, ImpellerFragmentProgram>)funcTable[53])((nint)data, (nint)dataReleaseUserData);
-			#endif
-		}
+#else
+            return (ImpellerFragmentProgram)((delegate* unmanaged[Cdecl]<nint, nint, ImpellerFragmentProgram> )funcTable[53])((nint)data, (nint)dataReleaseUserData);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, void* dataReleaseUserData)
-		{
-			ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, dataReleaseUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, void* dataReleaseUserData)
+        {
+            ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, dataReleaseUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, void* dataReleaseUserData)
-		{
-			fixed (ImpellerMapping* pdata = &data)
-			{
-				ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)pdata, dataReleaseUserData);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, void* dataReleaseUserData)
+        {
+            fixed (ImpellerMapping* pdata = &data)
+            {
+                ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)pdata, dataReleaseUserData);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, nint dataReleaseUserData)
-		{
-			ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, (void*)dataReleaseUserData);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, nint dataReleaseUserData)
+        {
+            ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, (void*)dataReleaseUserData);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, nint dataReleaseUserData)
-		{
-			fixed (ImpellerMapping* pdata = &data)
-			{
-				ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)pdata, (void*)dataReleaseUserData);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, nint dataReleaseUserData)
+        {
+            fixed (ImpellerMapping* pdata = &data)
+            {
+                ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)pdata, (void*)dataReleaseUserData);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FragmentProgramRetainNative(ImpellerFragmentProgram fragmentProgram)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void FragmentProgramRetainNative(ImpellerFragmentProgram fragmentProgram)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[54])(fragmentProgram);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[54])(fragmentProgram);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void> )funcTable[54])(fragmentProgram);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void FragmentProgramRetain(ImpellerFragmentProgram fragmentProgram)
-		{
-			FragmentProgramRetainNative(fragmentProgram);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void FragmentProgramRetain(ImpellerFragmentProgram fragmentProgram)
+        {
+            FragmentProgramRetainNative(fragmentProgram);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FragmentProgramReleaseNative(ImpellerFragmentProgram fragmentProgram)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void FragmentProgramReleaseNative(ImpellerFragmentProgram fragmentProgram)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[55])(fragmentProgram);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[55])(fragmentProgram);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void> )funcTable[55])(fragmentProgram);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void FragmentProgramRelease(ImpellerFragmentProgram fragmentProgram)
-		{
-			FragmentProgramReleaseNative(fragmentProgram);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void FragmentProgramRelease(ImpellerFragmentProgram fragmentProgram)
+        {
+            FragmentProgramReleaseNative(fragmentProgram);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ColorSourceRetainNative(ImpellerColorSource colorSource)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ColorSourceRetainNative(ImpellerColorSource colorSource)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[56])(colorSource);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[56])(colorSource);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerColorSource, void> )funcTable[56])(colorSource);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ColorSourceRetain(ImpellerColorSource colorSource)
-		{
-			ColorSourceRetainNative(colorSource);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ColorSourceRetain(ImpellerColorSource colorSource)
+        {
+            ColorSourceRetainNative(colorSource);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ColorSourceReleaseNative(ImpellerColorSource colorSource)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ColorSourceReleaseNative(ImpellerColorSource colorSource)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[57])(colorSource);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[57])(colorSource);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerColorSource, void> )funcTable[57])(colorSource);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ColorSourceRelease(ImpellerColorSource colorSource)
-		{
-			ColorSourceReleaseNative(colorSource);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ColorSourceRelease(ImpellerColorSource colorSource)
+        {
+            ColorSourceReleaseNative(colorSource);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorSource ColorSourceCreateLinearGradientNewNative(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorSource ColorSourceCreateLinearGradientNewNative(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, ImpellerPoint*, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[58])(startPoint, endPoint, stopCount, colors, stops, tileMode, transformation);
-			#else
-			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, nint, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource>)funcTable[58])((nint)startPoint, (nint)endPoint, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-			#endif
-		}
+#else
+            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, nint, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[58])((nint)startPoint, (nint)endPoint, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						fixed (float* pstops = &stops)
-						{
-							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        fixed (float* pstops = &stops)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerMatrix* ptransformation = &transformation)
-			{
-				ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerMatrix* ptransformation = &transformation)
+            {
+                ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendPoint = &endPoint)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendPoint = &endPoint)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartPoint = &startPoint)
-			{
-				fixed (ImpellerPoint* pendPoint = &endPoint)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						fixed (float* pstops = &stops)
-						{
-							fixed (ImpellerMatrix* ptransformation = &transformation)
-							{
-								ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartPoint = &startPoint)
+            {
+                fixed (ImpellerPoint* pendPoint = &endPoint)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        fixed (float* pstops = &stops)
+                        {
+                            fixed (ImpellerMatrix* ptransformation = &transformation)
+                            {
+                                ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)pstartPoint, (ImpellerPoint*)pendPoint, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                                return ret;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorSource ColorSourceCreateRadialGradientNewNative(ImpellerPoint* center, float radius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorSource ColorSourceCreateRadialGradientNewNative(ImpellerPoint* center, float radius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[59])(center, radius, stopCount, colors, stops, tileMode, transformation);
-			#else
-			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource>)funcTable[59])((nint)center, radius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-			#endif
-		}
+#else
+            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[59])((nint)center, radius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerMatrix* ptransformation = &transformation)
-			{
-				ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerMatrix* ptransformation = &transformation)
+            {
+                ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)pcenter, radius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorSource ColorSourceCreateConicalGradientNewNative(ImpellerPoint* startCenter, float startRadius, ImpellerPoint* endCenter, float endRadius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorSource ColorSourceCreateConicalGradientNewNative(ImpellerPoint* startCenter, float startRadius, ImpellerPoint* endCenter, float endRadius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, ImpellerPoint*, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[60])(startCenter, startRadius, endCenter, endRadius, stopCount, colors, stops, tileMode, transformation);
-			#else
-			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource>)funcTable[60])((nint)startCenter, startRadius, (nint)endCenter, endRadius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-			#endif
-		}
+#else
+            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[60])((nint)startCenter, startRadius, (nint)endCenter, endRadius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						fixed (float* pstops = &stops)
-						{
-							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        fixed (float* pstops = &stops)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerMatrix* ptransformation = &transformation)
-			{
-				ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerMatrix* ptransformation = &transformation)
+            {
+                ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pendCenter = &endCenter)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pendCenter = &endCenter)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pstartCenter = &startCenter)
-			{
-				fixed (ImpellerPoint* pendCenter = &endCenter)
-				{
-					fixed (ImpellerColor* pcolors = &colors)
-					{
-						fixed (float* pstops = &stops)
-						{
-							fixed (ImpellerMatrix* ptransformation = &transformation)
-							{
-								ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pstartCenter = &startCenter)
+            {
+                fixed (ImpellerPoint* pendCenter = &endCenter)
+                {
+                    fixed (ImpellerColor* pcolors = &colors)
+                    {
+                        fixed (float* pstops = &stops)
+                        {
+                            fixed (ImpellerMatrix* ptransformation = &transformation)
+                            {
+                                ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)pstartCenter, startRadius, (ImpellerPoint*)pendCenter, endRadius, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                                return ret;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorSource ColorSourceCreateSweepGradientNewNative(ImpellerPoint* center, float start, float end, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorSource ColorSourceCreateSweepGradientNewNative(ImpellerPoint* center, float start, float end, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[61])(center, start, end, stopCount, colors, stops, tileMode, transformation);
-			#else
-			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource>)funcTable[61])((nint)center, start, end, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-			#endif
-		}
+#else
+            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[61])((nint)center, start, end, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)transformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerMatrix* ptransformation = &transformation)
-			{
-				ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerMatrix* ptransformation = &transformation)
+            {
+                ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, stops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (float* pstops = &stops)
-			{
-				fixed (ImpellerMatrix* ptransformation = &transformation)
-				{
-					ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (float* pstops = &stops)
+            {
+                fixed (ImpellerMatrix* ptransformation = &transformation)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)colors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerColor* pcolors = &colors)
-			{
-				fixed (float* pstops = &stops)
-				{
-					fixed (ImpellerMatrix* ptransformation = &transformation)
-					{
-						ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-						return ret;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerColor* pcolors = &colors)
+            {
+                fixed (float* pstops = &stops)
+                {
+                    fixed (ImpellerMatrix* ptransformation = &transformation)
+                    {
+                        ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerPoint* pcenter = &center)
-			{
-				fixed (ImpellerColor* pcolors = &colors)
-				{
-					fixed (float* pstops = &stops)
-					{
-						fixed (ImpellerMatrix* ptransformation = &transformation)
-						{
-							ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
-							return ret;
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerPoint* pcenter = &center)
+            {
+                fixed (ImpellerColor* pcolors = &colors)
+                {
+                    fixed (float* pstops = &stops)
+                    {
+                        fixed (ImpellerMatrix* ptransformation = &transformation)
+                        {
+                            ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)pcenter, start, end, stopCount, (ImpellerColor*)pcolors, (float*)pstops, tileMode, (ImpellerMatrix*)ptransformation);
+                            return ret;
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorSource ColorSourceCreateImageNewNative(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrix* transformation)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorSource ColorSourceCreateImageNewNative(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrix* transformation)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerTexture, ImpellerTileMode, ImpellerTileMode, ImpellerTextureSampling, ImpellerMatrix*, ImpellerColorSource>)funcTable[62])(image, horizontalTileMode, verticalTileMode, sampling, transformation);
-			#else
-			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerTexture, ImpellerTileMode, ImpellerTileMode, ImpellerTextureSampling, nint, ImpellerColorSource>)funcTable[62])(image, horizontalTileMode, verticalTileMode, sampling, (nint)transformation);
-			#endif
-		}
+#else
+            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerTexture, ImpellerTileMode, ImpellerTileMode, ImpellerTextureSampling, nint, ImpellerColorSource> )funcTable[62])(image, horizontalTileMode, verticalTileMode, sampling, (nint)transformation);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrixPtr transformation)
-		{
-			ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)transformation);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrixPtr transformation)
+        {
+            ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)transformation);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, in ImpellerMatrix transformation)
-		{
-			fixed (ImpellerMatrix* ptransformation = &transformation)
-			{
-				ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)ptransformation);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, in ImpellerMatrix transformation)
+        {
+            fixed (ImpellerMatrix* ptransformation = &transformation)
+            {
+                ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)ptransformation);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorSource ColorSourceCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorSource ColorSourceCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, ImpellerTexture*, nuint, byte*, nuint, ImpellerColorSource>)funcTable[63])(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
-			#else
-			return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerColorSource>)funcTable[63])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
-			#endif
-		}
+#else
+            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerColorSource> )funcTable[63])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-		{
-			ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+        {
+            ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-		{
-			fixed (ImpellerTexture* psamplers = &samplers)
-			{
-				ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+        {
+            fixed (ImpellerTexture* psamplers = &samplers)
+            {
+                ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
-		{
-			fixed (byte* pdata = &data)
-			{
-				ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+        {
+            fixed (byte* pdata = &data)
+            {
+                ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
-		{
-			fixed (ImpellerTexture* psamplers = &samplers)
-			{
-				fixed (byte* pdata = &data)
-				{
-					ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+        {
+            fixed (ImpellerTexture* psamplers = &samplers)
+            {
+                fixed (byte* pdata = &data)
+                {
+                    ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ColorFilterRetainNative(ImpellerColorFilter colorFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ColorFilterRetainNative(ImpellerColorFilter colorFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[64])(colorFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[64])(colorFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void> )funcTable[64])(colorFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ColorFilterRetain(ImpellerColorFilter colorFilter)
-		{
-			ColorFilterRetainNative(colorFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ColorFilterRetain(ImpellerColorFilter colorFilter)
+        {
+            ColorFilterRetainNative(colorFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ColorFilterReleaseNative(ImpellerColorFilter colorFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ColorFilterReleaseNative(ImpellerColorFilter colorFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[65])(colorFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[65])(colorFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void> )funcTable[65])(colorFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ColorFilterRelease(ImpellerColorFilter colorFilter)
-		{
-			ColorFilterReleaseNative(colorFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ColorFilterRelease(ImpellerColorFilter colorFilter)
+        {
+            ColorFilterReleaseNative(colorFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorFilter ColorFilterCreateBlendNewNative(ImpellerColor* color, ImpellerBlendMode blendMode)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorFilter ColorFilterCreateBlendNewNative(ImpellerColor* color, ImpellerBlendMode blendMode)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerColor*, ImpellerBlendMode, ImpellerColorFilter>)funcTable[66])(color, blendMode);
-			#else
-			return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerBlendMode, ImpellerColorFilter>)funcTable[66])((nint)color, blendMode);
-			#endif
-		}
+#else
+            return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerBlendMode, ImpellerColorFilter> )funcTable[66])((nint)color, blendMode);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorFilter ColorFilterCreateBlendNew(ImpellerColorPtr color, ImpellerBlendMode blendMode)
-		{
-			ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)color, blendMode);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorFilter ColorFilterCreateBlendNew(ImpellerColorPtr color, ImpellerBlendMode blendMode)
+        {
+            ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)color, blendMode);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorFilter ColorFilterCreateBlendNew(in ImpellerColor color, ImpellerBlendMode blendMode)
-		{
-			fixed (ImpellerColor* pcolor = &color)
-			{
-				ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)pcolor, blendMode);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorFilter ColorFilterCreateBlendNew(in ImpellerColor color, ImpellerBlendMode blendMode)
+        {
+            fixed (ImpellerColor* pcolor = &color)
+            {
+                ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)pcolor, blendMode);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerColorFilter ColorFilterCreateColorMatrixNewNative(ImpellerColorMatrix* colorMatrix)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerColorFilter ColorFilterCreateColorMatrixNewNative(ImpellerColorMatrix* colorMatrix)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerColorMatrix*, ImpellerColorFilter>)funcTable[67])(colorMatrix);
-			#else
-			return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerColorFilter>)funcTable[67])((nint)colorMatrix);
-			#endif
-		}
+#else
+            return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerColorFilter> )funcTable[67])((nint)colorMatrix);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(ImpellerColorMatrixPtr colorMatrix)
-		{
-			ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)colorMatrix);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(ImpellerColorMatrixPtr colorMatrix)
+        {
+            ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)colorMatrix);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(in ImpellerColorMatrix colorMatrix)
-		{
-			fixed (ImpellerColorMatrix* pcolorMatrix = &colorMatrix)
-			{
-				ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)pcolorMatrix);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(in ImpellerColorMatrix colorMatrix)
+        {
+            fixed (ImpellerColorMatrix* pcolorMatrix = &colorMatrix)
+            {
+                ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)pcolorMatrix);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaskFilterRetainNative(ImpellerMaskFilter maskFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void MaskFilterRetainNative(ImpellerMaskFilter maskFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[68])(maskFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[68])(maskFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void> )funcTable[68])(maskFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void MaskFilterRetain(ImpellerMaskFilter maskFilter)
-		{
-			MaskFilterRetainNative(maskFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void MaskFilterRetain(ImpellerMaskFilter maskFilter)
+        {
+            MaskFilterRetainNative(maskFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaskFilterReleaseNative(ImpellerMaskFilter maskFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void MaskFilterReleaseNative(ImpellerMaskFilter maskFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[69])(maskFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[69])(maskFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void> )funcTable[69])(maskFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void MaskFilterRelease(ImpellerMaskFilter maskFilter)
-		{
-			MaskFilterReleaseNative(maskFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void MaskFilterRelease(ImpellerMaskFilter maskFilter)
+        {
+            MaskFilterReleaseNative(maskFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerMaskFilter MaskFilterCreateBlurNewNative(ImpellerBlurStyle style, float sigma)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerMaskFilter MaskFilterCreateBlurNewNative(ImpellerBlurStyle style, float sigma)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerBlurStyle, float, ImpellerMaskFilter>)funcTable[70])(style, sigma);
-			#else
-			return (ImpellerMaskFilter)((delegate* unmanaged[Cdecl]<ImpellerBlurStyle, float, ImpellerMaskFilter>)funcTable[70])(style, sigma);
-			#endif
-		}
+#else
+            return (ImpellerMaskFilter)((delegate* unmanaged[Cdecl]<ImpellerBlurStyle, float, ImpellerMaskFilter> )funcTable[70])(style, sigma);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerMaskFilter MaskFilterCreateBlurNew(ImpellerBlurStyle style, float sigma)
-		{
-			ImpellerMaskFilter ret = MaskFilterCreateBlurNewNative(style, sigma);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerMaskFilter MaskFilterCreateBlurNew(ImpellerBlurStyle style, float sigma)
+        {
+            ImpellerMaskFilter ret = MaskFilterCreateBlurNewNative(style, sigma);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImageFilterRetainNative(ImpellerImageFilter imageFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ImageFilterRetainNative(ImpellerImageFilter imageFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[71])(imageFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[71])(imageFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void> )funcTable[71])(imageFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ImageFilterRetain(ImpellerImageFilter imageFilter)
-		{
-			ImageFilterRetainNative(imageFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ImageFilterRetain(ImpellerImageFilter imageFilter)
+        {
+            ImageFilterRetainNative(imageFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ImageFilterReleaseNative(ImpellerImageFilter imageFilter)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ImageFilterReleaseNative(ImpellerImageFilter imageFilter)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[72])(imageFilter);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[72])(imageFilter);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void> )funcTable[72])(imageFilter);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ImageFilterRelease(ImpellerImageFilter imageFilter)
-		{
-			ImageFilterReleaseNative(imageFilter);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ImageFilterRelease(ImpellerImageFilter imageFilter)
+        {
+            ImageFilterReleaseNative(imageFilter);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The Gaussian blur applied may be an approximation for<br/>
-		/// performance.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerImageFilter ImageFilterCreateBlurNewNative(float xSigma, float ySigma, ImpellerTileMode tileMode)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The Gaussian blur applied may be an approximation for<br/>
+        /// performance.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerImageFilter ImageFilterCreateBlurNewNative(float xSigma, float ySigma, ImpellerTileMode tileMode)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerTileMode, ImpellerImageFilter>)funcTable[73])(xSigma, ySigma, tileMode);
-			#else
-			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerTileMode, ImpellerImageFilter>)funcTable[73])(xSigma, ySigma, tileMode);
-			#endif
-		}
+#else
+            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerTileMode, ImpellerImageFilter> )funcTable[73])(xSigma, ySigma, tileMode);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The Gaussian blur applied may be an approximation for<br/>
-		/// performance.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateBlurNew(float xSigma, float ySigma, ImpellerTileMode tileMode)
-		{
-			ImpellerImageFilter ret = ImageFilterCreateBlurNewNative(xSigma, ySigma, tileMode);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The Gaussian blur applied may be an approximation for<br/>
+        /// performance.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateBlurNew(float xSigma, float ySigma, ImpellerTileMode tileMode)
+        {
+            ImpellerImageFilter ret = ImageFilterCreateBlurNewNative(xSigma, ySigma, tileMode);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerImageFilter ImageFilterCreateDilateNewNative(float xRadius, float yRadius)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerImageFilter ImageFilterCreateDilateNewNative(float xRadius, float yRadius)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[74])(xRadius, yRadius);
-			#else
-			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[74])(xRadius, yRadius);
-			#endif
-		}
+#else
+            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter> )funcTable[74])(xRadius, yRadius);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateDilateNew(float xRadius, float yRadius)
-		{
-			ImpellerImageFilter ret = ImageFilterCreateDilateNewNative(xRadius, yRadius);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateDilateNew(float xRadius, float yRadius)
+        {
+            ImpellerImageFilter ret = ImageFilterCreateDilateNewNative(xRadius, yRadius);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerImageFilter ImageFilterCreateErodeNewNative(float xRadius, float yRadius)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerImageFilter ImageFilterCreateErodeNewNative(float xRadius, float yRadius)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[75])(xRadius, yRadius);
-			#else
-			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[75])(xRadius, yRadius);
-			#endif
-		}
+#else
+            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter> )funcTable[75])(xRadius, yRadius);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateErodeNew(float xRadius, float yRadius)
-		{
-			ImpellerImageFilter ret = ImageFilterCreateErodeNewNative(xRadius, yRadius);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateErodeNew(float xRadius, float yRadius)
+        {
+            ImpellerImageFilter ret = ImageFilterCreateErodeNewNative(xRadius, yRadius);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerImageFilter ImageFilterCreateMatrixNewNative(ImpellerMatrix* matrix, ImpellerTextureSampling sampling)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerImageFilter ImageFilterCreateMatrixNewNative(ImpellerMatrix* matrix, ImpellerTextureSampling sampling)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerMatrix*, ImpellerTextureSampling, ImpellerImageFilter>)funcTable[76])(matrix, sampling);
-			#else
-			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerTextureSampling, ImpellerImageFilter>)funcTable[76])((nint)matrix, sampling);
-			#endif
-		}
+#else
+            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerTextureSampling, ImpellerImageFilter> )funcTable[76])((nint)matrix, sampling);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateMatrixNew(ImpellerMatrixPtr matrix, ImpellerTextureSampling sampling)
-		{
-			ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)matrix, sampling);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateMatrixNew(ImpellerMatrixPtr matrix, ImpellerTextureSampling sampling)
+        {
+            ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)matrix, sampling);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateMatrixNew(in ImpellerMatrix matrix, ImpellerTextureSampling sampling)
-		{
-			fixed (ImpellerMatrix* pmatrix = &matrix)
-			{
-				ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)pmatrix, sampling);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateMatrixNew(in ImpellerMatrix matrix, ImpellerTextureSampling sampling)
+        {
+            fixed (ImpellerMatrix* pmatrix = &matrix)
+            {
+                ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)pmatrix, sampling);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerImageFilter ImageFilterCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerImageFilter ImageFilterCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, ImpellerTexture*, nuint, byte*, nuint, ImpellerImageFilter>)funcTable[77])(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
-			#else
-			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerImageFilter>)funcTable[77])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
-			#endif
-		}
+#else
+            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerImageFilter> )funcTable[77])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-		{
-			ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+        {
+            ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-		{
-			fixed (ImpellerTexture* psamplers = &samplers)
-			{
-				ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
+        {
+            fixed (ImpellerTexture* psamplers = &samplers)
+            {
+                ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, data, dataBytesLength);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
-		{
-			fixed (byte* pdata = &data)
-			{
-				ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+        {
+            fixed (byte* pdata = &data)
+            {
+                ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, (byte*)pdata, dataBytesLength);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
-		{
-			fixed (ImpellerTexture* psamplers = &samplers)
-			{
-				fixed (byte* pdata = &data)
-				{
-					ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
+        {
+            fixed (ImpellerTexture* psamplers = &samplers)
+            {
+                fixed (byte* pdata = &data)
+                {
+                    ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, (ImpellerTexture*)psamplers, samplersCount, (byte*)pdata, dataBytesLength);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// ```<br/>
-		/// destination = outer_filter(inner_filter(source))<br/>
-		/// ```<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerImageFilter ImageFilterCreateComposeNewNative(ImpellerImageFilter outer, ImpellerImageFilter inner)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// ```<br/>
+        /// destination = outer_filter(inner_filter(source))<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerImageFilter ImageFilterCreateComposeNewNative(ImpellerImageFilter outer, ImpellerImageFilter inner)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerImageFilter, ImpellerImageFilter, ImpellerImageFilter>)funcTable[78])(outer, inner);
-			#else
-			return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerImageFilter, ImpellerImageFilter, ImpellerImageFilter>)funcTable[78])(outer, inner);
-			#endif
-		}
+#else
+            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerImageFilter, ImpellerImageFilter, ImpellerImageFilter> )funcTable[78])(outer, inner);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// ```<br/>
-		/// destination = outer_filter(inner_filter(source))<br/>
-		/// ```<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerImageFilter ImageFilterCreateComposeNew(ImpellerImageFilter outer, ImpellerImageFilter inner)
-		{
-			ImpellerImageFilter ret = ImageFilterCreateComposeNewNative(outer, inner);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// ```<br/>
+        /// destination = outer_filter(inner_filter(source))<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerImageFilter ImageFilterCreateComposeNew(ImpellerImageFilter outer, ImpellerImageFilter inner)
+        {
+            ImpellerImageFilter ret = ImageFilterCreateComposeNewNative(outer, inner);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListRetainNative(ImpellerDisplayList displayList)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListRetainNative(ImpellerDisplayList displayList)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[79])(displayList);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[79])(displayList);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void> )funcTable[79])(displayList);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListRetain(ImpellerDisplayList displayList)
-		{
-			DisplayListRetainNative(displayList);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListRetain(ImpellerDisplayList displayList)
+        {
+            DisplayListRetainNative(displayList);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListReleaseNative(ImpellerDisplayList displayList)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListReleaseNative(ImpellerDisplayList displayList)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[80])(displayList);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[80])(displayList);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void> )funcTable[80])(displayList);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListRelease(ImpellerDisplayList displayList)
-		{
-			DisplayListReleaseNative(displayList);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListRelease(ImpellerDisplayList displayList)
+        {
+            DisplayListReleaseNative(displayList);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// An optional cull rectangle may be specified. Impeller is allowed<br/>
-		/// to treat the contents outside this rectangle as being undefined.<br/>
-		/// This may aid performance optimizations.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerDisplayListBuilder DisplayListBuilderNewNative(ImpellerRect* cullRect)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// An optional cull rectangle may be specified. Impeller is allowed<br/>
+        /// to treat the contents outside this rectangle as being undefined.<br/>
+        /// This may aid performance optimizations.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerDisplayListBuilder DisplayListBuilderNewNative(ImpellerRect* cullRect)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerRect*, ImpellerDisplayListBuilder>)funcTable[81])(cullRect);
-			#else
-			return (ImpellerDisplayListBuilder)((delegate* unmanaged[Cdecl]<nint, ImpellerDisplayListBuilder>)funcTable[81])((nint)cullRect);
-			#endif
-		}
+#else
+            return (ImpellerDisplayListBuilder)((delegate* unmanaged[Cdecl]<nint, ImpellerDisplayListBuilder> )funcTable[81])((nint)cullRect);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// An optional cull rectangle may be specified. Impeller is allowed<br/>
-		/// to treat the contents outside this rectangle as being undefined.<br/>
-		/// This may aid performance optimizations.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerDisplayListBuilder DisplayListBuilderNew(ImpellerRectPtr cullRect)
-		{
-			ImpellerDisplayListBuilder ret = DisplayListBuilderNewNative((ImpellerRect*)cullRect);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// An optional cull rectangle may be specified. Impeller is allowed<br/>
+        /// to treat the contents outside this rectangle as being undefined.<br/>
+        /// This may aid performance optimizations.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerDisplayListBuilder DisplayListBuilderNew(ImpellerRectPtr cullRect)
+        {
+            ImpellerDisplayListBuilder ret = DisplayListBuilderNewNative((ImpellerRect*)cullRect);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// An optional cull rectangle may be specified. Impeller is allowed<br/>
-		/// to treat the contents outside this rectangle as being undefined.<br/>
-		/// This may aid performance optimizations.<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerDisplayListBuilder DisplayListBuilderNew(in ImpellerRect cullRect)
-		{
-			fixed (ImpellerRect* pcullRect = &cullRect)
-			{
-				ImpellerDisplayListBuilder ret = DisplayListBuilderNewNative((ImpellerRect*)pcullRect);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// An optional cull rectangle may be specified. Impeller is allowed<br/>
+        /// to treat the contents outside this rectangle as being undefined.<br/>
+        /// This may aid performance optimizations.<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerDisplayListBuilder DisplayListBuilderNew(in ImpellerRect cullRect)
+        {
+            fixed (ImpellerRect* pcullRect = &cullRect)
+            {
+                ImpellerDisplayListBuilder ret = DisplayListBuilderNewNative((ImpellerRect*)pcullRect);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderRetainNative(ImpellerDisplayListBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderRetainNative(ImpellerDisplayListBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[82])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[82])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void> )funcTable[82])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderRetain(ImpellerDisplayListBuilder builder)
-		{
-			DisplayListBuilderRetainNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderRetain(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderRetainNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderReleaseNative(ImpellerDisplayListBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderReleaseNative(ImpellerDisplayListBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[83])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[83])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void> )funcTable[83])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderRelease(ImpellerDisplayListBuilder builder)
-		{
-			DisplayListBuilderReleaseNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderRelease(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderReleaseNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerDisplayList DisplayListBuilderCreateDisplayListNewNative(ImpellerDisplayListBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerDisplayList DisplayListBuilderCreateDisplayListNewNative(ImpellerDisplayListBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList>)funcTable[84])(builder);
-			#else
-			return (ImpellerDisplayList)((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList>)funcTable[84])(builder);
-			#endif
-		}
-	}
+#else
+            return (ImpellerDisplayList)((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList> )funcTable[84])(builder);
+#endif
+        }
+    }
 }

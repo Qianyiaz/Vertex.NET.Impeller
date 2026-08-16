@@ -37,6 +37,7 @@ namespace Vertex.NET.Impeller
         public override bool Equals(object obj) => obj is ImpellerColorSource handle && Equals(handle);
         /// <inheritdoc/>
         public override int GetHashCode() => Handle.GetHashCode();
+        /// <inheritdoc/>
         public void Dispose() => Impeller.ColorSourceReleaseNative(this);
 #if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerColorSource [0x{0}]", Handle.ToString("X"));

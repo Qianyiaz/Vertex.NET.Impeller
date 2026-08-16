@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,3874 +13,3981 @@ using HexaGen.Runtime;
 
 namespace Vertex.NET.Impeller
 {
-	public unsafe partial class Impeller
-	{
+    public unsafe partial class Impeller
+    {
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerDisplayList DisplayListBuilderCreateDisplayListNew(ImpellerDisplayListBuilder builder)
+        {
+            ImpellerDisplayList ret = DisplayListBuilderCreateDisplayListNewNative(builder);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerDisplayList DisplayListBuilderCreateDisplayListNew(ImpellerDisplayListBuilder builder)
-		{
-			ImpellerDisplayList ret = DisplayListBuilderCreateDisplayListNewNative(builder);
-			return ret;
-		}
-
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderSaveNative(ImpellerDisplayListBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderSaveNative(ImpellerDisplayListBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[85])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[85])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void> )funcTable[85])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderSave(ImpellerDisplayListBuilder builder)
-		{
-			DisplayListBuilderSaveNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderSave(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderSaveNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// On the balancing call to restore, the supplied paints filters<br/>
-		/// and blend modes will be used to composite the offscreen contents<br/>
-		/// back onto the display display list.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderSaveLayerNative(ImpellerDisplayListBuilder builder, ImpellerRect* bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// On the balancing call to restore, the supplied paints filters<br/>
+        /// and blend modes will be used to composite the offscreen contents<br/>
+        /// back onto the display display list.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderSaveLayerNative(ImpellerDisplayListBuilder builder, ImpellerRect* bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerPaint, ImpellerImageFilter, void>)funcTable[86])(builder, bounds, paint, backdrop);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerPaint, ImpellerImageFilter, void>)funcTable[86])(builder, (nint)bounds, paint, backdrop);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerPaint, ImpellerImageFilter, void> )funcTable[86])(builder, (nint)bounds, paint, backdrop);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// On the balancing call to restore, the supplied paints filters<br/>
-		/// and blend modes will be used to composite the offscreen contents<br/>
-		/// back onto the display display list.<br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderSaveLayer(ImpellerDisplayListBuilder builder, ImpellerRectPtr bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
-		{
-			DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)bounds, paint, backdrop);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// On the balancing call to restore, the supplied paints filters<br/>
+        /// and blend modes will be used to composite the offscreen contents<br/>
+        /// back onto the display display list.<br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderSaveLayer(ImpellerDisplayListBuilder builder, ImpellerRectPtr bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
+        {
+            DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)bounds, paint, backdrop);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// On the balancing call to restore, the supplied paints filters<br/>
-		/// and blend modes will be used to composite the offscreen contents<br/>
-		/// back onto the display display list.<br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderSaveLayer(ImpellerDisplayListBuilder builder, in ImpellerRect bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
-		{
-			fixed (ImpellerRect* pbounds = &bounds)
-			{
-				DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)pbounds, paint, backdrop);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// On the balancing call to restore, the supplied paints filters<br/>
+        /// and blend modes will be used to composite the offscreen contents<br/>
+        /// back onto the display display list.<br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderSaveLayer(ImpellerDisplayListBuilder builder, in ImpellerRect bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
+        {
+            fixed (ImpellerRect* pbounds = &bounds)
+            {
+                DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)pbounds, paint, backdrop);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderRestoreNative(ImpellerDisplayListBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderRestoreNative(ImpellerDisplayListBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[87])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[87])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void> )funcTable[87])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderRestore(ImpellerDisplayListBuilder builder)
-		{
-			DisplayListBuilderRestoreNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderRestore(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderRestoreNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderScaleNative(ImpellerDisplayListBuilder builder, float xScale, float yScale)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderScaleNative(ImpellerDisplayListBuilder builder, float xScale, float yScale)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, float, void>)funcTable[88])(builder, xScale, yScale);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, float, void>)funcTable[88])(builder, xScale, yScale);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, float, void> )funcTable[88])(builder, xScale, yScale);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderScale(ImpellerDisplayListBuilder builder, float xScale, float yScale)
-		{
-			DisplayListBuilderScaleNative(builder, xScale, yScale);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderScale(ImpellerDisplayListBuilder builder, float xScale, float yScale)
+        {
+            DisplayListBuilderScaleNative(builder, xScale, yScale);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderRotateNative(ImpellerDisplayListBuilder builder, float angleDegrees)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderRotateNative(ImpellerDisplayListBuilder builder, float angleDegrees)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, void>)funcTable[89])(builder, angleDegrees);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, void>)funcTable[89])(builder, angleDegrees);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, void> )funcTable[89])(builder, angleDegrees);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderRotate(ImpellerDisplayListBuilder builder, float angleDegrees)
-		{
-			DisplayListBuilderRotateNative(builder, angleDegrees);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderRotate(ImpellerDisplayListBuilder builder, float angleDegrees)
+        {
+            DisplayListBuilderRotateNative(builder, angleDegrees);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderTranslateNative(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderTranslateNative(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, float, void>)funcTable[90])(builder, xTranslation, yTranslation);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, float, void>)funcTable[90])(builder, xTranslation, yTranslation);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, float, float, void> )funcTable[90])(builder, xTranslation, yTranslation);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderTranslate(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
-		{
-			DisplayListBuilderTranslateNative(builder, xTranslation, yTranslation);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderTranslate(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
+        {
+            DisplayListBuilderTranslateNative(builder, xTranslation, yTranslation);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerMatrix*, void>)funcTable[91])(builder, transform);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, void>)funcTable[91])(builder, (nint)transform);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, void> )funcTable[91])(builder, (nint)transform);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
-		{
-			DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)transform);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
+        {
+            DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)transform);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
-		{
-			fixed (ImpellerMatrix* ptransform = &transform)
-			{
-				DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)ptransform);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
+        {
+            fixed (ImpellerMatrix* ptransform = &transform)
+            {
+                DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)ptransform);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderSetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderSetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerMatrix*, void>)funcTable[92])(builder, transform);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, void>)funcTable[92])(builder, (nint)transform);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, void> )funcTable[92])(builder, (nint)transform);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
-		{
-			DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)transform);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
+        {
+            DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)transform);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
-		{
-			fixed (ImpellerMatrix* ptransform = &transform)
-			{
-				DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)ptransform);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
+        {
+            fixed (ImpellerMatrix* ptransform = &transform)
+            {
+                DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)ptransform);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderGetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* outTransform)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderGetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* outTransform)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerMatrix*, void>)funcTable[93])(builder, outTransform);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, void>)funcTable[93])(builder, (nint)outTransform);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, void> )funcTable[93])(builder, (nint)outTransform);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr outTransform)
-		{
-			DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)outTransform);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr outTransform)
+        {
+            DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)outTransform);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ref ImpellerMatrix outTransform)
-		{
-			fixed (ImpellerMatrix* poutTransform = &outTransform)
-			{
-				DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)poutTransform);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ref ImpellerMatrix outTransform)
+        {
+            fixed (ImpellerMatrix* poutTransform = &outTransform)
+            {
+                DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)poutTransform);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderResetTransformNative(ImpellerDisplayListBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderResetTransformNative(ImpellerDisplayListBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[94])(builder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[94])(builder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void> )funcTable[94])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderResetTransform(ImpellerDisplayListBuilder builder)
-		{
-			DisplayListBuilderResetTransformNative(builder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderResetTransform(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderResetTransformNative(builder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint DisplayListBuilderGetSaveCountNative(ImpellerDisplayListBuilder builder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static uint DisplayListBuilderGetSaveCountNative(ImpellerDisplayListBuilder builder)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, uint>)funcTable[95])(builder);
-			#else
-			return (uint)((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, uint>)funcTable[95])(builder);
-			#endif
-		}
+#else
+            return (uint)((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, uint> )funcTable[95])(builder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static uint DisplayListBuilderGetSaveCount(ImpellerDisplayListBuilder builder)
-		{
-			uint ret = DisplayListBuilderGetSaveCountNative(builder);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static uint DisplayListBuilderGetSaveCount(ImpellerDisplayListBuilder builder)
+        {
+            uint ret = DisplayListBuilderGetSaveCountNative(builder);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderRestoreToCountNative(ImpellerDisplayListBuilder builder, uint count)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderRestoreToCountNative(ImpellerDisplayListBuilder builder, uint count)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, uint, void>)funcTable[96])(builder, count);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, uint, void>)funcTable[96])(builder, count);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, uint, void> )funcTable[96])(builder, count);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderRestoreToCount(ImpellerDisplayListBuilder builder, uint count)
-		{
-			DisplayListBuilderRestoreToCountNative(builder, count);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderRestoreToCount(ImpellerDisplayListBuilder builder, uint count)
+        {
+            DisplayListBuilderRestoreToCountNative(builder, count);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderClipRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerClipOperation op)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderClipRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerClipOperation op)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerClipOperation, void>)funcTable[97])(builder, rect, op);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerClipOperation, void>)funcTable[97])(builder, (nint)rect, op);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerClipOperation, void> )funcTable[97])(builder, (nint)rect, op);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerClipOperation op)
-		{
-			DisplayListBuilderClipRectNative(builder, (ImpellerRect*)rect, op);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipRectNative(builder, (ImpellerRect*)rect, op);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerClipOperation op)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				DisplayListBuilderClipRectNative(builder, (ImpellerRect*)prect, op);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                DisplayListBuilderClipRectNative(builder, (ImpellerRect*)prect, op);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderClipOvalNative(ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerClipOperation op)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderClipOvalNative(ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerClipOperation op)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerClipOperation, void>)funcTable[98])(builder, ovalBounds, op);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerClipOperation, void>)funcTable[98])(builder, (nint)ovalBounds, op);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerClipOperation, void> )funcTable[98])(builder, (nint)ovalBounds, op);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerClipOperation op)
-		{
-			DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)ovalBounds, op);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)ovalBounds, op);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerClipOperation op)
-		{
-			fixed (ImpellerRect* povalBounds = &ovalBounds)
-			{
-				DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)povalBounds, op);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* povalBounds = &ovalBounds)
+            {
+                DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)povalBounds, op);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderClipRoundedRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerClipOperation op)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderClipRoundedRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerClipOperation op)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerRoundingRadii*, ImpellerClipOperation, void>)funcTable[99])(builder, rect, radii, op);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, ImpellerClipOperation, void>)funcTable[99])(builder, (nint)rect, (nint)radii, op);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, ImpellerClipOperation, void> )funcTable[99])(builder, (nint)rect, (nint)radii, op);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
-		{
-			DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, op);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, op);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)radii, op);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)radii, op);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
-		{
-			fixed (ImpellerRoundingRadii* pradii = &radii)
-			{
-				DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)pradii, op);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRoundingRadii* pradii = &radii)
+            {
+                DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)pradii, op);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				fixed (ImpellerRoundingRadii* pradii = &radii)
-				{
-					DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, op);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                fixed (ImpellerRoundingRadii* pradii = &radii)
+                {
+                    DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, op);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderClipPathNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderClipPathNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, ImpellerClipOperation, void>)funcTable[100])(builder, path, op);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, ImpellerClipOperation, void>)funcTable[100])(builder, path, op);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, ImpellerClipOperation, void> )funcTable[100])(builder, path, op);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderClipPath(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
-		{
-			DisplayListBuilderClipPathNative(builder, path, op);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderClipPath(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipPathNative(builder, path, op);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawPaintNative(ImpellerDisplayListBuilder builder, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawPaintNative(ImpellerDisplayListBuilder builder, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPaint, void>)funcTable[101])(builder, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPaint, void>)funcTable[101])(builder, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPaint, void> )funcTable[101])(builder, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawPaint(ImpellerDisplayListBuilder builder, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawPaintNative(builder, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawPaint(ImpellerDisplayListBuilder builder, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawPaintNative(builder, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawLineNative(ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawLineNative(ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPoint*, ImpellerPoint*, ImpellerPaint, void>)funcTable[102])(builder, from, to, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, ImpellerPaint, void>)funcTable[102])(builder, (nint)from, (nint)to, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, ImpellerPaint, void> )funcTable[102])(builder, (nint)from, (nint)to, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, ImpellerPaint paint)
-		{
-			fixed (ImpellerPoint* pfrom = &from)
-			{
-				DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)to, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* pfrom = &from)
+            {
+                DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)to, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, ImpellerPaint paint)
-		{
-			fixed (ImpellerPoint* pto = &to)
-			{
-				DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)pto, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* pto = &to)
+            {
+                DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)pto, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, ImpellerPaint paint)
-		{
-			fixed (ImpellerPoint* pfrom = &from)
-			{
-				fixed (ImpellerPoint* pto = &to)
-				{
-					DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* pfrom = &from)
+            {
+                fixed (ImpellerPoint* pto = &to)
+                {
+                    DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawDashedLineNative(ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, float onLength, float offLength, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawDashedLineNative(ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, float onLength, float offLength, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPoint*, ImpellerPoint*, float, float, ImpellerPaint, void>)funcTable[103])(builder, from, to, onLength, offLength, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, float, float, ImpellerPaint, void>)funcTable[103])(builder, (nint)from, (nint)to, onLength, offLength, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, float, float, ImpellerPaint, void> )funcTable[103])(builder, (nint)from, (nint)to, onLength, offLength, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, onLength, offLength, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, onLength, offLength, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
-		{
-			fixed (ImpellerPoint* pfrom = &from)
-			{
-				DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)to, onLength, offLength, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* pfrom = &from)
+            {
+                DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)to, onLength, offLength, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
-		{
-			fixed (ImpellerPoint* pto = &to)
-			{
-				DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)pto, onLength, offLength, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* pto = &to)
+            {
+                DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)pto, onLength, offLength, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
-		{
-			fixed (ImpellerPoint* pfrom = &from)
-			{
-				fixed (ImpellerPoint* pto = &to)
-				{
-					DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, onLength, offLength, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* pfrom = &from)
+            {
+                fixed (ImpellerPoint* pto = &to)
+                {
+                    DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)pto, onLength, offLength, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerPaint, void>)funcTable[104])(builder, rect, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerPaint, void>)funcTable[104])(builder, (nint)rect, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerPaint, void> )funcTable[104])(builder, (nint)rect, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawRectNative(builder, (ImpellerRect*)rect, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawRectNative(builder, (ImpellerRect*)rect, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				DisplayListBuilderDrawRectNative(builder, (ImpellerRect*)prect, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                DisplayListBuilderDrawRectNative(builder, (ImpellerRect*)prect, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawOvalNative(ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawOvalNative(ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerPaint, void>)funcTable[105])(builder, ovalBounds, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerPaint, void>)funcTable[105])(builder, (nint)ovalBounds, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, ImpellerPaint, void> )funcTable[105])(builder, (nint)ovalBounds, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawOval(ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)ovalBounds, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawOval(ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)ovalBounds, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawOval(ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* povalBounds = &ovalBounds)
-			{
-				DisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)povalBounds, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawOval(ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* povalBounds = &ovalBounds)
+            {
+                DisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)povalBounds, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawRoundedRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawRoundedRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerRoundingRadii*, ImpellerPaint, void>)funcTable[106])(builder, rect, radii, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, ImpellerPaint, void>)funcTable[106])(builder, (nint)rect, (nint)radii, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, ImpellerPaint, void> )funcTable[106])(builder, (nint)rect, (nint)radii, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)radii, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)radii, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRoundingRadii* pradii = &radii)
-			{
-				DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)pradii, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRoundingRadii* pradii = &radii)
+            {
+                DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)pradii, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* prect = &rect)
-			{
-				fixed (ImpellerRoundingRadii* pradii = &radii)
-				{
-					DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                fixed (ImpellerRoundingRadii* pradii = &radii)
+                {
+                    DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawRoundedRectDifferenceNative(ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, ImpellerRoundingRadii* outerRadii, ImpellerRect* innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawRoundedRectDifferenceNative(ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, ImpellerRoundingRadii* outerRadii, ImpellerRect* innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerRect*, ImpellerRoundingRadii*, ImpellerRect*, ImpellerRoundingRadii*, ImpellerPaint, void>)funcTable[107])(builder, outerRect, outerRadii, innerRect, innerRadii, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, nint, nint, ImpellerPaint, void>)funcTable[107])(builder, (nint)outerRect, (nint)outerRadii, (nint)innerRect, (nint)innerRadii, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, nint, nint, nint, nint, ImpellerPaint, void> )funcTable[107])(builder, (nint)outerRect, (nint)outerRadii, (nint)innerRect, (nint)innerRadii, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-			{
-				DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+            {
+                DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-				{
-					DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+                {
+                    DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pinnerRect = &innerRect)
-			{
-				DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pinnerRect = &innerRect)
+            {
+                DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				fixed (ImpellerRect* pinnerRect = &innerRect)
-				{
-					DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                fixed (ImpellerRect* pinnerRect = &innerRect)
+                {
+                    DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-			{
-				fixed (ImpellerRect* pinnerRect = &innerRect)
-				{
-					DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+            {
+                fixed (ImpellerRect* pinnerRect = &innerRect)
+                {
+                    DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-				{
-					fixed (ImpellerRect* pinnerRect = &innerRect)
-					{
-						DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+                {
+                    fixed (ImpellerRect* pinnerRect = &innerRect)
+                    {
+                        DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)innerRadii, paint);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-			{
-				DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+            {
+                DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-				{
-					DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+                {
+                    DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-			{
-				fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-				{
-					DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+            {
+                fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+                {
+                    DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-				{
-					fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-					{
-						DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+                {
+                    fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+                    {
+                        DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pinnerRect = &innerRect)
-			{
-				fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-				{
-					DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pinnerRect = &innerRect)
+            {
+                fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+                {
+                    DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				fixed (ImpellerRect* pinnerRect = &innerRect)
-				{
-					fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-					{
-						DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                fixed (ImpellerRect* pinnerRect = &innerRect)
+                {
+                    fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+                    {
+                        DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-			{
-				fixed (ImpellerRect* pinnerRect = &innerRect)
-				{
-					fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-					{
-						DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+            {
+                fixed (ImpellerRect* pinnerRect = &innerRect)
+                {
+                    fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+                    {
+                        DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pouterRect = &outerRect)
-			{
-				fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
-				{
-					fixed (ImpellerRect* pinnerRect = &innerRect)
-					{
-						fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
-						{
-							DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pouterRect = &outerRect)
+            {
+                fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
+                {
+                    fixed (ImpellerRect* pinnerRect = &innerRect)
+                    {
+                        fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
+                        {
+                            DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)pouterRect, (ImpellerRoundingRadii*)pouterRadii, (ImpellerRect*)pinnerRect, (ImpellerRoundingRadii*)pinnerRadii, paint);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawPathNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawPathNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, ImpellerPaint, void>)funcTable[108])(builder, path, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, ImpellerPaint, void>)funcTable[108])(builder, path, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, ImpellerPaint, void> )funcTable[108])(builder, path, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawPath(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawPathNative(builder, path, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawPath(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawPathNative(builder, path, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawDisplayListNative(ImpellerDisplayListBuilder builder, ImpellerDisplayList displayList, float opacity)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawDisplayListNative(ImpellerDisplayListBuilder builder, ImpellerDisplayList displayList, float opacity)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList, float, void>)funcTable[109])(builder, displayList, opacity);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList, float, void>)funcTable[109])(builder, displayList, opacity);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList, float, void> )funcTable[109])(builder, displayList, opacity);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawDisplayList(ImpellerDisplayListBuilder builder, ImpellerDisplayList displayList, float opacity)
-		{
-			DisplayListBuilderDrawDisplayListNative(builder, displayList, opacity);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawDisplayList(ImpellerDisplayListBuilder builder, ImpellerDisplayList displayList, float opacity)
+        {
+            DisplayListBuilderDrawDisplayListNative(builder, displayList, opacity);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawParagraphNative(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPoint* point)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawParagraphNative(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPoint* point)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerParagraph, ImpellerPoint*, void>)funcTable[110])(builder, paragraph, point);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerParagraph, nint, void>)funcTable[110])(builder, paragraph, (nint)point);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerParagraph, nint, void> )funcTable[110])(builder, paragraph, (nint)point);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawParagraph(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPointPtr point)
-		{
-			DisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)point);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawParagraph(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPointPtr point)
+        {
+            DisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)point);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawParagraph(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, in ImpellerPoint point)
-		{
-			fixed (ImpellerPoint* ppoint = &point)
-			{
-				DisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)ppoint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawParagraph(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, in ImpellerPoint point)
+        {
+            fixed (ImpellerPoint* ppoint = &point)
+            {
+                DisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)ppoint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawShadowNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColor* color, float elevation, byte occluderIsTransparent, float devicePixelRatio)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawShadowNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColor* color, float elevation, byte occluderIsTransparent, float devicePixelRatio)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, ImpellerColor*, float, byte, float, void>)funcTable[111])(builder, path, color, elevation, occluderIsTransparent, devicePixelRatio);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, nint, float, byte, float, void>)funcTable[111])(builder, path, (nint)color, elevation, occluderIsTransparent, devicePixelRatio);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerPath, nint, float, byte, float, void> )funcTable[111])(builder, path, (nint)color, elevation, occluderIsTransparent, devicePixelRatio);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawShadow(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColorPtr color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
-		{
-			DisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)color, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawShadow(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColorPtr color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
+        {
+            DisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)color, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawShadow(ImpellerDisplayListBuilder builder, ImpellerPath path, in ImpellerColor color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
-		{
-			fixed (ImpellerColor* pcolor = &color)
-			{
-				DisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)pcolor, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawShadow(ImpellerDisplayListBuilder builder, ImpellerPath path, in ImpellerColor color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
+        {
+            fixed (ImpellerColor* pcolor = &color)
+            {
+                DisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)pcolor, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawTextureNative(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPoint* point, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawTextureNative(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPoint* point, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerTexture, ImpellerPoint*, ImpellerTextureSampling, ImpellerPaint, void>)funcTable[112])(builder, texture, point, sampling, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerTexture, nint, ImpellerTextureSampling, ImpellerPaint, void>)funcTable[112])(builder, texture, (nint)point, sampling, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerTexture, nint, ImpellerTextureSampling, ImpellerPaint, void> )funcTable[112])(builder, texture, (nint)point, sampling, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawTexture(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPointPtr point, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)point, sampling, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawTexture(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPointPtr point, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)point, sampling, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawTexture(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerPoint point, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			fixed (ImpellerPoint* ppoint = &point)
-			{
-				DisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)ppoint, sampling, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawTexture(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerPoint point, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* ppoint = &point)
+            {
+                DisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)ppoint, sampling, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DisplayListBuilderDrawTextureRectNative(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRect* srcRect, ImpellerRect* dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DisplayListBuilderDrawTextureRectNative(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRect* srcRect, ImpellerRect* dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerTexture, ImpellerRect*, ImpellerRect*, ImpellerTextureSampling, ImpellerPaint, void>)funcTable[113])(builder, texture, srcRect, dstRect, sampling, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerTexture, nint, nint, ImpellerTextureSampling, ImpellerPaint, void>)funcTable[113])(builder, texture, (nint)srcRect, (nint)dstRect, sampling, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerTexture, nint, nint, ImpellerTextureSampling, ImpellerPaint, void> )funcTable[113])(builder, texture, (nint)srcRect, (nint)dstRect, sampling, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)srcRect, (ImpellerRect*)dstRect, sampling, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)srcRect, (ImpellerRect*)dstRect, sampling, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* psrcRect = &srcRect)
-			{
-				DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, (ImpellerRect*)dstRect, sampling, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* psrcRect = &srcRect)
+            {
+                DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, (ImpellerRect*)dstRect, sampling, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* pdstRect = &dstRect)
-			{
-				DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)srcRect, (ImpellerRect*)pdstRect, sampling, paint);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* pdstRect = &dstRect)
+            {
+                DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)srcRect, (ImpellerRect*)pdstRect, sampling, paint);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
-		{
-			fixed (ImpellerRect* psrcRect = &srcRect)
-			{
-				fixed (ImpellerRect* pdstRect = &dstRect)
-				{
-					DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, (ImpellerRect*)pdstRect, sampling, paint);
-				}
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
+        {
+            fixed (ImpellerRect* psrcRect = &srcRect)
+            {
+                fixed (ImpellerRect* pdstRect = &dstRect)
+                {
+                    DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)psrcRect, (ImpellerRect*)pdstRect, sampling, paint);
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerTypographyContext TypographyContextNewNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerTypographyContext TypographyContextNewNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerTypographyContext>)funcTable[114])();
-			#else
-			return (ImpellerTypographyContext)((delegate* unmanaged[Cdecl]<ImpellerTypographyContext>)funcTable[114])();
-			#endif
-		}
+#else
+            return (ImpellerTypographyContext)((delegate* unmanaged[Cdecl]<ImpellerTypographyContext> )funcTable[114])();
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTypographyContext TypographyContextNew()
-		{
-			ImpellerTypographyContext ret = TypographyContextNewNative();
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTypographyContext TypographyContextNew()
+        {
+            ImpellerTypographyContext ret = TypographyContextNewNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void TypographyContextRetainNative(ImpellerTypographyContext context)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void TypographyContextRetainNative(ImpellerTypographyContext context)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, void>)funcTable[115])(context);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, void>)funcTable[115])(context);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, void> )funcTable[115])(context);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void TypographyContextRetain(ImpellerTypographyContext context)
-		{
-			TypographyContextRetainNative(context);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void TypographyContextRetain(ImpellerTypographyContext context)
+        {
+            TypographyContextRetainNative(context);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void TypographyContextReleaseNative(ImpellerTypographyContext context)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void TypographyContextReleaseNative(ImpellerTypographyContext context)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, void>)funcTable[116])(context);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, void>)funcTable[116])(context);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, void> )funcTable[116])(context);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void TypographyContextRelease(ImpellerTypographyContext context)
-		{
-			TypographyContextReleaseNative(context);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void TypographyContextRelease(ImpellerTypographyContext context)
+        {
+            TypographyContextReleaseNative(context);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte TypographyContextRegisterFontNative(ImpellerTypographyContext context, ImpellerMapping* contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte TypographyContextRegisterFontNative(ImpellerTypographyContext context, ImpellerMapping* contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, ImpellerMapping*, void*, byte*, byte>)funcTable[117])(context, contents, contentsOnReleaseUserData, familyNameAlias);
-			#else
-			return (byte)((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, nint, nint, nint, byte>)funcTable[117])(context, (nint)contents, (nint)contentsOnReleaseUserData, (nint)familyNameAlias);
-			#endif
-		}
+#else
+            return (byte)((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, nint, nint, nint, byte> )funcTable[117])(context, (nint)contents, (nint)contentsOnReleaseUserData, (nint)familyNameAlias);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
-		{
-			byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, familyNameAlias);
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
+        {
+            byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, familyNameAlias);
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, familyNameAlias);
-				return ret != 0;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, byte* familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, familyNameAlias);
+                return ret != 0;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, byte* familyNameAlias)
-		{
-			byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, familyNameAlias);
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, byte* familyNameAlias)
+        {
+            byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, familyNameAlias);
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, byte* familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, familyNameAlias);
-				return ret != 0;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, byte* familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, familyNameAlias);
+                return ret != 0;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, in byte familyNameAlias)
-		{
-			fixed (byte* pfamilyNameAlias = &familyNameAlias)
-			{
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-				return ret != 0;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, in byte familyNameAlias)
+        {
+            fixed (byte* pfamilyNameAlias = &familyNameAlias)
+            {
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                return ret != 0;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
-		{
-			fixed (byte* pfamilyNameAlias = familyNameAlias)
-			{
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-				return ret != 0;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
+        {
+            fixed (byte* pfamilyNameAlias = familyNameAlias)
+            {
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                return ret != 0;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, string familyNameAlias)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (familyNameAlias != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, void* contentsOnReleaseUserData, string familyNameAlias)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (familyNameAlias != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, in byte familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				fixed (byte* pfamilyNameAlias = &familyNameAlias)
-				{
-					byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-					return ret != 0;
-				}
-			}
-		}
+                int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				fixed (byte* pfamilyNameAlias = familyNameAlias)
-				{
-					byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-					return ret != 0;
-				}
-			}
-		}
+            byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, contentsOnReleaseUserData, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, string familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (familyNameAlias != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, pStr0);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret != 0;
-			}
-		}
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, in byte familyNameAlias)
-		{
-			fixed (byte* pfamilyNameAlias = &familyNameAlias)
-			{
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-				return ret != 0;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, in byte familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                fixed (byte* pfamilyNameAlias = &familyNameAlias)
+                {
+                    byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                    return ret != 0;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
-		{
-			fixed (byte* pfamilyNameAlias = familyNameAlias)
-			{
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-				return ret != 0;
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                fixed (byte* pfamilyNameAlias = familyNameAlias)
+                {
+                    byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                    return ret != 0;
+                }
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, string familyNameAlias)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (familyNameAlias != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, void* contentsOnReleaseUserData, string familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                byte* pStr0 = null;
+                int pStrSize0 = 0;
+                if (familyNameAlias != null)
+                {
+                    pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
+                    if (pStrSize0 >= Utils.MaxStackallocSize)
+                    {
+                        pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                    }
+                    else
+                    {
+                        byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                        pStr0 = pStrStack0;
+                    }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, in byte familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				fixed (byte* pfamilyNameAlias = &familyNameAlias)
-				{
-					byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-					return ret != 0;
-				}
-			}
-		}
+                    int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
+                    pStr0[pStrOffset0] = 0;
+                }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				fixed (byte* pfamilyNameAlias = familyNameAlias)
-				{
-					byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
-					return ret != 0;
-				}
-			}
-		}
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, contentsOnReleaseUserData, pStr0);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    Utils.Free(pStr0);
+                }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// The following font formats are supported:<br/>
-		/// * OpenType font collections (.ttc extension)<br/>
-		/// * TrueType fonts: (.ttf extension)<br/>
-		/// * OpenType fonts: (.otf extension)<br/>
-		/// <br/>
-		/// The font data is specified as a mapping. It is possible for the<br/>
-		/// release callback of the mapping to not be called even past the<br/>
-		/// destruction of the typography context. Care must be taken to not<br/>
-		/// collect the mapping till the release callback is invoked by<br/>
-		/// Impeller.<br/>
-		/// The family alias name can be NULL. In such cases, the font<br/>
-		/// family specified in paragraph styles must match the family that<br/>
-		/// is specified in the font data.<br/>
-		/// If the family name alias is not NULL, that family name must be<br/>
-		/// used in the paragraph style to reference glyphs from this font<br/>
-		/// instead of the one encoded in the font itself.<br/>
-		/// Multiple fonts (with glyphs for different styles) can be<br/>
-		/// specified with the same family.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, string familyNameAlias)
-		{
-			fixed (ImpellerMapping* pcontents = &contents)
-			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (familyNameAlias != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, pStr0);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret != 0;
-			}
-		}
+                return ret != 0;
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerParagraphStyle ParagraphStyleNewNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, in byte familyNameAlias)
+        {
+            fixed (byte* pfamilyNameAlias = &familyNameAlias)
+            {
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                return ret != 0;
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
+        {
+            fixed (byte* pfamilyNameAlias = familyNameAlias)
+            {
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                return ret != 0;
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, ImpellerMappingPtr contents, nint contentsOnReleaseUserData, string familyNameAlias)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (familyNameAlias != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
+
+                int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)contents, (void*)contentsOnReleaseUserData, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+
+            return ret != 0;
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, in byte familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                fixed (byte* pfamilyNameAlias = &familyNameAlias)
+                {
+                    byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                    return ret != 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, ReadOnlySpan<byte> familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                fixed (byte* pfamilyNameAlias = familyNameAlias)
+                {
+                    byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, (byte*)pfamilyNameAlias);
+                    return ret != 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// The following font formats are supported:<br/>
+        /// * OpenType font collections (.ttc extension)<br/>
+        /// * TrueType fonts: (.ttf extension)<br/>
+        /// * OpenType fonts: (.otf extension)<br/>
+        /// <br/>
+        /// The font data is specified as a mapping. It is possible for the<br/>
+        /// release callback of the mapping to not be called even past the<br/>
+        /// destruction of the typography context. Care must be taken to not<br/>
+        /// collect the mapping till the release callback is invoked by<br/>
+        /// Impeller.<br/>
+        /// The family alias name can be NULL. In such cases, the font<br/>
+        /// family specified in paragraph styles must match the family that<br/>
+        /// is specified in the font data.<br/>
+        /// If the family name alias is not NULL, that family name must be<br/>
+        /// used in the paragraph style to reference glyphs from this font<br/>
+        /// instead of the one encoded in the font itself.<br/>
+        /// Multiple fonts (with glyphs for different styles) can be<br/>
+        /// specified with the same family.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool TypographyContextRegisterFont(ImpellerTypographyContext context, in ImpellerMapping contents, nint contentsOnReleaseUserData, string familyNameAlias)
+        {
+            fixed (ImpellerMapping* pcontents = &contents)
+            {
+                byte* pStr0 = null;
+                int pStrSize0 = 0;
+                if (familyNameAlias != null)
+                {
+                    pStrSize0 = Utils.GetByteCountUTF8(familyNameAlias);
+                    if (pStrSize0 >= Utils.MaxStackallocSize)
+                    {
+                        pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                    }
+                    else
+                    {
+                        byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                        pStr0 = pStrStack0;
+                    }
+
+                    int pStrOffset0 = Utils.EncodeStringUTF8(familyNameAlias, pStr0, pStrSize0);
+                    pStr0[pStrOffset0] = 0;
+                }
+
+                byte ret = TypographyContextRegisterFontNative(context, (ImpellerMapping*)pcontents, (void*)contentsOnReleaseUserData, pStr0);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    Utils.Free(pStr0);
+                }
+
+                return ret != 0;
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerParagraphStyle ParagraphStyleNewNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle>)funcTable[118])();
-			#else
-			return (ImpellerParagraphStyle)((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle>)funcTable[118])();
-			#endif
-		}
+#else
+            return (ImpellerParagraphStyle)((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle> )funcTable[118])();
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerParagraphStyle ParagraphStyleNew()
-		{
-			ImpellerParagraphStyle ret = ParagraphStyleNewNative();
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerParagraphStyle ParagraphStyleNew()
+        {
+            ImpellerParagraphStyle ret = ParagraphStyleNewNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleRetainNative(ImpellerParagraphStyle paragraphStyle)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleRetainNative(ImpellerParagraphStyle paragraphStyle)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, void>)funcTable[119])(paragraphStyle);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, void>)funcTable[119])(paragraphStyle);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, void> )funcTable[119])(paragraphStyle);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleRetain(ImpellerParagraphStyle paragraphStyle)
-		{
-			ParagraphStyleRetainNative(paragraphStyle);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleRetain(ImpellerParagraphStyle paragraphStyle)
+        {
+            ParagraphStyleRetainNative(paragraphStyle);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleReleaseNative(ImpellerParagraphStyle paragraphStyle)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleReleaseNative(ImpellerParagraphStyle paragraphStyle)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, void>)funcTable[120])(paragraphStyle);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, void>)funcTable[120])(paragraphStyle);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, void> )funcTable[120])(paragraphStyle);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleRelease(ImpellerParagraphStyle paragraphStyle)
-		{
-			ParagraphStyleReleaseNative(paragraphStyle);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleRelease(ImpellerParagraphStyle paragraphStyle)
+        {
+            ParagraphStyleReleaseNative(paragraphStyle);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetForegroundNative(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetForegroundNative(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerPaint, void>)funcTable[121])(paragraphStyle, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerPaint, void>)funcTable[121])(paragraphStyle, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerPaint, void> )funcTable[121])(paragraphStyle, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetForeground(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
-		{
-			ParagraphStyleSetForegroundNative(paragraphStyle, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetForeground(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
+        {
+            ParagraphStyleSetForegroundNative(paragraphStyle, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetBackgroundNative(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetBackgroundNative(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerPaint, void>)funcTable[122])(paragraphStyle, paint);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerPaint, void>)funcTable[122])(paragraphStyle, paint);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerPaint, void> )funcTable[122])(paragraphStyle, paint);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetBackground(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
-		{
-			ParagraphStyleSetBackgroundNative(paragraphStyle, paint);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetBackground(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
+        {
+            ParagraphStyleSetBackgroundNative(paragraphStyle, paint);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetFontWeightNative(ImpellerParagraphStyle paragraphStyle, ImpellerFontWeight weight)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetFontWeightNative(ImpellerParagraphStyle paragraphStyle, ImpellerFontWeight weight)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerFontWeight, void>)funcTable[123])(paragraphStyle, weight);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerFontWeight, void>)funcTable[123])(paragraphStyle, weight);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerFontWeight, void> )funcTable[123])(paragraphStyle, weight);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetFontWeight(ImpellerParagraphStyle paragraphStyle, ImpellerFontWeight weight)
-		{
-			ParagraphStyleSetFontWeightNative(paragraphStyle, weight);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetFontWeight(ImpellerParagraphStyle paragraphStyle, ImpellerFontWeight weight)
+        {
+            ParagraphStyleSetFontWeightNative(paragraphStyle, weight);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetFontStyleNative(ImpellerParagraphStyle paragraphStyle, ImpellerFontStyle style)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetFontStyleNative(ImpellerParagraphStyle paragraphStyle, ImpellerFontStyle style)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerFontStyle, void>)funcTable[124])(paragraphStyle, style);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerFontStyle, void>)funcTable[124])(paragraphStyle, style);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerFontStyle, void> )funcTable[124])(paragraphStyle, style);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetFontStyle(ImpellerParagraphStyle paragraphStyle, ImpellerFontStyle style)
-		{
-			ParagraphStyleSetFontStyleNative(paragraphStyle, style);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetFontStyle(ImpellerParagraphStyle paragraphStyle, ImpellerFontStyle style)
+        {
+            ParagraphStyleSetFontStyleNative(paragraphStyle, style);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetFontFamilyNative(ImpellerParagraphStyle paragraphStyle, byte* familyName)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetFontFamilyNative(ImpellerParagraphStyle paragraphStyle, byte* familyName)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, byte*, void>)funcTable[125])(paragraphStyle, familyName);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void>)funcTable[125])(paragraphStyle, (nint)familyName);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void> )funcTable[125])(paragraphStyle, (nint)familyName);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, byte* familyName)
-		{
-			ParagraphStyleSetFontFamilyNative(paragraphStyle, familyName);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, byte* familyName)
+        {
+            ParagraphStyleSetFontFamilyNative(paragraphStyle, familyName);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, in byte familyName)
-		{
-			fixed (byte* pfamilyName = &familyName)
-			{
-				ParagraphStyleSetFontFamilyNative(paragraphStyle, (byte*)pfamilyName);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, in byte familyName)
+        {
+            fixed (byte* pfamilyName = &familyName)
+            {
+                ParagraphStyleSetFontFamilyNative(paragraphStyle, (byte*)pfamilyName);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> familyName)
-		{
-			fixed (byte* pfamilyName = familyName)
-			{
-				ParagraphStyleSetFontFamilyNative(paragraphStyle, (byte*)pfamilyName);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> familyName)
+        {
+            fixed (byte* pfamilyName = familyName)
+            {
+                ParagraphStyleSetFontFamilyNative(paragraphStyle, (byte*)pfamilyName);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, string familyName)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (familyName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(familyName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(familyName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ParagraphStyleSetFontFamilyNative(paragraphStyle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, string familyName)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (familyName != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(familyName);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetFontSizeNative(ImpellerParagraphStyle paragraphStyle, float size)
-		{
-			#if NET5_0_OR_GREATER
+                int pStrOffset0 = Utils.EncodeStringUTF8(familyName, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            ParagraphStyleSetFontFamilyNative(paragraphStyle, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetFontSizeNative(ImpellerParagraphStyle paragraphStyle, float size)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, float, void>)funcTable[126])(paragraphStyle, size);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, float, void>)funcTable[126])(paragraphStyle, size);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, float, void> )funcTable[126])(paragraphStyle, size);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetFontSize(ImpellerParagraphStyle paragraphStyle, float size)
-		{
-			ParagraphStyleSetFontSizeNative(paragraphStyle, size);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetFontSize(ImpellerParagraphStyle paragraphStyle, float size)
+        {
+            ParagraphStyleSetFontSizeNative(paragraphStyle, size);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// When height is 0.0, the line height will be determined by the<br/>
-		/// font's metrics directly, which may differ from the font size.<br/>
-		/// Otherwise the line height of the text will be a multiple of font<br/>
-		/// size, and be exactly fontSize * height logical pixels tall.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetHeightNative(ImpellerParagraphStyle paragraphStyle, float height)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// When height is 0.0, the line height will be determined by the<br/>
+        /// font's metrics directly, which may differ from the font size.<br/>
+        /// Otherwise the line height of the text will be a multiple of font<br/>
+        /// size, and be exactly fontSize * height logical pixels tall.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetHeightNative(ImpellerParagraphStyle paragraphStyle, float height)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, float, void>)funcTable[127])(paragraphStyle, height);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, float, void>)funcTable[127])(paragraphStyle, height);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, float, void> )funcTable[127])(paragraphStyle, height);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// When height is 0.0, the line height will be determined by the<br/>
-		/// font's metrics directly, which may differ from the font size.<br/>
-		/// Otherwise the line height of the text will be a multiple of font<br/>
-		/// size, and be exactly fontSize * height logical pixels tall.<br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetHeight(ImpellerParagraphStyle paragraphStyle, float height)
-		{
-			ParagraphStyleSetHeightNative(paragraphStyle, height);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// When height is 0.0, the line height will be determined by the<br/>
+        /// font's metrics directly, which may differ from the font size.<br/>
+        /// Otherwise the line height of the text will be a multiple of font<br/>
+        /// size, and be exactly fontSize * height logical pixels tall.<br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetHeight(ImpellerParagraphStyle paragraphStyle, float height)
+        {
+            ParagraphStyleSetHeightNative(paragraphStyle, height);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetTextAlignmentNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextAlignment align)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetTextAlignmentNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextAlignment align)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerTextAlignment, void>)funcTable[128])(paragraphStyle, align);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerTextAlignment, void>)funcTable[128])(paragraphStyle, align);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerTextAlignment, void> )funcTable[128])(paragraphStyle, align);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetTextAlignment(ImpellerParagraphStyle paragraphStyle, ImpellerTextAlignment align)
-		{
-			ParagraphStyleSetTextAlignmentNative(paragraphStyle, align);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetTextAlignment(ImpellerParagraphStyle paragraphStyle, ImpellerTextAlignment align)
+        {
+            ParagraphStyleSetTextAlignmentNative(paragraphStyle, align);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetTextDirectionNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextDirection direction)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetTextDirectionNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextDirection direction)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerTextDirection, void>)funcTable[129])(paragraphStyle, direction);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerTextDirection, void>)funcTable[129])(paragraphStyle, direction);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerTextDirection, void> )funcTable[129])(paragraphStyle, direction);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetTextDirection(ImpellerParagraphStyle paragraphStyle, ImpellerTextDirection direction)
-		{
-			ParagraphStyleSetTextDirectionNative(paragraphStyle, direction);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetTextDirection(ImpellerParagraphStyle paragraphStyle, ImpellerTextDirection direction)
+        {
+            ParagraphStyleSetTextDirectionNative(paragraphStyle, direction);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetTextDecorationNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextDecoration* decoration)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetTextDecorationNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextDecoration* decoration)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, ImpellerTextDecoration*, void>)funcTable[130])(paragraphStyle, decoration);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void>)funcTable[130])(paragraphStyle, (nint)decoration);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void> )funcTable[130])(paragraphStyle, (nint)decoration);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetTextDecoration(ImpellerParagraphStyle paragraphStyle, ImpellerTextDecorationPtr decoration)
-		{
-			ParagraphStyleSetTextDecorationNative(paragraphStyle, (ImpellerTextDecoration*)decoration);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetTextDecoration(ImpellerParagraphStyle paragraphStyle, ImpellerTextDecorationPtr decoration)
+        {
+            ParagraphStyleSetTextDecorationNative(paragraphStyle, (ImpellerTextDecoration*)decoration);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetTextDecoration(ImpellerParagraphStyle paragraphStyle, in ImpellerTextDecoration decoration)
-		{
-			fixed (ImpellerTextDecoration* pdecoration = &decoration)
-			{
-				ParagraphStyleSetTextDecorationNative(paragraphStyle, (ImpellerTextDecoration*)pdecoration);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetTextDecoration(ImpellerParagraphStyle paragraphStyle, in ImpellerTextDecoration decoration)
+        {
+            fixed (ImpellerTextDecoration* pdecoration = &decoration)
+            {
+                ParagraphStyleSetTextDecorationNative(paragraphStyle, (ImpellerTextDecoration*)pdecoration);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetMaxLinesNative(ImpellerParagraphStyle paragraphStyle, uint maxLines)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetMaxLinesNative(ImpellerParagraphStyle paragraphStyle, uint maxLines)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, uint, void>)funcTable[131])(paragraphStyle, maxLines);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, uint, void>)funcTable[131])(paragraphStyle, maxLines);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, uint, void> )funcTable[131])(paragraphStyle, maxLines);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetMaxLines(ImpellerParagraphStyle paragraphStyle, uint maxLines)
-		{
-			ParagraphStyleSetMaxLinesNative(paragraphStyle, maxLines);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetMaxLines(ImpellerParagraphStyle paragraphStyle, uint maxLines)
+        {
+            ParagraphStyleSetMaxLinesNative(paragraphStyle, maxLines);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetLocaleNative(ImpellerParagraphStyle paragraphStyle, byte* locale)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetLocaleNative(ImpellerParagraphStyle paragraphStyle, byte* locale)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, byte*, void>)funcTable[132])(paragraphStyle, locale);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void>)funcTable[132])(paragraphStyle, (nint)locale);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void> )funcTable[132])(paragraphStyle, (nint)locale);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, byte* locale)
-		{
-			ParagraphStyleSetLocaleNative(paragraphStyle, locale);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, byte* locale)
+        {
+            ParagraphStyleSetLocaleNative(paragraphStyle, locale);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, in byte locale)
-		{
-			fixed (byte* plocale = &locale)
-			{
-				ParagraphStyleSetLocaleNative(paragraphStyle, (byte*)plocale);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, in byte locale)
+        {
+            fixed (byte* plocale = &locale)
+            {
+                ParagraphStyleSetLocaleNative(paragraphStyle, (byte*)plocale);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> locale)
-		{
-			fixed (byte* plocale = locale)
-			{
-				ParagraphStyleSetLocaleNative(paragraphStyle, (byte*)plocale);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> locale)
+        {
+            fixed (byte* plocale = locale)
+            {
+                ParagraphStyleSetLocaleNative(paragraphStyle, (byte*)plocale);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, string locale)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (locale != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(locale);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(locale, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ParagraphStyleSetLocaleNative(paragraphStyle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, string locale)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (locale != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(locale);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphStyleSetEllipsisNative(ImpellerParagraphStyle paragraphStyle, byte* ellipsis)
-		{
-			#if NET5_0_OR_GREATER
+                int pStrOffset0 = Utils.EncodeStringUTF8(locale, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            ParagraphStyleSetLocaleNative(paragraphStyle, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphStyleSetEllipsisNative(ImpellerParagraphStyle paragraphStyle, byte* ellipsis)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, byte*, void>)funcTable[133])(paragraphStyle, ellipsis);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void>)funcTable[133])(paragraphStyle, (nint)ellipsis);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphStyle, nint, void> )funcTable[133])(paragraphStyle, (nint)ellipsis);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, byte* ellipsis)
-		{
-			ParagraphStyleSetEllipsisNative(paragraphStyle, ellipsis);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, byte* ellipsis)
+        {
+            ParagraphStyleSetEllipsisNative(paragraphStyle, ellipsis);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, in byte ellipsis)
-		{
-			fixed (byte* pellipsis = &ellipsis)
-			{
-				ParagraphStyleSetEllipsisNative(paragraphStyle, (byte*)pellipsis);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, in byte ellipsis)
+        {
+            fixed (byte* pellipsis = &ellipsis)
+            {
+                ParagraphStyleSetEllipsisNative(paragraphStyle, (byte*)pellipsis);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> ellipsis)
-		{
-			fixed (byte* pellipsis = ellipsis)
-			{
-				ParagraphStyleSetEllipsisNative(paragraphStyle, (byte*)pellipsis);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> ellipsis)
+        {
+            fixed (byte* pellipsis = ellipsis)
+            {
+                ParagraphStyleSetEllipsisNative(paragraphStyle, (byte*)pellipsis);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, string ellipsis)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (ellipsis != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(ellipsis);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(ellipsis, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ParagraphStyleSetEllipsisNative(paragraphStyle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, string ellipsis)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (ellipsis != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(ellipsis);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerParagraphBuilder ParagraphBuilderNewNative(ImpellerTypographyContext context)
-		{
-			#if NET5_0_OR_GREATER
+                int pStrOffset0 = Utils.EncodeStringUTF8(ellipsis, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            ParagraphStyleSetEllipsisNative(paragraphStyle, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerParagraphBuilder ParagraphBuilderNewNative(ImpellerTypographyContext context)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, ImpellerParagraphBuilder>)funcTable[134])(context);
-			#else
-			return (ImpellerParagraphBuilder)((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, ImpellerParagraphBuilder>)funcTable[134])(context);
-			#endif
-		}
+#else
+            return (ImpellerParagraphBuilder)((delegate* unmanaged[Cdecl]<ImpellerTypographyContext, ImpellerParagraphBuilder> )funcTable[134])(context);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerParagraphBuilder ParagraphBuilderNew(ImpellerTypographyContext context)
-		{
-			ImpellerParagraphBuilder ret = ParagraphBuilderNewNative(context);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerParagraphBuilder ParagraphBuilderNew(ImpellerTypographyContext context)
+        {
+            ImpellerParagraphBuilder ret = ParagraphBuilderNewNative(context);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphBuilderRetainNative(ImpellerParagraphBuilder paragraphBuilder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphBuilderRetainNative(ImpellerParagraphBuilder paragraphBuilder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void>)funcTable[135])(paragraphBuilder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void>)funcTable[135])(paragraphBuilder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void> )funcTable[135])(paragraphBuilder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphBuilderRetain(ImpellerParagraphBuilder paragraphBuilder)
-		{
-			ParagraphBuilderRetainNative(paragraphBuilder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphBuilderRetain(ImpellerParagraphBuilder paragraphBuilder)
+        {
+            ParagraphBuilderRetainNative(paragraphBuilder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphBuilderReleaseNative(ImpellerParagraphBuilder paragraphBuilder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphBuilderReleaseNative(ImpellerParagraphBuilder paragraphBuilder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void>)funcTable[136])(paragraphBuilder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void>)funcTable[136])(paragraphBuilder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void> )funcTable[136])(paragraphBuilder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphBuilderRelease(ImpellerParagraphBuilder paragraphBuilder)
-		{
-			ParagraphBuilderReleaseNative(paragraphBuilder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphBuilderRelease(ImpellerParagraphBuilder paragraphBuilder)
+        {
+            ParagraphBuilderReleaseNative(paragraphBuilder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Not all paragraph styles can be combined. For instance, it does<br/>
-		/// not make sense to mix text alignment for different text runs<br/>
-		/// within a paragraph. In such cases, the preference of the the<br/>
-		/// first paragraph style on the style stack will take hold.<br/>
-		/// If text is pushed onto the paragraph builder without a style<br/>
-		/// previously pushed onto the stack, a default paragraph text style<br/>
-		/// will be used. This may not always be desirable because some<br/>
-		/// style element cannot be overridden. It is recommended that a<br/>
-		/// default paragraph style always be pushed onto the stack before<br/>
-		/// the addition of any text.<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphBuilderPushStyleNative(ImpellerParagraphBuilder paragraphBuilder, ImpellerParagraphStyle style)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Not all paragraph styles can be combined. For instance, it does<br/>
+        /// not make sense to mix text alignment for different text runs<br/>
+        /// within a paragraph. In such cases, the preference of the the<br/>
+        /// first paragraph style on the style stack will take hold.<br/>
+        /// If text is pushed onto the paragraph builder without a style<br/>
+        /// previously pushed onto the stack, a default paragraph text style<br/>
+        /// will be used. This may not always be desirable because some<br/>
+        /// style element cannot be overridden. It is recommended that a<br/>
+        /// default paragraph style always be pushed onto the stack before<br/>
+        /// the addition of any text.<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphBuilderPushStyleNative(ImpellerParagraphBuilder paragraphBuilder, ImpellerParagraphStyle style)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, ImpellerParagraphStyle, void>)funcTable[137])(paragraphBuilder, style);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, ImpellerParagraphStyle, void>)funcTable[137])(paragraphBuilder, style);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, ImpellerParagraphStyle, void> )funcTable[137])(paragraphBuilder, style);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Not all paragraph styles can be combined. For instance, it does<br/>
-		/// not make sense to mix text alignment for different text runs<br/>
-		/// within a paragraph. In such cases, the preference of the the<br/>
-		/// first paragraph style on the style stack will take hold.<br/>
-		/// If text is pushed onto the paragraph builder without a style<br/>
-		/// previously pushed onto the stack, a default paragraph text style<br/>
-		/// will be used. This may not always be desirable because some<br/>
-		/// style element cannot be overridden. It is recommended that a<br/>
-		/// default paragraph style always be pushed onto the stack before<br/>
-		/// the addition of any text.<br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphBuilderPushStyle(ImpellerParagraphBuilder paragraphBuilder, ImpellerParagraphStyle style)
-		{
-			ParagraphBuilderPushStyleNative(paragraphBuilder, style);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Not all paragraph styles can be combined. For instance, it does<br/>
+        /// not make sense to mix text alignment for different text runs<br/>
+        /// within a paragraph. In such cases, the preference of the the<br/>
+        /// first paragraph style on the style stack will take hold.<br/>
+        /// If text is pushed onto the paragraph builder without a style<br/>
+        /// previously pushed onto the stack, a default paragraph text style<br/>
+        /// will be used. This may not always be desirable because some<br/>
+        /// style element cannot be overridden. It is recommended that a<br/>
+        /// default paragraph style always be pushed onto the stack before<br/>
+        /// the addition of any text.<br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphBuilderPushStyle(ImpellerParagraphBuilder paragraphBuilder, ImpellerParagraphStyle style)
+        {
+            ParagraphBuilderPushStyleNative(paragraphBuilder, style);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphBuilderPopStyleNative(ImpellerParagraphBuilder paragraphBuilder)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphBuilderPopStyleNative(ImpellerParagraphBuilder paragraphBuilder)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void>)funcTable[138])(paragraphBuilder);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void>)funcTable[138])(paragraphBuilder);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, void> )funcTable[138])(paragraphBuilder);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphBuilderPopStyle(ImpellerParagraphBuilder paragraphBuilder)
-		{
-			ParagraphBuilderPopStyleNative(paragraphBuilder);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphBuilderPopStyle(ImpellerParagraphBuilder paragraphBuilder)
+        {
+            ParagraphBuilderPopStyleNative(paragraphBuilder);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphBuilderAddTextNative(ImpellerParagraphBuilder paragraphBuilder, byte* data, uint length)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphBuilderAddTextNative(ImpellerParagraphBuilder paragraphBuilder, byte* data, uint length)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, byte*, uint, void>)funcTable[139])(paragraphBuilder, data, length);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, nint, uint, void>)funcTable[139])(paragraphBuilder, (nint)data, length);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, nint, uint, void> )funcTable[139])(paragraphBuilder, (nint)data, length);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphBuilderAddText(ImpellerParagraphBuilder paragraphBuilder, byte* data, uint length)
-		{
-			ParagraphBuilderAddTextNative(paragraphBuilder, data, length);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphBuilderAddText(ImpellerParagraphBuilder paragraphBuilder, byte* data, uint length)
+        {
+            ParagraphBuilderAddTextNative(paragraphBuilder, data, length);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphBuilderAddText(ImpellerParagraphBuilder paragraphBuilder, in byte data, uint length)
-		{
-			fixed (byte* pdata = &data)
-			{
-				ParagraphBuilderAddTextNative(paragraphBuilder, (byte*)pdata, length);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphBuilderAddText(ImpellerParagraphBuilder paragraphBuilder, in byte data, uint length)
+        {
+            fixed (byte* pdata = &data)
+            {
+                ParagraphBuilderAddTextNative(paragraphBuilder, (byte*)pdata, length);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerParagraph ParagraphBuilderBuildParagraphNewNative(ImpellerParagraphBuilder paragraphBuilder, float width)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerParagraph ParagraphBuilderBuildParagraphNewNative(ImpellerParagraphBuilder paragraphBuilder, float width)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, float, ImpellerParagraph>)funcTable[140])(paragraphBuilder, width);
-			#else
-			return (ImpellerParagraph)((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, float, ImpellerParagraph>)funcTable[140])(paragraphBuilder, width);
-			#endif
-		}
+#else
+            return (ImpellerParagraph)((delegate* unmanaged[Cdecl]<ImpellerParagraphBuilder, float, ImpellerParagraph> )funcTable[140])(paragraphBuilder, width);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerParagraph ParagraphBuilderBuildParagraphNew(ImpellerParagraphBuilder paragraphBuilder, float width)
-		{
-			ImpellerParagraph ret = ParagraphBuilderBuildParagraphNewNative(paragraphBuilder, width);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerParagraph ParagraphBuilderBuildParagraphNew(ImpellerParagraphBuilder paragraphBuilder, float width)
+        {
+            ImpellerParagraph ret = ParagraphBuilderBuildParagraphNewNative(paragraphBuilder, width);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphRetainNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphRetainNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraph, void>)funcTable[141])(paragraph);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraph, void>)funcTable[141])(paragraph);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraph, void> )funcTable[141])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphRetain(ImpellerParagraph paragraph)
-		{
-			ParagraphRetainNative(paragraph);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphRetain(ImpellerParagraph paragraph)
+        {
+            ParagraphRetainNative(paragraph);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphReleaseNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphReleaseNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraph, void>)funcTable[142])(paragraph);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraph, void>)funcTable[142])(paragraph);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraph, void> )funcTable[142])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphRelease(ImpellerParagraph paragraph)
-		{
-			ParagraphReleaseNative(paragraph);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphRelease(ImpellerParagraph paragraph)
+        {
+            ParagraphReleaseNative(paragraph);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float ParagraphGetMaxWidthNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float ParagraphGetMaxWidthNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[143])(paragraph);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[143])(paragraph);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float> )funcTable[143])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float ParagraphGetMaxWidth(ImpellerParagraph paragraph)
-		{
-			float ret = ParagraphGetMaxWidthNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float ParagraphGetMaxWidth(ImpellerParagraph paragraph)
+        {
+            float ret = ParagraphGetMaxWidthNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float ParagraphGetHeightNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float ParagraphGetHeightNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[144])(paragraph);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[144])(paragraph);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float> )funcTable[144])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float ParagraphGetHeight(ImpellerParagraph paragraph)
-		{
-			float ret = ParagraphGetHeightNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float ParagraphGetHeight(ImpellerParagraph paragraph)
+        {
+            float ret = ParagraphGetHeightNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float ParagraphGetLongestLineWidthNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float ParagraphGetLongestLineWidthNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[145])(paragraph);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[145])(paragraph);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float> )funcTable[145])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float ParagraphGetLongestLineWidth(ImpellerParagraph paragraph)
-		{
-			float ret = ParagraphGetLongestLineWidthNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float ParagraphGetLongestLineWidth(ImpellerParagraph paragraph)
+        {
+            float ret = ParagraphGetLongestLineWidthNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float ParagraphGetMinIntrinsicWidthNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float ParagraphGetMinIntrinsicWidthNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[146])(paragraph);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[146])(paragraph);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float> )funcTable[146])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float ParagraphGetMinIntrinsicWidth(ImpellerParagraph paragraph)
-		{
-			float ret = ParagraphGetMinIntrinsicWidthNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float ParagraphGetMinIntrinsicWidth(ImpellerParagraph paragraph)
+        {
+            float ret = ParagraphGetMinIntrinsicWidthNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float ParagraphGetMaxIntrinsicWidthNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float ParagraphGetMaxIntrinsicWidthNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[147])(paragraph);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[147])(paragraph);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float> )funcTable[147])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float ParagraphGetMaxIntrinsicWidth(ImpellerParagraph paragraph)
-		{
-			float ret = ParagraphGetMaxIntrinsicWidthNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float ParagraphGetMaxIntrinsicWidth(ImpellerParagraph paragraph)
+        {
+            float ret = ParagraphGetMaxIntrinsicWidthNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float ParagraphGetIdeographicBaselineNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float ParagraphGetIdeographicBaselineNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[148])(paragraph);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[148])(paragraph);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float> )funcTable[148])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float ParagraphGetIdeographicBaseline(ImpellerParagraph paragraph)
-		{
-			float ret = ParagraphGetIdeographicBaselineNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float ParagraphGetIdeographicBaseline(ImpellerParagraph paragraph)
+        {
+            float ret = ParagraphGetIdeographicBaselineNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float ParagraphGetAlphabeticBaselineNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float ParagraphGetAlphabeticBaselineNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[149])(paragraph);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float>)funcTable[149])(paragraph);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<ImpellerParagraph, float> )funcTable[149])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float ParagraphGetAlphabeticBaseline(ImpellerParagraph paragraph)
-		{
-			float ret = ParagraphGetAlphabeticBaselineNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float ParagraphGetAlphabeticBaseline(ImpellerParagraph paragraph)
+        {
+            float ret = ParagraphGetAlphabeticBaselineNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint ParagraphGetLineCountNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static uint ParagraphGetLineCountNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, uint>)funcTable[150])(paragraph);
-			#else
-			return (uint)((delegate* unmanaged[Cdecl]<ImpellerParagraph, uint>)funcTable[150])(paragraph);
-			#endif
-		}
+#else
+            return (uint)((delegate* unmanaged[Cdecl]<ImpellerParagraph, uint> )funcTable[150])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static uint ParagraphGetLineCount(ImpellerParagraph paragraph)
-		{
-			uint ret = ParagraphGetLineCountNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static uint ParagraphGetLineCount(ImpellerParagraph paragraph)
+        {
+            uint ret = ParagraphGetLineCountNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Word boundaries are defined more precisely in [Unicode Standard<br/>
-		/// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ParagraphGetWordBoundaryNative(ImpellerParagraph paragraph, nuint codeUnitIndex, ImpellerRange* outRange)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Word boundaries are defined more precisely in [Unicode Standard<br/>
+        /// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ParagraphGetWordBoundaryNative(ImpellerParagraph paragraph, nuint codeUnitIndex, ImpellerRange* outRange)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerParagraph, nuint, ImpellerRange*, void>)funcTable[151])(paragraph, codeUnitIndex, outRange);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerParagraph, nuint, nint, void>)funcTable[151])(paragraph, codeUnitIndex, (nint)outRange);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerParagraph, nuint, nint, void> )funcTable[151])(paragraph, codeUnitIndex, (nint)outRange);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Word boundaries are defined more precisely in [Unicode Standard<br/>
-		/// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphGetWordBoundary(ImpellerParagraph paragraph, nuint codeUnitIndex, ImpellerRangePtr outRange)
-		{
-			ParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, (ImpellerRange*)outRange);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Word boundaries are defined more precisely in [Unicode Standard<br/>
+        /// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphGetWordBoundary(ImpellerParagraph paragraph, nuint codeUnitIndex, ImpellerRangePtr outRange)
+        {
+            ParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, (ImpellerRange*)outRange);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// Word boundaries are defined more precisely in [Unicode Standard<br/>
-		/// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
-		/// <br/>
-		/// </summary>
-		public static void ParagraphGetWordBoundary(ImpellerParagraph paragraph, nuint codeUnitIndex, ref ImpellerRange outRange)
-		{
-			fixed (ImpellerRange* poutRange = &outRange)
-			{
-				ParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, (ImpellerRange*)poutRange);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// Word boundaries are defined more precisely in [Unicode Standard<br/>
+        /// Annex #29](http://www.unicode.org/reports/tr29/#Word_Boundaries)<br/>
+        /// <br/>
+        /// </summary>
+        public static void ParagraphGetWordBoundary(ImpellerParagraph paragraph, nuint codeUnitIndex, ref ImpellerRange outRange)
+        {
+            fixed (ImpellerRange* poutRange = &outRange)
+            {
+                ParagraphGetWordBoundaryNative(paragraph, codeUnitIndex, (ImpellerRange*)poutRange);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerLineMetrics ParagraphGetLineMetricsNative(ImpellerParagraph paragraph)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerLineMetrics ParagraphGetLineMetricsNative(ImpellerParagraph paragraph)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, ImpellerLineMetrics>)funcTable[152])(paragraph);
-			#else
-			return (ImpellerLineMetrics)((delegate* unmanaged[Cdecl]<ImpellerParagraph, ImpellerLineMetrics>)funcTable[152])(paragraph);
-			#endif
-		}
+#else
+            return (ImpellerLineMetrics)((delegate* unmanaged[Cdecl]<ImpellerParagraph, ImpellerLineMetrics> )funcTable[152])(paragraph);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerLineMetrics ParagraphGetLineMetrics(ImpellerParagraph paragraph)
-		{
-			ImpellerLineMetrics ret = ParagraphGetLineMetricsNative(paragraph);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerLineMetrics ParagraphGetLineMetrics(ImpellerParagraph paragraph)
+        {
+            ImpellerLineMetrics ret = ParagraphGetLineMetricsNative(paragraph);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(ImpellerParagraph paragraph, nuint codeUnitIndex)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(ImpellerParagraph paragraph, nuint codeUnitIndex)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, nuint, ImpellerGlyphInfo>)funcTable[153])(paragraph, codeUnitIndex);
-			#else
-			return (ImpellerGlyphInfo)((delegate* unmanaged[Cdecl]<ImpellerParagraph, nuint, ImpellerGlyphInfo>)funcTable[153])(paragraph, codeUnitIndex);
-			#endif
-		}
+#else
+            return (ImpellerGlyphInfo)((delegate* unmanaged[Cdecl]<ImpellerParagraph, nuint, ImpellerGlyphInfo> )funcTable[153])(paragraph, codeUnitIndex);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtCodeUnitIndexNew(ImpellerParagraph paragraph, nuint codeUnitIndex)
-		{
-			ImpellerGlyphInfo ret = ParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(paragraph, codeUnitIndex);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtCodeUnitIndexNew(ImpellerParagraph paragraph, nuint codeUnitIndex)
+        {
+            ImpellerGlyphInfo ret = ParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(paragraph, codeUnitIndex);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(ImpellerParagraph paragraph, double x, double y)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(ImpellerParagraph paragraph, double x, double y)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerParagraph, double, double, ImpellerGlyphInfo>)funcTable[154])(paragraph, x, y);
-			#else
-			return (ImpellerGlyphInfo)((delegate* unmanaged[Cdecl]<ImpellerParagraph, double, double, ImpellerGlyphInfo>)funcTable[154])(paragraph, x, y);
-			#endif
-		}
+#else
+            return (ImpellerGlyphInfo)((delegate* unmanaged[Cdecl]<ImpellerParagraph, double, double, ImpellerGlyphInfo> )funcTable[154])(paragraph, x, y);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtParagraphCoordinatesNew(ImpellerParagraph paragraph, double x, double y)
-		{
-			ImpellerGlyphInfo ret = ParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(paragraph, x, y);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtParagraphCoordinatesNew(ImpellerParagraph paragraph, double x, double y)
+        {
+            ImpellerGlyphInfo ret = ParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(paragraph, x, y);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void LineMetricsRetainNative(ImpellerLineMetrics lineMetrics)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void LineMetricsRetainNative(ImpellerLineMetrics lineMetrics)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, void>)funcTable[155])(lineMetrics);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, void>)funcTable[155])(lineMetrics);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, void> )funcTable[155])(lineMetrics);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void LineMetricsRetain(ImpellerLineMetrics lineMetrics)
-		{
-			LineMetricsRetainNative(lineMetrics);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void LineMetricsRetain(ImpellerLineMetrics lineMetrics)
+        {
+            LineMetricsRetainNative(lineMetrics);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void LineMetricsReleaseNative(ImpellerLineMetrics lineMetrics)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void LineMetricsReleaseNative(ImpellerLineMetrics lineMetrics)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, void>)funcTable[156])(lineMetrics);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, void>)funcTable[156])(lineMetrics);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, void> )funcTable[156])(lineMetrics);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void LineMetricsRelease(ImpellerLineMetrics lineMetrics)
-		{
-			LineMetricsReleaseNative(lineMetrics);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void LineMetricsRelease(ImpellerLineMetrics lineMetrics)
+        {
+            LineMetricsReleaseNative(lineMetrics);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double LineMetricsGetUnscaledAscentNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double LineMetricsGetUnscaledAscentNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[157])(metrics, line);
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[157])(metrics, line);
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double> )funcTable[157])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double LineMetricsGetUnscaledAscent(ImpellerLineMetrics metrics, nuint line)
-		{
-			double ret = LineMetricsGetUnscaledAscentNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double LineMetricsGetUnscaledAscent(ImpellerLineMetrics metrics, nuint line)
+        {
+            double ret = LineMetricsGetUnscaledAscentNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double LineMetricsGetAscentNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double LineMetricsGetAscentNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[158])(metrics, line);
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[158])(metrics, line);
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double> )funcTable[158])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double LineMetricsGetAscent(ImpellerLineMetrics metrics, nuint line)
-		{
-			double ret = LineMetricsGetAscentNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double LineMetricsGetAscent(ImpellerLineMetrics metrics, nuint line)
+        {
+            double ret = LineMetricsGetAscentNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double LineMetricsGetDescentNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double LineMetricsGetDescentNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[159])(metrics, line);
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[159])(metrics, line);
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double> )funcTable[159])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double LineMetricsGetDescent(ImpellerLineMetrics metrics, nuint line)
-		{
-			double ret = LineMetricsGetDescentNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double LineMetricsGetDescent(ImpellerLineMetrics metrics, nuint line)
+        {
+            double ret = LineMetricsGetDescentNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double LineMetricsGetBaselineNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double LineMetricsGetBaselineNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[160])(metrics, line);
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[160])(metrics, line);
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double> )funcTable[160])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double LineMetricsGetBaseline(ImpellerLineMetrics metrics, nuint line)
-		{
-			double ret = LineMetricsGetBaselineNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double LineMetricsGetBaseline(ImpellerLineMetrics metrics, nuint line)
+        {
+            double ret = LineMetricsGetBaselineNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte LineMetricsIsHardbreakNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte LineMetricsIsHardbreakNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, byte>)funcTable[161])(metrics, line);
-			#else
-			return (byte)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, byte>)funcTable[161])(metrics, line);
-			#endif
-		}
+#else
+            return (byte)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, byte> )funcTable[161])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool LineMetricsIsHardbreak(ImpellerLineMetrics metrics, nuint line)
-		{
-			byte ret = LineMetricsIsHardbreakNative(metrics, line);
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool LineMetricsIsHardbreak(ImpellerLineMetrics metrics, nuint line)
+        {
+            byte ret = LineMetricsIsHardbreakNative(metrics, line);
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double LineMetricsGetWidthNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double LineMetricsGetWidthNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[162])(metrics, line);
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[162])(metrics, line);
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double> )funcTable[162])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double LineMetricsGetWidth(ImpellerLineMetrics metrics, nuint line)
-		{
-			double ret = LineMetricsGetWidthNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double LineMetricsGetWidth(ImpellerLineMetrics metrics, nuint line)
+        {
+            double ret = LineMetricsGetWidthNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double LineMetricsGetHeightNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double LineMetricsGetHeightNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[163])(metrics, line);
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[163])(metrics, line);
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double> )funcTable[163])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double LineMetricsGetHeight(ImpellerLineMetrics metrics, nuint line)
-		{
-			double ret = LineMetricsGetHeightNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double LineMetricsGetHeight(ImpellerLineMetrics metrics, nuint line)
+        {
+            double ret = LineMetricsGetHeightNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double LineMetricsGetLeftNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double LineMetricsGetLeftNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[164])(metrics, line);
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double>)funcTable[164])(metrics, line);
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, double> )funcTable[164])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double LineMetricsGetLeft(ImpellerLineMetrics metrics, nuint line)
-		{
-			double ret = LineMetricsGetLeftNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double LineMetricsGetLeft(ImpellerLineMetrics metrics, nuint line)
+        {
+            double ret = LineMetricsGetLeftNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static nuint LineMetricsGetCodeUnitStartIndexNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static nuint LineMetricsGetCodeUnitStartIndexNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[165])(metrics, line);
-			#else
-			return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[165])(metrics, line);
-			#endif
-		}
+#else
+            return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint> )funcTable[165])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nuint LineMetricsGetCodeUnitStartIndex(ImpellerLineMetrics metrics, nuint line)
-		{
-			nuint ret = LineMetricsGetCodeUnitStartIndexNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nuint LineMetricsGetCodeUnitStartIndex(ImpellerLineMetrics metrics, nuint line)
+        {
+            nuint ret = LineMetricsGetCodeUnitStartIndexNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static nuint LineMetricsGetCodeUnitEndIndexNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static nuint LineMetricsGetCodeUnitEndIndexNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[166])(metrics, line);
-			#else
-			return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[166])(metrics, line);
-			#endif
-		}
+#else
+            return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint> )funcTable[166])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nuint LineMetricsGetCodeUnitEndIndex(ImpellerLineMetrics metrics, nuint line)
-		{
-			nuint ret = LineMetricsGetCodeUnitEndIndexNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nuint LineMetricsGetCodeUnitEndIndex(ImpellerLineMetrics metrics, nuint line)
+        {
+            nuint ret = LineMetricsGetCodeUnitEndIndexNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static nuint LineMetricsGetCodeUnitEndIndexExcludingWhitespaceNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static nuint LineMetricsGetCodeUnitEndIndexExcludingWhitespaceNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[167])(metrics, line);
-			#else
-			return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[167])(metrics, line);
-			#endif
-		}
+#else
+            return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint> )funcTable[167])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nuint LineMetricsGetCodeUnitEndIndexExcludingWhitespace(ImpellerLineMetrics metrics, nuint line)
-		{
-			nuint ret = LineMetricsGetCodeUnitEndIndexExcludingWhitespaceNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nuint LineMetricsGetCodeUnitEndIndexExcludingWhitespace(ImpellerLineMetrics metrics, nuint line)
+        {
+            nuint ret = LineMetricsGetCodeUnitEndIndexExcludingWhitespaceNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static nuint LineMetricsGetCodeUnitEndIndexIncludingNewlineNative(ImpellerLineMetrics metrics, nuint line)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static nuint LineMetricsGetCodeUnitEndIndexIncludingNewlineNative(ImpellerLineMetrics metrics, nuint line)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[168])(metrics, line);
-			#else
-			return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint>)funcTable[168])(metrics, line);
-			#endif
-		}
+#else
+            return (nuint)((delegate* unmanaged[Cdecl]<ImpellerLineMetrics, nuint, nuint> )funcTable[168])(metrics, line);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nuint LineMetricsGetCodeUnitEndIndexIncludingNewline(ImpellerLineMetrics metrics, nuint line)
-		{
-			nuint ret = LineMetricsGetCodeUnitEndIndexIncludingNewlineNative(metrics, line);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nuint LineMetricsGetCodeUnitEndIndexIncludingNewline(ImpellerLineMetrics metrics, nuint line)
+        {
+            nuint ret = LineMetricsGetCodeUnitEndIndexIncludingNewlineNative(metrics, line);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GlyphInfoRetainNative(ImpellerGlyphInfo glyphInfo)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GlyphInfoRetainNative(ImpellerGlyphInfo glyphInfo)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, void>)funcTable[169])(glyphInfo);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, void>)funcTable[169])(glyphInfo);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, void> )funcTable[169])(glyphInfo);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GlyphInfoRetain(ImpellerGlyphInfo glyphInfo)
-		{
-			GlyphInfoRetainNative(glyphInfo);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GlyphInfoRetain(ImpellerGlyphInfo glyphInfo)
+        {
+            GlyphInfoRetainNative(glyphInfo);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GlyphInfoReleaseNative(ImpellerGlyphInfo glyphInfo)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GlyphInfoReleaseNative(ImpellerGlyphInfo glyphInfo)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, void>)funcTable[170])(glyphInfo);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, void>)funcTable[170])(glyphInfo);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, void> )funcTable[170])(glyphInfo);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GlyphInfoRelease(ImpellerGlyphInfo glyphInfo)
-		{
-			GlyphInfoReleaseNative(glyphInfo);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GlyphInfoRelease(ImpellerGlyphInfo glyphInfo)
+        {
+            GlyphInfoReleaseNative(glyphInfo);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeBeginNative(ImpellerGlyphInfo glyphInfo)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeBeginNative(ImpellerGlyphInfo glyphInfo)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nuint>)funcTable[171])(glyphInfo);
-			#else
-			return (nuint)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nuint>)funcTable[171])(glyphInfo);
-			#endif
-		}
+#else
+            return (nuint)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nuint> )funcTable[171])(glyphInfo);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeBegin(ImpellerGlyphInfo glyphInfo)
-		{
-			nuint ret = GlyphInfoGetGraphemeClusterCodeUnitRangeBeginNative(glyphInfo);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeBegin(ImpellerGlyphInfo glyphInfo)
+        {
+            nuint ret = GlyphInfoGetGraphemeClusterCodeUnitRangeBeginNative(glyphInfo);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeEndNative(ImpellerGlyphInfo glyphInfo)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeEndNative(ImpellerGlyphInfo glyphInfo)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nuint>)funcTable[172])(glyphInfo);
-			#else
-			return (nuint)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nuint>)funcTable[172])(glyphInfo);
-			#endif
-		}
+#else
+            return (nuint)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nuint> )funcTable[172])(glyphInfo);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeEnd(ImpellerGlyphInfo glyphInfo)
-		{
-			nuint ret = GlyphInfoGetGraphemeClusterCodeUnitRangeEndNative(glyphInfo);
-			return ret;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeEnd(ImpellerGlyphInfo glyphInfo)
+        {
+            nuint ret = GlyphInfoGetGraphemeClusterCodeUnitRangeEndNative(glyphInfo);
+            return ret;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GlyphInfoGetGraphemeClusterBoundsNative(ImpellerGlyphInfo glyphInfo, ImpellerRect* outBounds)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GlyphInfoGetGraphemeClusterBoundsNative(ImpellerGlyphInfo glyphInfo, ImpellerRect* outBounds)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, ImpellerRect*, void>)funcTable[173])(glyphInfo, outBounds);
-			#else
-			((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nint, void>)funcTable[173])(glyphInfo, (nint)outBounds);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, nint, void> )funcTable[173])(glyphInfo, (nint)outBounds);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GlyphInfoGetGraphemeClusterBounds(ImpellerGlyphInfo glyphInfo, ImpellerRectPtr outBounds)
-		{
-			GlyphInfoGetGraphemeClusterBoundsNative(glyphInfo, (ImpellerRect*)outBounds);
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GlyphInfoGetGraphemeClusterBounds(ImpellerGlyphInfo glyphInfo, ImpellerRectPtr outBounds)
+        {
+            GlyphInfoGetGraphemeClusterBoundsNative(glyphInfo, (ImpellerRect*)outBounds);
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GlyphInfoGetGraphemeClusterBounds(ImpellerGlyphInfo glyphInfo, ref ImpellerRect outBounds)
-		{
-			fixed (ImpellerRect* poutBounds = &outBounds)
-			{
-				GlyphInfoGetGraphemeClusterBoundsNative(glyphInfo, (ImpellerRect*)poutBounds);
-			}
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GlyphInfoGetGraphemeClusterBounds(ImpellerGlyphInfo glyphInfo, ref ImpellerRect outBounds)
+        {
+            fixed (ImpellerRect* poutBounds = &outBounds)
+            {
+                GlyphInfoGetGraphemeClusterBoundsNative(glyphInfo, (ImpellerRect*)poutBounds);
+            }
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte GlyphInfoIsEllipsisNative(ImpellerGlyphInfo glyphInfo)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte GlyphInfoIsEllipsisNative(ImpellerGlyphInfo glyphInfo)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, byte>)funcTable[174])(glyphInfo);
-			#else
-			return (byte)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, byte>)funcTable[174])(glyphInfo);
-			#endif
-		}
+#else
+            return (byte)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, byte> )funcTable[174])(glyphInfo);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static bool GlyphInfoIsEllipsis(ImpellerGlyphInfo glyphInfo)
-		{
-			byte ret = GlyphInfoIsEllipsisNative(glyphInfo);
-			return ret != 0;
-		}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static bool GlyphInfoIsEllipsis(ImpellerGlyphInfo glyphInfo)
+        {
+            byte ret = GlyphInfoIsEllipsisNative(glyphInfo);
+            return ret != 0;
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ImpellerTextDirection GlyphInfoGetTextDirectionNative(ImpellerGlyphInfo glyphInfo)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ImpellerTextDirection GlyphInfoGetTextDirectionNative(ImpellerGlyphInfo glyphInfo)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, ImpellerTextDirection>)funcTable[175])(glyphInfo);
-			#else
-			return (ImpellerTextDirection)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, ImpellerTextDirection>)funcTable[175])(glyphInfo);
-			#endif
-		}
+#else
+            return (ImpellerTextDirection)((delegate* unmanaged[Cdecl]<ImpellerGlyphInfo, ImpellerTextDirection> )funcTable[175])(glyphInfo);
+#endif
+        }
 
-		/// <summary>
-		/// ------------------------------------------------------------------------------<br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ImpellerTextDirection GlyphInfoGetTextDirection(ImpellerGlyphInfo glyphInfo)
-		{
-			ImpellerTextDirection ret = GlyphInfoGetTextDirectionNative(glyphInfo);
-			return ret;
-		}
-
-	}
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ImpellerTextDirection GlyphInfoGetTextDirection(ImpellerGlyphInfo glyphInfo)
+        {
+            ImpellerTextDirection ret = GlyphInfoGetTextDirectionNative(glyphInfo);
+            return ret;
+        }
+    }
 }

@@ -37,6 +37,7 @@ namespace Vertex.NET.Impeller
         public override bool Equals(object obj) => obj is ImpellerTexture handle && Equals(handle);
         /// <inheritdoc/>
         public override int GetHashCode() => Handle.GetHashCode();
+        /// <inheritdoc/>
         public void Dispose() => Impeller.TextureReleaseNative(this);
 #if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerTexture [0x{0}]", Handle.ToString("X"));
