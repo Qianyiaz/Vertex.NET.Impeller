@@ -33,8 +33,6 @@ public class GlfwApplication
             throw new Exception("Failed to create GLFW window");
         }
 
-        GLFW.WindowHint(GLFW.GLFW_RESIZABLE, 1);
-
         if (_isSupportVulkan) return;
 
         GLFW.MakeContextCurrent(_window);
@@ -47,7 +45,7 @@ public class GlfwApplication
         using var context = _isSupportVulkan
             ? Impeller.ContextCreateVulkanNew(
                 Impeller.GetVersion(),
-                new ImpellerContextVulkanSettings(procAddressCallback: &VulkanProcCallback))
+                new ImpellerContextVulkanSettings(null, &VulkanProcCallback))
             : Impeller.ContextCreateOpenGLESNew(
                 Impeller.GetVersion(),
                 GLProcAddressCallback,
@@ -59,6 +57,7 @@ public class GlfwApplication
             ImpellerContextVulkanInfo vkInfo = default;
             if (!Impeller.ContextGetVulkanInfo(context, ref vkInfo))
                 throw new Exception("Failed to get Vulkan info");
+
             nint surface = 0;
             GLFW.CreateWindowSurface(vkInfo.VkInstance, _window, 0, ref surface);
             swapChain = Impeller.VulkanSwapchainCreateNew(context, surface);
