@@ -1,4 +1,7 @@
 <Solution>
+    <Folder Name="/External/">
+        <Project Path="External/Hexa.NET.GLFW/Hexa.NET.GLFW.csproj"/>
+    </Folder>
     <Folder Name="/Solution Files/">
         <File Path=".github/workflows/build.yml"/>
         <File Path=".gitignore"/>
