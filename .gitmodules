@@ -1,0 +1,3 @@
+[submodule "external/Hexa.NET.GLFW"]
+	path = external/Hexa.NET.GLFW
+	url = https://github.com/Qianyiaz/Hexa.NET.GLFW.git
