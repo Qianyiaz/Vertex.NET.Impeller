@@ -7,7 +7,7 @@ namespace Generator.Patching;
 
 internal partial class RemoveInvalidCommentsPatch : MyPostPatch
 {
-    protected override bool ShouldProcess(string file) => file.Contains("Functions.");
+    protected override bool ShouldProcess(string file) => file.Contains("Functions.") || file.Contains("Extensions.");
 
     protected override CompilationUnitSyntax ProcessRoot(CompilationUnitSyntax root)
     {
