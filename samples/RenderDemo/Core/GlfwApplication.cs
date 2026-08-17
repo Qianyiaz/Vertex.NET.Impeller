@@ -42,6 +42,9 @@ public class GlfwApplication
     [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
     public unsafe void Run()
     {
+        if (_scene is null)
+            throw new ArgumentNullException(nameof(_scene), "Scene is not set");
+
         using var context = _isVulkanSupported
             ? Impeller.ContextCreateVulkanNew(
                 Impeller.GetVersion(),
@@ -95,16 +98,11 @@ public class GlfwApplication
         {
             GLFW.PollEvents();
 
+            RenderFrame(surface, parameters);
             if (_isVulkanSupported)
-            {
-                RenderFrame(surface, parameters);
                 surface.Present();
-            }
             else
-            {
-                RenderFrame(surface, parameters);
                 GLFW.SwapBuffers(_window);
-            }
         }
 
         if (_isVulkanSupported)

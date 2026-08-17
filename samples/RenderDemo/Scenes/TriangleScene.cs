@@ -25,7 +25,7 @@ public class TriangleScene : IScene
         };
         var stops = stackalloc float[2] { 0.0f, 1.0f };
         using var gradient = Impeller.ColorSourceCreateLinearGradientNew(
-            new ImpellerPoint { Y = -size }, 
+            new ImpellerPoint { Y = -size },
             new ImpellerPoint { Y = size / 2f }, 2, colors, stops, ImpellerTileMode.TileModeClamp, null
         );
         paint.SetColorSource(gradient);
