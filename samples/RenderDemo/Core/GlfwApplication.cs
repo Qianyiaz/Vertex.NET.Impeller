@@ -58,9 +58,9 @@ public class GlfwApplication
             if (!Impeller.ContextGetVulkanInfo(context, ref vkInfo))
                 throw new Exception("Failed to get Vulkan info");
 
-            nint surface = 0;
-            GLFW.CreateWindowSurface(vkInfo.VkInstance, _window, 0, ref surface);
-            swapChain = Impeller.VulkanSwapchainCreateNew(context, surface);
+            VkSurfaceKHR surface = default;
+            GLFW.CreateWindowSurface(new VkInstance((nint)vkInfo.VkInstance), _window, 0, ref surface);
+            swapChain = Impeller.VulkanSwapchainCreateNew(context, surface.Handle);
         }
 
         GLFW.SetWindowRefreshCallback(_window, _ =>
@@ -126,5 +126,5 @@ public class GlfwApplication
         GLFW.GetProcAddress(procName);
 
     private static unsafe void* VulkanProcCallback(void* userData, byte* procName, void* reserved) =>
-        GLFW.GetInstanceProcAddress(null, procName);
+        GLFW.GetInstanceProcAddress(VkInstance.Null, procName);
 }
