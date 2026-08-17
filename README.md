@@ -48,13 +48,10 @@ The wrapper's API is intentionally kept identical to the native library, so all 
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please:
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to:
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes following the project's coding standards
-4. Add appropriate tests
-5. Submit a pull request
+* Open an [issue](https://github.com/Qianyiaz/Vertex.NET.Impeller/issues)
+* Submit a [pull request](https://github.com/Qianyiaz/Vertex.NET.Impeller/pulls)
 
 ## 📄 License
 
@@ -62,11 +59,11 @@ Vertex.NET.Impeller is released under the MIT License. See the [LICENSE](LICENSE
 
 ## 🙏 Credits
 
-[Impeller](https://docs.flutter.dev/perf/impeller) – This project is a wrapper around the Impeller rendering engine,
+[Impeller](https://github.com/flutter/flutter/tree/master/engine/src/flutter/impeller) – This project is a wrapper around the Impeller rendering engine,
 developed by [the Flutter team](https://github.com/flutter).
 
 [AvaloniaUI/NImpeller](https://github.com/AvaloniaUI/NImpeller) – Thanks to the AvaloniaUI team for their excellent
 implementation and design inspiration, which served as a valuable reference.
 
-[HexaGen](https://github.com/HexaEngine/HexaGen)– The structure and approach are inspired by the excellent code
+[HexaGen](https://github.com/HexaEngine/HexaGen) – The structure and approach are inspired by the excellent code
 generator for generating bindings.
