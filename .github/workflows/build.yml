@@ -6,10 +6,10 @@ permissions:
 on:
   pull_request:
     branches: [ main ]
-    paths: [ 'Vertex.NET.Impeller/**', '.github/workflows/build.yml' ]
+    paths: [ 'src/**', '.github/workflows/build.yml' ]
   push:
     branches: [ main ]
-    paths: [ 'Vertex.NET.Impeller/**', '.github/workflows/build.yml' ]
+    paths: [ 'src/**', '.github/workflows/build.yml' ]
 jobs:
   build:
     runs-on: ubuntu-latest
