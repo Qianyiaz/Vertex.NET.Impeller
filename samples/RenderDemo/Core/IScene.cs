@@ -10,5 +10,5 @@ public class SceneParameters(int width, int height)
 
 public interface IScene
 {
-    void Render(ImpellerDisplayListBuilder scene, SceneParameters sceneParameters);
+    void Render(ImpellerDisplayListBuilder builder, SceneParameters parameters);
 }
