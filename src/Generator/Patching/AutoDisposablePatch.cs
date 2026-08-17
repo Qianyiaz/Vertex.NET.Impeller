@@ -6,7 +6,7 @@ namespace Generator.Patching;
 
 internal class AutoDisposablePatch(string prefix) : MyPostPatch
 {
-    protected override bool ShouldProcess(string file) => file.Contains("Functions.");
+    protected override bool ShouldProcess(string file) => file.Contains("Handles");
 
     protected override CompilationUnitSyntax ProcessRoot(CompilationUnitSyntax root)
     {

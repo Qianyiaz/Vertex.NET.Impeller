@@ -15,23 +15,12 @@ namespace Vertex.NET.Impeller
 {
     public unsafe partial class Impeller
     {
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerDisplayList DisplayListBuilderCreateDisplayListNew(ImpellerDisplayListBuilder builder)
         {
             ImpellerDisplayList ret = DisplayListBuilderCreateDisplayListNewNative(builder);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderSaveNative(ImpellerDisplayListBuilder builder)
@@ -43,11 +32,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderSave(ImpellerDisplayListBuilder builder)
         {
             DisplayListBuilderSaveNative(builder);
@@ -101,11 +85,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderRestoreNative(ImpellerDisplayListBuilder builder)
@@ -117,21 +96,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderRestore(ImpellerDisplayListBuilder builder)
         {
             DisplayListBuilderRestoreNative(builder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderScaleNative(ImpellerDisplayListBuilder builder, float xScale, float yScale)
@@ -143,21 +112,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderScale(ImpellerDisplayListBuilder builder, float xScale, float yScale)
         {
             DisplayListBuilderScaleNative(builder, xScale, yScale);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderRotateNative(ImpellerDisplayListBuilder builder, float angleDegrees)
@@ -169,21 +128,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderRotate(ImpellerDisplayListBuilder builder, float angleDegrees)
         {
             DisplayListBuilderRotateNative(builder, angleDegrees);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderTranslateNative(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
@@ -195,21 +144,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderTranslate(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
         {
             DisplayListBuilderTranslateNative(builder, xTranslation, yTranslation);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
@@ -221,21 +160,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
         {
             DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)transform);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
         {
             fixed (ImpellerMatrix* ptransform = &transform)
@@ -244,11 +173,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderSetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform)
@@ -260,21 +184,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
         {
             DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)transform);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
         {
             fixed (ImpellerMatrix* ptransform = &transform)
@@ -283,11 +197,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderGetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* outTransform)
@@ -299,21 +208,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr outTransform)
         {
             DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)outTransform);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ref ImpellerMatrix outTransform)
         {
             fixed (ImpellerMatrix* poutTransform = &outTransform)
@@ -322,11 +221,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderResetTransformNative(ImpellerDisplayListBuilder builder)
@@ -338,22 +232,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderResetTransform(ImpellerDisplayListBuilder builder)
         {
             DisplayListBuilderResetTransformNative(builder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static uint DisplayListBuilderGetSaveCountNative(ImpellerDisplayListBuilder builder)
@@ -365,23 +248,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static uint DisplayListBuilderGetSaveCount(ImpellerDisplayListBuilder builder)
         {
             uint ret = DisplayListBuilderGetSaveCountNative(builder);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderRestoreToCountNative(ImpellerDisplayListBuilder builder, uint count)
@@ -393,21 +265,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderRestoreToCount(ImpellerDisplayListBuilder builder, uint count)
         {
             DisplayListBuilderRestoreToCountNative(builder, count);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderClipRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerClipOperation op)
@@ -419,21 +281,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerClipOperation op)
         {
             DisplayListBuilderClipRectNative(builder, (ImpellerRect*)rect, op);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerClipOperation op)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -442,11 +294,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderClipOvalNative(ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerClipOperation op)
@@ -458,21 +305,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerClipOperation op)
         {
             DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)ovalBounds, op);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerClipOperation op)
         {
             fixed (ImpellerRect* povalBounds = &ovalBounds)
@@ -481,11 +318,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderClipRoundedRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerClipOperation op)
@@ -497,21 +329,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
         {
             DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, op);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -520,11 +342,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
         {
             fixed (ImpellerRoundingRadii* pradii = &radii)
@@ -533,11 +350,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -549,11 +361,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderClipPathNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
@@ -565,21 +372,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderClipPath(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
         {
             DisplayListBuilderClipPathNative(builder, path, op);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawPaintNative(ImpellerDisplayListBuilder builder, ImpellerPaint paint)
@@ -591,21 +388,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawPaint(ImpellerDisplayListBuilder builder, ImpellerPaint paint)
         {
             DisplayListBuilderDrawPaintNative(builder, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawLineNative(ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, ImpellerPaint paint)
@@ -617,21 +404,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, ImpellerPaint paint)
         {
             DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, ImpellerPaint paint)
         {
             fixed (ImpellerPoint* pfrom = &from)
@@ -640,11 +417,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, ImpellerPaint paint)
         {
             fixed (ImpellerPoint* pto = &to)
@@ -653,11 +425,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, ImpellerPaint paint)
         {
             fixed (ImpellerPoint* pfrom = &from)
@@ -669,11 +436,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawDashedLineNative(ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, float onLength, float offLength, ImpellerPaint paint)
@@ -685,21 +447,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
         {
             DisplayListBuilderDrawDashedLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, onLength, offLength, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, float onLength, float offLength, ImpellerPaint paint)
         {
             fixed (ImpellerPoint* pfrom = &from)
@@ -708,11 +460,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
         {
             fixed (ImpellerPoint* pto = &to)
@@ -721,11 +468,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawDashedLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, in ImpellerPoint to, float onLength, float offLength, ImpellerPaint paint)
         {
             fixed (ImpellerPoint* pfrom = &from)
@@ -737,11 +479,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerPaint paint)
@@ -753,21 +490,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerPaint paint)
         {
             DisplayListBuilderDrawRectNative(builder, (ImpellerRect*)rect, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerPaint paint)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -776,11 +503,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawOvalNative(ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerPaint paint)
@@ -792,21 +514,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawOval(ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerPaint paint)
         {
             DisplayListBuilderDrawOvalNative(builder, (ImpellerRect*)ovalBounds, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawOval(ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerPaint paint)
         {
             fixed (ImpellerRect* povalBounds = &ovalBounds)
@@ -815,11 +527,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawRoundedRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerPaint paint)
@@ -831,21 +538,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
         {
             DisplayListBuilderDrawRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -854,11 +551,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
         {
             fixed (ImpellerRoundingRadii* pradii = &radii)
@@ -867,11 +559,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -883,11 +570,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawRoundedRectDifferenceNative(ImpellerDisplayListBuilder builder, ImpellerRect* outerRect, ImpellerRoundingRadii* outerRadii, ImpellerRect* innerRect, ImpellerRoundingRadii* innerRadii, ImpellerPaint paint)
@@ -899,21 +581,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             DisplayListBuilderDrawRoundedRectDifferenceNative(builder, (ImpellerRect*)outerRect, (ImpellerRoundingRadii*)outerRadii, (ImpellerRect*)innerRect, (ImpellerRoundingRadii*)innerRadii, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -922,11 +594,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
@@ -935,11 +602,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -951,11 +613,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pinnerRect = &innerRect)
@@ -964,11 +621,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -980,11 +632,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
@@ -996,11 +643,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, ImpellerRoundingRadiiPtr innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -1015,11 +657,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRoundingRadii* pinnerRadii = &innerRadii)
@@ -1028,11 +665,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -1044,11 +676,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
@@ -1060,11 +687,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, ImpellerRectPtr innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -1079,11 +701,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pinnerRect = &innerRect)
@@ -1095,11 +712,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, ImpellerRoundingRadiiPtr outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -1114,11 +726,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, ImpellerRectPtr outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRoundingRadii* pouterRadii = &outerRadii)
@@ -1133,11 +740,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawRoundedRectDifference(ImpellerDisplayListBuilder builder, in ImpellerRect outerRect, in ImpellerRoundingRadii outerRadii, in ImpellerRect innerRect, in ImpellerRoundingRadii innerRadii, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pouterRect = &outerRect)
@@ -1155,11 +757,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawPathNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerPaint paint)
@@ -1171,21 +768,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawPath(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerPaint paint)
         {
             DisplayListBuilderDrawPathNative(builder, path, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawDisplayListNative(ImpellerDisplayListBuilder builder, ImpellerDisplayList displayList, float opacity)
@@ -1197,21 +784,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawDisplayList(ImpellerDisplayListBuilder builder, ImpellerDisplayList displayList, float opacity)
         {
             DisplayListBuilderDrawDisplayListNative(builder, displayList, opacity);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawParagraphNative(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPoint* point)
@@ -1223,21 +800,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawParagraph(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, ImpellerPointPtr point)
         {
             DisplayListBuilderDrawParagraphNative(builder, paragraph, (ImpellerPoint*)point);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawParagraph(ImpellerDisplayListBuilder builder, ImpellerParagraph paragraph, in ImpellerPoint point)
         {
             fixed (ImpellerPoint* ppoint = &point)
@@ -1246,11 +813,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawShadowNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColor* color, float elevation, byte occluderIsTransparent, float devicePixelRatio)
@@ -1262,21 +824,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawShadow(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerColorPtr color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
         {
             DisplayListBuilderDrawShadowNative(builder, path, (ImpellerColor*)color, elevation, occluderIsTransparent ? (byte)1 : (byte)0, devicePixelRatio);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawShadow(ImpellerDisplayListBuilder builder, ImpellerPath path, in ImpellerColor color, float elevation, bool occluderIsTransparent, float devicePixelRatio)
         {
             fixed (ImpellerColor* pcolor = &color)
@@ -1285,11 +837,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawTextureNative(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPoint* point, ImpellerTextureSampling sampling, ImpellerPaint paint)
@@ -1301,21 +848,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawTexture(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerPointPtr point, ImpellerTextureSampling sampling, ImpellerPaint paint)
         {
             DisplayListBuilderDrawTextureNative(builder, texture, (ImpellerPoint*)point, sampling, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawTexture(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerPoint point, ImpellerTextureSampling sampling, ImpellerPaint paint)
         {
             fixed (ImpellerPoint* ppoint = &point)
@@ -1324,11 +861,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderDrawTextureRectNative(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRect* srcRect, ImpellerRect* dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
@@ -1340,21 +872,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
         {
             DisplayListBuilderDrawTextureRectNative(builder, texture, (ImpellerRect*)srcRect, (ImpellerRect*)dstRect, sampling, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, ImpellerRectPtr dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
         {
             fixed (ImpellerRect* psrcRect = &srcRect)
@@ -1363,11 +885,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, ImpellerRectPtr srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
         {
             fixed (ImpellerRect* pdstRect = &dstRect)
@@ -1376,11 +893,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderDrawTextureRect(ImpellerDisplayListBuilder builder, ImpellerTexture texture, in ImpellerRect srcRect, in ImpellerRect dstRect, ImpellerTextureSampling sampling, ImpellerPaint paint)
         {
             fixed (ImpellerRect* psrcRect = &srcRect)
@@ -1392,11 +904,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerTypographyContext TypographyContextNewNative()
@@ -1408,22 +915,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerTypographyContext TypographyContextNew()
         {
             ImpellerTypographyContext ret = TypographyContextNewNative();
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void TypographyContextRetainNative(ImpellerTypographyContext context)
@@ -1435,21 +932,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void TypographyContextRetain(ImpellerTypographyContext context)
         {
             TypographyContextRetainNative(context);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void TypographyContextReleaseNative(ImpellerTypographyContext context)
@@ -1461,11 +948,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void TypographyContextRelease(ImpellerTypographyContext context)
         {
             TypographyContextReleaseNative(context);
@@ -2147,11 +1629,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerParagraphStyle ParagraphStyleNewNative()
@@ -2163,22 +1640,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerParagraphStyle ParagraphStyleNew()
         {
             ImpellerParagraphStyle ret = ParagraphStyleNewNative();
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleRetainNative(ImpellerParagraphStyle paragraphStyle)
@@ -2190,21 +1657,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleRetain(ImpellerParagraphStyle paragraphStyle)
         {
             ParagraphStyleRetainNative(paragraphStyle);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleReleaseNative(ImpellerParagraphStyle paragraphStyle)
@@ -2216,21 +1673,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleRelease(ImpellerParagraphStyle paragraphStyle)
         {
             ParagraphStyleReleaseNative(paragraphStyle);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetForegroundNative(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
@@ -2242,21 +1689,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetForeground(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
         {
             ParagraphStyleSetForegroundNative(paragraphStyle, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetBackgroundNative(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
@@ -2268,21 +1705,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetBackground(ImpellerParagraphStyle paragraphStyle, ImpellerPaint paint)
         {
             ParagraphStyleSetBackgroundNative(paragraphStyle, paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetFontWeightNative(ImpellerParagraphStyle paragraphStyle, ImpellerFontWeight weight)
@@ -2294,21 +1721,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetFontWeight(ImpellerParagraphStyle paragraphStyle, ImpellerFontWeight weight)
         {
             ParagraphStyleSetFontWeightNative(paragraphStyle, weight);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetFontStyleNative(ImpellerParagraphStyle paragraphStyle, ImpellerFontStyle style)
@@ -2320,21 +1737,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetFontStyle(ImpellerParagraphStyle paragraphStyle, ImpellerFontStyle style)
         {
             ParagraphStyleSetFontStyleNative(paragraphStyle, style);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetFontFamilyNative(ImpellerParagraphStyle paragraphStyle, byte* familyName)
@@ -2346,21 +1753,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, byte* familyName)
         {
             ParagraphStyleSetFontFamilyNative(paragraphStyle, familyName);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, in byte familyName)
         {
             fixed (byte* pfamilyName = &familyName)
@@ -2369,11 +1766,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> familyName)
         {
             fixed (byte* pfamilyName = familyName)
@@ -2382,11 +1774,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetFontFamily(ImpellerParagraphStyle paragraphStyle, string familyName)
         {
             byte* pStr0 = null;
@@ -2415,11 +1802,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetFontSizeNative(ImpellerParagraphStyle paragraphStyle, float size)
@@ -2431,11 +1813,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetFontSize(ImpellerParagraphStyle paragraphStyle, float size)
         {
             ParagraphStyleSetFontSizeNative(paragraphStyle, size);
@@ -2475,11 +1852,6 @@ namespace Vertex.NET.Impeller
             ParagraphStyleSetHeightNative(paragraphStyle, height);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetTextAlignmentNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextAlignment align)
@@ -2491,21 +1863,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetTextAlignment(ImpellerParagraphStyle paragraphStyle, ImpellerTextAlignment align)
         {
             ParagraphStyleSetTextAlignmentNative(paragraphStyle, align);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetTextDirectionNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextDirection direction)
@@ -2517,21 +1879,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetTextDirection(ImpellerParagraphStyle paragraphStyle, ImpellerTextDirection direction)
         {
             ParagraphStyleSetTextDirectionNative(paragraphStyle, direction);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetTextDecorationNative(ImpellerParagraphStyle paragraphStyle, ImpellerTextDecoration* decoration)
@@ -2543,21 +1895,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetTextDecoration(ImpellerParagraphStyle paragraphStyle, ImpellerTextDecorationPtr decoration)
         {
             ParagraphStyleSetTextDecorationNative(paragraphStyle, (ImpellerTextDecoration*)decoration);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetTextDecoration(ImpellerParagraphStyle paragraphStyle, in ImpellerTextDecoration decoration)
         {
             fixed (ImpellerTextDecoration* pdecoration = &decoration)
@@ -2566,11 +1908,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetMaxLinesNative(ImpellerParagraphStyle paragraphStyle, uint maxLines)
@@ -2582,21 +1919,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetMaxLines(ImpellerParagraphStyle paragraphStyle, uint maxLines)
         {
             ParagraphStyleSetMaxLinesNative(paragraphStyle, maxLines);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetLocaleNative(ImpellerParagraphStyle paragraphStyle, byte* locale)
@@ -2608,21 +1935,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, byte* locale)
         {
             ParagraphStyleSetLocaleNative(paragraphStyle, locale);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, in byte locale)
         {
             fixed (byte* plocale = &locale)
@@ -2631,11 +1948,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> locale)
         {
             fixed (byte* plocale = locale)
@@ -2644,11 +1956,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetLocale(ImpellerParagraphStyle paragraphStyle, string locale)
         {
             byte* pStr0 = null;
@@ -2677,11 +1984,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphStyleSetEllipsisNative(ImpellerParagraphStyle paragraphStyle, byte* ellipsis)
@@ -2693,21 +1995,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, byte* ellipsis)
         {
             ParagraphStyleSetEllipsisNative(paragraphStyle, ellipsis);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, in byte ellipsis)
         {
             fixed (byte* pellipsis = &ellipsis)
@@ -2716,11 +2008,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, ReadOnlySpan<byte> ellipsis)
         {
             fixed (byte* pellipsis = ellipsis)
@@ -2729,11 +2016,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphStyleSetEllipsis(ImpellerParagraphStyle paragraphStyle, string ellipsis)
         {
             byte* pStr0 = null;
@@ -2762,12 +2044,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerParagraphBuilder ParagraphBuilderNewNative(ImpellerTypographyContext context)
@@ -2779,23 +2055,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerParagraphBuilder ParagraphBuilderNew(ImpellerTypographyContext context)
         {
             ImpellerParagraphBuilder ret = ParagraphBuilderNewNative(context);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphBuilderRetainNative(ImpellerParagraphBuilder paragraphBuilder)
@@ -2807,21 +2072,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphBuilderRetain(ImpellerParagraphBuilder paragraphBuilder)
         {
             ParagraphBuilderRetainNative(paragraphBuilder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphBuilderReleaseNative(ImpellerParagraphBuilder paragraphBuilder)
@@ -2833,11 +2088,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphBuilderRelease(ImpellerParagraphBuilder paragraphBuilder)
         {
             ParagraphBuilderReleaseNative(paragraphBuilder);
@@ -2889,11 +2139,6 @@ namespace Vertex.NET.Impeller
             ParagraphBuilderPushStyleNative(paragraphBuilder, style);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphBuilderPopStyleNative(ImpellerParagraphBuilder paragraphBuilder)
@@ -2905,21 +2150,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphBuilderPopStyle(ImpellerParagraphBuilder paragraphBuilder)
         {
             ParagraphBuilderPopStyleNative(paragraphBuilder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphBuilderAddTextNative(ImpellerParagraphBuilder paragraphBuilder, byte* data, uint length)
@@ -2931,21 +2166,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphBuilderAddText(ImpellerParagraphBuilder paragraphBuilder, byte* data, uint length)
         {
             ParagraphBuilderAddTextNative(paragraphBuilder, data, length);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphBuilderAddText(ImpellerParagraphBuilder paragraphBuilder, in byte data, uint length)
         {
             fixed (byte* pdata = &data)
@@ -2954,12 +2179,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerParagraph ParagraphBuilderBuildParagraphNewNative(ImpellerParagraphBuilder paragraphBuilder, float width)
@@ -2971,23 +2190,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerParagraph ParagraphBuilderBuildParagraphNew(ImpellerParagraphBuilder paragraphBuilder, float width)
         {
             ImpellerParagraph ret = ParagraphBuilderBuildParagraphNewNative(paragraphBuilder, width);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphRetainNative(ImpellerParagraph paragraph)
@@ -2999,21 +2207,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphRetain(ImpellerParagraph paragraph)
         {
             ParagraphRetainNative(paragraph);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ParagraphReleaseNative(ImpellerParagraph paragraph)
@@ -3025,22 +2223,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ParagraphRelease(ImpellerParagraph paragraph)
         {
             ParagraphReleaseNative(paragraph);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static float ParagraphGetMaxWidthNative(ImpellerParagraph paragraph)
@@ -3052,23 +2239,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static float ParagraphGetMaxWidth(ImpellerParagraph paragraph)
         {
             float ret = ParagraphGetMaxWidthNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static float ParagraphGetHeightNative(ImpellerParagraph paragraph)
@@ -3080,22 +2256,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static float ParagraphGetHeight(ImpellerParagraph paragraph)
         {
             float ret = ParagraphGetHeightNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static float ParagraphGetLongestLineWidthNative(ImpellerParagraph paragraph)
@@ -3107,23 +2273,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static float ParagraphGetLongestLineWidth(ImpellerParagraph paragraph)
         {
             float ret = ParagraphGetLongestLineWidthNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static float ParagraphGetMinIntrinsicWidthNative(ImpellerParagraph paragraph)
@@ -3135,23 +2290,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static float ParagraphGetMinIntrinsicWidth(ImpellerParagraph paragraph)
         {
             float ret = ParagraphGetMinIntrinsicWidthNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static float ParagraphGetMaxIntrinsicWidthNative(ImpellerParagraph paragraph)
@@ -3163,22 +2307,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static float ParagraphGetMaxIntrinsicWidth(ImpellerParagraph paragraph)
         {
             float ret = ParagraphGetMaxIntrinsicWidthNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static float ParagraphGetIdeographicBaselineNative(ImpellerParagraph paragraph)
@@ -3190,22 +2324,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static float ParagraphGetIdeographicBaseline(ImpellerParagraph paragraph)
         {
             float ret = ParagraphGetIdeographicBaselineNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static float ParagraphGetAlphabeticBaselineNative(ImpellerParagraph paragraph)
@@ -3217,22 +2341,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static float ParagraphGetAlphabeticBaseline(ImpellerParagraph paragraph)
         {
             float ret = ParagraphGetAlphabeticBaselineNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static uint ParagraphGetLineCountNative(ImpellerParagraph paragraph)
@@ -3244,11 +2358,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static uint ParagraphGetLineCount(ImpellerParagraph paragraph)
         {
             uint ret = ParagraphGetLineCountNative(paragraph);
@@ -3300,12 +2409,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerLineMetrics ParagraphGetLineMetricsNative(ImpellerParagraph paragraph)
@@ -3317,24 +2420,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerLineMetrics ParagraphGetLineMetrics(ImpellerParagraph paragraph)
         {
             ImpellerLineMetrics ret = ParagraphGetLineMetricsNative(paragraph);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(ImpellerParagraph paragraph, nuint codeUnitIndex)
@@ -3346,24 +2437,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtCodeUnitIndexNew(ImpellerParagraph paragraph, nuint codeUnitIndex)
         {
             ImpellerGlyphInfo ret = ParagraphCreateGlyphInfoAtCodeUnitIndexNewNative(paragraph, codeUnitIndex);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(ImpellerParagraph paragraph, double x, double y)
@@ -3375,23 +2454,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerGlyphInfo ParagraphCreateGlyphInfoAtParagraphCoordinatesNew(ImpellerParagraph paragraph, double x, double y)
         {
             ImpellerGlyphInfo ret = ParagraphCreateGlyphInfoAtParagraphCoordinatesNewNative(paragraph, x, y);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void LineMetricsRetainNative(ImpellerLineMetrics lineMetrics)
@@ -3403,21 +2471,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void LineMetricsRetain(ImpellerLineMetrics lineMetrics)
         {
             LineMetricsRetainNative(lineMetrics);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void LineMetricsReleaseNative(ImpellerLineMetrics lineMetrics)
@@ -3429,22 +2487,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void LineMetricsRelease(ImpellerLineMetrics lineMetrics)
         {
             LineMetricsReleaseNative(lineMetrics);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static double LineMetricsGetUnscaledAscentNative(ImpellerLineMetrics metrics, nuint line)
@@ -3456,24 +2503,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static double LineMetricsGetUnscaledAscent(ImpellerLineMetrics metrics, nuint line)
         {
             double ret = LineMetricsGetUnscaledAscentNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static double LineMetricsGetAscentNative(ImpellerLineMetrics metrics, nuint line)
@@ -3485,24 +2520,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static double LineMetricsGetAscent(ImpellerLineMetrics metrics, nuint line)
         {
             double ret = LineMetricsGetAscentNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static double LineMetricsGetDescentNative(ImpellerLineMetrics metrics, nuint line)
@@ -3514,24 +2537,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static double LineMetricsGetDescent(ImpellerLineMetrics metrics, nuint line)
         {
             double ret = LineMetricsGetDescentNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static double LineMetricsGetBaselineNative(ImpellerLineMetrics metrics, nuint line)
@@ -3543,24 +2554,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static double LineMetricsGetBaseline(ImpellerLineMetrics metrics, nuint line)
         {
             double ret = LineMetricsGetBaselineNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static byte LineMetricsIsHardbreakNative(ImpellerLineMetrics metrics, nuint line)
@@ -3572,24 +2571,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static bool LineMetricsIsHardbreak(ImpellerLineMetrics metrics, nuint line)
         {
             byte ret = LineMetricsIsHardbreakNative(metrics, line);
             return ret != 0;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static double LineMetricsGetWidthNative(ImpellerLineMetrics metrics, nuint line)
@@ -3601,24 +2588,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static double LineMetricsGetWidth(ImpellerLineMetrics metrics, nuint line)
         {
             double ret = LineMetricsGetWidthNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static double LineMetricsGetHeightNative(ImpellerLineMetrics metrics, nuint line)
@@ -3630,24 +2605,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static double LineMetricsGetHeight(ImpellerLineMetrics metrics, nuint line)
         {
             double ret = LineMetricsGetHeightNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static double LineMetricsGetLeftNative(ImpellerLineMetrics metrics, nuint line)
@@ -3659,24 +2622,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static double LineMetricsGetLeft(ImpellerLineMetrics metrics, nuint line)
         {
             double ret = LineMetricsGetLeftNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static nuint LineMetricsGetCodeUnitStartIndexNative(ImpellerLineMetrics metrics, nuint line)
@@ -3688,24 +2639,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static nuint LineMetricsGetCodeUnitStartIndex(ImpellerLineMetrics metrics, nuint line)
         {
             nuint ret = LineMetricsGetCodeUnitStartIndexNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static nuint LineMetricsGetCodeUnitEndIndexNative(ImpellerLineMetrics metrics, nuint line)
@@ -3717,24 +2656,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static nuint LineMetricsGetCodeUnitEndIndex(ImpellerLineMetrics metrics, nuint line)
         {
             nuint ret = LineMetricsGetCodeUnitEndIndexNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static nuint LineMetricsGetCodeUnitEndIndexExcludingWhitespaceNative(ImpellerLineMetrics metrics, nuint line)
@@ -3746,24 +2673,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static nuint LineMetricsGetCodeUnitEndIndexExcludingWhitespace(ImpellerLineMetrics metrics, nuint line)
         {
             nuint ret = LineMetricsGetCodeUnitEndIndexExcludingWhitespaceNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static nuint LineMetricsGetCodeUnitEndIndexIncludingNewlineNative(ImpellerLineMetrics metrics, nuint line)
@@ -3775,23 +2690,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static nuint LineMetricsGetCodeUnitEndIndexIncludingNewline(ImpellerLineMetrics metrics, nuint line)
         {
             nuint ret = LineMetricsGetCodeUnitEndIndexIncludingNewlineNative(metrics, line);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void GlyphInfoRetainNative(ImpellerGlyphInfo glyphInfo)
@@ -3803,21 +2707,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void GlyphInfoRetain(ImpellerGlyphInfo glyphInfo)
         {
             GlyphInfoRetainNative(glyphInfo);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void GlyphInfoReleaseNative(ImpellerGlyphInfo glyphInfo)
@@ -3829,22 +2723,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void GlyphInfoRelease(ImpellerGlyphInfo glyphInfo)
         {
             GlyphInfoReleaseNative(glyphInfo);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeBeginNative(ImpellerGlyphInfo glyphInfo)
@@ -3856,24 +2739,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeBegin(ImpellerGlyphInfo glyphInfo)
         {
             nuint ret = GlyphInfoGetGraphemeClusterCodeUnitRangeBeginNative(glyphInfo);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeEndNative(ImpellerGlyphInfo glyphInfo)
@@ -3885,23 +2756,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static nuint GlyphInfoGetGraphemeClusterCodeUnitRangeEnd(ImpellerGlyphInfo glyphInfo)
         {
             nuint ret = GlyphInfoGetGraphemeClusterCodeUnitRangeEndNative(glyphInfo);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void GlyphInfoGetGraphemeClusterBoundsNative(ImpellerGlyphInfo glyphInfo, ImpellerRect* outBounds)
@@ -3913,21 +2773,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void GlyphInfoGetGraphemeClusterBounds(ImpellerGlyphInfo glyphInfo, ImpellerRectPtr outBounds)
         {
             GlyphInfoGetGraphemeClusterBoundsNative(glyphInfo, (ImpellerRect*)outBounds);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void GlyphInfoGetGraphemeClusterBounds(ImpellerGlyphInfo glyphInfo, ref ImpellerRect outBounds)
         {
             fixed (ImpellerRect* poutBounds = &outBounds)
@@ -3936,11 +2786,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static byte GlyphInfoIsEllipsisNative(ImpellerGlyphInfo glyphInfo)
@@ -3952,22 +2797,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static bool GlyphInfoIsEllipsis(ImpellerGlyphInfo glyphInfo)
         {
             byte ret = GlyphInfoIsEllipsisNative(glyphInfo);
             return ret != 0;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerTextDirection GlyphInfoGetTextDirectionNative(ImpellerGlyphInfo glyphInfo)
@@ -3979,11 +2814,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerTextDirection GlyphInfoGetTextDirection(ImpellerGlyphInfo glyphInfo)
         {
             ImpellerTextDirection ret = GlyphInfoGetTextDirectionNative(glyphInfo);

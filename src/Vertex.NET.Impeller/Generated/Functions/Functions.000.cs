@@ -60,13 +60,6 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerContext ContextCreateOpenGLESNewNative(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
@@ -78,64 +71,30 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
         {
             ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, glProcAddressCallbackUserData);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, void* glProcAddressCallbackUserData)
         {
             ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*> )Utils.GetFunctionPointerForDelegate(glProcAddressCallback), glProcAddressCallbackUserData);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, nint glProcAddressCallbackUserData)
         {
             ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, (void*)glProcAddressCallbackUserData);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerContext ContextCreateOpenGLESNew(uint version, ImpellerProcAddressCallback glProcAddressCallback, nint glProcAddressCallbackUserData)
         {
             ImpellerContext ret = ContextCreateOpenGLESNewNative(version, (delegate*<byte*, void*, void*> )Utils.GetFunctionPointerForDelegate(glProcAddressCallback), (void*)glProcAddressCallbackUserData);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerContext ContextCreateMetalNewNative(uint version)
@@ -147,24 +106,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerContext ContextCreateMetalNew(uint version)
         {
             ImpellerContext ret = ContextCreateMetalNewNative(version);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerContext ContextCreateVulkanNewNative(uint version, ImpellerContextVulkanSettings* settings)
@@ -176,24 +123,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerContext ContextCreateVulkanNew(uint version, ImpellerContextVulkanSettingsPtr settings)
         {
             ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)settings);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerContext ContextCreateVulkanNew(uint version, in ImpellerContextVulkanSettings settings)
         {
             fixed (ImpellerContextVulkanSettings* psettings = &settings)
@@ -203,11 +138,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ContextRetainNative(ImpellerContext context)
@@ -219,21 +149,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ContextRetain(ImpellerContext context)
         {
             ContextRetainNative(context);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ContextReleaseNative(ImpellerContext context)
@@ -245,23 +165,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ContextRelease(ImpellerContext context)
         {
             ContextReleaseNative(context);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static byte ContextGetVulkanInfoNative(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
@@ -273,26 +181,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static bool ContextGetVulkanInfo(ImpellerContext context, ImpellerContextVulkanInfoPtr outVulkanInfo)
         {
             byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)outVulkanInfo);
             return ret != 0;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static bool ContextGetVulkanInfo(ImpellerContext context, ref ImpellerContextVulkanInfo outVulkanInfo)
         {
             fixed (ImpellerContextVulkanInfo* poutVulkanInfo = &outVulkanInfo)
@@ -302,12 +196,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerVulkanSwapchain VulkanSwapchainCreateNewNative(ImpellerContext context, void* vulkanSurfaceKhr)
@@ -319,35 +207,18 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, void* vulkanSurfaceKhr)
         {
             ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, nint vulkanSurfaceKhr)
         {
             ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, (void*)vulkanSurfaceKhr);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void VulkanSwapchainRetainNative(ImpellerVulkanSwapchain swapchain)
@@ -359,21 +230,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void VulkanSwapchainRetain(ImpellerVulkanSwapchain swapchain)
         {
             VulkanSwapchainRetainNative(swapchain);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void VulkanSwapchainReleaseNative(ImpellerVulkanSwapchain swapchain)
@@ -385,22 +246,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void VulkanSwapchainRelease(ImpellerVulkanSwapchain swapchain)
         {
             VulkanSwapchainReleaseNative(swapchain);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNewNative(ImpellerVulkanSwapchain swapchain)
@@ -412,24 +262,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNew(ImpellerVulkanSwapchain swapchain)
         {
             ImpellerSurface ret = VulkanSwapchainAcquireNextSurfaceNewNative(swapchain);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerSurface SurfaceCreateWrappedFBONewNative(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
@@ -441,24 +279,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISizePtr size)
         {
             ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)size);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, in ImpellerISize size)
         {
             fixed (ImpellerISize* psize = &size)
@@ -515,11 +341,6 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void SurfaceRetainNative(ImpellerSurface surface)
@@ -531,21 +352,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void SurfaceRetain(ImpellerSurface surface)
         {
             SurfaceRetainNative(surface);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void SurfaceReleaseNative(ImpellerSurface surface)
@@ -557,23 +368,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void SurfaceRelease(ImpellerSurface surface)
         {
             SurfaceReleaseNative(surface);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static byte SurfaceDrawDisplayListNative(ImpellerSurface surface, ImpellerDisplayList displayList)
@@ -585,25 +384,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static bool SurfaceDrawDisplayList(ImpellerSurface surface, ImpellerDisplayList displayList)
         {
             byte ret = SurfaceDrawDisplayListNative(surface, displayList);
             return ret != 0;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static byte SurfacePresentNative(ImpellerSurface surface)
@@ -615,23 +401,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static bool SurfacePresent(ImpellerSurface surface)
         {
             byte ret = SurfacePresentNative(surface);
             return ret != 0;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathRetainNative(ImpellerPath path)
@@ -643,21 +418,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathRetain(ImpellerPath path)
         {
             PathRetainNative(path);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathReleaseNative(ImpellerPath path)
@@ -669,11 +434,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathRelease(ImpellerPath path)
         {
             PathReleaseNative(path);
@@ -727,11 +487,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerPathBuilder PathBuilderNewNative()
@@ -743,22 +498,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerPathBuilder PathBuilderNew()
         {
             ImpellerPathBuilder ret = PathBuilderNewNative();
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderRetainNative(ImpellerPathBuilder builder)
@@ -770,21 +515,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderRetain(ImpellerPathBuilder builder)
         {
             PathBuilderRetainNative(builder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderReleaseNative(ImpellerPathBuilder builder)
@@ -796,21 +531,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderRelease(ImpellerPathBuilder builder)
         {
             PathBuilderReleaseNative(builder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderMoveToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
@@ -822,21 +547,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderMoveTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
         {
             PathBuilderMoveToNative(builder, (ImpellerPoint*)location);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderMoveTo(ImpellerPathBuilder builder, in ImpellerPoint location)
         {
             fixed (ImpellerPoint* plocation = &location)
@@ -845,11 +560,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderLineToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
@@ -861,21 +571,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderLineTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
         {
             PathBuilderLineToNative(builder, (ImpellerPoint*)location);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderLineTo(ImpellerPathBuilder builder, in ImpellerPoint location)
         {
             fixed (ImpellerPoint* plocation = &location)
@@ -1107,11 +807,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderAddRectNative(ImpellerPathBuilder builder, ImpellerRect* rect)
@@ -1123,21 +818,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddRect(ImpellerPathBuilder builder, ImpellerRectPtr rect)
         {
             PathBuilderAddRectNative(builder, (ImpellerRect*)rect);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddRect(ImpellerPathBuilder builder, in ImpellerRect rect)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -1146,11 +831,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderAddArcNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees)
@@ -1162,21 +842,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddArc(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds, float startAngleDegrees, float endAngleDegrees)
         {
             PathBuilderAddArcNative(builder, (ImpellerRect*)ovalBounds, startAngleDegrees, endAngleDegrees);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddArc(ImpellerPathBuilder builder, in ImpellerRect ovalBounds, float startAngleDegrees, float endAngleDegrees)
         {
             fixed (ImpellerRect* povalBounds = &ovalBounds)
@@ -1185,11 +855,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderAddOvalNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds)
@@ -1201,21 +866,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddOval(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds)
         {
             PathBuilderAddOvalNative(builder, (ImpellerRect*)ovalBounds);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddOval(ImpellerPathBuilder builder, in ImpellerRect ovalBounds)
         {
             fixed (ImpellerRect* povalBounds = &ovalBounds)
@@ -1224,11 +879,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderAddRoundedRectNative(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii)
@@ -1240,21 +890,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr roundingRadii)
         {
             PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)roundingRadii);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr roundingRadii)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -1263,11 +903,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii roundingRadii)
         {
             fixed (ImpellerRoundingRadii* proundingRadii = &roundingRadii)
@@ -1276,11 +911,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii roundingRadii)
         {
             fixed (ImpellerRect* prect = &rect)
@@ -1292,11 +922,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PathBuilderCloseNative(ImpellerPathBuilder builder)
@@ -1308,22 +933,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PathBuilderClose(ImpellerPathBuilder builder)
         {
             PathBuilderCloseNative(builder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerPath PathBuilderCopyPathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
@@ -1335,24 +949,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerPath PathBuilderCopyPathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
         {
             ImpellerPath ret = PathBuilderCopyPathNewNative(builder, fill);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerPath PathBuilderTakePathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
@@ -1364,23 +966,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerPath PathBuilderTakePathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
         {
             ImpellerPath ret = PathBuilderTakePathNewNative(builder, fill);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerPaint PaintNewNative()
@@ -1392,22 +983,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerPaint PaintNew()
         {
             ImpellerPaint ret = PaintNewNative();
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintRetainNative(ImpellerPaint paint)
@@ -1419,21 +1000,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintRetain(ImpellerPaint paint)
         {
             PaintRetainNative(paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintReleaseNative(ImpellerPaint paint)
@@ -1445,21 +1016,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintRelease(ImpellerPaint paint)
         {
             PaintReleaseNative(paint);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetColorNative(ImpellerPaint paint, ImpellerColor* color)
@@ -1471,21 +1032,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetColor(ImpellerPaint paint, ImpellerColorPtr color)
         {
             PaintSetColorNative(paint, (ImpellerColor*)color);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetColor(ImpellerPaint paint, in ImpellerColor color)
         {
             fixed (ImpellerColor* pcolor = &color)
@@ -1494,11 +1045,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetBlendModeNative(ImpellerPaint paint, ImpellerBlendMode mode)
@@ -1510,21 +1056,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetBlendMode(ImpellerPaint paint, ImpellerBlendMode mode)
         {
             PaintSetBlendModeNative(paint, mode);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetDrawStyleNative(ImpellerPaint paint, ImpellerDrawStyle style)
@@ -1536,21 +1072,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetDrawStyle(ImpellerPaint paint, ImpellerDrawStyle style)
         {
             PaintSetDrawStyleNative(paint, style);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetStrokeCapNative(ImpellerPaint paint, ImpellerStrokeCap cap)
@@ -1562,21 +1088,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetStrokeCap(ImpellerPaint paint, ImpellerStrokeCap cap)
         {
             PaintSetStrokeCapNative(paint, cap);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetStrokeJoinNative(ImpellerPaint paint, ImpellerStrokeJoin join)
@@ -1588,21 +1104,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetStrokeJoin(ImpellerPaint paint, ImpellerStrokeJoin join)
         {
             PaintSetStrokeJoinNative(paint, join);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetStrokeWidthNative(ImpellerPaint paint, float width)
@@ -1614,21 +1120,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetStrokeWidth(ImpellerPaint paint, float width)
         {
             PaintSetStrokeWidthNative(paint, width);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetStrokeMiterNative(ImpellerPaint paint, float miter)
@@ -1640,11 +1136,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetStrokeMiter(ImpellerPaint paint, float miter)
         {
             PaintSetStrokeMiterNative(paint, miter);
@@ -1742,11 +1233,6 @@ namespace Vertex.NET.Impeller
             PaintSetImageFilterNative(paint, imageFilter);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void PaintSetMaskFilterNative(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
@@ -1758,11 +1244,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void PaintSetMaskFilter(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
         {
             PaintSetMaskFilterNative(paint, maskFilter);
@@ -2123,11 +1604,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void TextureRetainNative(ImpellerTexture texture)
@@ -2139,21 +1615,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void TextureRetain(ImpellerTexture texture)
         {
             TextureRetainNative(texture);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void TextureReleaseNative(ImpellerTexture texture)
@@ -2165,11 +1631,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void TextureRelease(ImpellerTexture texture)
         {
             TextureReleaseNative(texture);
@@ -2212,13 +1673,6 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerFragmentProgram FragmentProgramNewNative(ImpellerMapping* data, void* dataReleaseUserData)
@@ -2230,26 +1684,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, void* dataReleaseUserData)
         {
             ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, dataReleaseUserData);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, void* dataReleaseUserData)
         {
             fixed (ImpellerMapping* pdata = &data)
@@ -2259,26 +1699,12 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, nint dataReleaseUserData)
         {
             ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, (void*)dataReleaseUserData);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerFragmentProgram FragmentProgramNew(in ImpellerMapping data, nint dataReleaseUserData)
         {
             fixed (ImpellerMapping* pdata = &data)
@@ -2288,11 +1714,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void FragmentProgramRetainNative(ImpellerFragmentProgram fragmentProgram)
@@ -2304,21 +1725,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void FragmentProgramRetain(ImpellerFragmentProgram fragmentProgram)
         {
             FragmentProgramRetainNative(fragmentProgram);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void FragmentProgramReleaseNative(ImpellerFragmentProgram fragmentProgram)
@@ -2330,21 +1741,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void FragmentProgramRelease(ImpellerFragmentProgram fragmentProgram)
         {
             FragmentProgramReleaseNative(fragmentProgram);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ColorSourceRetainNative(ImpellerColorSource colorSource)
@@ -2356,21 +1757,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ColorSourceRetain(ImpellerColorSource colorSource)
         {
             ColorSourceRetainNative(colorSource);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ColorSourceReleaseNative(ImpellerColorSource colorSource)
@@ -2382,22 +1773,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ColorSourceRelease(ImpellerColorSource colorSource)
         {
             ColorSourceReleaseNative(colorSource);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorSource ColorSourceCreateLinearGradientNewNative(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
@@ -2409,24 +1789,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2436,12 +1804,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -2451,12 +1813,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2469,12 +1825,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -2484,12 +1834,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2502,12 +1846,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -2520,12 +1858,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2541,12 +1873,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (float* pstops = &stops)
@@ -2556,12 +1882,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2574,12 +1894,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -2592,12 +1906,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2613,12 +1921,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -2631,12 +1933,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2652,12 +1948,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -2673,12 +1963,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2697,12 +1981,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerMatrix* ptransformation = &transformation)
@@ -2712,12 +1990,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2730,12 +2002,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -2748,12 +2014,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2769,12 +2029,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -2787,12 +2041,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2808,12 +2056,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -2829,12 +2071,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2853,12 +2089,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (float* pstops = &stops)
@@ -2871,12 +2101,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2892,12 +2116,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -2913,12 +2131,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2937,12 +2149,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -2958,12 +2164,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, ImpellerPointPtr endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -2982,12 +2182,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendPoint = &endPoint)
@@ -3006,12 +2200,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(in ImpellerPoint startPoint, in ImpellerPoint endPoint, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartPoint = &startPoint)
@@ -3033,12 +2221,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorSource ColorSourceCreateRadialGradientNewNative(ImpellerPoint* center, float radius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
@@ -3050,24 +2232,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3077,12 +2247,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3092,12 +2256,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3110,12 +2268,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (float* pstops = &stops)
@@ -3125,12 +2277,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3143,12 +2289,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3161,12 +2301,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3182,12 +2316,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerMatrix* ptransformation = &transformation)
@@ -3197,12 +2325,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3215,12 +2337,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3233,12 +2349,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3254,12 +2364,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (float* pstops = &stops)
@@ -3272,12 +2376,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3293,12 +2391,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3314,12 +2406,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(in ImpellerPoint center, float radius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -3338,12 +2424,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorSource ColorSourceCreateConicalGradientNewNative(ImpellerPoint* startCenter, float startRadius, ImpellerPoint* endCenter, float endRadius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
@@ -3355,24 +2435,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3382,12 +2450,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3397,12 +2459,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3415,12 +2471,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3430,12 +2480,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3448,12 +2492,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3466,12 +2504,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3487,12 +2519,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (float* pstops = &stops)
@@ -3502,12 +2528,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3520,12 +2540,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3538,12 +2552,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3559,12 +2567,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3577,12 +2579,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3598,12 +2594,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3619,12 +2609,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3643,12 +2627,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerMatrix* ptransformation = &transformation)
@@ -3658,12 +2636,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3676,12 +2648,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3694,12 +2660,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3715,12 +2675,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3733,12 +2687,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3754,12 +2702,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3775,12 +2717,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3799,12 +2735,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (float* pstops = &stops)
@@ -3817,12 +2747,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3838,12 +2762,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3859,12 +2777,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3883,12 +2795,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -3904,12 +2810,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3928,12 +2828,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pendCenter = &endCenter)
@@ -3952,12 +2846,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(in ImpellerPoint startCenter, float startRadius, in ImpellerPoint endCenter, float endRadius, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pstartCenter = &startCenter)
@@ -3979,12 +2867,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorSource ColorSourceCreateSweepGradientNewNative(ImpellerPoint* center, float start, float end, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
@@ -3996,24 +2878,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4023,12 +2893,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -4038,12 +2902,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4056,12 +2914,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (float* pstops = &stops)
@@ -4071,12 +2923,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4089,12 +2935,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -4107,12 +2947,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4128,12 +2962,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerMatrix* ptransformation = &transformation)
@@ -4143,12 +2971,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4161,12 +2983,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -4179,12 +2995,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, float* stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4200,12 +3010,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (float* pstops = &stops)
@@ -4218,12 +3022,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, ImpellerColorPtr colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4239,12 +3037,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerColor* pcolors = &colors)
@@ -4260,12 +3052,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(in ImpellerPoint center, float start, float end, uint stopCount, in ImpellerColor colors, in float stops, ImpellerTileMode tileMode, in ImpellerMatrix transformation)
         {
             fixed (ImpellerPoint* pcenter = &center)
@@ -4284,12 +3070,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorSource ColorSourceCreateImageNewNative(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrix* transformation)
@@ -4301,24 +3081,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)transformation);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, in ImpellerMatrix transformation)
         {
             fixed (ImpellerMatrix* ptransformation = &transformation)
@@ -4328,13 +3096,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorSource ColorSourceCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
@@ -4346,26 +3107,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
         {
             ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
         {
             fixed (ImpellerTexture* psamplers = &samplers)
@@ -4375,13 +3122,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
         {
             fixed (byte* pdata = &data)
@@ -4391,13 +3131,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
         {
             fixed (ImpellerTexture* psamplers = &samplers)
@@ -4410,11 +3143,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ColorFilterRetainNative(ImpellerColorFilter colorFilter)
@@ -4426,21 +3154,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ColorFilterRetain(ImpellerColorFilter colorFilter)
         {
             ColorFilterRetainNative(colorFilter);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ColorFilterReleaseNative(ImpellerColorFilter colorFilter)
@@ -4452,22 +3170,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ColorFilterRelease(ImpellerColorFilter colorFilter)
         {
             ColorFilterReleaseNative(colorFilter);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorFilter ColorFilterCreateBlendNewNative(ImpellerColor* color, ImpellerBlendMode blendMode)
@@ -4479,24 +3186,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorFilter ColorFilterCreateBlendNew(ImpellerColorPtr color, ImpellerBlendMode blendMode)
         {
             ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)color, blendMode);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorFilter ColorFilterCreateBlendNew(in ImpellerColor color, ImpellerBlendMode blendMode)
         {
             fixed (ImpellerColor* pcolor = &color)
@@ -4506,12 +3201,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerColorFilter ColorFilterCreateColorMatrixNewNative(ImpellerColorMatrix* colorMatrix)
@@ -4523,24 +3212,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(ImpellerColorMatrixPtr colorMatrix)
         {
             ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)colorMatrix);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(in ImpellerColorMatrix colorMatrix)
         {
             fixed (ImpellerColorMatrix* pcolorMatrix = &colorMatrix)
@@ -4550,11 +3227,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void MaskFilterRetainNative(ImpellerMaskFilter maskFilter)
@@ -4566,21 +3238,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void MaskFilterRetain(ImpellerMaskFilter maskFilter)
         {
             MaskFilterRetainNative(maskFilter);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void MaskFilterReleaseNative(ImpellerMaskFilter maskFilter)
@@ -4592,22 +3254,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void MaskFilterRelease(ImpellerMaskFilter maskFilter)
         {
             MaskFilterReleaseNative(maskFilter);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerMaskFilter MaskFilterCreateBlurNewNative(ImpellerBlurStyle style, float sigma)
@@ -4619,23 +3270,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerMaskFilter MaskFilterCreateBlurNew(ImpellerBlurStyle style, float sigma)
         {
             ImpellerMaskFilter ret = MaskFilterCreateBlurNewNative(style, sigma);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ImageFilterRetainNative(ImpellerImageFilter imageFilter)
@@ -4647,21 +3287,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ImageFilterRetain(ImpellerImageFilter imageFilter)
         {
             ImageFilterRetainNative(imageFilter);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void ImageFilterReleaseNative(ImpellerImageFilter imageFilter)
@@ -4673,11 +3303,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void ImageFilterRelease(ImpellerImageFilter imageFilter)
         {
             ImageFilterReleaseNative(imageFilter);
@@ -4716,12 +3341,6 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerImageFilter ImageFilterCreateDilateNewNative(float xRadius, float yRadius)
@@ -4733,24 +3352,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateDilateNew(float xRadius, float yRadius)
         {
             ImpellerImageFilter ret = ImageFilterCreateDilateNewNative(xRadius, yRadius);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerImageFilter ImageFilterCreateErodeNewNative(float xRadius, float yRadius)
@@ -4762,24 +3369,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateErodeNew(float xRadius, float yRadius)
         {
             ImpellerImageFilter ret = ImageFilterCreateErodeNewNative(xRadius, yRadius);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerImageFilter ImageFilterCreateMatrixNewNative(ImpellerMatrix* matrix, ImpellerTextureSampling sampling)
@@ -4791,24 +3386,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateMatrixNew(ImpellerMatrixPtr matrix, ImpellerTextureSampling sampling)
         {
             ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)matrix, sampling);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateMatrixNew(in ImpellerMatrix matrix, ImpellerTextureSampling sampling)
         {
             fixed (ImpellerMatrix* pmatrix = &matrix)
@@ -4818,13 +3401,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerImageFilter ImageFilterCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
@@ -4836,26 +3412,12 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
         {
             ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
         {
             fixed (ImpellerTexture* psamplers = &samplers)
@@ -4865,13 +3427,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
         {
             fixed (byte* pdata = &data)
@@ -4881,13 +3436,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ref ImpellerTexture samplers, nuint samplersCount, in byte data, nuint dataBytesLength)
         {
             fixed (ImpellerTexture* psamplers = &samplers)
@@ -4935,11 +3483,6 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListRetainNative(ImpellerDisplayList displayList)
@@ -4951,21 +3494,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListRetain(ImpellerDisplayList displayList)
         {
             DisplayListRetainNative(displayList);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListReleaseNative(ImpellerDisplayList displayList)
@@ -4977,11 +3510,6 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListRelease(ImpellerDisplayList displayList)
         {
             DisplayListReleaseNative(displayList);
@@ -5040,11 +3568,6 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderRetainNative(ImpellerDisplayListBuilder builder)
@@ -5056,21 +3579,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderRetain(ImpellerDisplayListBuilder builder)
         {
             DisplayListBuilderRetainNative(builder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static void DisplayListBuilderReleaseNative(ImpellerDisplayListBuilder builder)
@@ -5082,22 +3595,11 @@ namespace Vertex.NET.Impeller
 #endif
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         public static void DisplayListBuilderRelease(ImpellerDisplayListBuilder builder)
         {
             DisplayListBuilderReleaseNative(builder);
         }
 
-        /// <summary>
-        /// ------------------------------------------------------------------------------<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [SuppressGCTransition]
         internal static ImpellerDisplayList DisplayListBuilderCreateDisplayListNewNative(ImpellerDisplayListBuilder builder)

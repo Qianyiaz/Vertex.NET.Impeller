@@ -10,5 +10,6 @@ batch.Start()
     .AddPostPatch(new AutoDisposablePatch("Impeller"))
     .AddPostPatch(new RemoveExceptExtensionsPatch(["Release"]))
     .AddPostPatch(new SuppressGcTransitionPatch())
+    .AddPostPatch(new RemoveInvalidCommentsPatch())
     .Generate("include/impeller.h", "../../../../Vertex.NET.Impeller/Generated", [.. Directory.GetFiles("include")])
     .Finish();
