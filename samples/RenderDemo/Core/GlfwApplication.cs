@@ -8,7 +8,6 @@ public class GlfwApplication
 {
     private readonly bool _isVulkanSupported = GLFW.VulkanSupported() == 1;
     private readonly GLFWwindowPtr _window;
-    private IScene? _scene;
 
     public GlfwApplication(int width, int height, string title = "Window")
     {
@@ -40,10 +39,10 @@ public class GlfwApplication
     }
 
     [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
-    public unsafe void Run()
+    public unsafe void Run(IScene scene, bool isEventDriven = true)
     {
-        if (_scene is null)
-            throw new ArgumentNullException(nameof(_scene), "Scene is not set");
+        if (scene is null)
+            throw new ArgumentNullException(nameof(scene), "Scene is not set");
 
         using var context = _isVulkanSupported
             ? Impeller.ContextCreateVulkanNew(
@@ -69,7 +68,7 @@ public class GlfwApplication
         int width = 0, height = 0;
         GLFW.GetFramebufferSize(_window, ref width, ref height);
         var surface = _isVulkanSupported
-            ? Impeller.VulkanSwapchainAcquireNextSurfaceNew(swapChain)
+            ? swapChain.AcquireNextSurfaceNew()
             : context.SurfaceCreateWrappedFboNew(
                 0u, ImpellerPixelFormat.PixelFormatRgba8888, new ImpellerISize { Width = width, Height = height });
 
@@ -79,52 +78,49 @@ public class GlfwApplication
             parameters = new SceneParameters(w, h);
 
             surface.Dispose();
-            if (_isVulkanSupported)
-            {
-                surface = Impeller.VulkanSwapchainAcquireNextSurfaceNew(swapChain);
-                RenderFrame(surface, parameters);
-                surface.Present();
-            }
-            else
-            {
-                surface = context.SurfaceCreateWrappedFboNew(
+            surface = _isVulkanSupported
+                ? swapChain.AcquireNextSurfaceNew()
+                : context.SurfaceCreateWrappedFboNew(
                     0u, ImpellerPixelFormat.PixelFormatRgba8888, new ImpellerISize { Width = w, Height = h });
-                RenderFrame(surface, parameters);
-                GLFW.SwapBuffers(_window);
-            }
+
+            RenderFrame(surface, scene, parameters);
         });
 
-        while (GLFW.WindowShouldClose(_window) == 0)
+        if (isEventDriven)
         {
-            GLFW.PollEvents();
-
-            RenderFrame(surface, parameters);
-            if (_isVulkanSupported)
-                surface.Present();
-            else
-                GLFW.SwapBuffers(_window);
+            RenderFrame(surface, scene, parameters);
+            while (GLFW.WindowShouldClose(_window) == 0) GLFW.WaitEvents();
+        }
+        else
+        {
+            while (GLFW.WindowShouldClose(_window) == 0)
+            {
+                GLFW.PollEvents();
+                RenderFrame(surface, scene, parameters);
+            }
         }
 
-        if (_isVulkanSupported)
-            swapChain.Dispose();
-
+        swapChain.Dispose();
         surface.Dispose();
         GLFW.DestroyWindow(_window);
         GLFW.Terminate();
     }
 
-    private void RenderFrame(ImpellerSurface surface, SceneParameters parameters)
+    private void RenderFrame(ImpellerSurface surface, IScene scene, SceneParameters parameters)
     {
         using var builder = Impeller.DisplayListBuilderNew(new ImpellerRect
             { Width = parameters.Width, Height = parameters.Height });
 
-        _scene?.Render(builder, parameters);
+        scene.Render(builder, parameters);
 
         using var displayList = builder.CreateDisplayListNew();
         surface.DrawDisplayList(displayList);
-    }
 
-    public void SetScene(IScene scene) => _scene = scene;
+        if (_isVulkanSupported)
+            surface.Present();
+        else
+            GLFW.SwapBuffers(_window);
+    }
 
     // ReSharper disable once InconsistentNaming
     private static unsafe void* GLProcAddressCallback(byte* procName, void* _) =>

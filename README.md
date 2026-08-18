@@ -59,8 +59,8 @@ Vertex.NET.Impeller is released under the MIT License. See the [LICENSE](LICENSE
 
 ## 🙏 Credits
 
-[Impeller](https://github.com/flutter/flutter/tree/master/engine/src/flutter/impeller) – This project is a wrapper around the Impeller rendering engine,
-developed by [the Flutter team](https://github.com/flutter).
+[Impeller](https://github.com/flutter/flutter/tree/master/engine/src/flutter/impeller) – This project is a wrapper
+around the Impeller rendering engine, developed by [the Flutter team](https://github.com/flutter).
 
 [AvaloniaUI/NImpeller](https://github.com/AvaloniaUI/NImpeller) – Thanks to the AvaloniaUI team for their excellent
 implementation and design inspiration, which served as a valuable reference.

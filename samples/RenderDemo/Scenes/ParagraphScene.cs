@@ -26,7 +26,7 @@ public class ParagraphScene : IScene
         paragraphBuilder.PushStyle(style);
 
         const string text =
-            "Hello, Vertex.NET.Impeller!\nThis is a paragraph with multiple lines.\nYou can render text!";
+            "Hello👋, Vertex.NET.Impeller!\nThis is a paragraph with multiple lines.\nYou can render text😋!";
         var textBytes = Encoding.UTF8.GetBytes(text);
         fixed (byte* pText = textBytes)
             paragraphBuilder.AddText(pText, (uint)textBytes.Length);
