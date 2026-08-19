@@ -9,7 +9,7 @@ public class GlfwApplication
     private readonly bool _isVulkanSupported = GLFW.VulkanSupported() == 1;
     private readonly GLFWwindowPtr _window;
 
-    public GlfwApplication(int width, int height, string title = "Window")
+    public GlfwApplication(int width, int height, ReadOnlySpan<byte> title)
     {
         if (GLFW.Init() == 0)
             throw new Exception("Failed to create GLFW window");

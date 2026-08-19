@@ -1,5 +1,4 @@
-﻿using System.Text;
-using RenderDemo.Core;
+﻿using RenderDemo.Core;
 using Vertex.NET.Impeller;
 
 namespace RenderDemo.Scenes;
@@ -25,11 +24,9 @@ public class ParagraphScene : IScene
         using var paragraphBuilder = Impeller.ParagraphBuilderNew(context);
         paragraphBuilder.PushStyle(style);
 
-        const string text =
-            "Hello👋, Vertex.NET.Impeller!\nThis is a paragraph with multiple lines.\nYou can render text😋!";
-        var textBytes = Encoding.UTF8.GetBytes(text);
-        fixed (byte* pText = textBytes)
-            paragraphBuilder.AddText(pText, (uint)textBytes.Length);
+        var text = "Hello👋, Vertex.NET.Impeller!\nThis is a paragraph with multiple lines.\nYou can render text😋!"u8;
+        fixed (byte* pText = text)
+            paragraphBuilder.AddText(pText, (uint)text.Length);
         paragraphBuilder.PopStyle();
 
         float maxWidth = parameters.Width - 40;
