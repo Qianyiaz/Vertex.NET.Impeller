@@ -15,8 +15,7 @@ internal abstract class MyPostPatch : PostPatch
             var root = ParseAndGetRoot(file);
             var newRoot = ProcessRoot(root);
             if (newRoot == root) continue;
-
-            newRoot = AddRequiredUsings(newRoot);
+            
             SaveFile(file, newRoot);
         }
     }
@@ -31,11 +30,6 @@ internal abstract class MyPostPatch : PostPatch
 
     protected abstract CompilationUnitSyntax ProcessRoot(CompilationUnitSyntax root);
 
-    protected virtual CompilationUnitSyntax AddRequiredUsings(CompilationUnitSyntax root) => root;
-
     private static void SaveFile(string file, CompilationUnitSyntax root) =>
         File.WriteAllText(file, root.NormalizeWhitespace().ToFullString());
-
-    protected static bool HasUsing(CompilationUnitSyntax root, string ns) =>
-        root.Usings.Any(u => u.Name?.ToString() == ns);
 }

@@ -14,13 +14,6 @@ internal class SuppressGcTransitionPatch : MyPostPatch
         return rewriter.Visit(root) as CompilationUnitSyntax ?? root;
     }
 
-    protected override CompilationUnitSyntax AddRequiredUsings(CompilationUnitSyntax root)
-    {
-        return HasUsing(root, "System.Runtime.InteropServices")
-            ? root
-            : root.AddUsings(SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System.Runtime.InteropServices")));
-    }
-
     private class SuppressGcTransitionRewriter : CSharpSyntaxRewriter
     {
         public override SyntaxNode VisitMethodDeclaration(MethodDeclarationSyntax node)

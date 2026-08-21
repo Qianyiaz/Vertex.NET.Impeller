@@ -14,13 +14,6 @@ internal class AutoDisposablePatch(string prefix) : MyPostPatch
         return rewriter.Visit(root) as CompilationUnitSyntax ?? root;
     }
 
-    protected override CompilationUnitSyntax AddRequiredUsings(CompilationUnitSyntax root)
-    {
-        return HasUsing(root, "System")
-            ? root
-            : root.AddUsings(SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System")));
-    }
-
     private class AutoDisposableRewriter(string prefix) : CSharpSyntaxRewriter
     {
         public override SyntaxNode VisitStructDeclaration(StructDeclarationSyntax node)
