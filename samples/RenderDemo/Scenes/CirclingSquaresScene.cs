@@ -19,9 +19,10 @@ public class CirclingSquaresScene : IScene
         var orbitRadius = MathF.Min(parameters.Width, parameters.Height) * 0.3f;
         var squareSize = MathF.Min(parameters.Width, parameters.Height) * 0.12f;
 
-        for (var i = 0; i < 5; i++)
+        const int count = 5;
+        for (var i = 0; i < count; i++)
         {
-            var orbitAngle = (float)(time * 60.0 + i * 72.0);
+            var orbitAngle = (float)(time * 60.0 + i * 360.0 / count);
             var rad = orbitAngle * MathF.PI / 180.0f;
             var squareCenterX = centerX + orbitRadius * MathF.Cos(rad);
             var squareCenterY = centerY + orbitRadius * MathF.Sin(rad);
