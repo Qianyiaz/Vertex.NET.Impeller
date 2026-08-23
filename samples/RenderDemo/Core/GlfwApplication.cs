@@ -86,6 +86,12 @@ public class GlfwApplication
             RenderFrame(surface, scene, parameters);
         });
 
+        GLFW.SetKeyCallback(_window, (_, key, _, action, _) =>
+        {
+            if (key == (int)GlfwKey.Escape && action == GLFW.GLFW_PRESS)
+                GLFW.SetWindowShouldClose(_window, 1);
+        });
+
         if (isEventDriven)
         {
             RenderFrame(surface, scene, parameters);

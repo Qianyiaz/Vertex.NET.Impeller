@@ -15,7 +15,7 @@ internal abstract class MyPostPatch : PostPatch
             var root = ParseAndGetRoot(file);
             var newRoot = ProcessRoot(root);
             if (newRoot == root) continue;
-            
+
             SaveFile(file, newRoot);
         }
     }
