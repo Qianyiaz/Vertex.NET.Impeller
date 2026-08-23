@@ -16,6 +16,8 @@ public class TriangleScene : IScene
         path.MoveTo(new ImpellerPoint { Y = -size });
         path.LineTo(new ImpellerPoint { X = -size, Y = size / 2f });
         path.LineTo(new ImpellerPoint { X = size, Y = size / 2f });
+        path.Close();
+
         using var triangle = path.TakePathNew(ImpellerFillType.FillTypeNonZero);
 
         var colors = stackalloc ImpellerColor[2]
