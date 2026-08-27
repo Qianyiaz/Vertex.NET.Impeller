@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 
+namespace RenderDemo.Core;
+
 /// <summary>
 ///     Native methods for interacting with Windows APIs related to window theming and dark mode.
 ///     API support is limited to Windows 10 version 17763 and later.
@@ -11,9 +13,9 @@ using System.Runtime.Versioning;
 [SupportedOSPlatform("windows10.0.17763")]
 [SuppressMessage("ReSharper", "IdentifierTypo")]
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-public static partial class WindowImpl
+public static partial class WindowsThemeHelper
 {
-    static NativeMethods() => SetPreferredAppMode(PreferredAppMode.AllowDark); // AllowDark
+    static WindowsThemeHelper() => SetPreferredAppMode(PreferredAppMode.AllowDark); // AllowDark
 
     #region Public Methods
 
@@ -33,7 +35,7 @@ public static partial class WindowImpl
         // Menu
         FlushMenuThemes();
 
-        // Apply Dark Window Style Form (https://github.com/godotengine/godot/issues/65492#issuecomment-1347391733)
+        // Apply Dark Window Style Form https://github.com/godotengine/godot/issues/65492#issuecomment-1347391733
         DefWindowProcW(hwnd, WM_NCACTIVATE, false, 0);
         DefWindowProcW(hwnd, WM_NCACTIVATE, true, 0);
     }
@@ -85,18 +87,16 @@ public static partial class WindowImpl
     private const uint ImmersiveDarkSubclassId = 0x1001;
 
     private static readonly int DwmwaUseImmersiveDarkMode =
-        OperatingSystem.IsWindowsVersionAtLeast(10, 0, 19041) ? 20 : 19; // Possibly OK.
+        OperatingSystem.IsWindowsVersionAtLeast(10, 0, 19041) ? 20 : 19; // Possibly OK
 
     public enum PreferredAppMode
     {
         // Default = 0,
         AllowDark = 1
-        /*
-        ForceDark = 2,
-        ForceLight = 3,
-        Max = 4
-        */
-    } // Just need one.
+        // ForceDark = 2,
+        // ForceLight = 3,
+        // Max = 4
+    } // Just need one
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
