@@ -4,7 +4,7 @@ using Vertex.NET.Impeller;
 
 namespace RenderDemo.Core;
 
-public class GlfwApplication
+public class GlfwApplication : IApplication
 {
     private readonly bool _isVulkanSupported = GLFW.VulkanSupported() == 1;
     private readonly GLFWwindowPtr _window;
@@ -39,7 +39,7 @@ public class GlfwApplication
     }
 
     [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
-    public unsafe void Run(IScene scene, bool isEventDriven = true)
+    public unsafe void Run(IScene scene)
     {
         if (scene is null)
             throw new ArgumentNullException(nameof(scene), "Scene is not set");
@@ -92,18 +92,17 @@ public class GlfwApplication
                 GLFW.SetWindowShouldClose(_window, 1);
         });
 
-        if (isEventDriven)
+        /*if (isEventDriven)
         {
             RenderFrame(surface, scene, parameters);
             while (GLFW.WindowShouldClose(_window) == 0) GLFW.WaitEvents();
-        }
-        else
+            // Just a Demo needn't another one
+        }*/
+
+        while (GLFW.WindowShouldClose(_window) == 0)
         {
-            while (GLFW.WindowShouldClose(_window) == 0)
-            {
-                GLFW.PollEvents();
-                RenderFrame(surface, scene, parameters);
-            }
+            GLFW.PollEvents();
+            RenderFrame(surface, scene, parameters);
         }
 
         swapChain.Dispose();
