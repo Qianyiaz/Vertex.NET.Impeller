@@ -38,7 +38,7 @@ You can also browse the [package page on NuGet](https://www.nuget.org/packages/V
 ## 🔨 Usage
 
 For complete working examples, check out
-the [example projects](https://github.com/Qianyiaz/Vertex.NET.Impeller/tree/main/Example) in the repository.
+the [example projects](samples/) in the repository.
 
 ## 📚 Documentation
 
