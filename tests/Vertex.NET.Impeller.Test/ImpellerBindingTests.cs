@@ -76,6 +76,65 @@ public class ImpellerBindingTests
         Assert.NotEqual(ImpellerImageFilter.Null, filter);
     }
 
+    [Fact]
+    public void ImpellerConstants_VersionParts_ShouldBeReasonable()
+    {
+        // These constants are generated from the native headers.
+        Assert.True(Impeller.IMPELLER_VERSION_MAJOR >= 1);
+        Assert.True(Impeller.IMPELLER_VERSION_MINOR >= 0);
+        Assert.True(Impeller.IMPELLER_VERSION_PATCH >= 0);
+    }
+
+    [Fact]
+    public void GetLibraryName_ShouldContainImpeller()
+    {
+        var name = Impeller.GetLibraryName();
+        Assert.False(string.IsNullOrWhiteSpace(name));
+        Assert.Contains("impeller", name, StringComparison.OrdinalIgnoreCase);
+    }
+
+    [Fact]
+    public void ImpellerColor_Defaults_ShouldBeZero()
+    {
+        var c = new ImpellerColor();
+        Assert.Equal(0f, c.Red);
+        Assert.Equal(0f, c.Green);
+        Assert.Equal(0f, c.Blue);
+        Assert.Equal(0f, c.Alpha);
+    }
+
+    [Fact]
+    public void PathBuilderNew_ShouldReturnNonNull()
+    {
+        using var builder = Impeller.PathBuilderNew();
+        Assert.False(builder.IsNull);
+    }
+
+    [Fact]
+    public void Paint_SetStrokeProperties_ShouldNotThrow()
+    {
+        using var paint = Impeller.PaintNew();
+        paint.SetStrokeWidth(5.0f);
+        paint.SetStrokeCap(ImpellerStrokeCap.StrokeCapRound);
+        paint.SetStrokeJoin(ImpellerStrokeJoin.StrokeJoinBevel);
+        // No native assertion here; just ensure calls don't throw.
+    }
+
+    [Theory]
+    [InlineData(ImpellerTileMode.TileModeClamp, 0)]
+    [InlineData(ImpellerTileMode.TileModeRepeat, 1)]
+    [InlineData(ImpellerTileMode.TileModeMirror, 2)]
+    [InlineData(ImpellerTileMode.TileModeDecal, 3)]
+    public void ImpellerTileMode_Values_ShouldMatch(ImpellerTileMode mode, int expected)
+        => Assert.Equal(expected, (int)mode);
+
+    [Fact]
+    public void ImageFilterCreateBlur_LargeRadius_ShouldReturnNonNull()
+    {
+        using var filter = Impeller.ImageFilterCreateBlurNew(50.0f, 50.0f, ImpellerTileMode.TileModeClamp);
+        Assert.NotEqual(ImpellerImageFilter.Null, filter);
+    }
+
     [Theory]
     [InlineData(ImpellerBlendMode.BlendModeClear, 0)]
     [InlineData(ImpellerBlendMode.BlendModeSource, 1)]
