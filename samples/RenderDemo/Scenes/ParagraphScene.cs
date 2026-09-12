@@ -3,16 +3,16 @@ using Vertex.NET.Impeller;
 
 namespace RenderDemo.Scenes;
 
-public class ParagraphScene : IScene
+public sealed class ParagraphScene : IScene
 {
     public unsafe void Render(ImpellerDisplayListBuilder builder, SceneParameters parameters)
     {
         using var bgPaint = Impeller.PaintNew();
-        bgPaint.SetColor(new ImpellerColor { Red = 1, Green = 1, Blue = 1, Alpha = 1 });
+        bgPaint.SetColor(new ImpellerColor(1, 1, 1, 1));
         builder.DrawPaint(bgPaint);
 
         using var fontPaint = Impeller.PaintNew();
-        fontPaint.SetColor(new ImpellerColor { Alpha = 1 });
+        fontPaint.SetColor(new ImpellerColor(alpha: 1));
 
         using var style = Impeller.ParagraphStyleNew();
         style.SetFontSize(18);
@@ -37,7 +37,7 @@ public class ParagraphScene : IScene
             - Русский：Привет, мир! Это текст на русском языке. 
             - العربية：مرحبا بالعالم! هذا نص باللغة العربية.
             - Deutsch：Hallo Welt! Das ist ein deutscher Text.
-            - Français：Bonjour le monde ! Ceci est un texte en français.
+            - Français：Bonjour le monde! Ceci est un texte en français.
 
             ✨ Special characters: ♥ ★ ♦ © ® ™ ℃ € ¥ £ § ¶
 
@@ -45,13 +45,14 @@ public class ParagraphScene : IScene
             """u8;
         fixed (byte* pText = text)
             paragraphBuilder.AddText(pText, (uint)text.Length);
+
         paragraphBuilder.PopStyle();
 
         float maxWidth = parameters.Width - 40;
         using var paragraph = paragraphBuilder.BuildParagraphNew(maxWidth);
 
         builder.Save();
-        builder.DrawParagraph(paragraph, new ImpellerPoint { X = 20, Y = 20 });
+        builder.DrawParagraph(paragraph, new ImpellerPoint(20, 20));
         builder.Restore();
     }
 }

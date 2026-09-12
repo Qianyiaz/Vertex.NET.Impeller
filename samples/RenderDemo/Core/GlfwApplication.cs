@@ -4,7 +4,7 @@ using Vertex.NET.Impeller;
 
 namespace RenderDemo.Core;
 
-public class GlfwApplication : IApplication
+public sealed class GlfwApplication : IApplication
 {
     private readonly bool _isVulkanSupported = GLFW.VulkanSupported() == 1;
     private readonly GLFWwindowPtr _window;
@@ -41,9 +41,6 @@ public class GlfwApplication : IApplication
     [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
     public unsafe void Run(IScene scene)
     {
-        if (scene is null)
-            throw new ArgumentNullException(nameof(scene), "Scene is not set");
-
         using var context = _isVulkanSupported
             ? Impeller.ContextCreateVulkanNew(
                 Impeller.GetVersion(),
@@ -86,24 +83,8 @@ public class GlfwApplication : IApplication
             RenderFrame(surface, scene, parameters);
         });
 
-        GLFW.SetKeyCallback(_window, (_, key, _, action, _) =>
-        {
-            if (key == (int)GlfwKey.Escape && action == GLFW.GLFW_PRESS)
-                GLFW.SetWindowShouldClose(_window, 1);
-        });
-
-        /*if (isEventDriven)
-        {
-            RenderFrame(surface, scene, parameters);
-            while (GLFW.WindowShouldClose(_window) == 0) GLFW.WaitEvents();
-            // Just a Demo needn't another one
-        }*/
-
-        while (GLFW.WindowShouldClose(_window) == 0)
-        {
-            GLFW.PollEvents();
-            RenderFrame(surface, scene, parameters);
-        }
+        RenderFrame(surface, scene, parameters);
+        while (GLFW.WindowShouldClose(_window) == 0) GLFW.WaitEvents();
 
         swapChain.Dispose();
         surface.Dispose();

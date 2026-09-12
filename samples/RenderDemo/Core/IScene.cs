@@ -2,7 +2,7 @@
 
 namespace RenderDemo.Core;
 
-public class SceneParameters(int width, int height)
+public sealed class SceneParameters(int width, int height)
 {
     public int Width { get; } = width;
     public int Height { get; } = height;
