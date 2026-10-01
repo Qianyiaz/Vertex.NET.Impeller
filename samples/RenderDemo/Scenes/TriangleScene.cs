@@ -3,7 +3,7 @@ using Vertex.NET.Impeller;
 
 namespace RenderDemo.Scenes;
 
-public class TriangleScene : IScene
+public sealed class TriangleScene : IScene
 {
     public unsafe void Render(ImpellerDisplayListBuilder builder, SceneParameters parameters)
     {
@@ -13,22 +13,23 @@ public class TriangleScene : IScene
 
         var size = MathF.Min(parameters.Width, parameters.Height) * 0.5f;
         using var path = Impeller.PathBuilderNew();
-        path.MoveTo(new ImpellerPoint { Y = -size });
-        path.LineTo(new ImpellerPoint { X = -size, Y = size / 2f });
-        path.LineTo(new ImpellerPoint { X = size, Y = size / 2f });
+        path.MoveTo(new ImpellerPoint(y: -size));
+        path.LineTo(new ImpellerPoint(-size, size / 2));
+        path.LineTo(new ImpellerPoint(size, size / 2));
         path.Close();
 
         using var triangle = path.TakePathNew(ImpellerFillType.FillTypeNonZero);
 
         var colors = stackalloc ImpellerColor[2]
         {
-            new ImpellerColor { Red = 1, Alpha = 1 },
-            new ImpellerColor { Blue = 1, Alpha = 1 }
+            new() { Red = 1, Alpha = 1 },
+            new() { Blue = 1, Alpha = 1 }
         };
         var stops = stackalloc float[2] { 0.0f, 1.0f };
         using var gradient = Impeller.ColorSourceCreateLinearGradientNew(
-            new ImpellerPoint { Y = -size },
-            new ImpellerPoint { Y = size / 2f }, 2, colors, stops, ImpellerTileMode.TileModeClamp, null
+            new ImpellerPoint(y: -size),
+            new ImpellerPoint(y: size / 2),
+            2, colors, stops, ImpellerTileMode.TileModeClamp, null
         );
         paint.SetColorSource(gradient);
 

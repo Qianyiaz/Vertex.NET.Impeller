@@ -4,15 +4,14 @@ using Vertex.NET.Impeller;
 
 namespace RenderDemo.Scenes;
 
-public class CirclingSquaresScene : IScene
+public sealed class CirclingSquaresScene : IScene
 {
     private readonly Stopwatch _st = Stopwatch.StartNew();
 
     public void Render(ImpellerDisplayListBuilder builder, SceneParameters parameters)
     {
-        var time = _st.Elapsed.TotalSeconds;
         using var paint = Impeller.PaintNew();
-        paint.SetColor(new ImpellerColor { Red = 1, Alpha = 1 });
+        paint.SetColor(new ImpellerColor(1, alpha: 1));
 
         var centerX = parameters.Width * 0.5f;
         var centerY = parameters.Height * 0.5f;
@@ -22,7 +21,7 @@ public class CirclingSquaresScene : IScene
         const int count = 5;
         for (var i = 0; i < count; i++)
         {
-            var orbitAngle = (float)(time * 60.0 + i * 360.0 / count);
+            var orbitAngle = (float)(_st.Elapsed.TotalSeconds * 60.0 + i * 360.0 / count);
             var rad = orbitAngle * MathF.PI / 180.0f;
             var squareCenterX = centerX + orbitRadius * MathF.Cos(rad);
             var squareCenterY = centerY + orbitRadius * MathF.Sin(rad);
@@ -37,7 +36,7 @@ public class CirclingSquaresScene : IScene
 
             builder.Save();
             builder.Translate(squareCenterX, squareCenterY);
-            builder.Rotate((float)(time * 90.0 + i * 20.0));
+            builder.Rotate((float)(_st.Elapsed.TotalSeconds * 90.0 + i * 20.0));
             builder.DrawRect(rect, paint);
             builder.Restore();
         }
