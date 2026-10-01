@@ -1,68 +1,84 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 
 namespace RenderDemo.Core;
 
-/// <summary>
-///     Native methods for interacting with Windows APIs related to window theming and dark mode.
-///     API support is limited to Windows 10 version 17763 and later.
-/// </summary>
-[UnsupportedOSPlatform("windows")]
 [SupportedOSPlatform("windows10.0.17763")]
-[SuppressMessage("ReSharper", "IdentifierTypo")]
-[SuppressMessage("ReSharper", "InconsistentNaming")]
-public static partial class WindowsThemeHelper
+public static unsafe partial class WindowsThemeHelper
 {
-    static WindowsThemeHelper() => SetPreferredAppMode(PreferredAppMode.AllowDark); // AllowDark
+    private const uint MsgActivate = 0x0086;
+    private const uint MsgSettingChange = 0x001A;
+    private const uint MsgDestroy = 0x0082;
+    private const uint ImmersiveDarkSubclassId = 0x1001;
 
-    #region Public Methods
+    private const string DwmApi = "dwmapi.dll";
+    private const string ComCtl32 = "comctl32.dll";
+    private const string User32 = "user32.dll";
+    private const string UxTheme = "uxtheme.dll";
 
-    // ReSharper disable once MemberCanBePrivate.Global
+    private static readonly int DwmUseImmersiveDarkMode =
+        OperatingSystem.IsWindowsVersionAtLeast(10, 0, 19041) ? 20 : 19;
+
+    static WindowsThemeHelper() => SetPreferredAppMode(1); // Allow Dark
+
     public static void SyncWindowThemeMode(IntPtr hwnd, bool isDarkMode)
     {
-        if (hwnd is 0) throw new ArgumentNullException(nameof(hwnd));
+        if (hwnd == IntPtr.Zero)
+            throw new ArgumentNullException(nameof(hwnd));
 
-        DwmGetWindowAttribute(hwnd, DwmwaUseImmersiveDarkMode, out var isAppDark, 4);
-        if (isDarkMode == isAppDark)
+        var hr = DwmGetWindowAttribute(hwnd, DwmUseImmersiveDarkMode, out var current, sizeof(int));
+        if (hr == 0 && current == isDarkMode)
             return;
 
-        // Window
-        AllowDarkModeForWindow(hwnd, isDarkMode);
-        DwmSetWindowAttribute(hwnd, DwmwaUseImmersiveDarkMode, ref isDarkMode, 4);
+        ApplyWindowThemeMode(hwnd, isDarkMode);
+    }
 
-        // Menu
+    public static void ApplyWindowThemeMode(IntPtr hwnd, bool isDarkMode)
+    {
+        if (hwnd == IntPtr.Zero)
+            throw new ArgumentNullException(nameof(hwnd));
+
+        AllowDarkModeForWindow(hwnd, isDarkMode);
+        DwmSetWindowAttribute(hwnd, DwmUseImmersiveDarkMode, ref isDarkMode, sizeof(int));
+
         FlushMenuThemes();
 
-        // Apply Dark Window Style Form https://github.com/godotengine/godot/issues/65492#issuecomment-1347391733
-        DefWindowProcW(hwnd, WM_NCACTIVATE, false, 0);
-        DefWindowProcW(hwnd, WM_NCACTIVATE, true, 0);
+        DefWindowProcW(hwnd, MsgActivate, IntPtr.Zero, IntPtr.Zero);
+        DefWindowProcW(hwnd, MsgActivate, 1, IntPtr.Zero);
     }
 
     public static class SystemThemeWatcher
     {
-        private static readonly SubclassProcDelegate _subclassProc = OnSubclass;
+        private static readonly IntPtr SubclassProcPtr =
+            (IntPtr)(delegate* unmanaged[Stdcall]<IntPtr, uint, IntPtr, IntPtr, UIntPtr, IntPtr, IntPtr>)&OnSubclass;
 
         public static void Watch(IntPtr hwnd)
         {
-            if (hwnd is 0) throw new ArgumentException("Invalid window handle", nameof(hwnd));
+            if (hwnd == IntPtr.Zero)
+                throw new ArgumentException("Invalid window handle", nameof(hwnd));
 
             SyncWindowThemeMode(hwnd, GetSystemIsUseDarkMode());
-            SetWindowSubclass(hwnd, _subclassProc, ImmersiveDarkSubclassId, 0);
+            SetWindowSubclass(hwnd, SubclassProcPtr, ImmersiveDarkSubclassId, IntPtr.Zero);
         }
 
-        private static IntPtr OnSubclass(IntPtr hwnd, uint msg, IntPtr wParam, IntPtr lParam, uint uIdSubclass,
+        [UnmanagedCallersOnly(CallConvs = [typeof(CallConvStdcall)])]
+        private static IntPtr OnSubclass(
+            IntPtr hwnd,
+            uint msg,
+            IntPtr wParam,
+            IntPtr lParam,
+            UIntPtr uIdSubclass,
             IntPtr dwRefData)
         {
             switch (msg)
             {
-                case WM_SETTINGCHANGE when Marshal.PtrToStringUni(lParam) is "ImmersiveColorSet":
+                case MsgSettingChange when Marshal.PtrToStringUni(lParam) is "ImmersiveColorSet":
                     SyncWindowThemeMode(hwnd, GetSystemIsUseDarkMode());
                     break;
 
-                case WM_NCDESTROY:
-                    RemoveWindowSubclass(hwnd, _subclassProc, uIdSubclass);
+                case MsgDestroy:
+                    RemoveWindowSubclass(hwnd, SubclassProcPtr, uIdSubclass);
                     break;
             }
 
@@ -70,90 +86,82 @@ public static partial class WindowsThemeHelper
         }
     }
 
-    #endregion
-
-    #region Windows API Imports
-
-    // Dll Names
-    private const string s_dwmapi = "dwmapi.dll";
-    private const string s_comctl32 = "comctl32.dll";
-    private const string s_user32 = "user32.dll";
-    private const string s_uxtheme = "uxtheme.dll";
-
-    // Window messages
-    private const uint WM_NCACTIVATE = 0x0086;
-    private const uint WM_SETTINGCHANGE = 0x001A;
-    private const uint WM_NCDESTROY = 0x0082;
-    private const uint ImmersiveDarkSubclassId = 0x1001;
-
-    private static readonly int DwmwaUseImmersiveDarkMode =
-        OperatingSystem.IsWindowsVersionAtLeast(10, 0, 19041) ? 20 : 19; // Possibly OK
-
-    public enum PreferredAppMode
-    {
-        // Default = 0,
-        AllowDark = 1
-        // ForceDark = 2,
-        // ForceLight = 3,
-        // Max = 4
-    } // Just need one
+    #region Imports
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_dwmapi, StringMarshalling = StringMarshalling.Utf16)]
-    private static partial void DwmSetWindowAttribute(IntPtr hwnd, int attr,
-        [MarshalAs(UnmanagedType.Bool)] ref bool attrValue, int attrSize);
+    [LibraryImport(DwmApi)]
+    private static partial void DwmSetWindowAttribute(
+        IntPtr hwnd,
+        int attr,
+        [MarshalAs(UnmanagedType.Bool)] ref bool attrValue,
+        int attrSize);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_dwmapi, StringMarshalling = StringMarshalling.Utf16)]
-    private static partial void DwmGetWindowAttribute(IntPtr hwnd, int dwAttribute,
-        [MarshalAs(UnmanagedType.Bool)] out bool pvAttribute, int cbAttribute);
+    [LibraryImport(DwmApi)]
+    private static partial int DwmGetWindowAttribute(
+        IntPtr hwnd,
+        int dwAttribute,
+        [MarshalAs(UnmanagedType.Bool)] out bool pvAttribute,
+        int cbAttribute);
 
+    [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_user32, StringMarshalling = StringMarshalling.Utf16)]
-    private static partial void DefWindowProcW(IntPtr hwnd, uint msg, [MarshalAs(UnmanagedType.Bool)] bool wParam,
+    [LibraryImport(User32)]
+    private static partial void DefWindowProcW(
+        IntPtr hwnd,
+        uint msg,
+        IntPtr wParam,
         IntPtr lParam);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_uxtheme, StringMarshalling = StringMarshalling.Utf16, EntryPoint = "#133")]
-    private static partial void AllowDarkModeForWindow(IntPtr hwnd, [MarshalAs(UnmanagedType.Bool)] bool allow);
+    [LibraryImport(UxTheme, EntryPoint = "#133")]
+    private static partial void AllowDarkModeForWindow(
+        IntPtr hwnd,
+        [MarshalAs(UnmanagedType.Bool)] bool allow);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_uxtheme, StringMarshalling = StringMarshalling.Utf16, EntryPoint = "#135")]
-    private static partial void SetPreferredAppMode(PreferredAppMode appMode);
+    [LibraryImport(UxTheme, EntryPoint = "#135")]
+    private static partial void SetPreferredAppMode(int appMode);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_uxtheme, StringMarshalling = StringMarshalling.Utf16, EntryPoint = "#136")]
+    [LibraryImport(UxTheme, EntryPoint = "#136")]
     private static partial void FlushMenuThemes();
 
     [SuppressGCTransition]
-    [return: MarshalAs(UnmanagedType.Bool)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_uxtheme, StringMarshalling = StringMarshalling.Utf16, EntryPoint = "#138")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    [LibraryImport(UxTheme, EntryPoint = "#138")]
     private static partial bool GetSystemIsUseDarkMode();
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_comctl32, StringMarshalling = StringMarshalling.Utf16)]
-    private static partial void SetWindowSubclass(IntPtr hwnd, SubclassProcDelegate pfnSubclass, uint uIdSubclass,
+    [LibraryImport(ComCtl32)]
+    private static partial void SetWindowSubclass(
+        IntPtr hwnd,
+        IntPtr pfnSubclass,
+        UIntPtr uIdSubclass,
         IntPtr dwRefData);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_comctl32, StringMarshalling = StringMarshalling.Utf16)]
-    private static partial void RemoveWindowSubclass(IntPtr hwnd, SubclassProcDelegate pfnSubclass, uint uIdSubclass);
+    [LibraryImport(ComCtl32)]
+    private static partial void RemoveWindowSubclass(
+        IntPtr hwnd,
+        IntPtr pfnSubclass,
+        UIntPtr uIdSubclass);
 
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
-    [LibraryImport(s_comctl32, StringMarshalling = StringMarshalling.Utf16)]
-    private static partial IntPtr DefSubclassProc(IntPtr hwnd, uint uMsg, IntPtr wParam, IntPtr lParam);
-
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-    private delegate IntPtr SubclassProcDelegate(IntPtr hwnd, uint uMsg, IntPtr wParam, IntPtr lParam, uint uIdSubclass,
-        IntPtr dwRefData);
+    [LibraryImport(ComCtl32)]
+    private static partial IntPtr DefSubclassProc(
+        IntPtr hwnd,
+        uint uMsg,
+        IntPtr wParam,
+        IntPtr lParam);
 
     #endregion
 }
