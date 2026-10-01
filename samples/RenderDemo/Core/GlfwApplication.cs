@@ -86,8 +86,11 @@ public sealed class GlfwApplication : IApplication
             RenderFrame(surface, scene, parameters);
         });
 
-        RenderFrame(surface, scene, parameters);
-        while (GLFW.WindowShouldClose(_window) == 0) GLFW.WaitEvents();
+        while (GLFW.WindowShouldClose(_window) == 0)
+        {
+            RenderFrame(surface, scene, parameters);
+            GLFW.PollEvents();
+        }
 
         swapChain.Dispose();
         surface.Dispose();
