@@ -10,6 +10,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using HexaGen.Runtime;
+using System.Runtime.CompilerServices;
 
 namespace Vertex.NET.Impeller
 {
@@ -38,6 +39,7 @@ namespace Vertex.NET.Impeller
         /// <inheritdoc/>
         public override int GetHashCode() => Handle.GetHashCode();
         /// <inheritdoc/>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Dispose() => Impeller.MaskFilterReleaseNative(this);
 #if NET5_0_OR_GREATER
 		private string DebuggerDisplay => string.Format("ImpellerMaskFilter [0x{0}]", Handle.ToString("X"));
