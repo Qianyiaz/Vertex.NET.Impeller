@@ -32,6 +32,9 @@ public sealed class GlfwApplication : IApplication
             throw new Exception("Failed to create GLFW window");
         }
 
+        if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
+            WindowsThemeHelper.SystemThemeWatcher.Watch(GLFW.GetWin32Window(_window));
+
         if (_isVulkanSupported) return;
 
         GLFW.MakeContextCurrent(_window);
