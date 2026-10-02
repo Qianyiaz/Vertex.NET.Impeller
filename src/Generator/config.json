@@ -1,6 +1,8 @@
 {
   "Namespace": "Vertex.NET.Impeller",
   "ApiName": "Impeller",
+  "LibName": "impeller",
+  "ImportType": "LibraryImport",
   "WrapPointersAsHandle": true,
   "GeneratePlaceholderComments": false
 }
