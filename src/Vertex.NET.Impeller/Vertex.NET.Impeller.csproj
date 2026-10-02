@@ -10,6 +10,7 @@
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <Authors>Qianyiaz</Authors>
         <Version>1.1.0</Version>
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <Description>A C# wrapper for Impeller</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
