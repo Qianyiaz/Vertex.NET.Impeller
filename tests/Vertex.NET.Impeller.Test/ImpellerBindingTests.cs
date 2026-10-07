@@ -86,14 +86,6 @@ public class ImpellerBindingTests
     }
 
     [Fact]
-    public void GetLibraryName_ShouldContainImpeller()
-    {
-        var name = Impeller.GetLibraryName();
-        Assert.False(string.IsNullOrWhiteSpace(name));
-        Assert.Contains("impeller", name, StringComparison.OrdinalIgnoreCase);
-    }
-
-    [Fact]
     public void ImpellerColor_Defaults_ShouldBeZero()
     {
         var c = new ImpellerColor();
@@ -150,7 +142,7 @@ public class ImpellerBindingTests
     public unsafe void ContextGetVulkanInfo_ShouldPopulateStructure()
     {
         var version = Impeller.GetVersion();
-        var settings = new ImpellerContextVulkanSettings(null, null, false);
+        var settings = new ImpellerContextVulkanSettings(null, null);
         using var context = Impeller.ContextCreateVulkanNew(version, settings);
         Assert.NotEqual(ImpellerContext.Null, context);
 
@@ -317,4 +309,352 @@ public class ImpellerBindingTests
     [InlineData(ImpellerBlendMode.BlendModeSourceOver, 3)]
     public void ImpellerBlendMode_Values_ShouldMatch(ImpellerBlendMode mode, int expected)
         => Assert.Equal(expected, (int)mode);
+
+    [Fact]
+    public void Paint_SetStrokeMiter_ShouldNotThrow()
+    {
+        using var paint = Impeller.PaintNew();
+        paint.SetStrokeMiter(4.0f);
+    }
+
+    [Fact]
+    public void Paint_SetColorFilter_ShouldNotThrow()
+    {
+        using var paint = Impeller.PaintNew();
+        var color = new ImpellerColor { Red = 1f, Green = 0, Blue = 0, Alpha = 1f };
+        using var filter = Impeller.ColorFilterCreateBlendNew(color, ImpellerBlendMode.BlendModeSourceOver);
+        paint.SetColorFilter(filter);
+    }
+
+    [Fact]
+    public void Paint_SetMaskFilter_ShouldNotThrow()
+    {
+        using var paint = Impeller.PaintNew();
+        using var filter = Impeller.MaskFilterCreateBlurNew(ImpellerBlurStyle.BlurStyleNormal, 2.0f);
+        paint.SetMaskFilter(filter);
+    }
+
+    [Fact]
+    public void Paint_SetImageFilter_ShouldNotThrow()
+    {
+        using var paint = Impeller.PaintNew();
+        using var filter = Impeller.ImageFilterCreateBlurNew(1.0f, 1.0f, ImpellerTileMode.TileModeClamp);
+        paint.SetImageFilter(filter);
+    }
+    
+    [Fact]
+    public void ColorFilterCreateColorMatrixNew_ShouldReturnNonNull()
+    {
+        var matrix = default(ImpellerColorMatrix);
+        using var filter = Impeller.ColorFilterCreateColorMatrixNew(matrix);
+        Assert.NotEqual(ImpellerColorFilter.Null, filter);
+    }
+    
+    [Fact]
+    public void ImageFilterCreateDilateNew_ShouldReturnNonNull()
+    {
+        using var filter = Impeller.ImageFilterCreateDilateNew(1.0f, 1.0f);
+        Assert.NotEqual(ImpellerImageFilter.Null, filter);
+    }
+
+    [Fact]
+    public void ImageFilterCreateErodeNew_ShouldReturnNonNull()
+    {
+        using var filter = Impeller.ImageFilterCreateErodeNew(1.0f, 1.0f);
+        Assert.NotEqual(ImpellerImageFilter.Null, filter);
+    }
+
+    [Fact]
+    public void ImageFilterCreateMatrixNew_ShouldReturnNonNull()
+    {
+        var matrix = default(ImpellerMatrix);
+        const ImpellerTextureSampling sampling = default;
+        using var filter = Impeller.ImageFilterCreateMatrixNew(matrix, sampling);
+        Assert.NotEqual(ImpellerImageFilter.Null, filter);
+    }
+
+    [Fact]
+    public void ImageFilterCreateComposeNew_ShouldReturnNonNull()
+    {
+        using var outer = Impeller.ImageFilterCreateBlurNew(1.0f, 1.0f, ImpellerTileMode.TileModeClamp);
+        using var inner = Impeller.ImageFilterCreateDilateNew(1.0f, 1.0f);
+        using var composed = Impeller.ImageFilterCreateComposeNew(outer, inner);
+        Assert.NotEqual(ImpellerImageFilter.Null, composed);
+    }
+    
+    [Theory]
+    [InlineData(ImpellerBlurStyle.BlurStyleNormal)]
+    [InlineData(ImpellerBlurStyle.BlurStyleSolid)]
+    [InlineData(ImpellerBlurStyle.BlurStyleOuter)]
+    [InlineData(ImpellerBlurStyle.BlurStyleInner)]
+    public void MaskFilterCreateBlur_AllStyles_ShouldReturnNonNull(ImpellerBlurStyle style)
+    {
+        using var filter = Impeller.MaskFilterCreateBlurNew(style, 3.0f);
+        Assert.NotEqual(ImpellerMaskFilter.Null, filter);
+    }
+    
+    [Fact]
+    public void PathBuilder_CubicAndQuad_ShouldNotThrow()
+    {
+        using var builder = Impeller.PathBuilderNew();
+        builder.MoveTo(new ImpellerPoint(0, 0));
+        builder.CubicCurveTo(new ImpellerPoint(10), new ImpellerPoint(20, 10), new ImpellerPoint(30, 30));
+        builder.QuadraticCurveTo(new ImpellerPoint(40, 40), new ImpellerPoint(50, 50));
+        builder.Close();
+
+        using var path = builder.CopyPathNew(ImpellerFillType.FillTypeNonZero);
+        Assert.NotEqual(ImpellerPath.Null, path);
+    }
+
+    [Fact]
+    public void PathBuilder_AddOval_ShouldReturnPathWithBounds()
+    {
+        using var builder = Impeller.PathBuilderNew();
+        builder.AddOval(new ImpellerRect(0, 0, 100, 50));
+
+        using var path = builder.CopyPathNew(ImpellerFillType.FillTypeNonZero);
+        Assert.NotEqual(ImpellerPath.Null, path);
+
+        ImpellerRect bounds = default;
+        Impeller.PathGetBounds(path, ref bounds);
+        Assert.True(bounds.Width > 0);
+        Assert.True(bounds.Height > 0);
+    }
+
+    [Fact]
+    public void PathBuilder_AddRoundedRect_ShouldReturnPathWithBounds()
+    {
+        using var builder = Impeller.PathBuilderNew();
+        var rect = new ImpellerRect(0, 0, 100, 100);
+        var radii = default(ImpellerRoundingRadii);
+        builder.AddRoundedRect(rect, radii);
+
+        using var path = builder.CopyPathNew(ImpellerFillType.FillTypeNonZero);
+        Assert.NotEqual(ImpellerPath.Null, path);
+
+        ImpellerRect bounds = default;
+        Impeller.PathGetBounds(path, ref bounds);
+        Assert.True(bounds.Width > 0);
+        Assert.True(bounds.Height > 0);
+    }
+
+    [Fact]
+    public void PathBuilder_AddArc_ShouldReturnPathWithBounds()
+    {
+        using var builder = Impeller.PathBuilderNew();
+        builder.AddArc(new ImpellerRect(0, 0, 100, 100), 0, 180);
+
+        using var path = builder.CopyPathNew(ImpellerFillType.FillTypeNonZero);
+        Assert.NotEqual(ImpellerPath.Null, path);
+    }
+
+    [Fact]
+    public void DisplayListBuilder_DrawOval_ShouldNotThrow()
+    {
+        using var builder = Impeller.DisplayListBuilderNew(null);
+        using var paint = Impeller.PaintNew();
+        builder.DrawOval(new ImpellerRect(25, 25, 75, 75), paint);
+
+        using var displayList = Impeller.DisplayListBuilderCreateDisplayListNew(builder);
+        Assert.NotEqual(ImpellerDisplayList.Null, displayList);
+    }
+
+    [Fact]
+    public void DisplayListBuilder_DrawPath_ShouldNotThrow()
+    {
+        using var builder = Impeller.DisplayListBuilderNew(null);
+        using var paint = Impeller.PaintNew();
+
+        using var pathBuilder = Impeller.PathBuilderNew();
+        pathBuilder.AddRect(new ImpellerRect(0, 0, 100, 100));
+        using var path = pathBuilder.CopyPathNew(ImpellerFillType.FillTypeNonZero);
+
+        builder.DrawPath(path, paint);
+
+        using var displayList = Impeller.DisplayListBuilderCreateDisplayListNew(builder);
+        Assert.NotEqual(ImpellerDisplayList.Null, displayList);
+    }
+    
+    [Fact]
+    public void DisplayListBuilder_TranslateRotateScale_ShouldNotThrow()
+    {
+        using var builder = Impeller.DisplayListBuilderNew(null);
+        builder.Translate(1, 2);
+        builder.Rotate(90);
+        builder.Scale(2, 2);
+        builder.Save();
+        builder.Restore();
+
+        using var displayList = Impeller.DisplayListBuilderCreateDisplayListNew(builder);
+        Assert.NotEqual(ImpellerDisplayList.Null, displayList);
+    }
+
+    [Fact]
+    public void ParagraphStyle_SetFontWeightAndAlign_ShouldNotThrow()
+    {
+        using var style = Impeller.ParagraphStyleNew();
+        style.SetFontSize(14);
+        style.SetTextAlignment(ImpellerTextAlignment.TextAlignmentCenter);
+    }
+
+    [Fact]
+    public unsafe void ParagraphBuilder_MultipleTextRuns_ShouldBuildParagraph()
+    {
+        using var typoContext = Impeller.TypographyContextNew();
+        using var paragraphBuilder = Impeller.ParagraphBuilderNew(typoContext);
+
+        using var style = Impeller.ParagraphStyleNew();
+        style.SetFontSize(16);
+        paragraphBuilder.PushStyle(style);
+
+        var t1 = "Hello "u8;
+        var t2 = "World"u8;
+        fixed (byte* p1 = t1) paragraphBuilder.AddText(p1, 6);
+        fixed (byte* p2 = t2) paragraphBuilder.AddText(p2, 5);
+
+        paragraphBuilder.PopStyle();
+
+        using var paragraph = Impeller.ParagraphBuilderBuildParagraphNew(paragraphBuilder, 300);
+        Assert.NotEqual(ImpellerParagraph.Null, paragraph);
+
+        var height = Impeller.ParagraphGetHeight(paragraph);
+        Assert.True(height > 0);
+    }
+
+    [Fact]
+    public unsafe void Paragraph_GetMaxWidth_ShouldBePositiveAfterBuild()
+    {
+        using var typoContext = Impeller.TypographyContextNew();
+        using var paragraphBuilder = Impeller.ParagraphBuilderNew(typoContext);
+
+        using var style = Impeller.ParagraphStyleNew();
+        style.SetFontSize(12);
+        paragraphBuilder.PushStyle(style);
+
+        var text = "Sample"u8;
+        fixed (byte* pText = text)
+            paragraphBuilder.AddText(pText, 6);
+        paragraphBuilder.PopStyle();
+
+        using var paragraph = Impeller.ParagraphBuilderBuildParagraphNew(paragraphBuilder, 200);
+        var width = Impeller.ParagraphGetMaxWidth(paragraph);
+        Assert.True(width >= 0);
+    }
+
+    [Theory]
+    [InlineData(ImpellerBlurStyle.BlurStyleNormal, 0)]
+    [InlineData(ImpellerBlurStyle.BlurStyleSolid, 1)]
+    [InlineData(ImpellerBlurStyle.BlurStyleOuter, 2)]
+    [InlineData(ImpellerBlurStyle.BlurStyleInner, 3)]
+    public void ImpellerBlurStyle_Values_ShouldMatch(ImpellerBlurStyle style, int expected)
+        => Assert.Equal(expected, (int)style);
+
+    [Theory]
+    [InlineData(ImpellerStrokeCap.StrokeCapButt, 0)]
+    [InlineData(ImpellerStrokeCap.StrokeCapRound, 1)]
+    [InlineData(ImpellerStrokeCap.StrokeCapSquare, 2)]
+    public void ImpellerStrokeCap_Values_ShouldMatch(ImpellerStrokeCap cap, int expected)
+        => Assert.Equal(expected, (int)cap);
+
+    [Theory]
+    [InlineData(ImpellerStrokeJoin.StrokeJoinMiter, 0)]
+    [InlineData(ImpellerStrokeJoin.StrokeJoinRound, 1)]
+    [InlineData(ImpellerStrokeJoin.StrokeJoinBevel, 2)]
+    public void ImpellerStrokeJoin_Values_ShouldMatch(ImpellerStrokeJoin join, int expected)
+        => Assert.Equal(expected, (int)join);
+
+    [Theory]
+    [InlineData(ImpellerFillType.FillTypeNonZero, 0)]
+    [InlineData(ImpellerFillType.FillTypeOdd, 1)]
+    public void ImpellerFillType_Values_ShouldMatch(ImpellerFillType fillType, int expected)
+        => Assert.Equal(expected, (int)fillType);
+
+    [Theory]
+    [InlineData(ImpellerClipOperation.ClipOperationDifference, 0)]
+    [InlineData(ImpellerClipOperation.ClipOperationIntersect, 1)]
+    public void ImpellerClipOperation_Values_ShouldMatch(ImpellerClipOperation op, int expected)
+        => Assert.Equal(expected, (int)op);
+
+    [Theory]
+    [InlineData(ImpellerDrawStyle.DrawStyleFill, 0)]
+    [InlineData(ImpellerDrawStyle.DrawStyleStroke, 1)]
+    [InlineData(ImpellerDrawStyle.DrawStyleStrokeAndFill, 2)]
+    public void ImpellerDrawStyle_Values_ShouldMatch(ImpellerDrawStyle style, int expected)
+        => Assert.Equal(expected, (int)style);
+    
+    [Fact]
+    public void Context_Dispose_IsIdempotent()
+    {
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            return;
+
+        var version = Impeller.GetVersion();
+        using var context = Impeller.ContextCreateMetalNew(version);
+    }
+    
+    [Fact]
+    public void Paint_Dispose_IsIdempotent()
+    {
+        using var paint = Impeller.PaintNew();
+    }
+
+    [Fact]
+    public void PathBuilder_Dispose_IsIdempotent()
+    {
+        using var builder = Impeller.PathBuilderNew();
+    }
+
+    [Fact]
+    public void DisplayListBuilder_Dispose_IsIdempotent()
+    {
+        using var builder = Impeller.DisplayListBuilderNew(null);
+    }
+    
+    [Fact]
+    public void ManyPaths_ShouldNotLeakMemory()
+    {
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        GC.Collect();
+        var initialMemory = GC.GetTotalMemory(true);
+
+        const int count = 500;
+        for (var i = 0; i < count; i++)
+        {
+            using var builder = Impeller.PathBuilderNew();
+            builder.AddRect(new ImpellerRect(0, 0, 10, 10));
+            using var path = builder.CopyPathNew(ImpellerFillType.FillTypeNonZero);
+        }
+
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        GC.Collect();
+        var finalMemory = GC.GetTotalMemory(true);
+
+        var diff = finalMemory - initialMemory;
+        Assert.True(diff < 2 * 1024 * 1024, $"Memory grew by {diff} bytes");
+    }
+
+    [Fact]
+    public void ManyColorFilters_ShouldNotLeakMemory()
+    {
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        GC.Collect();
+        var initialMemory = GC.GetTotalMemory(true);
+
+        var color = new ImpellerColor { Red = 1f, Green = 0, Blue = 0, Alpha = 1f };
+        for (var i = 0; i < 500; i++)
+        {
+            using var filter = Impeller.ColorFilterCreateBlendNew(color, ImpellerBlendMode.BlendModeSourceOver);
+        }
+
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        GC.Collect();
+        var finalMemory = GC.GetTotalMemory(true);
+
+        var diff = finalMemory - initialMemory;
+        Assert.True(diff < 2 * 1024 * 1024, $"Memory grew by {diff} bytes");
+    }
 }

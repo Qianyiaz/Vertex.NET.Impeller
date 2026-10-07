@@ -15,6 +15,7 @@ namespace Vertex.NET.Impeller
 {
     public unsafe partial class Impeller
     {
+        internal const string LibName = "impeller";
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -29,17 +30,10 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerGetVersion")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static uint GetVersionNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint>)funcTable[0])();
-#else
-            return (uint)((delegate* unmanaged[Cdecl]<uint> )funcTable[0])();
-#endif
-        }
-
+        internal static partial uint GetVersionNative();
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -60,17 +54,9 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerContext ContextCreateOpenGLESNewNative(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, delegate*<byte*, void*, void*>, void*, ImpellerContext>)funcTable[1])(version, glProcAddressCallback, glProcAddressCallbackUserData);
-#else
-            return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, nint, nint, ImpellerContext> )funcTable[1])(version, (nint)glProcAddressCallback, (nint)glProcAddressCallbackUserData);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerContextCreateOpenGLESNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerContext ContextCreateOpenGLESNewNative(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData);
         public static ImpellerContext ContextCreateOpenGLESNew(uint version, delegate*<byte*, void*, void*> glProcAddressCallback, void* glProcAddressCallbackUserData)
         {
             ImpellerContext ret = ContextCreateOpenGLESNewNative(version, glProcAddressCallback, glProcAddressCallbackUserData);
@@ -95,34 +81,18 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerContext ContextCreateMetalNewNative(uint version)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, ImpellerContext>)funcTable[2])(version);
-#else
-            return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, ImpellerContext> )funcTable[2])(version);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerContextCreateMetalNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerContext ContextCreateMetalNewNative(uint version);
         public static ImpellerContext ContextCreateMetalNew(uint version)
         {
             ImpellerContext ret = ContextCreateMetalNewNative(version);
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerContext ContextCreateVulkanNewNative(uint version, ImpellerContextVulkanSettings* settings)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, ImpellerContextVulkanSettings*, ImpellerContext>)funcTable[3])(version, settings);
-#else
-            return (ImpellerContext)((delegate* unmanaged[Cdecl]<uint, nint, ImpellerContext> )funcTable[3])(version, (nint)settings);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerContextCreateVulkanNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerContext ContextCreateVulkanNewNative(uint version, ImpellerContextVulkanSettings* settings);
         public static ImpellerContext ContextCreateVulkanNew(uint version, ImpellerContextVulkanSettingsPtr settings)
         {
             ImpellerContext ret = ContextCreateVulkanNewNative(version, (ImpellerContextVulkanSettings*)settings);
@@ -138,49 +108,28 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerContextRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ContextRetainNative(ImpellerContext context)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[4])(context);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerContext, void> )funcTable[4])(context);
-#endif
-        }
-
+        internal static partial void ContextRetainNative(ImpellerContext context);
         public static void ContextRetain(ImpellerContext context)
         {
             ContextRetainNative(context);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerContextRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ContextReleaseNative(ImpellerContext context)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerContext, void>)funcTable[5])(context);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerContext, void> )funcTable[5])(context);
-#endif
-        }
-
+        internal static partial void ContextReleaseNative(ImpellerContext context);
         public static void ContextRelease(ImpellerContext context)
         {
             ContextReleaseNative(context);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerContextGetVulkanInfo")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static byte ContextGetVulkanInfoNative(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerContextVulkanInfo*, byte>)funcTable[6])(context, outVulkanInfo);
-#else
-            return (byte)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, byte> )funcTable[6])(context, (nint)outVulkanInfo);
-#endif
-        }
-
+        internal static partial byte ContextGetVulkanInfoNative(ImpellerContext context, ImpellerContextVulkanInfo* outVulkanInfo);
         public static bool ContextGetVulkanInfo(ImpellerContext context, ImpellerContextVulkanInfoPtr outVulkanInfo)
         {
             byte ret = ContextGetVulkanInfoNative(context, (ImpellerContextVulkanInfo*)outVulkanInfo);
@@ -196,17 +145,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerVulkanSwapchain VulkanSwapchainCreateNewNative(ImpellerContext context, void* vulkanSurfaceKhr)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, void*, ImpellerVulkanSwapchain>)funcTable[7])(context, vulkanSurfaceKhr);
-#else
-            return (ImpellerVulkanSwapchain)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ImpellerVulkanSwapchain> )funcTable[7])(context, (nint)vulkanSurfaceKhr);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerVulkanSwapchainCreateNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerVulkanSwapchain VulkanSwapchainCreateNewNative(ImpellerContext context, void* vulkanSurfaceKhr);
         public static ImpellerVulkanSwapchain VulkanSwapchainCreateNew(ImpellerContext context, void* vulkanSurfaceKhr)
         {
             ImpellerVulkanSwapchain ret = VulkanSwapchainCreateNewNative(context, vulkanSurfaceKhr);
@@ -219,66 +160,36 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerVulkanSwapchainRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void VulkanSwapchainRetainNative(ImpellerVulkanSwapchain swapchain)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[8])(swapchain);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void> )funcTable[8])(swapchain);
-#endif
-        }
-
+        internal static partial void VulkanSwapchainRetainNative(ImpellerVulkanSwapchain swapchain);
         public static void VulkanSwapchainRetain(ImpellerVulkanSwapchain swapchain)
         {
             VulkanSwapchainRetainNative(swapchain);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerVulkanSwapchainRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void VulkanSwapchainReleaseNative(ImpellerVulkanSwapchain swapchain)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void>)funcTable[9])(swapchain);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, void> )funcTable[9])(swapchain);
-#endif
-        }
-
+        internal static partial void VulkanSwapchainReleaseNative(ImpellerVulkanSwapchain swapchain);
         public static void VulkanSwapchainRelease(ImpellerVulkanSwapchain swapchain)
         {
             VulkanSwapchainReleaseNative(swapchain);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNewNative(ImpellerVulkanSwapchain swapchain)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, ImpellerSurface>)funcTable[10])(swapchain);
-#else
-            return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerVulkanSwapchain, ImpellerSurface> )funcTable[10])(swapchain);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerVulkanSwapchainAcquireNextSurfaceNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerSurface VulkanSwapchainAcquireNextSurfaceNewNative(ImpellerVulkanSwapchain swapchain);
         public static ImpellerSurface VulkanSwapchainAcquireNextSurfaceNew(ImpellerVulkanSwapchain swapchain)
         {
             ImpellerSurface ret = VulkanSwapchainAcquireNextSurfaceNewNative(swapchain);
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerSurface SurfaceCreateWrappedFBONewNative(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ulong, ImpellerPixelFormat, ImpellerISize*, ImpellerSurface>)funcTable[11])(context, fbo, format, size);
-#else
-            return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerContext, ulong, ImpellerPixelFormat, nint, ImpellerSurface> )funcTable[11])(context, fbo, format, (nint)size);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerSurfaceCreateWrappedFBONew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerSurface SurfaceCreateWrappedFBONewNative(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISize* size);
         public static ImpellerSurface SurfaceCreateWrappedFBONew(ImpellerContext context, ulong fbo, ImpellerPixelFormat format, ImpellerISizePtr size)
         {
             ImpellerSurface ret = SurfaceCreateWrappedFBONewNative(context, fbo, format, (ImpellerISize*)size);
@@ -302,17 +213,9 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerSurface SurfaceCreateWrappedMetalDrawableNewNative(ImpellerContext context, void* metalDrawable)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, void*, ImpellerSurface>)funcTable[12])(context, metalDrawable);
-#else
-            return (ImpellerSurface)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ImpellerSurface> )funcTable[12])(context, (nint)metalDrawable);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerSurfaceCreateWrappedMetalDrawableNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerSurface SurfaceCreateWrappedMetalDrawableNewNative(ImpellerContext context, void* metalDrawable);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -341,99 +244,55 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerSurfaceRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void SurfaceRetainNative(ImpellerSurface surface)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[13])(surface);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerSurface, void> )funcTable[13])(surface);
-#endif
-        }
-
+        internal static partial void SurfaceRetainNative(ImpellerSurface surface);
         public static void SurfaceRetain(ImpellerSurface surface)
         {
             SurfaceRetainNative(surface);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerSurfaceRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void SurfaceReleaseNative(ImpellerSurface surface)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerSurface, void>)funcTable[14])(surface);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerSurface, void> )funcTable[14])(surface);
-#endif
-        }
-
+        internal static partial void SurfaceReleaseNative(ImpellerSurface surface);
         public static void SurfaceRelease(ImpellerSurface surface)
         {
             SurfaceReleaseNative(surface);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static byte SurfaceDrawDisplayListNative(ImpellerSurface surface, ImpellerDisplayList displayList)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerSurface, ImpellerDisplayList, byte>)funcTable[15])(surface, displayList);
-#else
-            return (byte)((delegate* unmanaged[Cdecl]<ImpellerSurface, ImpellerDisplayList, byte> )funcTable[15])(surface, displayList);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerSurfaceDrawDisplayList")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial byte SurfaceDrawDisplayListNative(ImpellerSurface surface, ImpellerDisplayList displayList);
         public static bool SurfaceDrawDisplayList(ImpellerSurface surface, ImpellerDisplayList displayList)
         {
             byte ret = SurfaceDrawDisplayListNative(surface, displayList);
             return ret != 0;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static byte SurfacePresentNative(ImpellerSurface surface)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerSurface, byte>)funcTable[16])(surface);
-#else
-            return (byte)((delegate* unmanaged[Cdecl]<ImpellerSurface, byte> )funcTable[16])(surface);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerSurfacePresent")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial byte SurfacePresentNative(ImpellerSurface surface);
         public static bool SurfacePresent(ImpellerSurface surface)
         {
             byte ret = SurfacePresentNative(surface);
             return ret != 0;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathRetainNative(ImpellerPath path)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[17])(path);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPath, void> )funcTable[17])(path);
-#endif
-        }
-
+        internal static partial void PathRetainNative(ImpellerPath path);
         public static void PathRetain(ImpellerPath path)
         {
             PathRetainNative(path);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathReleaseNative(ImpellerPath path)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPath, void>)funcTable[18])(path);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPath, void> )funcTable[18])(path);
-#endif
-        }
-
+        internal static partial void PathReleaseNative(ImpellerPath path);
         public static void PathRelease(ImpellerPath path)
         {
             PathReleaseNative(path);
@@ -447,17 +306,10 @@ namespace Vertex.NET.Impeller
         /// points and isolated calls to move the cursor.<br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathGetBounds")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathGetBoundsNative(ImpellerPath path, ImpellerRect* outBounds)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPath, ImpellerRect*, void>)funcTable[19])(path, outBounds);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPath, nint, void> )funcTable[19])(path, (nint)outBounds);
-#endif
-        }
-
+        internal static partial void PathGetBoundsNative(ImpellerPath path, ImpellerRect* outBounds);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -487,66 +339,38 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static ImpellerPathBuilder PathBuilderNewNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder>)funcTable[20])();
-#else
-            return (ImpellerPathBuilder)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder> )funcTable[20])();
-#endif
-        }
-
+        internal static partial ImpellerPathBuilder PathBuilderNewNative();
         public static ImpellerPathBuilder PathBuilderNew()
         {
             ImpellerPathBuilder ret = PathBuilderNewNative();
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderRetainNative(ImpellerPathBuilder builder)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[21])(builder);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void> )funcTable[21])(builder);
-#endif
-        }
-
+        internal static partial void PathBuilderRetainNative(ImpellerPathBuilder builder);
         public static void PathBuilderRetain(ImpellerPathBuilder builder)
         {
             PathBuilderRetainNative(builder);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderReleaseNative(ImpellerPathBuilder builder)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[22])(builder);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void> )funcTable[22])(builder);
-#endif
-        }
-
+        internal static partial void PathBuilderReleaseNative(ImpellerPathBuilder builder);
         public static void PathBuilderRelease(ImpellerPathBuilder builder)
         {
             PathBuilderReleaseNative(builder);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderMoveTo")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderMoveToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, void>)funcTable[23])(builder, location);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[23])(builder, (nint)location);
-#endif
-        }
-
+        internal static partial void PathBuilderMoveToNative(ImpellerPathBuilder builder, ImpellerPoint* location);
         public static void PathBuilderMoveTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
         {
             PathBuilderMoveToNative(builder, (ImpellerPoint*)location);
@@ -560,17 +384,10 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderLineTo")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderLineToNative(ImpellerPathBuilder builder, ImpellerPoint* location)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, void>)funcTable[24])(builder, location);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[24])(builder, (nint)location);
-#endif
-        }
-
+        internal static partial void PathBuilderLineToNative(ImpellerPathBuilder builder, ImpellerPoint* location);
         public static void PathBuilderLineTo(ImpellerPathBuilder builder, ImpellerPointPtr location)
         {
             PathBuilderLineToNative(builder, (ImpellerPoint*)location);
@@ -590,17 +407,10 @@ namespace Vertex.NET.Impeller
         /// The new location of the cursor after this call is the end point.<br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderQuadraticCurveTo")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderQuadraticCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, ImpellerPoint* endPoint)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, ImpellerPoint*, void>)funcTable[25])(builder, controlPoint, endPoint);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, void> )funcTable[25])(builder, (nint)controlPoint, (nint)endPoint);
-#endif
-        }
-
+        internal static partial void PathBuilderQuadraticCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint, ImpellerPoint* endPoint);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -664,17 +474,10 @@ namespace Vertex.NET.Impeller
         /// supplied.<br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderCubicCurveTo")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderCubicCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerPoint*, ImpellerPoint*, ImpellerPoint*, void>)funcTable[26])(builder, controlPoint1, controlPoint2, endPoint);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, nint, void> )funcTable[26])(builder, (nint)controlPoint1, (nint)controlPoint2, (nint)endPoint);
-#endif
-        }
-
+        internal static partial void PathBuilderCubicCurveToNative(ImpellerPathBuilder builder, ImpellerPoint* controlPoint1, ImpellerPoint* controlPoint2, ImpellerPoint* endPoint);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -807,17 +610,10 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderAddRect")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderAddRectNative(ImpellerPathBuilder builder, ImpellerRect* rect)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, void>)funcTable[27])(builder, rect);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[27])(builder, (nint)rect);
-#endif
-        }
-
+        internal static partial void PathBuilderAddRectNative(ImpellerPathBuilder builder, ImpellerRect* rect);
         public static void PathBuilderAddRect(ImpellerPathBuilder builder, ImpellerRectPtr rect)
         {
             PathBuilderAddRectNative(builder, (ImpellerRect*)rect);
@@ -831,17 +627,10 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderAddArc")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderAddArcNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, float, float, void>)funcTable[28])(builder, ovalBounds, startAngleDegrees, endAngleDegrees);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, float, float, void> )funcTable[28])(builder, (nint)ovalBounds, startAngleDegrees, endAngleDegrees);
-#endif
-        }
-
+        internal static partial void PathBuilderAddArcNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds, float startAngleDegrees, float endAngleDegrees);
         public static void PathBuilderAddArc(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds, float startAngleDegrees, float endAngleDegrees)
         {
             PathBuilderAddArcNative(builder, (ImpellerRect*)ovalBounds, startAngleDegrees, endAngleDegrees);
@@ -855,17 +644,10 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderAddOval")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderAddOvalNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, void>)funcTable[29])(builder, ovalBounds);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, void> )funcTable[29])(builder, (nint)ovalBounds);
-#endif
-        }
-
+        internal static partial void PathBuilderAddOvalNative(ImpellerPathBuilder builder, ImpellerRect* ovalBounds);
         public static void PathBuilderAddOval(ImpellerPathBuilder builder, ImpellerRectPtr ovalBounds)
         {
             PathBuilderAddOvalNative(builder, (ImpellerRect*)ovalBounds);
@@ -879,17 +661,10 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderAddRoundedRect")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderAddRoundedRectNative(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerRect*, ImpellerRoundingRadii*, void>)funcTable[30])(builder, rect, roundingRadii);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, nint, nint, void> )funcTable[30])(builder, (nint)rect, (nint)roundingRadii);
-#endif
-        }
-
+        internal static partial void PathBuilderAddRoundedRectNative(ImpellerPathBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* roundingRadii);
         public static void PathBuilderAddRoundedRect(ImpellerPathBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr roundingRadii)
         {
             PathBuilderAddRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)roundingRadii);
@@ -922,116 +697,66 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderClose")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PathBuilderCloseNative(ImpellerPathBuilder builder)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void>)funcTable[31])(builder);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, void> )funcTable[31])(builder);
-#endif
-        }
-
+        internal static partial void PathBuilderCloseNative(ImpellerPathBuilder builder);
         public static void PathBuilderClose(ImpellerPathBuilder builder)
         {
             PathBuilderCloseNative(builder);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderCopyPathNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static ImpellerPath PathBuilderCopyPathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[32])(builder, fill);
-#else
-            return (ImpellerPath)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath> )funcTable[32])(builder, fill);
-#endif
-        }
-
+        internal static partial ImpellerPath PathBuilderCopyPathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill);
         public static ImpellerPath PathBuilderCopyPathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
         {
             ImpellerPath ret = PathBuilderCopyPathNewNative(builder, fill);
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPathBuilderTakePathNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static ImpellerPath PathBuilderTakePathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath>)funcTable[33])(builder, fill);
-#else
-            return (ImpellerPath)((delegate* unmanaged[Cdecl]<ImpellerPathBuilder, ImpellerFillType, ImpellerPath> )funcTable[33])(builder, fill);
-#endif
-        }
-
+        internal static partial ImpellerPath PathBuilderTakePathNewNative(ImpellerPathBuilder builder, ImpellerFillType fill);
         public static ImpellerPath PathBuilderTakePathNew(ImpellerPathBuilder builder, ImpellerFillType fill)
         {
             ImpellerPath ret = PathBuilderTakePathNewNative(builder, fill);
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerPaint PaintNewNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPaint>)funcTable[34])();
-#else
-            return (ImpellerPaint)((delegate* unmanaged[Cdecl]<ImpellerPaint> )funcTable[34])();
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerPaint PaintNewNative();
         public static ImpellerPaint PaintNew()
         {
             ImpellerPaint ret = PaintNewNative();
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintRetainNative(ImpellerPaint paint)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[35])(paint);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, void> )funcTable[35])(paint);
-#endif
-        }
-
+        internal static partial void PaintRetainNative(ImpellerPaint paint);
         public static void PaintRetain(ImpellerPaint paint)
         {
             PaintRetainNative(paint);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintReleaseNative(ImpellerPaint paint)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, void>)funcTable[36])(paint);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, void> )funcTable[36])(paint);
-#endif
-        }
-
+        internal static partial void PaintReleaseNative(ImpellerPaint paint);
         public static void PaintRelease(ImpellerPaint paint)
         {
             PaintReleaseNative(paint);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetColor")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetColorNative(ImpellerPaint paint, ImpellerColor* color)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColor*, void>)funcTable[37])(paint, color);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, nint, void> )funcTable[37])(paint, (nint)color);
-#endif
-        }
-
+        internal static partial void PaintSetColorNative(ImpellerPaint paint, ImpellerColor* color);
         public static void PaintSetColor(ImpellerPaint paint, ImpellerColorPtr color)
         {
             PaintSetColorNative(paint, (ImpellerColor*)color);
@@ -1045,97 +770,55 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetBlendMode")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetBlendModeNative(ImpellerPaint paint, ImpellerBlendMode mode)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerBlendMode, void>)funcTable[38])(paint, mode);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerBlendMode, void> )funcTable[38])(paint, mode);
-#endif
-        }
-
+        internal static partial void PaintSetBlendModeNative(ImpellerPaint paint, ImpellerBlendMode mode);
         public static void PaintSetBlendMode(ImpellerPaint paint, ImpellerBlendMode mode)
         {
             PaintSetBlendModeNative(paint, mode);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetDrawStyle")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetDrawStyleNative(ImpellerPaint paint, ImpellerDrawStyle style)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerDrawStyle, void>)funcTable[39])(paint, style);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerDrawStyle, void> )funcTable[39])(paint, style);
-#endif
-        }
-
+        internal static partial void PaintSetDrawStyleNative(ImpellerPaint paint, ImpellerDrawStyle style);
         public static void PaintSetDrawStyle(ImpellerPaint paint, ImpellerDrawStyle style)
         {
             PaintSetDrawStyleNative(paint, style);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetStrokeCap")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetStrokeCapNative(ImpellerPaint paint, ImpellerStrokeCap cap)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeCap, void>)funcTable[40])(paint, cap);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeCap, void> )funcTable[40])(paint, cap);
-#endif
-        }
-
+        internal static partial void PaintSetStrokeCapNative(ImpellerPaint paint, ImpellerStrokeCap cap);
         public static void PaintSetStrokeCap(ImpellerPaint paint, ImpellerStrokeCap cap)
         {
             PaintSetStrokeCapNative(paint, cap);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetStrokeJoin")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetStrokeJoinNative(ImpellerPaint paint, ImpellerStrokeJoin join)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeJoin, void>)funcTable[41])(paint, join);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerStrokeJoin, void> )funcTable[41])(paint, join);
-#endif
-        }
-
+        internal static partial void PaintSetStrokeJoinNative(ImpellerPaint paint, ImpellerStrokeJoin join);
         public static void PaintSetStrokeJoin(ImpellerPaint paint, ImpellerStrokeJoin join)
         {
             PaintSetStrokeJoinNative(paint, join);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetStrokeWidth")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetStrokeWidthNative(ImpellerPaint paint, float width)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[42])(paint, width);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void> )funcTable[42])(paint, width);
-#endif
-        }
-
+        internal static partial void PaintSetStrokeWidthNative(ImpellerPaint paint, float width);
         public static void PaintSetStrokeWidth(ImpellerPaint paint, float width)
         {
             PaintSetStrokeWidthNative(paint, width);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetStrokeMiter")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetStrokeMiterNative(ImpellerPaint paint, float miter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void>)funcTable[43])(paint, miter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, float, void> )funcTable[43])(paint, miter);
-#endif
-        }
-
+        internal static partial void PaintSetStrokeMiterNative(ImpellerPaint paint, float miter);
         public static void PaintSetStrokeMiter(ImpellerPaint paint, float miter)
         {
             PaintSetStrokeMiterNative(paint, miter);
@@ -1149,17 +832,10 @@ namespace Vertex.NET.Impeller
         /// the destination during blending.<br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetColorFilter")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetColorFilterNative(ImpellerPaint paint, ImpellerColorFilter colorFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorFilter, void>)funcTable[44])(paint, colorFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorFilter, void> )funcTable[44])(paint, colorFilter);
-#endif
-        }
-
+        internal static partial void PaintSetColorFilterNative(ImpellerPaint paint, ImpellerColorFilter colorFilter);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -1180,17 +856,10 @@ namespace Vertex.NET.Impeller
         /// texture element covered by a draw call.<br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetColorSource")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetColorSourceNative(ImpellerPaint paint, ImpellerColorSource colorSource)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorSource, void>)funcTable[45])(paint, colorSource);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerColorSource, void> )funcTable[45])(paint, colorSource);
-#endif
-        }
-
+        internal static partial void PaintSetColorSourceNative(ImpellerPaint paint, ImpellerColorSource colorSource);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -1210,17 +879,10 @@ namespace Vertex.NET.Impeller
         /// texture to produce a single color.<br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetImageFilter")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetImageFilterNative(ImpellerPaint paint, ImpellerImageFilter imageFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerImageFilter, void>)funcTable[46])(paint, imageFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerImageFilter, void> )funcTable[46])(paint, imageFilter);
-#endif
-        }
-
+        internal static partial void PaintSetImageFilterNative(ImpellerPaint paint, ImpellerImageFilter imageFilter);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -1233,17 +895,10 @@ namespace Vertex.NET.Impeller
             PaintSetImageFilterNative(paint, imageFilter);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerPaintSetMaskFilter")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void PaintSetMaskFilterNative(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerMaskFilter, void>)funcTable[47])(paint, maskFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerPaint, ImpellerMaskFilter, void> )funcTable[47])(paint, maskFilter);
-#endif
-        }
-
+        internal static partial void PaintSetMaskFilterNative(ImpellerPaint paint, ImpellerMaskFilter maskFilter);
         public static void PaintSetMaskFilter(ImpellerPaint paint, ImpellerMaskFilter maskFilter)
         {
             PaintSetMaskFilterNative(paint, maskFilter);
@@ -1271,17 +926,9 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerTexture TextureCreateWithContentsNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerTextureDescriptor*, ImpellerMapping*, void*, ImpellerTexture>)funcTable[48])(context, descriptor, contents, contentsOnReleaseUserData);
-#else
-            return (ImpellerTexture)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, nint, nint, ImpellerTexture> )funcTable[48])(context, (nint)descriptor, (nint)contents, (nint)contentsOnReleaseUserData);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerTextureCreateWithContentsNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerTexture TextureCreateWithContentsNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ImpellerMapping* contents, void* contentsOnReleaseUserData);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -1546,17 +1193,9 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerTexture TextureCreateWithOpenGLTextureHandleNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerTextureDescriptor*, ulong, ImpellerTexture>)funcTable[49])(context, descriptor, handle);
-#else
-            return (ImpellerTexture)((delegate* unmanaged[Cdecl]<ImpellerContext, nint, ulong, ImpellerTexture> )funcTable[49])(context, (nint)descriptor, handle);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerTextureCreateWithOpenGLTextureHandleNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerTexture TextureCreateWithOpenGLTextureHandleNewNative(ImpellerContext context, ImpellerTextureDescriptor* descriptor, ulong handle);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -1604,33 +1243,19 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerTextureRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void TextureRetainNative(ImpellerTexture texture)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[50])(texture);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerTexture, void> )funcTable[50])(texture);
-#endif
-        }
-
+        internal static partial void TextureRetainNative(ImpellerTexture texture);
         public static void TextureRetain(ImpellerTexture texture)
         {
             TextureRetainNative(texture);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerTextureRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void TextureReleaseNative(ImpellerTexture texture)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerTexture, void>)funcTable[51])(texture);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerTexture, void> )funcTable[51])(texture);
-#endif
-        }
-
+        internal static partial void TextureReleaseNative(ImpellerTexture texture);
         public static void TextureRelease(ImpellerTexture texture)
         {
             TextureReleaseNative(texture);
@@ -1646,17 +1271,9 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ulong TextureGetOpenGLHandleNative(ImpellerTexture texture)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerTexture, ulong>)funcTable[52])(texture);
-#else
-            return (ulong)((delegate* unmanaged[Cdecl]<ImpellerTexture, ulong> )funcTable[52])(texture);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerTextureGetOpenGLHandle")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ulong TextureGetOpenGLHandleNative(ImpellerTexture texture);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -1673,17 +1290,9 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerFragmentProgram FragmentProgramNewNative(ImpellerMapping* data, void* dataReleaseUserData)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerMapping*, void*, ImpellerFragmentProgram>)funcTable[53])(data, dataReleaseUserData);
-#else
-            return (ImpellerFragmentProgram)((delegate* unmanaged[Cdecl]<nint, nint, ImpellerFragmentProgram> )funcTable[53])((nint)data, (nint)dataReleaseUserData);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerFragmentProgramNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerFragmentProgram FragmentProgramNewNative(ImpellerMapping* data, void* dataReleaseUserData);
         public static ImpellerFragmentProgram FragmentProgramNew(ImpellerMappingPtr data, void* dataReleaseUserData)
         {
             ImpellerFragmentProgram ret = FragmentProgramNewNative((ImpellerMapping*)data, dataReleaseUserData);
@@ -1714,81 +1323,45 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerFragmentProgramRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void FragmentProgramRetainNative(ImpellerFragmentProgram fragmentProgram)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[54])(fragmentProgram);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void> )funcTable[54])(fragmentProgram);
-#endif
-        }
-
+        internal static partial void FragmentProgramRetainNative(ImpellerFragmentProgram fragmentProgram);
         public static void FragmentProgramRetain(ImpellerFragmentProgram fragmentProgram)
         {
             FragmentProgramRetainNative(fragmentProgram);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerFragmentProgramRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void FragmentProgramReleaseNative(ImpellerFragmentProgram fragmentProgram)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void>)funcTable[55])(fragmentProgram);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerFragmentProgram, void> )funcTable[55])(fragmentProgram);
-#endif
-        }
-
+        internal static partial void FragmentProgramReleaseNative(ImpellerFragmentProgram fragmentProgram);
         public static void FragmentProgramRelease(ImpellerFragmentProgram fragmentProgram)
         {
             FragmentProgramReleaseNative(fragmentProgram);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ColorSourceRetainNative(ImpellerColorSource colorSource)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[56])(colorSource);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerColorSource, void> )funcTable[56])(colorSource);
-#endif
-        }
-
+        internal static partial void ColorSourceRetainNative(ImpellerColorSource colorSource);
         public static void ColorSourceRetain(ImpellerColorSource colorSource)
         {
             ColorSourceRetainNative(colorSource);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ColorSourceReleaseNative(ImpellerColorSource colorSource)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerColorSource, void>)funcTable[57])(colorSource);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerColorSource, void> )funcTable[57])(colorSource);
-#endif
-        }
-
+        internal static partial void ColorSourceReleaseNative(ImpellerColorSource colorSource);
         public static void ColorSourceRelease(ImpellerColorSource colorSource)
         {
             ColorSourceReleaseNative(colorSource);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorSource ColorSourceCreateLinearGradientNewNative(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, ImpellerPoint*, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[58])(startPoint, endPoint, stopCount, colors, stops, tileMode, transformation);
-#else
-            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, nint, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[58])((nint)startPoint, (nint)endPoint, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceCreateLinearGradientNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorSource ColorSourceCreateLinearGradientNewNative(ImpellerPoint* startPoint, ImpellerPoint* endPoint, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation);
         public static ImpellerColorSource ColorSourceCreateLinearGradientNew(ImpellerPointPtr startPoint, ImpellerPointPtr endPoint, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateLinearGradientNewNative((ImpellerPoint*)startPoint, (ImpellerPoint*)endPoint, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
@@ -2221,17 +1794,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorSource ColorSourceCreateRadialGradientNewNative(ImpellerPoint* center, float radius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[59])(center, radius, stopCount, colors, stops, tileMode, transformation);
-#else
-            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[59])((nint)center, radius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceCreateRadialGradientNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorSource ColorSourceCreateRadialGradientNewNative(ImpellerPoint* center, float radius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation);
         public static ImpellerColorSource ColorSourceCreateRadialGradientNew(ImpellerPointPtr center, float radius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateRadialGradientNewNative((ImpellerPoint*)center, radius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
@@ -2424,17 +1989,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorSource ColorSourceCreateConicalGradientNewNative(ImpellerPoint* startCenter, float startRadius, ImpellerPoint* endCenter, float endRadius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, ImpellerPoint*, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[60])(startCenter, startRadius, endCenter, endRadius, stopCount, colors, stops, tileMode, transformation);
-#else
-            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, nint, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[60])((nint)startCenter, startRadius, (nint)endCenter, endRadius, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceCreateConicalGradientNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorSource ColorSourceCreateConicalGradientNewNative(ImpellerPoint* startCenter, float startRadius, ImpellerPoint* endCenter, float endRadius, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation);
         public static ImpellerColorSource ColorSourceCreateConicalGradientNew(ImpellerPointPtr startCenter, float startRadius, ImpellerPointPtr endCenter, float endRadius, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateConicalGradientNewNative((ImpellerPoint*)startCenter, startRadius, (ImpellerPoint*)endCenter, endRadius, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
@@ -2867,17 +2424,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorSource ColorSourceCreateSweepGradientNewNative(ImpellerPoint* center, float start, float end, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerPoint*, float, float, uint, ImpellerColor*, float*, ImpellerTileMode, ImpellerMatrix*, ImpellerColorSource>)funcTable[61])(center, start, end, stopCount, colors, stops, tileMode, transformation);
-#else
-            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<nint, float, float, uint, nint, nint, ImpellerTileMode, nint, ImpellerColorSource> )funcTable[61])((nint)center, start, end, stopCount, (nint)colors, (nint)stops, tileMode, (nint)transformation);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceCreateSweepGradientNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorSource ColorSourceCreateSweepGradientNewNative(ImpellerPoint* center, float start, float end, uint stopCount, ImpellerColor* colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrix* transformation);
         public static ImpellerColorSource ColorSourceCreateSweepGradientNew(ImpellerPointPtr center, float start, float end, uint stopCount, ImpellerColorPtr colors, float* stops, ImpellerTileMode tileMode, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateSweepGradientNewNative((ImpellerPoint*)center, start, end, stopCount, (ImpellerColor*)colors, stops, tileMode, (ImpellerMatrix*)transformation);
@@ -3070,17 +2619,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorSource ColorSourceCreateImageNewNative(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrix* transformation)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerTexture, ImpellerTileMode, ImpellerTileMode, ImpellerTextureSampling, ImpellerMatrix*, ImpellerColorSource>)funcTable[62])(image, horizontalTileMode, verticalTileMode, sampling, transformation);
-#else
-            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerTexture, ImpellerTileMode, ImpellerTileMode, ImpellerTextureSampling, nint, ImpellerColorSource> )funcTable[62])(image, horizontalTileMode, verticalTileMode, sampling, (nint)transformation);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceCreateImageNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorSource ColorSourceCreateImageNewNative(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrix* transformation);
         public static ImpellerColorSource ColorSourceCreateImageNew(ImpellerTexture image, ImpellerTileMode horizontalTileMode, ImpellerTileMode verticalTileMode, ImpellerTextureSampling sampling, ImpellerMatrixPtr transformation)
         {
             ImpellerColorSource ret = ColorSourceCreateImageNewNative(image, horizontalTileMode, verticalTileMode, sampling, (ImpellerMatrix*)transformation);
@@ -3096,17 +2637,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorSource ColorSourceCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, ImpellerTexture*, nuint, byte*, nuint, ImpellerColorSource>)funcTable[63])(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
-#else
-            return (ImpellerColorSource)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerColorSource> )funcTable[63])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorSourceCreateFragmentProgramNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorSource ColorSourceCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength);
         public static ImpellerColorSource ColorSourceCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
         {
             ImpellerColorSource ret = ColorSourceCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
@@ -3143,49 +2676,27 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorFilterRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ColorFilterRetainNative(ImpellerColorFilter colorFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[64])(colorFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void> )funcTable[64])(colorFilter);
-#endif
-        }
-
+        internal static partial void ColorFilterRetainNative(ImpellerColorFilter colorFilter);
         public static void ColorFilterRetain(ImpellerColorFilter colorFilter)
         {
             ColorFilterRetainNative(colorFilter);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorFilterRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ColorFilterReleaseNative(ImpellerColorFilter colorFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void>)funcTable[65])(colorFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerColorFilter, void> )funcTable[65])(colorFilter);
-#endif
-        }
-
+        internal static partial void ColorFilterReleaseNative(ImpellerColorFilter colorFilter);
         public static void ColorFilterRelease(ImpellerColorFilter colorFilter)
         {
             ColorFilterReleaseNative(colorFilter);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorFilter ColorFilterCreateBlendNewNative(ImpellerColor* color, ImpellerBlendMode blendMode)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerColor*, ImpellerBlendMode, ImpellerColorFilter>)funcTable[66])(color, blendMode);
-#else
-            return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerBlendMode, ImpellerColorFilter> )funcTable[66])((nint)color, blendMode);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorFilterCreateBlendNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorFilter ColorFilterCreateBlendNewNative(ImpellerColor* color, ImpellerBlendMode blendMode);
         public static ImpellerColorFilter ColorFilterCreateBlendNew(ImpellerColorPtr color, ImpellerBlendMode blendMode)
         {
             ImpellerColorFilter ret = ColorFilterCreateBlendNewNative((ImpellerColor*)color, blendMode);
@@ -3201,17 +2712,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerColorFilter ColorFilterCreateColorMatrixNewNative(ImpellerColorMatrix* colorMatrix)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerColorMatrix*, ImpellerColorFilter>)funcTable[67])(colorMatrix);
-#else
-            return (ImpellerColorFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerColorFilter> )funcTable[67])((nint)colorMatrix);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerColorFilterCreateColorMatrixNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerColorFilter ColorFilterCreateColorMatrixNewNative(ImpellerColorMatrix* colorMatrix);
         public static ImpellerColorFilter ColorFilterCreateColorMatrixNew(ImpellerColorMatrixPtr colorMatrix)
         {
             ImpellerColorFilter ret = ColorFilterCreateColorMatrixNewNative((ImpellerColorMatrix*)colorMatrix);
@@ -3227,82 +2730,46 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerMaskFilterRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void MaskFilterRetainNative(ImpellerMaskFilter maskFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[68])(maskFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void> )funcTable[68])(maskFilter);
-#endif
-        }
-
+        internal static partial void MaskFilterRetainNative(ImpellerMaskFilter maskFilter);
         public static void MaskFilterRetain(ImpellerMaskFilter maskFilter)
         {
             MaskFilterRetainNative(maskFilter);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerMaskFilterRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void MaskFilterReleaseNative(ImpellerMaskFilter maskFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void>)funcTable[69])(maskFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerMaskFilter, void> )funcTable[69])(maskFilter);
-#endif
-        }
-
+        internal static partial void MaskFilterReleaseNative(ImpellerMaskFilter maskFilter);
         public static void MaskFilterRelease(ImpellerMaskFilter maskFilter)
         {
             MaskFilterReleaseNative(maskFilter);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerMaskFilter MaskFilterCreateBlurNewNative(ImpellerBlurStyle style, float sigma)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerBlurStyle, float, ImpellerMaskFilter>)funcTable[70])(style, sigma);
-#else
-            return (ImpellerMaskFilter)((delegate* unmanaged[Cdecl]<ImpellerBlurStyle, float, ImpellerMaskFilter> )funcTable[70])(style, sigma);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerMaskFilterCreateBlurNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerMaskFilter MaskFilterCreateBlurNewNative(ImpellerBlurStyle style, float sigma);
         public static ImpellerMaskFilter MaskFilterCreateBlurNew(ImpellerBlurStyle style, float sigma)
         {
             ImpellerMaskFilter ret = MaskFilterCreateBlurNewNative(style, sigma);
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ImageFilterRetainNative(ImpellerImageFilter imageFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[71])(imageFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void> )funcTable[71])(imageFilter);
-#endif
-        }
-
+        internal static partial void ImageFilterRetainNative(ImpellerImageFilter imageFilter);
         public static void ImageFilterRetain(ImpellerImageFilter imageFilter)
         {
             ImageFilterRetainNative(imageFilter);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void ImageFilterReleaseNative(ImpellerImageFilter imageFilter)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void>)funcTable[72])(imageFilter);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerImageFilter, void> )funcTable[72])(imageFilter);
-#endif
-        }
-
+        internal static partial void ImageFilterReleaseNative(ImpellerImageFilter imageFilter);
         public static void ImageFilterRelease(ImpellerImageFilter imageFilter)
         {
             ImageFilterReleaseNative(imageFilter);
@@ -3316,17 +2783,9 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerImageFilter ImageFilterCreateBlurNewNative(float xSigma, float ySigma, ImpellerTileMode tileMode)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerTileMode, ImpellerImageFilter>)funcTable[73])(xSigma, ySigma, tileMode);
-#else
-            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerTileMode, ImpellerImageFilter> )funcTable[73])(xSigma, ySigma, tileMode);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterCreateBlurNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerImageFilter ImageFilterCreateBlurNewNative(float xSigma, float ySigma, ImpellerTileMode tileMode);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -3341,51 +2800,27 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerImageFilter ImageFilterCreateDilateNewNative(float xRadius, float yRadius)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[74])(xRadius, yRadius);
-#else
-            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter> )funcTable[74])(xRadius, yRadius);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterCreateDilateNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerImageFilter ImageFilterCreateDilateNewNative(float xRadius, float yRadius);
         public static ImpellerImageFilter ImageFilterCreateDilateNew(float xRadius, float yRadius)
         {
             ImpellerImageFilter ret = ImageFilterCreateDilateNewNative(xRadius, yRadius);
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerImageFilter ImageFilterCreateErodeNewNative(float xRadius, float yRadius)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter>)funcTable[75])(xRadius, yRadius);
-#else
-            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<float, float, ImpellerImageFilter> )funcTable[75])(xRadius, yRadius);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterCreateErodeNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerImageFilter ImageFilterCreateErodeNewNative(float xRadius, float yRadius);
         public static ImpellerImageFilter ImageFilterCreateErodeNew(float xRadius, float yRadius)
         {
             ImpellerImageFilter ret = ImageFilterCreateErodeNewNative(xRadius, yRadius);
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerImageFilter ImageFilterCreateMatrixNewNative(ImpellerMatrix* matrix, ImpellerTextureSampling sampling)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerMatrix*, ImpellerTextureSampling, ImpellerImageFilter>)funcTable[76])(matrix, sampling);
-#else
-            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<nint, ImpellerTextureSampling, ImpellerImageFilter> )funcTable[76])((nint)matrix, sampling);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterCreateMatrixNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerImageFilter ImageFilterCreateMatrixNewNative(ImpellerMatrix* matrix, ImpellerTextureSampling sampling);
         public static ImpellerImageFilter ImageFilterCreateMatrixNew(ImpellerMatrixPtr matrix, ImpellerTextureSampling sampling)
         {
             ImpellerImageFilter ret = ImageFilterCreateMatrixNewNative((ImpellerMatrix*)matrix, sampling);
@@ -3401,17 +2836,9 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerImageFilter ImageFilterCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, ImpellerTexture*, nuint, byte*, nuint, ImpellerImageFilter>)funcTable[77])(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
-#else
-            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerContext, ImpellerFragmentProgram, nint, nuint, nint, nuint, ImpellerImageFilter> )funcTable[77])(context, fragmentProgram, (nint)samplers, samplersCount, (nint)data, dataBytesLength);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterCreateFragmentProgramNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerImageFilter ImageFilterCreateFragmentProgramNewNative(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength);
         public static ImpellerImageFilter ImageFilterCreateFragmentProgramNew(ImpellerContext context, ImpellerFragmentProgram fragmentProgram, ImpellerTexture* samplers, nuint samplersCount, byte* data, nuint dataBytesLength)
         {
             ImpellerImageFilter ret = ImageFilterCreateFragmentProgramNewNative(context, fragmentProgram, samplers, samplersCount, data, dataBytesLength);
@@ -3457,17 +2884,9 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerImageFilter ImageFilterCreateComposeNewNative(ImpellerImageFilter outer, ImpellerImageFilter inner)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerImageFilter, ImpellerImageFilter, ImpellerImageFilter>)funcTable[78])(outer, inner);
-#else
-            return (ImpellerImageFilter)((delegate* unmanaged[Cdecl]<ImpellerImageFilter, ImpellerImageFilter, ImpellerImageFilter> )funcTable[78])(outer, inner);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerImageFilterCreateComposeNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerImageFilter ImageFilterCreateComposeNewNative(ImpellerImageFilter outer, ImpellerImageFilter inner);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -3483,33 +2902,19 @@ namespace Vertex.NET.Impeller
             return ret;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void DisplayListRetainNative(ImpellerDisplayList displayList)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[79])(displayList);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void> )funcTable[79])(displayList);
-#endif
-        }
-
+        internal static partial void DisplayListRetainNative(ImpellerDisplayList displayList);
         public static void DisplayListRetain(ImpellerDisplayList displayList)
         {
             DisplayListRetainNative(displayList);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void DisplayListReleaseNative(ImpellerDisplayList displayList)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void>)funcTable[80])(displayList);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerDisplayList, void> )funcTable[80])(displayList);
-#endif
-        }
-
+        internal static partial void DisplayListReleaseNative(ImpellerDisplayList displayList);
         public static void DisplayListRelease(ImpellerDisplayList displayList)
         {
             DisplayListReleaseNative(displayList);
@@ -3524,17 +2929,9 @@ namespace Vertex.NET.Impeller
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerDisplayListBuilder DisplayListBuilderNewNative(ImpellerRect* cullRect)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerRect*, ImpellerDisplayListBuilder>)funcTable[81])(cullRect);
-#else
-            return (ImpellerDisplayListBuilder)((delegate* unmanaged[Cdecl]<nint, ImpellerDisplayListBuilder> )funcTable[81])((nint)cullRect);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerDisplayListBuilder DisplayListBuilderNewNative(ImpellerRect* cullRect);
         /// <summary>
         /// ------------------------------------------------------------------------------<br/>
         /// <br/>
@@ -3568,47 +2965,286 @@ namespace Vertex.NET.Impeller
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderRetain")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void DisplayListBuilderRetainNative(ImpellerDisplayListBuilder builder)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[82])(builder);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void> )funcTable[82])(builder);
-#endif
-        }
-
+        internal static partial void DisplayListBuilderRetainNative(ImpellerDisplayListBuilder builder);
         public static void DisplayListBuilderRetain(ImpellerDisplayListBuilder builder)
         {
             DisplayListBuilderRetainNative(builder);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderRelease")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void DisplayListBuilderReleaseNative(ImpellerDisplayListBuilder builder)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void>)funcTable[83])(builder);
-#else
-            ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, void> )funcTable[83])(builder);
-#endif
-        }
-
+        internal static partial void DisplayListBuilderReleaseNative(ImpellerDisplayListBuilder builder);
         public static void DisplayListBuilderRelease(ImpellerDisplayListBuilder builder)
         {
             DisplayListBuilderReleaseNative(builder);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static ImpellerDisplayList DisplayListBuilderCreateDisplayListNewNative(ImpellerDisplayListBuilder builder)
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderCreateDisplayListNew")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial ImpellerDisplayList DisplayListBuilderCreateDisplayListNewNative(ImpellerDisplayListBuilder builder);
+        public static ImpellerDisplayList DisplayListBuilderCreateDisplayListNew(ImpellerDisplayListBuilder builder)
         {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList>)funcTable[84])(builder);
-#else
-            return (ImpellerDisplayList)((delegate* unmanaged[Cdecl]<ImpellerDisplayListBuilder, ImpellerDisplayList> )funcTable[84])(builder);
-#endif
+            ImpellerDisplayList ret = DisplayListBuilderCreateDisplayListNewNative(builder);
+            return ret;
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderSave")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderSaveNative(ImpellerDisplayListBuilder builder);
+        public static void DisplayListBuilderSave(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderSaveNative(builder);
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// On the balancing call to restore, the supplied paints filters<br/>
+        /// and blend modes will be used to composite the offscreen contents<br/>
+        /// back onto the display display list.<br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderSaveLayer")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderSaveLayerNative(ImpellerDisplayListBuilder builder, ImpellerRect* bounds, ImpellerPaint paint, ImpellerImageFilter backdrop);
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// On the balancing call to restore, the supplied paints filters<br/>
+        /// and blend modes will be used to composite the offscreen contents<br/>
+        /// back onto the display display list.<br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderSaveLayer(ImpellerDisplayListBuilder builder, ImpellerRectPtr bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
+        {
+            DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)bounds, paint, backdrop);
+        }
+
+        /// <summary>
+        /// ------------------------------------------------------------------------------<br/>
+        /// <br/>
+        /// On the balancing call to restore, the supplied paints filters<br/>
+        /// and blend modes will be used to composite the offscreen contents<br/>
+        /// back onto the display display list.<br/>
+        /// <br/>
+        /// </summary>
+        public static void DisplayListBuilderSaveLayer(ImpellerDisplayListBuilder builder, in ImpellerRect bounds, ImpellerPaint paint, ImpellerImageFilter backdrop)
+        {
+            fixed (ImpellerRect* pbounds = &bounds)
+            {
+                DisplayListBuilderSaveLayerNative(builder, (ImpellerRect*)pbounds, paint, backdrop);
+            }
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderRestore")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderRestoreNative(ImpellerDisplayListBuilder builder);
+        public static void DisplayListBuilderRestore(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderRestoreNative(builder);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderScale")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderScaleNative(ImpellerDisplayListBuilder builder, float xScale, float yScale);
+        public static void DisplayListBuilderScale(ImpellerDisplayListBuilder builder, float xScale, float yScale)
+        {
+            DisplayListBuilderScaleNative(builder, xScale, yScale);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderRotate")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderRotateNative(ImpellerDisplayListBuilder builder, float angleDegrees);
+        public static void DisplayListBuilderRotate(ImpellerDisplayListBuilder builder, float angleDegrees)
+        {
+            DisplayListBuilderRotateNative(builder, angleDegrees);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderTranslate")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderTranslateNative(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation);
+        public static void DisplayListBuilderTranslate(ImpellerDisplayListBuilder builder, float xTranslation, float yTranslation)
+        {
+            DisplayListBuilderTranslateNative(builder, xTranslation, yTranslation);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderTransform")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform);
+        public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
+        {
+            DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)transform);
+        }
+
+        public static void DisplayListBuilderTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
+        {
+            fixed (ImpellerMatrix* ptransform = &transform)
+            {
+                DisplayListBuilderTransformNative(builder, (ImpellerMatrix*)ptransform);
+            }
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderSetTransform")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial void DisplayListBuilderSetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* transform);
+        public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr transform)
+        {
+            DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)transform);
+        }
+
+        public static void DisplayListBuilderSetTransform(ImpellerDisplayListBuilder builder, in ImpellerMatrix transform)
+        {
+            fixed (ImpellerMatrix* ptransform = &transform)
+            {
+                DisplayListBuilderSetTransformNative(builder, (ImpellerMatrix*)ptransform);
+            }
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderGetTransform")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial void DisplayListBuilderGetTransformNative(ImpellerDisplayListBuilder builder, ImpellerMatrix* outTransform);
+        public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ImpellerMatrixPtr outTransform)
+        {
+            DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)outTransform);
+        }
+
+        public static void DisplayListBuilderGetTransform(ImpellerDisplayListBuilder builder, ref ImpellerMatrix outTransform)
+        {
+            fixed (ImpellerMatrix* poutTransform = &outTransform)
+            {
+                DisplayListBuilderGetTransformNative(builder, (ImpellerMatrix*)poutTransform);
+            }
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderResetTransform")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderResetTransformNative(ImpellerDisplayListBuilder builder);
+        public static void DisplayListBuilderResetTransform(ImpellerDisplayListBuilder builder)
+        {
+            DisplayListBuilderResetTransformNative(builder);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderGetSaveCount")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial uint DisplayListBuilderGetSaveCountNative(ImpellerDisplayListBuilder builder);
+        public static uint DisplayListBuilderGetSaveCount(ImpellerDisplayListBuilder builder)
+        {
+            uint ret = DisplayListBuilderGetSaveCountNative(builder);
+            return ret;
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderRestoreToCount")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderRestoreToCountNative(ImpellerDisplayListBuilder builder, uint count);
+        public static void DisplayListBuilderRestoreToCount(ImpellerDisplayListBuilder builder, uint count)
+        {
+            DisplayListBuilderRestoreToCountNative(builder, count);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderClipRect")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderClipRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerClipOperation op);
+        public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipRectNative(builder, (ImpellerRect*)rect, op);
+        }
+
+        public static void DisplayListBuilderClipRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                DisplayListBuilderClipRectNative(builder, (ImpellerRect*)prect, op);
+            }
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderClipOval")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderClipOvalNative(ImpellerDisplayListBuilder builder, ImpellerRect* ovalBounds, ImpellerClipOperation op);
+        public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, ImpellerRectPtr ovalBounds, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)ovalBounds, op);
+        }
+
+        public static void DisplayListBuilderClipOval(ImpellerDisplayListBuilder builder, in ImpellerRect ovalBounds, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* povalBounds = &ovalBounds)
+            {
+                DisplayListBuilderClipOvalNative(builder, (ImpellerRect*)povalBounds, op);
+            }
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderClipRoundedRect")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderClipRoundedRectNative(ImpellerDisplayListBuilder builder, ImpellerRect* rect, ImpellerRoundingRadii* radii, ImpellerClipOperation op);
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)radii, op);
+        }
+
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, ImpellerRoundingRadiiPtr radii, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)radii, op);
+            }
+        }
+
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, ImpellerRectPtr rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRoundingRadii* pradii = &radii)
+            {
+                DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)rect, (ImpellerRoundingRadii*)pradii, op);
+            }
+        }
+
+        public static void DisplayListBuilderClipRoundedRect(ImpellerDisplayListBuilder builder, in ImpellerRect rect, in ImpellerRoundingRadii radii, ImpellerClipOperation op)
+        {
+            fixed (ImpellerRect* prect = &rect)
+            {
+                fixed (ImpellerRoundingRadii* pradii = &radii)
+                {
+                    DisplayListBuilderClipRoundedRectNative(builder, (ImpellerRect*)prect, (ImpellerRoundingRadii*)pradii, op);
+                }
+            }
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderClipPath")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderClipPathNative(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op);
+        public static void DisplayListBuilderClipPath(ImpellerDisplayListBuilder builder, ImpellerPath path, ImpellerClipOperation op)
+        {
+            DisplayListBuilderClipPathNative(builder, path, op);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderDrawPaint")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderDrawPaintNative(ImpellerDisplayListBuilder builder, ImpellerPaint paint);
+        public static void DisplayListBuilderDrawPaint(ImpellerDisplayListBuilder builder, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawPaintNative(builder, paint);
+        }
+
+        [LibraryImport(LibName, EntryPoint = "ImpellerDisplayListBuilderDrawLine")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void DisplayListBuilderDrawLineNative(ImpellerDisplayListBuilder builder, ImpellerPoint* from, ImpellerPoint* to, ImpellerPaint paint);
+        public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, ImpellerPointPtr from, ImpellerPointPtr to, ImpellerPaint paint)
+        {
+            DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)from, (ImpellerPoint*)to, paint);
+        }
+
+        public static void DisplayListBuilderDrawLine(ImpellerDisplayListBuilder builder, in ImpellerPoint from, ImpellerPointPtr to, ImpellerPaint paint)
+        {
+            fixed (ImpellerPoint* pfrom = &from)
+            {
+                DisplayListBuilderDrawLineNative(builder, (ImpellerPoint*)pfrom, (ImpellerPoint*)to, paint);
+            }
         }
     }
 }
