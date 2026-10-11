@@ -1,8 +1,18 @@
 ﻿using RenderDemo.Core;
 using RenderDemo.Scenes;
 
-var app = new GlfwApplication(800, 450, "Vertex.NET.Impeller RenderDemo"u8);
-app.Run(new TriangleScene());
-// app.Run(new ParagraphScene());
-// app.Run(new StarScene());
-// app.Run(new CirclingSquaresScene());
+namespace RenderDemo;
+
+internal static class Program
+{
+    [STAThread]
+    public static void Main()
+    {
+        var app = new GlfwApplication();
+        if (app.Initialize(800, 450, "Vertex.NET.Impeller RenderDemo"u8))
+            app.SetScene(new TriangleScene()).Run();
+        // app.SetScene(new ParagraphScene());
+        // app.SetScene(new StarScene());
+        // app.SetScene(new CirclingSquaresScene());
+    }
+}

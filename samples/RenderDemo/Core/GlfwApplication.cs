@@ -7,12 +7,20 @@ namespace RenderDemo.Core;
 public sealed class GlfwApplication : IApplication
 {
     private readonly bool _isVulkanSupported = GLFW.VulkanSupported() == 1;
-    private readonly GLFWwindowPtr _window;
+    private ImpellerContext _context;
+    private SceneParameters _parameters = null!;
+    private IScene? _scene;
+    private ImpellerSurface _surface;
+    private ImpellerVulkanSwapchain _swapChain;
+    private GLFWwindowPtr _window;
 
-    public GlfwApplication(int width, int height, ReadOnlySpan<byte> title)
+    /// <summary>
+    ///     Initialize GLFW and create the window. Returns true on success.
+    /// </summary>
+    public unsafe bool Initialize(int width, int height, ReadOnlySpan<byte> title)
     {
         if (GLFW.Init() == 0)
-            throw new Exception("Failed to create GLFW window");
+            return false;
 
         if (_isVulkanSupported)
         {
@@ -29,19 +37,16 @@ public sealed class GlfwApplication : IApplication
         if (_window.IsNull)
         {
             GLFW.Terminate();
-            throw new Exception("Failed to create GLFW window");
+            return false;
         }
 
-        if (_isVulkanSupported) return;
+        if (!_isVulkanSupported)
+        {
+            GLFW.MakeContextCurrent(_window);
+            GLFW.SwapInterval(1); // V-sync On
+        }
 
-        GLFW.MakeContextCurrent(_window);
-        GLFW.SwapInterval(1); // V-sync On
-    }
-
-    [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
-    public unsafe void Run(IScene scene)
-    {
-        using var context = _isVulkanSupported
+        _context = _isVulkanSupported
             ? Impeller.ContextCreateVulkanNew(
                 Impeller.GetVersion(),
                 new ImpellerContextVulkanSettings(null, &VulkanProcCallback))
@@ -49,66 +54,85 @@ public sealed class GlfwApplication : IApplication
                 Impeller.GetVersion(),
                 GLProcAddressCallback,
                 null);
+        return !_context.IsNull && (!_isVulkanSupported || TryCreateVulkanSwapChain());
+    }
 
-        ImpellerVulkanSwapchain swapChain = default;
-        if (_isVulkanSupported)
-        {
-            ImpellerContextVulkanInfo vkInfo = default;
-            if (!Impeller.ContextGetVulkanInfo(context, ref vkInfo))
-                throw new Exception("Failed to get Vulkan info");
-
-            VkSurfaceKHR surfaceKhr = default;
-            GLFW.CreateWindowSurface(new VkInstance((nint)vkInfo.VkInstance), _window, 0, ref surfaceKhr);
-            swapChain = Impeller.VulkanSwapchainCreateNew(context, surfaceKhr.Handle);
-        }
+    [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
+    public unsafe bool Run()
+    {
+        if (_scene == null)
+            return false;
 
         int width = 0, height = 0;
         GLFW.GetFramebufferSize(_window, ref width, ref height);
-        var surface = _isVulkanSupported
-            ? swapChain.AcquireNextSurfaceNew()
-            : context.SurfaceCreateWrappedFboNew(
-                0u, ImpellerPixelFormat.PixelFormatRgba8888, new ImpellerISize { Width = width, Height = height });
+        Resize(_window, width, height);
 
-        var parameters = new SceneParameters(width, height);
-        GLFW.SetFramebufferSizeCallback(_window, (_, w, h) =>
-        {
-            parameters = new SceneParameters(w, h);
-
-            surface.Dispose();
-            surface = _isVulkanSupported
-                ? swapChain.AcquireNextSurfaceNew()
-                : context.SurfaceCreateWrappedFboNew(
-                    0u, ImpellerPixelFormat.PixelFormatRgba8888, new ImpellerISize { Width = w, Height = h });
-
-            RenderFrame(surface, scene, parameters);
-        });
-
+        GLFW.SetFramebufferSizeCallback(_window, Resize);
         while (GLFW.WindowShouldClose(_window) == 0)
         {
-            RenderFrame(surface, scene, parameters);
+            RenderFrame();
             GLFW.PollEvents();
         }
 
-        swapChain.Dispose();
-        surface.Dispose();
+        _surface.Dispose();
+        _swapChain.Dispose();
+        _context.Dispose();
+
+        GLFW.SetFramebufferSizeCallback(_window, default(GLFWframebuffersizefun));
         GLFW.DestroyWindow(_window);
         GLFW.Terminate();
+        return true;
     }
 
-    private void RenderFrame(ImpellerSurface surface, IScene scene, SceneParameters parameters)
+    public IApplication SetScene(IScene scene)
     {
-        using var builder = Impeller.DisplayListBuilderNew(new ImpellerRect
-            { Width = parameters.Width, Height = parameters.Height });
+        _scene = scene;
+        return this;
+    }
 
-        scene.Render(builder, parameters);
+    private unsafe void Resize(GLFWwindow* _, int width, int height)
+    {
+        _surface.Dispose();
+        _surface = _isVulkanSupported
+            ? _swapChain.AcquireNextSurfaceNew()
+            : _context.SurfaceCreateWrappedFboNew(0u, ImpellerPixelFormat.PixelFormatRgba8888,
+                new ImpellerISize { Width = width, Height = height });
+        _parameters = new SceneParameters(width, height);
+        RenderFrame();
+    }
 
-        using var displayList = builder.CreateDisplayListNew();
-        surface.DrawDisplayList(displayList);
+    private void RenderFrame()
+    {
+        using (var builder = Impeller.DisplayListBuilderNew(new ImpellerRect
+                   { Width = _parameters.Width, Height = _parameters.Height }))
+        {
+            _scene!.Render(builder, _parameters);
+            using (var displayList = builder.CreateDisplayListNew())
+            {
+                _surface.DrawDisplayList(displayList);
+            }
+        }
 
         if (_isVulkanSupported)
-            surface.Present();
+            _surface.Present();
         else
             GLFW.SwapBuffers(_window);
+    }
+
+    private unsafe bool TryCreateVulkanSwapChain()
+    {
+        ImpellerContextVulkanInfo vkInfo = default;
+        if (!Impeller.ContextGetVulkanInfo(_context, ref vkInfo))
+            return false;
+
+        VkSurfaceKHR surfaceKhr = default;
+        var result = GLFW.CreateWindowSurface(new VkInstance((nint)vkInfo.VkInstance), _window, 0, ref surfaceKhr);
+
+        if (result == 0)
+            return false;
+
+        _swapChain = Impeller.VulkanSwapchainCreateNew(_context, surfaceKhr.Handle);
+        return true;
     }
 
     // ReSharper disable once InconsistentNaming
