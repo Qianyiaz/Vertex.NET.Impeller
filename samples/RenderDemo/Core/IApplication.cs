@@ -2,5 +2,7 @@
 
 public interface IApplication
 {
-    public void Run(IScene scene);
+    public bool Initialize(int width, int height, ReadOnlySpan<byte> title);
+    public bool Run();
+    public IApplication SetScene(IScene scene);
 }
