@@ -40,6 +40,9 @@ public sealed class GlfwApplication : IApplication
             return false;
         }
 
+        if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
+            WindowsThemeHelper.SystemThemeWatcher.Watch(GLFW.GetWin32Window(_window));
+
         if (!_isVulkanSupported)
         {
             GLFW.MakeContextCurrent(_window);
