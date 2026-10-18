@@ -54,7 +54,7 @@ public sealed class GlfwApplication : IApplication
                 Impeller.GetVersion(),
                 GLProcAddressCallback,
                 null);
-        return !_context.IsNull && (!_isVulkanSupported || TryCreateVulkanSwapChain());
+        return !_context.IsNull && (!_isVulkanSupported || InitializeVulkanBackend());
     }
 
     [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
@@ -84,11 +84,7 @@ public sealed class GlfwApplication : IApplication
         return true;
     }
 
-    public IApplication SetScene(IScene scene)
-    {
-        _scene = scene;
-        return this;
-    }
+    public void SetScene(IScene scene) => _scene = scene;
 
     private unsafe void Resize(GLFWwindow* _, int width, int height)
     {
@@ -107,10 +103,8 @@ public sealed class GlfwApplication : IApplication
                    { Width = _parameters.Width, Height = _parameters.Height }))
         {
             _scene!.Render(builder, _parameters);
-            using (var displayList = builder.CreateDisplayListNew())
-            {
+            using (var displayList = builder.CreateDisplayListNew()) 
                 _surface.DrawDisplayList(displayList);
-            }
         }
 
         if (_isVulkanSupported)
@@ -119,19 +113,19 @@ public sealed class GlfwApplication : IApplication
             GLFW.SwapBuffers(_window);
     }
 
-    private unsafe bool TryCreateVulkanSwapChain()
+    private unsafe bool InitializeVulkanBackend()
     {
         ImpellerContextVulkanInfo vkInfo = default;
-        if (!Impeller.ContextGetVulkanInfo(_context, ref vkInfo))
+        if (!_context.GetVulkanInfo(ref vkInfo))
             return false;
 
         VkSurfaceKHR surfaceKhr = default;
-        var result = GLFW.CreateWindowSurface(new VkInstance((nint)vkInfo.VkInstance), _window, 0, ref surfaceKhr);
+        var result = GLFW.CreateWindowSurface(new VkInstance((nint)vkInfo.VkInstance), _window, null, ref surfaceKhr);
 
         if (result == 0)
             return false;
 
-        _swapChain = Impeller.VulkanSwapchainCreateNew(_context, surfaceKhr.Handle);
+        _swapChain = _context.VulkanSwapchainCreateNew(surfaceKhr.Handle);
         return true;
     }
 
@@ -139,6 +133,6 @@ public sealed class GlfwApplication : IApplication
     private static unsafe void* GLProcAddressCallback(byte* procName, void* _) =>
         GLFW.GetProcAddress(procName);
 
-    private static unsafe void* VulkanProcCallback(void* userData, byte* procName, void* reserved) =>
-        GLFW.GetInstanceProcAddress(VkInstance.Null, procName);
+    private static unsafe void* VulkanProcCallback(void* vkInstance, byte* procName, void* userData) =>
+        GLFW.GetInstanceProcAddress(new VkInstance((nint)vkInstance), procName);
 }
