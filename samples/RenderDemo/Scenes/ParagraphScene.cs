@@ -48,9 +48,8 @@ public sealed class ParagraphScene : IScene
 
         paragraphBuilder.PopStyle();
 
-        float maxWidth = parameters.Width - 40;
-        using var paragraph = paragraphBuilder.BuildParagraphNew(maxWidth);
-
+        using var paragraph = paragraphBuilder.BuildParagraphNew(parameters.Width - 40);
+        
         builder.Save();
         builder.DrawParagraph(paragraph, new ImpellerPoint(20, 20));
         builder.Restore();

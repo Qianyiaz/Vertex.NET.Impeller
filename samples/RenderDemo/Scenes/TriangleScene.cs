@@ -8,7 +8,7 @@ public sealed class TriangleScene : IScene
     public unsafe void Render(ImpellerDisplayListBuilder builder, SceneParameters parameters)
     {
         using var paint = Impeller.PaintNew();
-        paint.SetColor(new ImpellerColor { Red = 1, Green = 1, Blue = 1, Alpha = 1 });
+        paint.SetColor(new ImpellerColor(1, 1, 1, 1));
         builder.DrawPaint(paint);
 
         var size = MathF.Min(parameters.Width, parameters.Height) * 0.5f;
@@ -22,8 +22,8 @@ public sealed class TriangleScene : IScene
 
         var colors = stackalloc ImpellerColor[2]
         {
-            new() { Red = 1, Alpha = 1 },
-            new() { Blue = 1, Alpha = 1 }
+            new(1, 0, 0, 1),
+            new(0, 0, 1, 1)
         };
         var stops = stackalloc float[2] { 0.0f, 1.0f };
         using var gradient = Impeller.ColorSourceCreateLinearGradientNew(
