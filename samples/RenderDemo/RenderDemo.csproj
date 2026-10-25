@@ -9,6 +9,7 @@
 
     <PropertyGroup>
         <PublishAot>true</PublishAot>
+        <MetricsSupport>false</MetricsSupport>
         <IlcScanReflection>false</IlcScanReflection>
         <StackTraceSupport>false</StackTraceSupport>
         <UseSystemResourceKeys>true</UseSystemResourceKeys>
