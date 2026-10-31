@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Versioning;
 using Hexa.NET.GLFW;
 using Vertex.NET.Impeller;
 
@@ -13,6 +14,9 @@ public sealed class GlfwApplication : IApplication
     private ImpellerSurface _surface;
     private ImpellerVulkanSwapchain _swapChain;
     private GLFWwindowPtr _window;
+    
+    [SupportedOSPlatform("windows10.0.17763")]
+    private WindowsThemeHelper.SystemThemeWatcher _themeWatcher = null!;
 
     /// <summary>
     ///     Initialize GLFW and create the window. Returns true on success.
@@ -41,8 +45,8 @@ public sealed class GlfwApplication : IApplication
         }
 
         if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
-            WindowsThemeHelper.SystemThemeWatcher.Watch(GLFW.GetWin32Window(_window));
-
+            _themeWatcher = new(GLFW.GetWin32Window(_window));
+        
         if (!_isVulkanSupported)
         {
             GLFW.MakeContextCurrent(_window);
@@ -80,6 +84,9 @@ public sealed class GlfwApplication : IApplication
         _surface.Dispose();
         _swapChain.Dispose();
         _context.Dispose();
+
+        if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
+            _themeWatcher.Dispose();
 
         GLFW.SetFramebufferSizeCallback(_window, default(GLFWframebuffersizefun));
         GLFW.DestroyWindow(_window);

@@ -9,7 +9,6 @@ public static unsafe partial class WindowsThemeHelper
 {
     private const uint MsgActivate = 0x0086;
     private const uint MsgSettingChange = 0x001A;
-    private const uint MsgDestroy = 0x0082;
     private const uint ImmersiveDarkSubclassId = 0x1001;
 
     private const string DwmApi = "dwmapi.dll";
@@ -22,7 +21,9 @@ public static unsafe partial class WindowsThemeHelper
 
     static WindowsThemeHelper() => SetPreferredAppMode(1); // Allow Dark
 
-    public static void SyncWindowThemeMode(IntPtr hwnd, bool isDarkMode)
+    public static bool IsSystemUseDarkMode => GetSystemIsUseDarkMode();
+
+    public static void SyncWindowThemeMode(nint hwnd, bool isDarkMode)
     {
         if (hwnd == IntPtr.Zero)
             throw new ArgumentNullException(nameof(hwnd));
@@ -34,7 +35,7 @@ public static unsafe partial class WindowsThemeHelper
         ApplyWindowThemeMode(hwnd, isDarkMode);
     }
 
-    public static void ApplyWindowThemeMode(IntPtr hwnd, bool isDarkMode)
+    public static void ApplyWindowThemeMode(nint hwnd, bool isDarkMode)
     {
         if (hwnd == IntPtr.Zero)
             throw new ArgumentNullException(nameof(hwnd));
@@ -45,40 +46,36 @@ public static unsafe partial class WindowsThemeHelper
         FlushMenuThemes();
 
         DefWindowProcW(hwnd, MsgActivate, IntPtr.Zero, IntPtr.Zero);
-        DefWindowProcW(hwnd, MsgActivate, 1, IntPtr.Zero);
+        DefWindowProcW(hwnd, MsgActivate, new IntPtr(1), IntPtr.Zero);
     }
 
-    public static class SystemThemeWatcher
+    public sealed class SystemThemeWatcher : IDisposable
     {
-        private static readonly IntPtr SubclassProcPtr =
-            (IntPtr)(delegate* unmanaged[Stdcall]<IntPtr, uint, IntPtr, IntPtr, UIntPtr, IntPtr, IntPtr>)&OnSubclass;
+        private static readonly nuint SubclassProcPtr =
+            (nuint)(delegate* unmanaged[Stdcall]<nint, uint, nint, nint, nuint, nint, nint>)&OnSubclass;
 
-        public static void Watch(IntPtr hwnd)
+        private readonly nint _hwnd;
+
+        public SystemThemeWatcher(IntPtr hwnd)
         {
             if (hwnd == IntPtr.Zero)
                 throw new ArgumentException("Invalid window handle", nameof(hwnd));
 
-            SyncWindowThemeMode(hwnd, GetSystemIsUseDarkMode());
+            _hwnd = hwnd;
+
+            SyncWindowThemeMode(hwnd, IsSystemUseDarkMode);
             SetWindowSubclass(hwnd, SubclassProcPtr, ImmersiveDarkSubclassId, IntPtr.Zero);
         }
 
+        public void Dispose() => RemoveWindowSubclass(_hwnd, SubclassProcPtr, ImmersiveDarkSubclassId);
+
         [UnmanagedCallersOnly(CallConvs = [typeof(CallConvStdcall)])]
-        private static IntPtr OnSubclass(
-            IntPtr hwnd,
-            uint msg,
-            IntPtr wParam,
-            IntPtr lParam,
-            UIntPtr uIdSubclass,
-            IntPtr dwRefData)
+        private static nint OnSubclass(nint hwnd, uint msg, nint wParam, nint lParam, nuint uIdSubclass, nint dwRefData)
         {
             switch (msg)
             {
                 case MsgSettingChange when Marshal.PtrToStringUni(lParam) is "ImmersiveColorSet":
-                    SyncWindowThemeMode(hwnd, GetSystemIsUseDarkMode());
-                    break;
-
-                case MsgDestroy:
-                    RemoveWindowSubclass(hwnd, SubclassProcPtr, uIdSubclass);
+                    SyncWindowThemeMode(hwnd, IsSystemUseDarkMode);
                     break;
             }
 
@@ -91,36 +88,24 @@ public static unsafe partial class WindowsThemeHelper
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
     [LibraryImport(DwmApi)]
-    private static partial void DwmSetWindowAttribute(
-        IntPtr hwnd,
-        int attr,
-        [MarshalAs(UnmanagedType.Bool)] ref bool attrValue,
-        int attrSize);
+    private static partial void DwmSetWindowAttribute(nint hwnd, int attr,
+        [MarshalAs(UnmanagedType.Bool)] ref bool attrValue, int attrSize);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
     [LibraryImport(DwmApi)]
-    private static partial int DwmGetWindowAttribute(
-        IntPtr hwnd,
-        int dwAttribute,
-        [MarshalAs(UnmanagedType.Bool)] out bool pvAttribute,
-        int cbAttribute);
+    private static partial int DwmGetWindowAttribute(nint hwnd, int dwAttribute,
+        [MarshalAs(UnmanagedType.Bool)] out bool pvAttribute, int cbAttribute);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
     [LibraryImport(User32)]
-    private static partial void DefWindowProcW(
-        IntPtr hwnd,
-        uint msg,
-        IntPtr wParam,
-        IntPtr lParam);
+    private static partial void DefWindowProcW(nint hwnd, uint msg, nint wParam, nint lParam);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
     [LibraryImport(UxTheme, EntryPoint = "#133")]
-    private static partial void AllowDarkModeForWindow(
-        IntPtr hwnd,
-        [MarshalAs(UnmanagedType.Bool)] bool allow);
+    private static partial void AllowDarkModeForWindow(nint hwnd, [MarshalAs(UnmanagedType.Bool)] bool allow);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
@@ -141,27 +126,16 @@ public static unsafe partial class WindowsThemeHelper
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
     [LibraryImport(ComCtl32)]
-    private static partial void SetWindowSubclass(
-        IntPtr hwnd,
-        IntPtr pfnSubclass,
-        UIntPtr uIdSubclass,
-        IntPtr dwRefData);
+    private static partial void SetWindowSubclass(nint hwnd, nuint pfnSubclass, nuint uIdSubclass, nint dwRefData);
 
     [SuppressGCTransition]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
     [LibraryImport(ComCtl32)]
-    private static partial void RemoveWindowSubclass(
-        IntPtr hwnd,
-        IntPtr pfnSubclass,
-        UIntPtr uIdSubclass);
+    private static partial void RemoveWindowSubclass(nint hwnd, nuint pfnSubclass, nuint uIdSubclass);
 
     [UnmanagedCallConv(CallConvs = [typeof(CallConvStdcall)])]
     [LibraryImport(ComCtl32)]
-    private static partial IntPtr DefSubclassProc(
-        IntPtr hwnd,
-        uint uMsg,
-        IntPtr wParam,
-        IntPtr lParam);
+    private static partial nint DefSubclassProc(nint hwnd, uint uMsg, nint wParam, nint lParam);
 
     #endregion
 }
