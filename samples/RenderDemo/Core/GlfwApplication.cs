@@ -4,6 +4,19 @@ using Vertex.NET.Impeller;
 
 namespace RenderDemo.Core;
 
+/// <summary>
+/// GLFW-backed implementation of <see cref="IApplication"/> that renders using
+/// Impeller via either the Vulkan or the OpenGL ES backend.
+/// </summary>
+/// <remarks>
+/// Lifecycle:
+/// <list type="number">
+/// <item><see cref="Initialize"/> creates the window and the graphics context.</item>
+/// <item><see cref="SetScene"/> provides the scene to render.</item>
+/// <item><see cref="Run"/> enters the render loop and cleans up on exit.</item>
+/// </list>
+/// Not thread-safe. All members must be called from the main thread.
+/// </remarks>
 public sealed class GlfwApplication : IApplication
 {
     private readonly bool _isVulkanSupported = GLFW.VulkanSupported() == 1;
@@ -14,9 +27,6 @@ public sealed class GlfwApplication : IApplication
     private ImpellerVulkanSwapchain _swapChain;
     private GLFWwindowPtr _window;
 
-    /// <summary>
-    ///     Initialize GLFW and create the window. Returns true on success.
-    /// </summary>
     public unsafe bool Initialize(int width, int height, ReadOnlySpan<byte> title)
     {
         if (GLFW.Init() == 0)
@@ -40,6 +50,9 @@ public sealed class GlfwApplication : IApplication
             return false;
         }
 
+        if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
+            WindowsThemeHelper.SystemThemeWatcher.Watch(GLFW.GetWin32Window(_window));
+        
         if (!_isVulkanSupported)
         {
             GLFW.MakeContextCurrent(_window);
@@ -77,6 +90,9 @@ public sealed class GlfwApplication : IApplication
         _surface.Dispose();
         _swapChain.Dispose();
         _context.Dispose();
+
+        if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
+            WindowsThemeHelper.SystemThemeWatcher.UnWatch(GLFW.GetWin32Window(_window));
 
         GLFW.SetFramebufferSizeCallback(_window, default(GLFWframebuffersizefun));
         GLFW.DestroyWindow(_window);
