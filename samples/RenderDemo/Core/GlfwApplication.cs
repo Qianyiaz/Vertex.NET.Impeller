@@ -1,10 +1,22 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.Versioning;
 using Hexa.NET.GLFW;
 using Vertex.NET.Impeller;
 
 namespace RenderDemo.Core;
 
+/// <summary>
+/// GLFW-backed implementation of <see cref="IApplication"/> that renders using
+/// Impeller via either the Vulkan or the OpenGL ES backend.
+/// </summary>
+/// <remarks>
+/// Lifecycle:
+/// <list type="number">
+/// <item><see cref="Initialize"/> creates the window and the graphics context.</item>
+/// <item><see cref="SetScene"/> provides the scene to render.</item>
+/// <item><see cref="Run"/> enters the render loop and cleans up on exit.</item>
+/// </list>
+/// Not thread-safe. All members must be called from the main thread.
+/// </remarks>
 public sealed class GlfwApplication : IApplication
 {
     private readonly bool _isVulkanSupported = GLFW.VulkanSupported() == 1;
@@ -14,13 +26,7 @@ public sealed class GlfwApplication : IApplication
     private ImpellerSurface _surface;
     private ImpellerVulkanSwapchain _swapChain;
     private GLFWwindowPtr _window;
-    
-    [SupportedOSPlatform("windows10.0.17763")]
-    private WindowsThemeHelper.SystemThemeWatcher _themeWatcher = null!;
 
-    /// <summary>
-    ///     Initialize GLFW and create the window. Returns true on success.
-    /// </summary>
     public unsafe bool Initialize(int width, int height, ReadOnlySpan<byte> title)
     {
         if (GLFW.Init() == 0)
@@ -45,7 +51,7 @@ public sealed class GlfwApplication : IApplication
         }
 
         if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
-            _themeWatcher = new(GLFW.GetWin32Window(_window));
+            WindowsThemeHelper.SystemThemeWatcher.Watch(GLFW.GetWin32Window(_window));
         
         if (!_isVulkanSupported)
         {
@@ -86,7 +92,7 @@ public sealed class GlfwApplication : IApplication
         _context.Dispose();
 
         if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 17763))
-            _themeWatcher.Dispose();
+            WindowsThemeHelper.SystemThemeWatcher.UnWatch(GLFW.GetWin32Window(_window));
 
         GLFW.SetFramebufferSizeCallback(_window, default(GLFWframebuffersizefun));
         GLFW.DestroyWindow(_window);
