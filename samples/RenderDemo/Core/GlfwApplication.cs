@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Hexa.NET.GLFW;
+﻿using Hexa.NET.GLFW;
 using Vertex.NET.Impeller;
 
 namespace RenderDemo.Core;
@@ -70,7 +69,6 @@ public sealed class GlfwApplication : IApplication
         return !_context.IsNull && (!_isVulkanSupported || InitializeVulkanBackend());
     }
 
-    [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
     public unsafe bool Run()
     {
         if (_scene == null)
